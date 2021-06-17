@@ -10,9 +10,9 @@ import java.sql.Date;
  */
 public class HistoriaClinica {
 
-    private int CodigoHC;
+    private String CodigoHC;
     private Date FechaCreacion;
-    public Recepcionista m_Recepcionista;
+    
     private int IDAnamnesis;
     private String ConsumeAlcohol;
     private String ConsumeTabaco;
@@ -24,39 +24,6 @@ public class HistoriaClinica {
     private String Sueño;
     private String EnfermedadActual;
 
-    public HistoriaClinica() {
-
-    }
-
-    public void finalize() {
-
-    }
-
-    public int getCodigoHC() {
-        return CodigoHC;
-    }
-
-    public void setCodigoHC(int CodigoHC) {
-        this.CodigoHC = CodigoHC;
-    }
-
-    public Date getFechaCreacion() {
-        return FechaCreacion;
-    }
-
-    public void setFechaCreacion(Date FechaCreacion) {
-        this.FechaCreacion = FechaCreacion;
-    }
-
-    public Recepcionista getM_Recepcionista() {
-        return m_Recepcionista;
-    }
-
-    public void setM_Recepcionista(Recepcionista m_Recepcionista) {
-        this.m_Recepcionista = m_Recepcionista;
-    }
-
-    public int GenerarCodigoHC() {
-        return 0;
-    }
+   
+    
 }//end Historia Clinica
