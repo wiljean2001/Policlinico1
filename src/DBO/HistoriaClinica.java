@@ -1,6 +1,6 @@
 package DBO;
 
-import controlador.Recepcionista;
+//import controlador.Recepcionista;
 import java.sql.Date;
 
 /**
@@ -13,6 +13,16 @@ public class HistoriaClinica {
     private int CodigoHC;
     private Date FechaCreacion;
     public Recepcionista m_Recepcionista;
+    private int IDAnamnesis;
+    private String ConsumeAlcohol;
+    private String ConsumeTabaco;
+    private String ConsumeDrogas;
+    private String ConsumeInfusiones;
+    private String Alimentacion;
+    private String Diuresis;
+    private String Catarsis;
+    private String Sueño;
+    private String EnfermedadActual;
 
     public HistoriaClinica() {
 
