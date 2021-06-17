@@ -6,8 +6,7 @@ package controlador;
  * @created 16-jun.-2021 5:43:31
  */
 public class Anamnesis {
-	//hola
-	//holaaaaaaaaaaaaaaaaaaa
+	
 	private int IDAnamnesis;
 	private String ConsumeAlcohol;
 	private String ConsumeTabaco;
