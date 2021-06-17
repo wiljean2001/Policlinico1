@@ -9,50 +9,39 @@ package DBO;
  */
 public class Usuario {
 
-	private boolean Perfil;
-	private string Usuario;
-	private string Contrase�a;
+    private boolean Perfil;
+    private String Usuario;
+    private String Comtraseña;
 
-	public Usuario(){
+    public Usuario(boolean Perfil, String Usuario, String Comtraseña) {
+        this.Perfil = Perfil;
+        this.Usuario = Usuario;
+        this.Comtraseña = Comtraseña;
+    }
 
-	}
+    public boolean isPerfil() {
+        return Perfil;
+    }
 
-	public void finalize() throws Throwable {
+    public void setPerfil(boolean Perfil) {
+        this.Perfil = Perfil;
+    }
 
-	}
-	public boolean getPerfil(){
-		return false;
-	}
+    public String getUsuario() {
+        return Usuario;
+    }
 
-	/**
-	 * 
-	 * @param Perfil
-	 */
-	public void setPerfil(boolean Perfil){
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
+    }
 
-	}
+    public String getComtraseña() {
+        return Comtraseña;
+    }
 
-	public String getUsuario(){
-		return "";
-	}
-
-	/**
-	 * 
-	 * @param Usuario
-	 */
-	public void setUsuario(String Usuario){
-
-	}
-
-	public String getContrase�a(){
-		return "";
-	}
-
-	/**
-	 * 
-	 * @param Contrase�a
-	 */
-	public void setContrase�a(String Contrase�a){
-
-	}
+    public void setComtraseña(String Comtraseña) {
+        this.Comtraseña = Comtraseña;
+    }
+	
+	
 }//end Usuario

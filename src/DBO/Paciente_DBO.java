@@ -1,47 +1,60 @@
 package DBO;
 
 import java.awt.Image;
+import java.sql.Date;
 
 public class Paciente_DBO {
-    private int DNI, telefono, edad;
-    private String Apellidos, nombres, Direccion, EstadoCivil;
+    private Date fecha;
+    private String DNI_Paciente, FechadeNacimiento,telefono,Apellidos,
+                   nombres, Direccion, EstadoCivil;
+    private int edad;
     private char Sexo;
     private Image Foto;
 
-    public Paciente_DBO(int DNI, int telefono, int edad, String Apellidos, String nombres, String Direccion, String EstadoCivil, char Sexo, Image Foto) {
-        this.DNI = DNI;
+    public Paciente_DBO(Date fecha, String DNI_Paciente, String FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion, String EstadoCivil, int edad, char Sexo, Image Foto) {
+        this.fecha = fecha;
+        this.DNI_Paciente = DNI_Paciente;
+        this.FechadeNacimiento = FechadeNacimiento;
         this.telefono = telefono;
-        this.edad = edad;
         this.Apellidos = Apellidos;
         this.nombres = nombres;
         this.Direccion = Direccion;
         this.EstadoCivil = EstadoCivil;
+        this.edad = edad;
         this.Sexo = Sexo;
         this.Foto = Foto;
     }
 
-    public int getDNI() {
-        return DNI;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setDNI(int DNI) {
-        this.DNI = DNI;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
-    public int getTelefono() {
+    public String getDNI_Paciente() {
+        return DNI_Paciente;
+    }
+
+    public void setDNI_Paciente(String DNI_Paciente) {
+        this.DNI_Paciente = DNI_Paciente;
+    }
+
+    public String getFechadeNacimiento() {
+        return FechadeNacimiento;
+    }
+
+    public void setFechadeNacimiento(String FechadeNacimiento) {
+        this.FechadeNacimiento = FechadeNacimiento;
+    }
+
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public String getApellidos() {
@@ -76,6 +89,14 @@ public class Paciente_DBO {
         this.EstadoCivil = EstadoCivil;
     }
 
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
     public char getSexo() {
         return Sexo;
     }
@@ -91,5 +112,6 @@ public class Paciente_DBO {
     public void setFoto(Image Foto) {
         this.Foto = Foto;
     }
+    }
+
     
-}

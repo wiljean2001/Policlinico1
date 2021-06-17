@@ -9,151 +9,85 @@ import controlador.Usuario;
  * @created 16-jun.-2021 5:43:32
  */
 public class Medicos extends Usuario {
-// holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa pvtos
-	private String  IDMedico;
-	private int DNI;
-	private String Apellidos;
-	private String Nombre;
-	private String Sexo;
-	private int Telefono;
-	private String Especialidad;
-	private String Direccion;
-        private String sssssssss;
-	//public Historia Clinica m_Historia Clinica;
+// hola
+    private String IDMedico,DNI,Apellidos, Nombres, Sexo, Telefono, Especialidad,
+            Direccion;
 
-	public Medicos(){
+    public Medicos(String IDMedico, String DNI, String Apellidos, String Nombres, String Sexo, String Telefono, String Especialidad, String Direccion) {
+        this.IDMedico = IDMedico;
+        this.DNI = DNI;
+        this.Apellidos = Apellidos;
+        this.Nombres = Nombres;
+        this.Sexo = Sexo;
+        this.Telefono = Telefono;
+        this.Especialidad = Especialidad;
+        this.Direccion = Direccion;
+    }
 
-	}
+    public String getIDMedico() {
+        return IDMedico;
+    }
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-	public String getIDMedico(){
-		return "";
-	}
+    public void setIDMedico(String IDMedico) {
+        this.IDMedico = IDMedico;
+    }
 
-	public boolean getPerfil(){
-		return false;
-	}
+    public String getDNI() {
+        return DNI;
+    }
 
-	public String getEspecialidad(){
-		return "";
-	}
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
 
-	/**
-	 * 
-	 * @param Perfil
-	 */
-	public void setPerfil(boolean Perfil){
+    public String getApellidos() {
+        return Apellidos;
+    }
 
-	}
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
+    }
 
-	public int getTelefono(){
-		return 0;
-	}
+    public String getNombres() {
+        return Nombres;
+    }
 
-	public String getUsuario(){
-		return "";
-	}
+    public void setNombres(String Nombres) {
+        this.Nombres = Nombres;
+    }
 
-	public String getSexo(){
-		return "";
-	}
+    public String getSexo() {
+        return Sexo;
+    }
 
-	/**
-	 * 
-	 * @param Usuario
-	 */
-	public void setUsuario(String Usuario){
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
 
-	}
+    public String getTelefono() {
+        return Telefono;
+    }
 
-	public String getContrase�a(){
-		return "";
-	}
+    public void setTelefono(String Telefono) {
+        this.Telefono = Telefono;
+    }
 
-	public String getNombre(){
-		return "";
-	}
+    public String getEspecialidad() {
+        return Especialidad;
+    }
 
-	public String getDireccion(){
-		return "";
-	}
+    public void setEspecialidad(String Especialidad) {
+        this.Especialidad = Especialidad;
+    }
 
-	/**
-	 * 
-	 * @param Contrase�a
-	 */
-	public void setContrase�a(String Contrase�a){
+    public String getDireccion() {
+        return Direccion;
+    }
 
-	}
+    public void setDireccion(String Direccion) {
+        this.Direccion = Direccion;
+    }
+	
 
-	public int getDNI(){
-		return 0;
-	}
-
-	/**
-	 * 
-	 * @param IDMedico
-	 */
-	public void setIDMedico(String IDMedico){
-
-	}
-
-	/**
-	 * 
-	 * @param especialidad
-	 */
-	public void setEspecialidad(String especialidad){
-
-	}
-
-	/**
-	 * 
-	 * @param telf
-	 */
-	public void setTelefono(int telf){
-
-	}
-
-	/**
-	 * 
-	 * @param sexo
-	 */
-	public void setSexo(String sexo){
-
-	}
-
-	/**
-	 * 
-	 * @param Nombre
-	 */
-	public void setNombre(String Nombre){
-
-	}
-
-	/**
-	 * 
-	 * @param Direccion
-	 */
-	public void setDireccion(String Direccion){
-
-	}
-
-	/**
-	 * 
-	 * @param DNI
-	 */
-	public void setDNI(int DNI){
-
-	}
-
-	/**
-	 * 
-	 * @param Usuario
-	 * @param Contrase�a
-	 */
-	public boolean BuscarUsuario(String Usuario, String Contrase�a){
-		return false;
-	}
+	
 }//end Medicos

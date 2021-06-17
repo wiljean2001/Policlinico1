@@ -1,4 +1,5 @@
 package DBO;
+import controlador.Usuario;
 
 
 
@@ -8,123 +9,58 @@ package DBO;
  * @created 16-jun.-2021 5:43:32
  */
 public class Recepcionista extends Usuario {
+    
+    private String IDRecepcionista, DNI, Sexo, Apellidos, Nombres;
 
-	private string IDRecepcionista;
-	private int DNI;
-	private String Sexo;
-	private String Apellidos;
-	private String Nombre;
-	public Boleta m_Boleta;
+    public Recepcionista(String IDRecepcionista, String DNI, String Sexo, String Apellidos, String Nombres) {
+        this.IDRecepcionista = IDRecepcionista;
+        this.DNI = DNI;
+        this.Sexo = Sexo;
+        this.Apellidos = Apellidos;
+        this.Nombres = Nombres;
+    }
 
-	public Recepcionista(){
+    public String getIDRecepcionista() {
+        return IDRecepcionista;
+    }
 
-	}
+    public void setIDRecepcionista(String IDRecepcionista) {
+        this.IDRecepcionista = IDRecepcionista;
+    }
 
-	public void finalize() throws Throwable {
-		super.finalize();
-	}
-	public int getDNI(){
-		return 0;
-	}
+    public String getDNI() {
+        return DNI;
+    }
 
-	public boolean getPerfil(){
-		return false;
-	}
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
 
-	public String getSexo(){
-		return "";
-	}
+    public String getSexo() {
+        return Sexo;
+    }
 
-	/**
-	 * 
-	 * @param Perfil
-	 */
-	public void setPerfil(boolean Perfil){
+    public void setSexo(String Sexo) {
+        this.Sexo = Sexo;
+    }
 
-	}
+    public String getApellidos() {
+        return Apellidos;
+    }
 
-	public String getApellido(){
-		return "";
-	}
+    public void setApellidos(String Apellidos) {
+        this.Apellidos = Apellidos;
+    }
 
-	public String getUsuario(){
-		return "";
-	}
+    public String getNombres() {
+        return Nombres;
+    }
 
-	public String getNombre(){
-		return "";
-	}
+    public void setNombres(String Nombres) {
+        this.Nombres = Nombres;
+    }
 
-	/**
-	 * 
-	 * @param Usuario
-	 */
-	public void setUsuario(String Usuario){
-
-	}
-
-	public String getContrase�a(){
-		return "";
-	}
-
-	/**
-	 * 
-	 * @param IDRecepcionista
-	 */
-	public void setIDRecepcionista(String IDRecepcionista){
-
-	}
-
-	/**
-	 * 
-	 * @param Contrase�a
-	 */
-	public void setContrase�a(String Contrase�a){
-
-	}
-
-	/**
-	 * 
-	 * @param DNI
-	 */
-	public void setDNI(int DNI){
-
-	}
-
-	/**
-	 * 
-	 * @param sexo
-	 */
-	public void setSexo(String sexo){
-
-	}
-
-	/**
-	 * 
-	 * @param Apellido
-	 */
-	public void setApellido(String Apellido){
-
-	}
-
-	public void getIDRecepcionista(){
-
-	}
-
-	/**
-	 * 
-	 * @param Nombre
-	 */
-	public void setNombre(String Nombre){
-
-	}
-
-	/**
-	 * 
-	 * @param Usuario
-	 * @param Contrase�a
-	 */
-	public boolean BuscarUsuario(String Usuario, String Contrase�a){
-		return false;
-	}
+	
+	
+	
 }//end Recepcionista
