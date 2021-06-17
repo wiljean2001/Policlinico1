@@ -34,18 +34,18 @@ public class cntrlRegP implements ActionListener, KeyListener {
 
     private void ListenerEventos(RegistrarP r) {
         // TextField : --------------------------
-        DNI = r.txtDNI;
-        Nom_Apll = r.txtNombre_Apellidos;
-        Dir = r.txtDireccion;
+        DNI = r.txt_DNI;
+        Nom_Apll = r.txt_Nombres;
+        Dir = r.txt_Direccion;
 
         DNI.addKeyListener(this);
         Nom_Apll.addKeyListener(this);
         Dir.addKeyListener(this);
 
         // Botones :---------------
-        button_Reg = r.ButtonIngresar;
+        button_Reg = r.ButtonRegistrarP;
         button_Limpiar = r.ButtonLimpiarTodo;
-        button_Historial = r.ButtonHIstorialCLinico;
+        button_Historial = r.ButtonBuscarPaciente;
 
         button_Reg.addActionListener(this);
         button_Limpiar.addActionListener(this);

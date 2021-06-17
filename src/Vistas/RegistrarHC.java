@@ -39,12 +39,12 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         Check_Hombre = new RSMaterialComponent.RSCheckBoxMaterial();
         Check_Mujer = new RSMaterialComponent.RSCheckBoxMaterial();
-        ButtonHIstorialCLinico = new rojeru_san.RSButtonRiple();
-        ButtonIngresar = new rojeru_san.RSButtonRiple();
+        ButtonBuscarP = new rojeru_san.RSButtonRiple();
+        ButtonRegistrarHC = new rojeru_san.RSButtonRiple();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        rSFotoSquare1 = new rojerusan.RSFotoSquare();
+        Foto_Paciente = new rojerusan.RSFotoSquare();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
@@ -132,15 +132,15 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        ButtonHIstorialCLinico.setBorder(null);
-        ButtonHIstorialCLinico.setText("BUSCAR PACIENTE");
-        ButtonHIstorialCLinico.setToolTipText("Cama de hospitalización");
-        ButtonHIstorialCLinico.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonBuscarP.setBorder(null);
+        ButtonBuscarP.setText("BUSCAR PACIENTE");
+        ButtonBuscarP.setToolTipText("Cama de hospitalización");
+        ButtonBuscarP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        ButtonIngresar.setBorder(null);
-        ButtonIngresar.setText("REGISTRAR H.C.");
-        ButtonIngresar.setToolTipText("Click para guardar paciente");
-        ButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonRegistrarHC.setBorder(null);
+        ButtonRegistrarHC.setText("REGISTRAR H.C.");
+        ButtonRegistrarHC.setToolTipText("Click para guardar paciente");
+        ButtonRegistrarHC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel2.setText("DNI:");
 
@@ -148,8 +148,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
 
         jLabel4.setText("DIRECCIÓN:");
 
-        rSFotoSquare1.setBorder(null);
-        rSFotoSquare1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        Foto_Paciente.setBorder(null);
+        Foto_Paciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("ANAMNESIS"));
 
@@ -432,9 +432,9 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ButtonHIstorialCLinico, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ButtonBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ButtonRegistrarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,7 +444,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                             .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtDNI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(rSFotoSquare1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Foto_Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -465,7 +465,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txt_tarjetaCP, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(rSFotoSquare1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Foto_Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -474,8 +474,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ButtonHIstorialCLinico, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ButtonBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonRegistrarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -498,8 +498,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public rojeru_san.RSButtonRiple ButtonHIstorialCLinico;
-    public rojeru_san.RSButtonRiple ButtonIngresar;
+    public rojeru_san.RSButtonRiple ButtonBuscarP;
+    public rojeru_san.RSButtonRiple ButtonRegistrarHC;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre1;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre2;
@@ -510,6 +510,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
     public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer2;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer3;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer4;
+    public rojerusan.RSFotoSquare Foto_Paciente;
     private javax.swing.ButtonGroup Group1;
     private javax.swing.ButtonGroup Group2;
     private javax.swing.ButtonGroup Group3;
@@ -534,7 +535,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    public rojerusan.RSFotoSquare rSFotoSquare1;
     public app.bolivia.swing.JCTextField txtDNI;
     public app.bolivia.swing.JCTextField txtDNI1;
     public app.bolivia.swing.JCTextField txtDNI2;

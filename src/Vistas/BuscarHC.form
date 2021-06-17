@@ -65,12 +65,12 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel2" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtDNI" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txt_CodigoHC" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Component id="ButtonIngresar" pref="0" max="32767" attributes="0"/>
+                          <Component id="ButtonBuscarHC" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="ButtonIngresar1" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="ButtonEnviarHC" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -84,13 +84,13 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtDNI" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="ButtonIngresar" alignment="3" max="32767" attributes="0"/>
+                      <Component id="txt_CodigoHC" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="ButtonBuscarHC" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" pref="307" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="ButtonIngresar1" min="-2" max="-2" attributes="0"/>
+                  <Component id="ButtonEnviarHC" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -109,7 +109,7 @@
             <Property name="text" type="java.lang.String" value="BUSCAR HISTORIAL CL&#xcd;NICO"/>
           </Properties>
         </Component>
-        <Component class="app.bolivia.swing.JCTextField" name="txtDNI">
+        <Component class="app.bolivia.swing.JCTextField" name="txt_CodigoHC">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -129,7 +129,7 @@
             <Property name="text" type="java.lang.String" value="CODIGO H.C.:"/>
           </Properties>
         </Component>
-        <Component class="rojeru_san.RSButtonRiple" name="ButtonIngresar">
+        <Component class="rojeru_san.RSButtonRiple" name="ButtonBuscarHC">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -148,15 +148,18 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="TextArea_HistorialClinico">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="rojeru_san.RSButtonRiple" name="ButtonIngresar1">
+        <Component class="rojeru_san.RSButtonRiple" name="ButtonEnviarHC">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

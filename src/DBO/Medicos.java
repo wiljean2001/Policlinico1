@@ -1,6 +1,5 @@
 package DBO;
 
-import controlador.Usuario;
 
 
 /**
@@ -9,11 +8,12 @@ import controlador.Usuario;
  * @created 16-jun.-2021 5:43:32
  */
 public class Medicos extends Usuario {
-// hola
+
     private String IDMedico,DNI,Apellidos, Nombres, Sexo, Telefono, Especialidad,
             Direccion;
 
-    public Medicos(String IDMedico, String DNI, String Apellidos, String Nombres, String Sexo, String Telefono, String Especialidad, String Direccion) {
+    public Medicos(String IDMedico, String DNI, String Apellidos, String Nombres, String Sexo, String Telefono, String Especialidad, String Direccion, boolean Perfil, String Usuario, String Comtraseña) {
+        super(Perfil, Usuario, Comtraseña);
         this.IDMedico = IDMedico;
         this.DNI = DNI;
         this.Apellidos = Apellidos;
@@ -23,6 +23,8 @@ public class Medicos extends Usuario {
         this.Especialidad = Especialidad;
         this.Direccion = Direccion;
     }
+
+    
 
     public String getIDMedico() {
         return IDMedico;

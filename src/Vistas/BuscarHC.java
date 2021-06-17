@@ -31,12 +31,12 @@ public class BuscarHC extends javax.swing.JInternalFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtDNI = new app.bolivia.swing.JCTextField();
+        txt_CodigoHC = new app.bolivia.swing.JCTextField();
         jLabel2 = new javax.swing.JLabel();
-        ButtonIngresar = new rojeru_san.RSButtonRiple();
+        ButtonBuscarHC = new rojeru_san.RSButtonRiple();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        ButtonIngresar1 = new rojeru_san.RSButtonRiple();
+        TextArea_HistorialClinico = new javax.swing.JTextArea();
+        ButtonEnviarHC = new rojeru_san.RSButtonRiple();
 
         jMenuItem1.setText("Close");
         rSPopuMenu1.add(jMenuItem1);
@@ -50,26 +50,26 @@ public class BuscarHC extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("BUSCAR HISTORIAL CLÍNICO");
 
-        txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDNI.setPlaceholder("CODIGO H.C.:        Ej.  AG001");
+        txt_CodigoHC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_CodigoHC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_CodigoHC.setPlaceholder("CODIGO H.C.:        Ej.  AG001");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("CODIGO H.C.:");
 
-        ButtonIngresar.setBorder(null);
-        ButtonIngresar.setText("BUSCAR");
-        ButtonIngresar.setToolTipText("Click para guardar paciente");
-        ButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonBuscarHC.setBorder(null);
+        ButtonBuscarHC.setText("BUSCAR");
+        ButtonBuscarHC.setToolTipText("Click para guardar paciente");
+        ButtonBuscarHC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TextArea_HistorialClinico.setColumns(20);
+        TextArea_HistorialClinico.setRows(5);
+        jScrollPane1.setViewportView(TextArea_HistorialClinico);
 
-        ButtonIngresar1.setBorder(null);
-        ButtonIngresar1.setText("ACEPTAR");
-        ButtonIngresar1.setToolTipText("Click para guardar paciente");
-        ButtonIngresar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonEnviarHC.setBorder(null);
+        ButtonEnviarHC.setText("ACEPTAR");
+        ButtonEnviarHC.setToolTipText("Click para guardar paciente");
+        ButtonEnviarHC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -83,10 +83,10 @@ public class BuscarHC extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDNI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txt_CodigoHC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                    .addComponent(ButtonIngresar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ButtonBuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addComponent(ButtonEnviarHC, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -97,12 +97,12 @@ public class BuscarHC extends javax.swing.JInternalFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txt_CodigoHC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ButtonBuscarHC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
                 .addGap(24, 24, 24)
-                .addComponent(ButtonIngresar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ButtonEnviarHC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -122,15 +122,15 @@ public class BuscarHC extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public rojeru_san.RSButtonRiple ButtonIngresar;
-    public rojeru_san.RSButtonRiple ButtonIngresar1;
+    public rojeru_san.RSButtonRiple ButtonBuscarHC;
+    public rojeru_san.RSButtonRiple ButtonEnviarHC;
+    public javax.swing.JTextArea TextArea_HistorialClinico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private rojeru_san.complementos.RSPopuMenu rSPopuMenu1;
-    public app.bolivia.swing.JCTextField txtDNI;
+    public app.bolivia.swing.JCTextField txt_CodigoHC;
     // End of variables declaration//GEN-END:variables
 }

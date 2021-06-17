@@ -1,12 +1,5 @@
 package DBO;
 
-
-
-/**
- * @author Se_Perdio_Mi_Cuenta
- * @version 1.0
- * @created 16-jun.-2021 5:43:32
- */
 public class Usuario {
 
     private boolean Perfil;
@@ -42,6 +35,5 @@ public class Usuario {
     public void setComtraseña(String Comtraseña) {
         this.Comtraseña = Comtraseña;
     }
-	
-	
+    
 }//end Usuario

@@ -29,18 +29,18 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtDNI = new app.bolivia.swing.JCTextField();
-        txt_tarjetaCP = new app.bolivia.swing.JCTextField();
+        txtDN = new app.bolivia.swing.JCTextField();
+        txt_Nomb_Apll = new app.bolivia.swing.JCTextField();
         txtDireccion = new app.bolivia.swing.JCTextField();
         jPanel3 = new javax.swing.JPanel();
         Check_Hombre = new RSMaterialComponent.RSCheckBoxMaterial();
         Check_Mujer = new RSMaterialComponent.RSCheckBoxMaterial();
-        ButtonHIstorialCLinico = new rojeru_san.RSButtonRiple();
-        ButtonIngresar = new rojeru_san.RSButtonRiple();
+        ButtonBuscarHC = new rojeru_san.RSButtonRiple();
+        ButtonActualizarHC = new rojeru_san.RSButtonRiple();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        rSFotoSquare1 = new rojerusan.RSFotoSquare();
+        FotoPacienteHC = new rojerusan.RSFotoSquare();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
@@ -82,15 +82,15 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("ACTUALIZAR HISTORIAL CLÍNICO");
 
-        txtDNI.setEditable(false);
-        txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDNI.setPlaceholder("DNI:        Ej.  73889322");
+        txtDN.setEditable(false);
+        txtDN.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDN.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDN.setPlaceholder("DNI:        Ej.  73889322");
 
-        txt_tarjetaCP.setEditable(false);
-        txt_tarjetaCP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_tarjetaCP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_tarjetaCP.setPlaceholder("APELLIDOS Y NOMBRES:      Ej.  Ayala García Wilmer Jean");
+        txt_Nomb_Apll.setEditable(false);
+        txt_Nomb_Apll.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_Nomb_Apll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_Nomb_Apll.setPlaceholder("APELLIDOS Y NOMBRES:      Ej.  Ayala García Wilmer Jean");
 
         txtDireccion.setEditable(false);
         txtDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -128,15 +128,15 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        ButtonHIstorialCLinico.setBorder(null);
-        ButtonHIstorialCLinico.setText("BUSCAR H.C.");
-        ButtonHIstorialCLinico.setToolTipText("Cama de hospitalización");
-        ButtonHIstorialCLinico.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonBuscarHC.setBorder(null);
+        ButtonBuscarHC.setText("BUSCAR H.C.");
+        ButtonBuscarHC.setToolTipText("Cama de hospitalización");
+        ButtonBuscarHC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        ButtonIngresar.setBorder(null);
-        ButtonIngresar.setText("ACTUALIZAR H.C.");
-        ButtonIngresar.setToolTipText("Click para guardar paciente");
-        ButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonActualizarHC.setBorder(null);
+        ButtonActualizarHC.setText("ACTUALIZAR H.C.");
+        ButtonActualizarHC.setToolTipText("Click para guardar paciente");
+        ButtonActualizarHC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel2.setText("DNI:");
 
@@ -144,8 +144,8 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
 
         jLabel4.setText("DIRECCIÓN:");
 
-        rSFotoSquare1.setBorder(null);
-        rSFotoSquare1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        FotoPacienteHC.setBorder(null);
+        FotoPacienteHC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("ANAMNESIS"));
 
@@ -222,6 +222,11 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         txtDNI3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDNI3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDNI3.setPlaceholder("Descripción:");
+        txtDNI3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDNI3ActionPerformed(evt);
+            }
+        });
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Consume Drogas"));
@@ -420,19 +425,19 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ButtonHIstorialCLinico, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ButtonBuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ButtonActualizarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_tarjetaCP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
+                            .addComponent(txt_Nomb_Apll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 376, Short.MAX_VALUE)
                             .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDNI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtDN, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(rSFotoSquare1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(FotoPacienteHC, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
@@ -448,12 +453,12 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtDN, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_tarjetaCP, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(rSFotoSquare1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txt_Nomb_Apll, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(FotoPacienteHC, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -462,8 +467,8 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ButtonHIstorialCLinico, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(ButtonBuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ButtonActualizarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -484,10 +489,14 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtDNI3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNI3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDNI3ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public rojeru_san.RSButtonRiple ButtonHIstorialCLinico;
-    public rojeru_san.RSButtonRiple ButtonIngresar;
+    public rojeru_san.RSButtonRiple ButtonActualizarHC;
+    public rojeru_san.RSButtonRiple ButtonBuscarHC;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre1;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre2;
@@ -498,6 +507,7 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
     public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer2;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer3;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer4;
+    public rojerusan.RSFotoSquare FotoPacienteHC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -518,8 +528,7 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    public rojerusan.RSFotoSquare rSFotoSquare1;
-    public app.bolivia.swing.JCTextField txtDNI;
+    public app.bolivia.swing.JCTextField txtDN;
     public app.bolivia.swing.JCTextField txtDNI1;
     public app.bolivia.swing.JCTextField txtDNI2;
     public app.bolivia.swing.JCTextField txtDNI3;
@@ -530,6 +539,6 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
     public app.bolivia.swing.JCTextField txtDNI8;
     public app.bolivia.swing.JCTextField txtDNI9;
     public app.bolivia.swing.JCTextField txtDireccion;
-    public app.bolivia.swing.JCTextField txt_tarjetaCP;
+    public app.bolivia.swing.JCTextField txt_Nomb_Apll;
     // End of variables declaration//GEN-END:variables
 }

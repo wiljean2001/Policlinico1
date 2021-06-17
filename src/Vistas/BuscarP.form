@@ -50,9 +50,9 @@
                               <Component id="txtDNI" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Component id="ButtonIngresar" pref="0" max="32767" attributes="0"/>
+                          <Component id="ButtonBuscarPaciente" pref="0" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="ButtonIngresar1" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Component id="ButtonEnviarPaciente" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
@@ -67,12 +67,12 @@
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtDNI" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="ButtonIngresar" alignment="3" max="32767" attributes="0"/>
+                      <Component id="ButtonBuscarPaciente" alignment="3" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" pref="303" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Component id="ButtonIngresar1" min="-2" max="-2" attributes="0"/>
+                  <Component id="ButtonEnviarPaciente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -111,7 +111,7 @@
             <Property name="text" type="java.lang.String" value="DNI PACIENTE:"/>
           </Properties>
         </Component>
-        <Component class="rojeru_san.RSButtonRiple" name="ButtonIngresar">
+        <Component class="rojeru_san.RSButtonRiple" name="ButtonBuscarPaciente">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -130,15 +130,18 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextArea" name="jTextArea1">
+            <Component class="javax.swing.JTextArea" name="TextArea_Paciente">
               <Properties>
                 <Property name="columns" type="int" value="20"/>
                 <Property name="rows" type="int" value="5"/>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="rojeru_san.RSButtonRiple" name="ButtonIngresar1">
+        <Component class="rojeru_san.RSButtonRiple" name="ButtonEnviarPaciente">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>

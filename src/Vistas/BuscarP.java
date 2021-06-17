@@ -31,10 +31,10 @@ public class BuscarP extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         txtDNI = new app.bolivia.swing.JCTextField();
         jLabel2 = new javax.swing.JLabel();
-        ButtonIngresar = new rojeru_san.RSButtonRiple();
+        ButtonBuscarPaciente = new rojeru_san.RSButtonRiple();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        ButtonIngresar1 = new rojeru_san.RSButtonRiple();
+        TextArea_Paciente = new javax.swing.JTextArea();
+        ButtonEnviarPaciente = new rojeru_san.RSButtonRiple();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -50,19 +50,19 @@ public class BuscarP extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("DNI PACIENTE:");
 
-        ButtonIngresar.setBorder(null);
-        ButtonIngresar.setText("BUSCAR");
-        ButtonIngresar.setToolTipText("Click para guardar paciente");
-        ButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonBuscarPaciente.setBorder(null);
+        ButtonBuscarPaciente.setText("BUSCAR");
+        ButtonBuscarPaciente.setToolTipText("Click para guardar paciente");
+        ButtonBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TextArea_Paciente.setColumns(20);
+        TextArea_Paciente.setRows(5);
+        jScrollPane1.setViewportView(TextArea_Paciente);
 
-        ButtonIngresar1.setBorder(null);
-        ButtonIngresar1.setText("ACEPTAR");
-        ButtonIngresar1.setToolTipText("Click para guardar paciente");
-        ButtonIngresar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonEnviarPaciente.setBorder(null);
+        ButtonEnviarPaciente.setText("ACEPTAR");
+        ButtonEnviarPaciente.setToolTipText("Click para guardar paciente");
+        ButtonEnviarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -78,8 +78,8 @@ public class BuscarP extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtDNI, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addComponent(ButtonIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                    .addComponent(ButtonIngresar1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ButtonBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                    .addComponent(ButtonEnviarPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -91,11 +91,11 @@ public class BuscarP extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ButtonIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ButtonBuscarPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
                 .addGap(24, 24, 24)
-                .addComponent(ButtonIngresar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ButtonEnviarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -115,13 +115,13 @@ public class BuscarP extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public rojeru_san.RSButtonRiple ButtonIngresar;
-    public rojeru_san.RSButtonRiple ButtonIngresar1;
+    public rojeru_san.RSButtonRiple ButtonBuscarPaciente;
+    public rojeru_san.RSButtonRiple ButtonEnviarPaciente;
+    public javax.swing.JTextArea TextArea_Paciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     public app.bolivia.swing.JCTextField txtDNI;
     // End of variables declaration//GEN-END:variables
 }

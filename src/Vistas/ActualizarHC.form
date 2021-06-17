@@ -51,21 +51,21 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="ButtonHIstorialCLinico" min="-2" pref="280" max="-2" attributes="0"/>
+                          <Component id="ButtonBuscarHC" min="-2" pref="280" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ButtonIngresar" min="-2" pref="280" max="-2" attributes="0"/>
+                          <Component id="ButtonActualizarHC" min="-2" pref="280" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_tarjetaCP" alignment="0" pref="376" max="32767" attributes="0"/>
+                              <Component id="txt_Nomb_Apll" alignment="0" pref="376" max="32767" attributes="0"/>
                               <Component id="txtDireccion" alignment="0" max="32767" attributes="0"/>
-                              <Component id="txtDNI" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtDN" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="rSFotoSquare1" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="FotoPacienteHC" min="-2" pref="185" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -85,13 +85,13 @@
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txtDNI" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="txtDN" min="-2" pref="40" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="txt_tarjetaCP" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="txt_Nomb_Apll" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="rSFotoSquare1" alignment="1" min="-2" pref="154" max="-2" attributes="0"/>
+                              <Component id="FotoPacienteHC" alignment="1" min="-2" pref="154" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -101,8 +101,8 @@
                           <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ButtonHIstorialCLinico" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
-                              <Component id="ButtonIngresar" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="ButtonBuscarHC" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                              <Component id="ButtonActualizarHC" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Component id="jTabbedPane1" alignment="0" min="-2" pref="411" max="-2" attributes="0"/>
@@ -125,7 +125,7 @@
             <Property name="text" type="java.lang.String" value="ACTUALIZAR HISTORIAL CL&#xcd;NICO"/>
           </Properties>
         </Component>
-        <Component class="app.bolivia.swing.JCTextField" name="txtDNI">
+        <Component class="app.bolivia.swing.JCTextField" name="txtDN">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="horizontalAlignment" type="int" value="0"/>
@@ -138,7 +138,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="app.bolivia.swing.JCTextField" name="txt_tarjetaCP">
+        <Component class="app.bolivia.swing.JCTextField" name="txt_Nomb_Apll">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="horizontalAlignment" type="int" value="0"/>
@@ -227,7 +227,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="rojeru_san.RSButtonRiple" name="ButtonHIstorialCLinico">
+        <Component class="rojeru_san.RSButtonRiple" name="ButtonBuscarHC">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -242,7 +242,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="rojeru_san.RSButtonRiple" name="ButtonIngresar">
+        <Component class="rojeru_san.RSButtonRiple" name="ButtonActualizarHC">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -272,7 +272,7 @@
             <Property name="text" type="java.lang.String" value="DIRECCI&#xd3;N:"/>
           </Properties>
         </Component>
-        <Component class="rojerusan.RSFotoSquare" name="rSFotoSquare1">
+        <Component class="rojerusan.RSFotoSquare" name="FotoPacienteHC">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -513,6 +513,9 @@
                         </Property>
                         <Property name="placeholder" type="java.lang.String" value="Descripci&#xf3;n:"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDNI3ActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
                       </AuxValues>

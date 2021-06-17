@@ -1,5 +1,4 @@
 package DBO;
-import controlador.Usuario;
 
 
 
@@ -12,7 +11,8 @@ public class Recepcionista extends Usuario {
     
     private String IDRecepcionista, DNI, Sexo, Apellidos, Nombres;
 
-    public Recepcionista(String IDRecepcionista, String DNI, String Sexo, String Apellidos, String Nombres) {
+    public Recepcionista(String IDRecepcionista, String DNI, String Sexo, String Apellidos, String Nombres, boolean Perfil, String Usuario, String Comtraseña) {
+        super(Perfil, Usuario, Comtraseña);
         this.IDRecepcionista = IDRecepcionista;
         this.DNI = DNI;
         this.Sexo = Sexo;
@@ -60,7 +60,5 @@ public class Recepcionista extends Usuario {
         this.Nombres = Nombres;
     }
 
-	
-	
-	
+    
 }//end Recepcionista
