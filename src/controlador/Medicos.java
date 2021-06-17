@@ -16,6 +16,7 @@ public class Medicos extends Usuario {
 	private int Telefono;
 	private String Especialidad;
 	private String Direccion;
+        private String sssssssss;
 	//public Historia Clinica m_Historia Clinica;
 
 	public Medicos(){
