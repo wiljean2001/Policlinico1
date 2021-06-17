@@ -1,3 +1,4 @@
+package controlador;
 
 
 /**
@@ -6,16 +7,16 @@
  * @created 16-jun.-2021 5:43:32
  */
 public class Medicos extends Usuario {
-
-	private string  IDMedico;
+//hola
+	private String  IDMedico;
 	private int DNI;
 	private String Apellidos;
 	private String Nombre;
 	private String Sexo;
 	private int Telefono;
-	private string Especialidad;
+	private String Especialidad;
 	private String Direccion;
-	public Historia Clinica m_Historia Clinica;
+	//public Historia Clinica m_Historia Clinica;
 
 	public Medicos(){
 
@@ -64,7 +65,7 @@ public class Medicos extends Usuario {
 
 	}
 
-	public String getContraseña(){
+	public String getContraseï¿½a(){
 		return "";
 	}
 
@@ -78,9 +79,9 @@ public class Medicos extends Usuario {
 
 	/**
 	 * 
-	 * @param Contraseña
+	 * @param Contraseï¿½a
 	 */
-	public void setContraseña(String Contraseña){
+	public void setContraseï¿½a(String Contraseï¿½a){
 
 	}
 
@@ -147,9 +148,9 @@ public class Medicos extends Usuario {
 	/**
 	 * 
 	 * @param Usuario
-	 * @param Contraseña
+	 * @param Contraseï¿½a
 	 */
-	public boolean BuscarUsuario(String Usuario, String Contraseña){
+	public boolean BuscarUsuario(String Usuario, String Contraseï¿½a){
 		return false;
 	}
 }//end Medicos
