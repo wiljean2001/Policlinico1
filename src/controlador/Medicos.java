@@ -7,7 +7,7 @@ package controlador;
  * @created 16-jun.-2021 5:43:32
  */
 public class Medicos extends Usuario {
-//
+// holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa pvtos
 	private String  IDMedico;
 	private int DNI;
 	private String Apellidos;
