@@ -1,7 +1,7 @@
 package controlador;
 
 import DAO.RegistrarPac_DAO;
-import DBO.RegistrarPac_DBO;
+import DBO.Paciente_DBO;
 import Vistas.Menu1;
 import Vistas.RegistrarP;
 import java.awt.HeadlessException;

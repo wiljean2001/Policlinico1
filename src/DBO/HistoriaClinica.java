@@ -1,5 +1,6 @@
-package controlador;
+package DBO;
 
+import controlador.Recepcionista;
 import java.sql.Date;
 
 /**

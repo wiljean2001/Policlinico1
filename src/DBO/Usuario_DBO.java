@@ -1,10 +1,10 @@
 package DBO;
 
-public class Login_DBO {
+public class Usuario_DBO {
     private String usuario;
     private String contraseña;
 
-    public Login_DBO(String usuario, String contraseña) {
+    public Usuario_DBO(String usuario, String contraseña) {
         this.usuario = usuario;
         this.contraseña = contraseña;
     }

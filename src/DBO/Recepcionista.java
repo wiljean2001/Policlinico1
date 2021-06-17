@@ -1,3 +1,5 @@
+package DBO;
+
 
 
 /**
@@ -61,7 +63,7 @@ public class Recepcionista extends Usuario {
 
 	}
 
-	public String getContraseña(){
+	public String getContraseï¿½a(){
 		return "";
 	}
 
@@ -75,9 +77,9 @@ public class Recepcionista extends Usuario {
 
 	/**
 	 * 
-	 * @param Contraseña
+	 * @param Contraseï¿½a
 	 */
-	public void setContraseña(String Contraseña){
+	public void setContraseï¿½a(String Contraseï¿½a){
 
 	}
 
@@ -120,9 +122,9 @@ public class Recepcionista extends Usuario {
 	/**
 	 * 
 	 * @param Usuario
-	 * @param Contraseña
+	 * @param Contraseï¿½a
 	 */
-	public boolean BuscarUsuario(String Usuario, String Contraseña){
+	public boolean BuscarUsuario(String Usuario, String Contraseï¿½a){
 		return false;
 	}
 }//end Recepcionista

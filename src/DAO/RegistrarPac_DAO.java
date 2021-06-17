@@ -1,6 +1,6 @@
 package DAO;
 
-import DBO.RegistrarPac_DBO;
+import DBO.Paciente_DBO;
 import Interfaces.Obligaciones;
 import Vistas.RegistrarP;
 import conexion.conexion;
@@ -11,7 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-public class RegistrarPac_DAO implements Obligaciones<RegistrarPac_DBO> {
+public class RegistrarPac_DAO implements Obligaciones<Paciente_DBO> {
 
     private static final String INSERT_SQL = "INSERT INTO RegistroPac VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String DELETE_SQL = "DELETE FROM RegistroPac WHERE DNI =? ";
@@ -21,7 +21,7 @@ public class RegistrarPac_DAO implements Obligaciones<RegistrarPac_DBO> {
     private static final conexion con = conexion.SaberEstado();
 
     @Override
-    public boolean create(RegistrarPac_DBO x) {
+    public boolean create(Paciente_DBO x) {
         //preparar consulta
         /*
         PreparedStatement PS;
@@ -54,17 +54,17 @@ public class RegistrarPac_DAO implements Obligaciones<RegistrarPac_DBO> {
     }
 
     @Override
-    public boolean update(RegistrarPac_DBO x) {
+    public boolean update(Paciente_DBO x) {
         return false;
     }
 
     @Override
-    public RegistrarPac_DBO read(Object key) {
+    public Paciente_DBO read(Object key) {
         return null;
     }
 
     @Override
-    public List<RegistrarPac_DBO> readAll() {
+    public List<Paciente_DBO> readAll() {
         return null;
     }
 

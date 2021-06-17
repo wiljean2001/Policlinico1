@@ -1,6 +1,6 @@
 package DAO;
 
-import DBO.Login_DBO;
+import DBO.Usuario_DBO;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 
 public class Login_DAO{
     private static final String ReadAll = "select USUARIO, CONTRASEÑA from [Iniciar Sesion] where usuario =?";
-    private Login_DBO DBO_Login;
+    private Usuario_DBO DBO_Login;
     private static final conexion con = conexion.SaberEstado();
-    public Login_DBO Read(Object key){
+    public Usuario_DBO Read(Object key){
         PreparedStatement ps;
         ResultSet res;
         try {
@@ -19,7 +19,7 @@ public class Login_DAO{
             ps.setString(1, key.toString());
             res = ps.executeQuery();
             while (res.next()) {
-                DBO_Login = new Login_DBO(res.getString(1), res.getString(2));
+                DBO_Login = new Usuario_DBO(res.getString(1), res.getString(2));
             }
             return DBO_Login;
         } catch (SQLException e) {

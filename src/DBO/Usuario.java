@@ -1,3 +1,5 @@
+package DBO;
+
 
 
 /**
@@ -9,7 +11,7 @@ public class Usuario {
 
 	private boolean Perfil;
 	private string Usuario;
-	private string Contraseña;
+	private string Contraseï¿½a;
 
 	public Usuario(){
 
@@ -42,15 +44,15 @@ public class Usuario {
 
 	}
 
-	public String getContraseña(){
+	public String getContraseï¿½a(){
 		return "";
 	}
 
 	/**
 	 * 
-	 * @param Contraseña
+	 * @param Contraseï¿½a
 	 */
-	public void setContraseña(String Contraseña){
+	public void setContraseï¿½a(String Contraseï¿½a){
 
 	}
 }//end Usuario

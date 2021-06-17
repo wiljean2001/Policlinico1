@@ -2,13 +2,13 @@ package DBO;
 
 import java.awt.Image;
 
-public class RegistrarPac_DBO {
+public class Paciente_DBO {
     private int DNI, telefono, edad;
     private String Apellidos, nombres, Direccion, EstadoCivil;
     private char Sexo;
     private Image Foto;
 
-    public RegistrarPac_DBO(int DNI, int telefono, int edad, String Apellidos, String nombres, String Direccion, String EstadoCivil, char Sexo, Image Foto) {
+    public Paciente_DBO(int DNI, int telefono, int edad, String Apellidos, String nombres, String Direccion, String EstadoCivil, char Sexo, Image Foto) {
         this.DNI = DNI;
         this.telefono = telefono;
         this.edad = edad;
