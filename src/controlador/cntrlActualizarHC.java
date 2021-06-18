@@ -10,5 +10,5 @@ package controlador;
  * @author wil-laptop
  */
 public class cntrlActualizarHC {
-    
+    //espero que no salga errores
 }
