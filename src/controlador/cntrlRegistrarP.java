@@ -36,7 +36,7 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         this.r = r;
         ListenerEventos(r);
     }
-
+//sasasa
     private void ListenerEventos(RegistrarP r) {
         // textfield y otros : --------------------------
         r.txt_DNI.addActionListener(this);
