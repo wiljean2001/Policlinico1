@@ -5,6 +5,7 @@ import DBO.Paciente_DBO;
 import Vistas.MenuMedicos;
 import Vistas.RegistrarP;
 import java.awt.HeadlessException;
+import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -22,8 +23,9 @@ import javax.swing.JTextField;
 public class cntrlRegistrarP implements ActionListener, KeyListener {
 
     private JButton button_Reg, button_Limpiar, button_Historial;
-    private JTextField DNI, Nom_Apll, Dir;
-
+    //        String DNI_Paciente, Date FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion,
+    //        char Sexo, int edad, String EstadoCivil, Image Foto
+    private TextField DNI, apellidos, nombres;
     private RegistrarP r = new RegistrarP();
     private MenuMedicos m = new MenuMedicos();
 
@@ -33,14 +35,12 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
     }
 
     private void ListenerEventos(RegistrarP r) {
-        // TextField : --------------------------
-        DNI = r.txt_DNI;
-        Nom_Apll = r.txt_Nombres;
-        Dir = r.txt_Direccion;
-
-        DNI.addKeyListener(this);
-        Nom_Apll.addKeyListener(this);
-        Dir.addKeyListener(this);
+        // textfield y otros : --------------------------
+        r.txt_DNI.addActionListener(this);
+        r.txt_Apellidos.addActionListener(this);
+        r.txt_Nombres.addActionListener(this);
+        r.txt_Direccion.addActionListener(this);
+        r.txt_Telefono.addActionListener(this);
 
         // Botones :---------------
         button_Reg = r.ButtonRegistrarP;
@@ -64,7 +64,7 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         }
         if (e.getSource() == button_Limpiar) {
             DNI.setText("");
-            Nom_Apll.setText("");
+            apellidos.setText("");
             Dir.setText("");
         }
     }

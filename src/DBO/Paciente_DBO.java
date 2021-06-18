@@ -4,15 +4,15 @@ import java.awt.Image;
 import java.sql.Date;
 
 public class Paciente_DBO {
-    private Date fecha;
-    private String DNI_Paciente, FechadeNacimiento,telefono,Apellidos,
-                   nombres, Direccion, EstadoCivil;
+
+    private String DNI_Paciente, telefono, Apellidos, nombres, Direccion, EstadoCivil;;
+    private Date FechadeNacimiento; 
     private int edad;
     private char Sexo;
     private Image Foto;
 
-    public Paciente_DBO(Date fecha, String DNI_Paciente, String FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion, String EstadoCivil, int edad, char Sexo, Image Foto) {
-        this.fecha = fecha;
+    public Paciente_DBO(String DNI_Paciente, Date FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion,
+            char Sexo, int edad, String EstadoCivil, Image Foto) {
         this.DNI_Paciente = DNI_Paciente;
         this.FechadeNacimiento = FechadeNacimiento;
         this.telefono = telefono;
@@ -25,14 +25,6 @@ public class Paciente_DBO {
         this.Foto = Foto;
     }
 
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
     public String getDNI_Paciente() {
         return DNI_Paciente;
     }
@@ -41,11 +33,11 @@ public class Paciente_DBO {
         this.DNI_Paciente = DNI_Paciente;
     }
 
-    public String getFechadeNacimiento() {
+    public Date getFechadeNacimiento() {
         return FechadeNacimiento;
     }
 
-    public void setFechadeNacimiento(String FechadeNacimiento) {
+    public void setFechadeNacimiento(Date FechadeNacimiento) {
         this.FechadeNacimiento = FechadeNacimiento;
     }
 
@@ -112,6 +104,4 @@ public class Paciente_DBO {
     public void setFoto(Image Foto) {
         this.Foto = Foto;
     }
-    }
-
-    
+}

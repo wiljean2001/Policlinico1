@@ -76,30 +76,6 @@ public class cntrlLogin implements ActionListener, KeyListener {
                 }
             }
         }
-
-        /*
-        Login_DAO l_DAO;
-        l.dispose();
-        cntrlM = new cntrlMenuRecep(m);
-        m.setVisible(true);
-            l_DAO = new Login_DAO();
-            Login_DBO login_DBO = new Login_DBO(l.txtUSER.getText(), contraseñaString);
-
-            if (login_DBO.getContraseña().equals(l_DAO.Read(login_DBO.getUsuario()).getContraseña())) {
-                USUARIO = l.txtUSER.getText();
-                l.dispose();
-                cntrlM = new cntrlMenu(m);
-                m.setVisible(true);
-                l_DAO = null;
-                l = null;
-            } else {
-                l.txtUSER.setBackground(java.awt.Color.red);
-                l.txtUSER.setForeground(java.awt.Color.white);
-                l.txtContr.setBackground(java.awt.Color.red);
-                l.txtContr.setForeground(java.awt.Color.white);
-            }
-        }
-         */
     }
 
     @Override
@@ -118,7 +94,6 @@ public class cntrlLogin implements ActionListener, KeyListener {
         if (KeyEvent.VK_ENTER == e.getKeyChar()) {
             BotonIngresar();
         }
-
     }
 
     @Override

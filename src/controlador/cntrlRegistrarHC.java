@@ -5,10 +5,6 @@
  */
 package controlador;
 
-/**
- *
- * @author wil-laptop
- */
 public class cntrlRegistrarHC {
     
 }
