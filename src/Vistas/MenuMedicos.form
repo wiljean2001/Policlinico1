@@ -250,11 +250,11 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="buttonReg" alignment="1" pref="219" max="32767" attributes="0"/>
-                                  <Component id="buttonReg1" alignment="1" pref="219" max="32767" attributes="0"/>
-                                  <Component id="buttonReg2" alignment="1" pref="219" max="32767" attributes="0"/>
+                                  <Component id="buttonReg1" alignment="1" pref="241" max="32767" attributes="0"/>
+                                  <Component id="buttonReg2" alignment="1" pref="241" max="32767" attributes="0"/>
+                                  <Component id="buttonReg" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -292,7 +292,7 @@
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cd" green="8f" red="37" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="REGISTRAR PACIENTE"/>
+                        <Property name="text" type="java.lang.String" value="REGISTRAR HISTORIAL CL&#xcd;NICO"/>
                         <Property name="toolTipText" type="java.lang.String" value="Registrar Nuevo Paciente"/>
                       </Properties>
                       <AuxValues>

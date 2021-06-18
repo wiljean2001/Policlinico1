@@ -62,7 +62,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
                     m1.setVisible(true);
                     l.setVisible(false);
                 } else {
-                    JOptionPane.showConfirmDialog(null, "Contraseña Incorrecta");
+                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
                 }
             } else {
                 Recepcionista recepcionista;
@@ -72,7 +72,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
                     m2.setVisible(true);
                     l.setVisible(false);
                 } else {
-                    JOptionPane.showConfirmDialog(null, "Contraseña Incorrecta");
+                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
                 }
             }
         }

@@ -130,7 +130,7 @@ public class MenuMedicos extends javax.swing.JFrame {
         buttonReg.setToolTipText("Registrar Nuevo Paciente");
 
         buttonReg1.setBackground(new java.awt.Color(55, 143, 205));
-        buttonReg1.setText("REGISTRAR PACIENTE");
+        buttonReg1.setText("REGISTRAR HISTORIAL CLÍNICO");
         buttonReg1.setToolTipText("Registrar Nuevo Paciente");
 
         buttonReg2.setBackground(new java.awt.Color(55, 143, 205));
@@ -142,11 +142,11 @@ public class MenuMedicos extends javax.swing.JFrame {
         bttnExtraLayout.setHorizontalGroup(
             bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bttnExtraLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(0, 0, 0)
                 .addGroup(bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                    .addComponent(buttonReg1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                    .addComponent(buttonReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+                    .addComponent(buttonReg1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                    .addComponent(buttonReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
+                    .addComponent(buttonReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         bttnExtraLayout.setVerticalGroup(
