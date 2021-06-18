@@ -1,6 +1,5 @@
 package Vistas;
 
-import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 
 /**
@@ -15,7 +14,6 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 10));
-        AWTUtilities.setWindowOpaque(this, false);
         initComponents();
     }
 
