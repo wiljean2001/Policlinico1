@@ -10,5 +10,6 @@ package controlador;
  * @author wil-laptop
  */
 public class cntrlActualizarHC {
+    ///willllllllllllllllll
     
 }
