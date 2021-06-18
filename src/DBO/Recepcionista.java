@@ -19,6 +19,9 @@ public class Recepcionista extends Usuario {
         this.Apellidos = Apellidos;
         this.Nombres = Nombres;
     }
+    public Recepcionista(boolean Perfil, String Usuario, String Comtraseña){
+        super(Perfil, Usuario, Comtraseña);
+    }
 
     public String getIDRecepcionista() {
         return IDRecepcionista;
@@ -59,6 +62,9 @@ public class Recepcionista extends Usuario {
     public void setNombres(String Nombres) {
         this.Nombres = Nombres;
     }
+
+    
+    
 
     
 }//end Recepcionista

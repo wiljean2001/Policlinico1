@@ -32,7 +32,7 @@ public class cntrlMenu2 implements MouseListener {
     private JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
     RegistrarP r = null;
-    cntrlRegP cntrlR = null;
+    cntrlRegistrarP cntrlR = null;
     // otros
     boolean estado;
 
@@ -116,7 +116,7 @@ public class cntrlMenu2 implements MouseListener {
         if (e.getSource() == button_Reg) {
             if (r == null) {
                 r = new RegistrarP();
-                cntrlR = new cntrlRegP(r);
+                cntrlR = new cntrlRegistrarP(r);
             }
             DesktopPaneMenu.add(r);
             r.setVisible(true);

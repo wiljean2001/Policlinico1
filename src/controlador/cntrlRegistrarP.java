@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  *
  * @author HP-Litzy-Jean
  */
-public class cntrlRegP implements ActionListener, KeyListener {
+public class cntrlRegistrarP implements ActionListener, KeyListener {
 
     private JButton button_Reg, button_Limpiar, button_Historial;
     private JTextField DNI, Nom_Apll, Dir;
@@ -27,7 +27,7 @@ public class cntrlRegP implements ActionListener, KeyListener {
     private RegistrarP r = new RegistrarP();
     private Menu1 m = new Menu1();
 
-    public cntrlRegP(RegistrarP r) {
+    public cntrlRegistrarP(RegistrarP r) {
         this.r = r;
         ListenerEventos(r);
     }

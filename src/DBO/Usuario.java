@@ -12,7 +12,7 @@ public class Usuario {
         this.Comtraseña = Comtraseña;
     }
 
-    public boolean isPerfil() {
+    public boolean getPerfil() {
         return Perfil;
     }
 

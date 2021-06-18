@@ -1,12 +1,5 @@
 package DBO;
 
-
-
-/**
- * @author Se_Perdio_Mi_Cuenta
- * @version 1.0
- * @created 16-jun.-2021 5:43:32
- */
 public class Medicos extends Usuario {
 
     private String IDMedico,DNI,Apellidos, Nombres, Sexo, Telefono, Especialidad,
@@ -22,6 +15,9 @@ public class Medicos extends Usuario {
         this.Telefono = Telefono;
         this.Especialidad = Especialidad;
         this.Direccion = Direccion;
+    }
+    public Medicos(boolean Perfil, String Usuario, String Comtraseña){
+        super(Perfil, Usuario, Comtraseña);
     }
 
     

@@ -1,7 +1,10 @@
 package controlador;
 
 import DAO.Login_DAO;
+import DBO.Medicos;
+import DBO.Recepcionista;
 import Vistas.Login;
+import Vistas.Menu1;
 import Vistas.Menu2;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -12,29 +15,27 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author HP-Litzy-Jean
- */
 public class cntrlLogin implements ActionListener, KeyListener {
 
     private Login l = new Login();
     private JLabel iconoLog;
     private JButton ingresarButton, closeAll;
-    public static String USUARIO;
-    private Menu2 m = null;
+    private Menu1 m1 = null;
+    private Menu2 m2 = null;
     private cntrlMenu2 cntrlM = null;
+    private Login_DAO DAO_login = new Login_DAO();
 
     public cntrlLogin(Login l) {
         this.l = l;
-        m = new Menu2();
+        m1 = new Menu1();
+        m2 = new Menu2();
         l.setLocationRelativeTo(null);
         iconoLog = l.jLaberIcon;
         ImageIcon imagenicon = new ImageIcon(cntrlLogin.class.getResource("/recursos/hospital-login.gif"));
         Icon icono = new ImageIcon(imagenicon.getImage().getScaledInstance(iconoLog.getWidth(), iconoLog.getHeight(), Image.SCALE_DEFAULT));
         iconoLog.setIcon(icono);
-
         l.txtContr.addKeyListener(this);
         l.txtUSER.addKeyListener(this);
         ingresarButton = l.jButtonIngresar;
@@ -44,24 +45,38 @@ public class cntrlLogin implements ActionListener, KeyListener {
     }
 
     private void BotonIngresar() {
+
+        if (l.txtContr.getPassword().length < 2 || l.txtUSER.getText().isEmpty()) {
+            JOptionPane.showConfirmDialog(null, "Error", "Error: ¡Campos vacios!", 1);
+        } else {
+            char[] contraseña = l.txtContr.getPassword();
+            String contraseñaString = String.valueOf(contraseña);
+
+            Medicos medicos;
+            medicos = DAO_login.ReadMedicos(l.txtUSER.getText());
+
+            if (medicos != null) {
+                if (medicos.getComtraseña().equals(contraseñaString)) {
+                    JOptionPane.showConfirmDialog(null, "bien");
+                } else {
+                    JOptionPane.showConfirmDialog(null, "Contraseña Incorrecta");
+                }
+            } else {
+                Recepcionista recepcionista;
+                recepcionista = DAO_login.ReadRecepcionista(l.txtUSER.getText());
+                if (recepcionista.getComtraseña().equals(contraseñaString)) {
+                    JOptionPane.showConfirmDialog(null, "bien");
+                } else {
+                    JOptionPane.showConfirmDialog(null, "Contraseña Incorrecta");
+                }
+            }
+        }
+
+        /*
         Login_DAO l_DAO;
         l.dispose();
         cntrlM = new cntrlMenu2(m);
         m.setVisible(true);
-        /*
-        cntrlM = new cntrlMenu(m);
-        m.setVisible(true);
-        l_DAO = null;
-        l = null;
-        
-        /*char[] contraseña = l.txtContr.getPassword();
-        String contraseñaString = String.valueOf(contraseña);
-        if (l.txtContr.getPassword().length < 5 || l.txtUSER.getText().isEmpty()) {
-            l.txtUSER.setBackground(java.awt.Color.red);
-            l.txtUSER.setForeground(java.awt.Color.white);
-            l.txtContr.setBackground(java.awt.Color.red);
-            l.txtContr.setForeground(java.awt.Color.white);
-        } else {
             l_DAO = new Login_DAO();
             Login_DBO login_DBO = new Login_DBO(l.txtUSER.getText(), contraseñaString);
 
@@ -97,13 +112,6 @@ public class cntrlLogin implements ActionListener, KeyListener {
         e.getKeyChar();
         if (KeyEvent.VK_ENTER == e.getKeyChar()) {
             BotonIngresar();
-        } else {
-            if (l.txtUSER.getForeground() == java.awt.Color.white) {
-                l.txtUSER.setBackground(new java.awt.Color(244, 244, 244));
-                l.txtContr.setBackground(new java.awt.Color(244, 244, 244));
-                l.txtUSER.setForeground(java.awt.Color.black);
-                l.txtContr.setForeground(java.awt.Color.black);
-            }
         }
 
     }
