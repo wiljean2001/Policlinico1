@@ -53,10 +53,10 @@ public class cntrlLogin implements ActionListener, KeyListener {
             char[] contraseña = l.txtContr.getPassword();
             String contraseñaString = String.valueOf(contraseña);
 
+
+            if (DAO_login.ReadMedicos(l.txtUSER.getText())!=null) {
             Medicos medicos;
             medicos = DAO_login.ReadMedicos(l.txtUSER.getText());
-
-            if (medicos != null) {
                 if (medicos.getComtraseña().equals(contraseñaString)) {
                     cntrlMM = new cntrlMenuMedicos(m1);
                     m1.setVisible(true);

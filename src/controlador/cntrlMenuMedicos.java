@@ -120,13 +120,13 @@ public class cntrlMenuMedicos implements MouseListener {
                     RSAnimation.setMoverIzquierda(5, -250, 5, 5, PanelIzq);
                     RSAnimation.setMoverIzquierda(5, -(245 - 60), 4, 4, PanelIzqArriba);
                     RSAnimation.setMoverIzquierda(255, 5, 4, 4, m.rSScrollPane1);
-                    m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), m.getHeight());
+                    m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 20), m.getHeight());
 
                 } else {
                     RSAnimation.setMoverDerecha(-250, 5, 5, 5, PanelIzq);
                     RSAnimation.setMoverDerecha(-(245 - 60), 0, 4, 4, PanelIzqArriba);
                     RSAnimation.setMoverDerecha(5, 255, 4, 4, m.rSScrollPane1);
-                    m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 10, m.getHeight());
+                    m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 15, m.getHeight());
                 }
 
             }

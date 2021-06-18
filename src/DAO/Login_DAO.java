@@ -15,6 +15,7 @@ public class Login_DAO {
     private Medicos DBO_Medicos;
     private static final conexion con = conexion.SaberEstado();
     private boolean colaborador = false;
+    
     public Recepcionista ReadRecepcionista(Object key) {
         PreparedStatement ps;
         ResultSet res;
@@ -26,12 +27,10 @@ public class Login_DAO {
             while (res.next()) {
                 //res.getInt(1) == 1
                 colaborador = res.getBoolean(1);
-                if (colaborador=false) {
-                    
+                if (colaborador == false) {
                     DBO_Recepcionista = new Recepcionista(colaborador, res.getString(2), res.getString(3));
                 } else {
                     DBO_Recepcionista=null;
-                    JOptionPane.showMessageDialog(null, "No encontrado");
                 }
             }
 
@@ -53,11 +52,10 @@ public class Login_DAO {
             res = ps.executeQuery();
             while (res.next()) {
                 colaborador = res.getBoolean(1);
-                if (colaborador=true) {
+                if (colaborador == true) {
                     DBO_Medicos = new Medicos(res.getBoolean(1), res.getString(2), res.getString(3));
                 }else{
-                    DBO_Medicos=null;
-                    JOptionPane.showMessageDialog(null, "No encontrado");
+                    DBO_Medicos = null;
                 }
             }
             return DBO_Medicos;
