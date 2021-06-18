@@ -27,7 +27,7 @@ public class cntrlMenuRecep implements MouseListener {
     RSMoveWindow a = new RSMoveWindow();
 
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
-    private JButton button_Reg, button_Bus, bttn_Menu, bttn_close;
+    private JButton button_Reg, button_Bus, bttn_close;
     private JToggleButton bttn_MenuDespl;
     private JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
@@ -42,7 +42,6 @@ public class cntrlMenuRecep implements MouseListener {
         Panel_cont.add(Panel_Bott);
         estado = false;
         a.setMoveWindow(this.m);
-        bttn_Menu.setCursor(new Cursor(Cursor.HAND_CURSOR));
         informacionUser();
         //
         DesplazarMenu();
@@ -61,7 +60,6 @@ public class cntrlMenuRecep implements MouseListener {
         PanelIzqArriba = m.jPanelIzqArriba;
 
         // Botones----------------- jDesktopPaneMenu
-        bttn_Menu = m.buttonMenu;
         button_Reg = m.buttonReg;
         button_Bus = m.button_Bus;
         bttn_MenuDespl = m.MovButt_Menu;
@@ -69,7 +67,6 @@ public class cntrlMenuRecep implements MouseListener {
 
         button_Bus.addMouseListener(this);
         button_Reg.addMouseListener(this);
-        bttn_Menu.addMouseListener(this);
         bttn_MenuDespl.addMouseListener(this);
         bttn_close.addMouseListener(this);
 
@@ -89,7 +86,6 @@ public class cntrlMenuRecep implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        PanelInf_Botones(e);
         PanelDesktop(e);
         if (e.getSource() == bttn_MenuDespl) {
             DesplazarMenu();
@@ -99,17 +95,7 @@ public class cntrlMenuRecep implements MouseListener {
         }
     }
 
-    private void PanelInf_Botones(MouseEvent e) {
-        if (e.getSource() == bttn_Menu) {
-            if (estado) {
-                Panel_cont.add(Panel_Bott);
-                estado = false;
-            } else {
-                Panel_cont.add(Panel_Inf);
-                estado = true;
-            }
-        }
-    }
+
 
 // botón registrar
     private void PanelDesktop(MouseEvent e) {

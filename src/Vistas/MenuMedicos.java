@@ -31,11 +31,9 @@ public class MenuMedicos extends javax.swing.JFrame {
         PanelContenedor = new javax.swing.JPanel();
         bttnExtra = new javax.swing.JPanel();
         buttonReg = new RSMaterialComponent.RSButtonMaterialRipple();
-        button_Bus = new RSMaterialComponent.RSButtonMaterialRipple();
-        bttn_Caja = new RSMaterialComponent.RSButtonMaterialRipple();
-        bttn_Extra = new RSMaterialComponent.RSButtonMaterialRipple();
+        buttonReg1 = new RSMaterialComponent.RSButtonMaterialRipple();
+        buttonReg2 = new RSMaterialComponent.RSButtonMaterialRipple();
         Foto = new rojerusan.RSFotoSquare();
-        buttonMenu = new javax.swing.JButton();
         rSScrollPane1 = new necesario.RSScrollPane();
         jDesktopPaneMenu = new rojeru_san.rspanel.RSDesktopPane();
 
@@ -128,19 +126,16 @@ public class MenuMedicos extends javax.swing.JFrame {
         bttnExtra.setName("bttnExtra"); // NOI18N
 
         buttonReg.setBackground(new java.awt.Color(55, 143, 205));
-        buttonReg.setText("REGISTRAR PACIENTE");
+        buttonReg.setText("BUSCAR HISTORIAL CLÍNICO");
         buttonReg.setToolTipText("Registrar Nuevo Paciente");
 
-        button_Bus.setBackground(new java.awt.Color(55, 143, 205));
-        button_Bus.setText("BUSCAR PACIENTE");
-        button_Bus.setToolTipText("Buscar, Actualizar y Eliminar Paciente");
+        buttonReg1.setBackground(new java.awt.Color(55, 143, 205));
+        buttonReg1.setText("REGISTRAR PACIENTE");
+        buttonReg1.setToolTipText("Registrar Nuevo Paciente");
 
-        bttn_Caja.setBackground(new java.awt.Color(55, 143, 205));
-        bttn_Caja.setText("CAJA");
-        bttn_Caja.setToolTipText("Caja");
-
-        bttn_Extra.setBackground(new java.awt.Color(55, 143, 205));
-        bttn_Extra.setText("BOLETA");
+        buttonReg2.setBackground(new java.awt.Color(55, 143, 205));
+        buttonReg2.setText("REGISTRAR PACIENTE");
+        buttonReg2.setToolTipText("Registrar Nuevo Paciente");
 
         javax.swing.GroupLayout bttnExtraLayout = new javax.swing.GroupLayout(bttnExtra);
         bttnExtra.setLayout(bttnExtraLayout);
@@ -149,24 +144,21 @@ public class MenuMedicos extends javax.swing.JFrame {
             .addGroup(bttnExtraLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
-                    .addComponent(bttn_Caja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttn_Extra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(button_Bus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonReg, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(buttonReg1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                    .addComponent(buttonReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
                 .addContainerGap())
         );
         bttnExtraLayout.setVerticalGroup(
             bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bttnExtraLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(21, 21, 21)
                 .addComponent(buttonReg, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(button_Bus, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bttn_Caja, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(bttn_Extra, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(buttonReg1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addComponent(buttonReg2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         PanelContenedor.add(bttnExtra, "card2");
@@ -180,16 +172,6 @@ public class MenuMedicos extends javax.swing.JFrame {
         Foto.setInheritsPopupMenu(true);
         Foto.setOpaque(false);
         jPanelIzq.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 170, 150));
-
-        buttonMenu.setForeground(new java.awt.Color(255, 255, 255));
-        buttonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/exchange (1).png"))); // NOI18N
-        buttonMenu.setToolTipText("Change");
-        buttonMenu.setBorder(null);
-        buttonMenu.setContentAreaFilled(false);
-        buttonMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        buttonMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/change.png"))); // NOI18N
-        jPanelIzq.add(buttonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 560, 220, 42));
 
         jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 1010));
 
@@ -261,11 +243,9 @@ public class MenuMedicos extends javax.swing.JFrame {
     public javax.swing.JToggleButton MovButt_Menu;
     public javax.swing.JPanel PanelContenedor;
     public javax.swing.JPanel bttnExtra;
-    public RSMaterialComponent.RSButtonMaterialRipple bttn_Caja;
-    public RSMaterialComponent.RSButtonMaterialRipple bttn_Extra;
-    public javax.swing.JButton buttonMenu;
     public RSMaterialComponent.RSButtonMaterialRipple buttonReg;
-    public RSMaterialComponent.RSButtonMaterialRipple button_Bus;
+    public RSMaterialComponent.RSButtonMaterialRipple buttonReg1;
+    public RSMaterialComponent.RSButtonMaterialRipple buttonReg2;
     public rojeru_san.rspanel.RSDesktopPane jDesktopPaneMenu;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanelARRIBA;

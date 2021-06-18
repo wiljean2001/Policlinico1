@@ -33,10 +33,8 @@ public class MenuRecep extends javax.swing.JFrame {
         buttonReg = new RSMaterialComponent.RSButtonMaterialRipple();
         button_Bus = new RSMaterialComponent.RSButtonMaterialRipple();
         bttn_Caja = new RSMaterialComponent.RSButtonMaterialRipple();
-        bttn_Extra = new RSMaterialComponent.RSButtonMaterialRipple();
         bttn_Caja1 = new RSMaterialComponent.RSButtonMaterialRipple();
         Foto = new rojerusan.RSFotoSquare();
-        buttonMenu = new javax.swing.JButton();
         rSScrollPane1 = new necesario.RSScrollPane();
         jDesktopPaneMenu = new rojeru_san.rspanel.RSDesktopPane();
 
@@ -148,11 +146,6 @@ public class MenuRecep extends javax.swing.JFrame {
         bttn_Caja.setBackgroundHover(new java.awt.Color(183, 214, 225));
         bttn_Caja.setForegroundHover(new java.awt.Color(0, 0, 0));
 
-        bttn_Extra.setBackground(new java.awt.Color(55, 143, 205));
-        bttn_Extra.setText("BOLETA");
-        bttn_Extra.setBackgroundHover(new java.awt.Color(183, 214, 225));
-        bttn_Extra.setForegroundHover(new java.awt.Color(0, 0, 0));
-
         bttn_Caja1.setBackground(new java.awt.Color(55, 143, 205));
         bttn_Caja1.setText("REGISTRAR PACIENTE");
         bttn_Caja1.setToolTipText("Caja");
@@ -169,8 +162,7 @@ public class MenuRecep extends javax.swing.JFrame {
                     .addComponent(buttonReg, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(button_Bus, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(bttn_Caja, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttn_Caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttn_Extra, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(bttn_Caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         bttnExtraLayout.setVerticalGroup(
@@ -184,9 +176,7 @@ public class MenuRecep extends javax.swing.JFrame {
                 .addComponent(bttn_Caja, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(bttn_Caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(bttn_Extra, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(88, Short.MAX_VALUE))
         );
 
         PanelContenedor.add(bttnExtra, "card2");
@@ -200,16 +190,6 @@ public class MenuRecep extends javax.swing.JFrame {
         Foto.setInheritsPopupMenu(true);
         Foto.setOpaque(false);
         jPanelIzq.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 170, 150));
-
-        buttonMenu.setForeground(new java.awt.Color(255, 255, 255));
-        buttonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/exchange (1).png"))); // NOI18N
-        buttonMenu.setToolTipText("Change");
-        buttonMenu.setBorder(null);
-        buttonMenu.setContentAreaFilled(false);
-        buttonMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        buttonMenu.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        buttonMenu.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/change.png"))); // NOI18N
-        jPanelIzq.add(buttonMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 230, 42));
 
         jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 1010));
 
@@ -271,8 +251,6 @@ public class MenuRecep extends javax.swing.JFrame {
     public javax.swing.JPanel bttnExtra;
     public RSMaterialComponent.RSButtonMaterialRipple bttn_Caja;
     public RSMaterialComponent.RSButtonMaterialRipple bttn_Caja1;
-    public RSMaterialComponent.RSButtonMaterialRipple bttn_Extra;
-    public javax.swing.JButton buttonMenu;
     public RSMaterialComponent.RSButtonMaterialRipple buttonReg;
     public RSMaterialComponent.RSButtonMaterialRipple button_Bus;
     public rojeru_san.rspanel.RSDesktopPane jDesktopPaneMenu;
