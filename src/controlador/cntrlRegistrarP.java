@@ -22,6 +22,9 @@ import javax.swing.JTextField;
  */
 public class cntrlRegistrarP implements ActionListener, KeyListener {
 
+ //errorrrrrrrrrrrrrrr
+    
+    
     private JButton button_Reg, button_Limpiar, button_Historial;
     //        String DNI_Paciente, Date FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion,
     //        char Sexo, int edad, String EstadoCivil, Image Foto
