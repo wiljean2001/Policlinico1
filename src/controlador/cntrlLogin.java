@@ -57,7 +57,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
 
             if (medicos != null) {
                 if (medicos.getComtraseña().equals(contraseñaString)) {
-                    JOptionPane.showConfirmDialog(null, "bien");
+                    
                 } else {
                     JOptionPane.showConfirmDialog(null, "Contraseña Incorrecta");
                 }
