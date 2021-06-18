@@ -26,20 +26,18 @@ public class MenuMedicos extends javax.swing.JFrame {
         jPanelARRIBA = new javax.swing.JPanel();
         jPanelIzqArriba = new javax.swing.JPanel();
         MovButt_Menu = new javax.swing.JToggleButton();
-        Close_button = new javax.swing.JButton();
         jPanelIzq = new javax.swing.JPanel();
         PanelContenedor = new javax.swing.JPanel();
         bttnExtra = new javax.swing.JPanel();
-        buttonReg = new RSMaterialComponent.RSButtonMaterialRipple();
-        buttonReg1 = new RSMaterialComponent.RSButtonMaterialRipple();
-        buttonReg2 = new RSMaterialComponent.RSButtonMaterialRipple();
+        Button_BuscarHC = new RSMaterialComponent.RSButtonMaterialRipple();
+        button_RegistrarHC = new RSMaterialComponent.RSButtonMaterialRipple();
+        button_RegistrarPaciente = new RSMaterialComponent.RSButtonMaterialRipple();
         Foto = new rojerusan.RSFotoSquare();
         rSScrollPane1 = new necesario.RSScrollPane();
         jDesktopPaneMenu = new rojeru_san.rspanel.RSDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -80,31 +78,18 @@ public class MenuMedicos extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        Close_button.setForeground(new java.awt.Color(255, 255, 255));
-        Close_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/cancel.png"))); // NOI18N
-        Close_button.setToolTipText("Close");
-        Close_button.setBorder(null);
-        Close_button.setContentAreaFilled(false);
-        Close_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Close_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Close_button.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/cancel (1).png"))); // NOI18N
-
         javax.swing.GroupLayout jPanelARRIBALayout = new javax.swing.GroupLayout(jPanelARRIBA);
         jPanelARRIBA.setLayout(jPanelARRIBALayout);
         jPanelARRIBALayout.setHorizontalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1588, Short.MAX_VALUE)
-                .addComponent(Close_button, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                .addContainerGap(1660, Short.MAX_VALUE))
         );
         jPanelARRIBALayout.setVerticalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
-                .addGroup(jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(Close_button, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -125,17 +110,17 @@ public class MenuMedicos extends javax.swing.JFrame {
         bttnExtra.setBackground(new java.awt.Color(55, 143, 205));
         bttnExtra.setName("bttnExtra"); // NOI18N
 
-        buttonReg.setBackground(new java.awt.Color(55, 143, 205));
-        buttonReg.setText("BUSCAR HISTORIAL CLÍNICO");
-        buttonReg.setToolTipText("Registrar Nuevo Paciente");
+        Button_BuscarHC.setBackground(new java.awt.Color(55, 143, 205));
+        Button_BuscarHC.setText("BUSCAR HISTORIAL CLÍNICO");
+        Button_BuscarHC.setToolTipText("Registrar Nuevo Paciente");
 
-        buttonReg1.setBackground(new java.awt.Color(55, 143, 205));
-        buttonReg1.setText("REGISTRAR HISTORIAL CLÍNICO");
-        buttonReg1.setToolTipText("Registrar Nuevo Paciente");
+        button_RegistrarHC.setBackground(new java.awt.Color(55, 143, 205));
+        button_RegistrarHC.setText("REGISTRAR HISTORIAL CLÍNICO");
+        button_RegistrarHC.setToolTipText("Registrar Nuevo Paciente");
 
-        buttonReg2.setBackground(new java.awt.Color(55, 143, 205));
-        buttonReg2.setText("REGISTRAR PACIENTE");
-        buttonReg2.setToolTipText("Registrar Nuevo Paciente");
+        button_RegistrarPaciente.setBackground(new java.awt.Color(55, 143, 205));
+        button_RegistrarPaciente.setText("REGISTRAR PACIENTE");
+        button_RegistrarPaciente.setToolTipText("Registrar Nuevo Paciente");
 
         javax.swing.GroupLayout bttnExtraLayout = new javax.swing.GroupLayout(bttnExtra);
         bttnExtra.setLayout(bttnExtraLayout);
@@ -144,20 +129,23 @@ public class MenuMedicos extends javax.swing.JFrame {
             .addGroup(bttnExtraLayout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonReg1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                    .addComponent(buttonReg2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE)
-                    .addComponent(buttonReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(button_RegistrarPaciente, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 233, Short.MAX_VALUE)
+                    .addGroup(bttnExtraLayout.createSequentialGroup()
+                        .addGroup(bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(button_RegistrarHC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 233, Short.MAX_VALUE)
+                            .addComponent(Button_BuscarHC, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         bttnExtraLayout.setVerticalGroup(
             bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bttnExtraLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(buttonReg, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Button_BuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(buttonReg1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_RegistrarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
-                .addComponent(buttonReg2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(button_RegistrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
@@ -173,16 +161,16 @@ public class MenuMedicos extends javax.swing.JFrame {
         Foto.setOpaque(false);
         jPanelIzq.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 170, 150));
 
-        jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 1010));
+        jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 830));
 
         rSScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 
-        jPanel1.add(rSScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1660, 1010));
+        jPanel1.add(rSScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1340, 560));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,14 +226,13 @@ public class MenuMedicos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton Close_button;
+    public RSMaterialComponent.RSButtonMaterialRipple Button_BuscarHC;
     public rojerusan.RSFotoSquare Foto;
     public javax.swing.JToggleButton MovButt_Menu;
     public javax.swing.JPanel PanelContenedor;
     public javax.swing.JPanel bttnExtra;
-    public RSMaterialComponent.RSButtonMaterialRipple buttonReg;
-    public RSMaterialComponent.RSButtonMaterialRipple buttonReg1;
-    public RSMaterialComponent.RSButtonMaterialRipple buttonReg2;
+    public RSMaterialComponent.RSButtonMaterialRipple button_RegistrarHC;
+    public RSMaterialComponent.RSButtonMaterialRipple button_RegistrarPaciente;
     public rojeru_san.rspanel.RSDesktopPane jDesktopPaneMenu;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanelARRIBA;

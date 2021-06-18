@@ -26,21 +26,19 @@ public class MenuRecep extends javax.swing.JFrame {
         jPanelARRIBA = new javax.swing.JPanel();
         jPanelIzqArriba = new javax.swing.JPanel();
         MovButt_Menu = new javax.swing.JToggleButton();
-        Close_button = new javax.swing.JButton();
         jPanelIzq = new javax.swing.JPanel();
         PanelContenedor = new javax.swing.JPanel();
         bttnExtra = new javax.swing.JPanel();
-        buttonReg = new RSMaterialComponent.RSButtonMaterialRipple();
-        button_Bus = new RSMaterialComponent.RSButtonMaterialRipple();
-        bttn_Caja = new RSMaterialComponent.RSButtonMaterialRipple();
-        bttn_Caja1 = new RSMaterialComponent.RSButtonMaterialRipple();
+        button_RegPaciente = new RSMaterialComponent.RSButtonMaterialRipple();
+        button_BuscarPaciente = new RSMaterialComponent.RSButtonMaterialRipple();
+        button_ActPaciente = new RSMaterialComponent.RSButtonMaterialRipple();
+        button_BuscarHC = new RSMaterialComponent.RSButtonMaterialRipple();
         Foto = new rojerusan.RSFotoSquare();
         rSScrollPane1 = new necesario.RSScrollPane();
         jDesktopPaneMenu = new rojeru_san.rspanel.RSDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -81,32 +79,19 @@ public class MenuRecep extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
-        Close_button.setForeground(new java.awt.Color(255, 255, 255));
-        Close_button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/cancel.png"))); // NOI18N
-        Close_button.setToolTipText("Close");
-        Close_button.setBorder(null);
-        Close_button.setContentAreaFilled(false);
-        Close_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Close_button.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        Close_button.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/cancel (1).png"))); // NOI18N
-
         javax.swing.GroupLayout jPanelARRIBALayout = new javax.swing.GroupLayout(jPanelARRIBA);
         jPanelARRIBA.setLayout(jPanelARRIBALayout);
         jPanelARRIBALayout.setHorizontalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1609, Short.MAX_VALUE)
-                .addComponent(Close_button, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(1660, Short.MAX_VALUE))
         );
         jPanelARRIBALayout.setVerticalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanelARRIBALayout.createSequentialGroup()
-                .addComponent(Close_button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
 
         jPanel1.add(jPanelARRIBA, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 1910, 60));
@@ -126,31 +111,29 @@ public class MenuRecep extends javax.swing.JFrame {
         bttnExtra.setBackground(new java.awt.Color(55, 143, 205));
         bttnExtra.setName("bttnExtra"); // NOI18N
 
-        buttonReg.setBackground(new java.awt.Color(55, 143, 205));
-        buttonReg.setForeground(new java.awt.Color(0, 0, 0));
-        buttonReg.setText("BUSCAR HISTORIAL CLÍNICO");
-        buttonReg.setToolTipText("Registrar Nuevo Paciente");
-        buttonReg.setBackgroundHover(new java.awt.Color(183, 214, 225));
-        buttonReg.setForegroundHover(new java.awt.Color(0, 0, 0));
+        button_RegPaciente.setBackground(new java.awt.Color(55, 143, 205));
+        button_RegPaciente.setText("REGISTRAR PACIENTE");
+        button_RegPaciente.setToolTipText("Caja");
+        button_RegPaciente.setBackgroundHover(new java.awt.Color(183, 214, 225));
+        button_RegPaciente.setForegroundHover(new java.awt.Color(0, 0, 0));
 
-        button_Bus.setBackground(new java.awt.Color(55, 143, 205));
-        button_Bus.setForeground(new java.awt.Color(0, 0, 0));
-        button_Bus.setText("BUSCAR PACIENTE");
-        button_Bus.setToolTipText("Buscar, Actualizar y Eliminar Paciente");
-        button_Bus.setBackgroundHover(new java.awt.Color(183, 214, 225));
-        button_Bus.setForegroundHover(new java.awt.Color(0, 0, 0));
+        button_BuscarPaciente.setBackground(new java.awt.Color(55, 143, 205));
+        button_BuscarPaciente.setText("BUSCAR PACIENTE");
+        button_BuscarPaciente.setToolTipText("Caja");
+        button_BuscarPaciente.setBackgroundHover(new java.awt.Color(183, 214, 225));
+        button_BuscarPaciente.setForegroundHover(new java.awt.Color(0, 0, 0));
 
-        bttn_Caja.setBackground(new java.awt.Color(55, 143, 205));
-        bttn_Caja.setText("REGISTRAR PACIENTE");
-        bttn_Caja.setToolTipText("Caja");
-        bttn_Caja.setBackgroundHover(new java.awt.Color(183, 214, 225));
-        bttn_Caja.setForegroundHover(new java.awt.Color(0, 0, 0));
+        button_ActPaciente.setBackground(new java.awt.Color(55, 143, 205));
+        button_ActPaciente.setText("ACTUALIZAR PACIENTE");
+        button_ActPaciente.setToolTipText("Caja");
+        button_ActPaciente.setBackgroundHover(new java.awt.Color(183, 214, 225));
+        button_ActPaciente.setForegroundHover(new java.awt.Color(0, 0, 0));
 
-        bttn_Caja1.setBackground(new java.awt.Color(55, 143, 205));
-        bttn_Caja1.setText("REGISTRAR PACIENTE");
-        bttn_Caja1.setToolTipText("Caja");
-        bttn_Caja1.setBackgroundHover(new java.awt.Color(183, 214, 225));
-        bttn_Caja1.setForegroundHover(new java.awt.Color(0, 0, 0));
+        button_BuscarHC.setBackground(new java.awt.Color(55, 143, 205));
+        button_BuscarHC.setText("BUSCAR HISTORIAL CLÍNICO");
+        button_BuscarHC.setToolTipText("Caja");
+        button_BuscarHC.setBackgroundHover(new java.awt.Color(183, 214, 225));
+        button_BuscarHC.setForegroundHover(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout bttnExtraLayout = new javax.swing.GroupLayout(bttnExtra);
         bttnExtra.setLayout(bttnExtraLayout);
@@ -158,25 +141,25 @@ public class MenuRecep extends javax.swing.JFrame {
             bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bttnExtraLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(buttonReg, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(button_Bus, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttn_Caja, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bttn_Caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(button_RegPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_BuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_ActPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button_BuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         bttnExtraLayout.setVerticalGroup(
             bttnExtraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bttnExtraLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(buttonReg, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(button_Bus, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(bttn_Caja, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(bttn_Caja1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addGap(17, 17, 17)
+                .addComponent(button_RegPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(button_BuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(button_ActPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(button_BuscarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         PanelContenedor.add(bttnExtra, "card2");
@@ -191,16 +174,16 @@ public class MenuRecep extends javax.swing.JFrame {
         Foto.setOpaque(false);
         jPanelIzq.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 170, 150));
 
-        jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 1010));
+        jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 830));
 
         rSScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 
-        jPanel1.add(rSScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1660, 1010));
+        jPanel1.add(rSScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1340, 830));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1920, 1080));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1600, 900));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -244,15 +227,14 @@ public class MenuRecep extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton Close_button;
     public rojerusan.RSFotoSquare Foto;
     public javax.swing.JToggleButton MovButt_Menu;
     public javax.swing.JPanel PanelContenedor;
     public javax.swing.JPanel bttnExtra;
-    public RSMaterialComponent.RSButtonMaterialRipple bttn_Caja;
-    public RSMaterialComponent.RSButtonMaterialRipple bttn_Caja1;
-    public RSMaterialComponent.RSButtonMaterialRipple buttonReg;
-    public RSMaterialComponent.RSButtonMaterialRipple button_Bus;
+    public RSMaterialComponent.RSButtonMaterialRipple button_ActPaciente;
+    public RSMaterialComponent.RSButtonMaterialRipple button_BuscarHC;
+    public RSMaterialComponent.RSButtonMaterialRipple button_BuscarPaciente;
+    public RSMaterialComponent.RSButtonMaterialRipple button_RegPaciente;
     public rojeru_san.rspanel.RSDesktopPane jDesktopPaneMenu;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanelARRIBA;

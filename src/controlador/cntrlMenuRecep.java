@@ -27,7 +27,7 @@ public class cntrlMenuRecep implements MouseListener {
     RSMoveWindow a = new RSMoveWindow();
 
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
-    private JButton button_Reg, button_Bus, bttn_close;
+    private JButton button_Reg, button_Bus;
     private JToggleButton bttn_MenuDespl;
     private JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
@@ -45,7 +45,7 @@ public class cntrlMenuRecep implements MouseListener {
         informacionUser();
         //
         DesplazarMenu();
-        m.setExtendedState(JFrame.NORMAL);
+        //m.setExtendedState(JFrame.NORMAL);
     }
 
     private void Acciones(MenuRecep m) {
@@ -60,15 +60,12 @@ public class cntrlMenuRecep implements MouseListener {
         PanelIzqArriba = m.jPanelIzqArriba;
 
         // Botones----------------- jDesktopPaneMenu
-        button_Reg = m.buttonReg;
-        button_Bus = m.button_Bus;
+        button_Reg = m.button_RegPaciente;
         bttn_MenuDespl = m.MovButt_Menu;
-        bttn_close = m.Close_button;
 
         button_Bus.addMouseListener(this);
         button_Reg.addMouseListener(this);
         bttn_MenuDespl.addMouseListener(this);
-        bttn_close.addMouseListener(this);
 
         // Labels
     }
@@ -89,9 +86,6 @@ public class cntrlMenuRecep implements MouseListener {
         PanelDesktop(e);
         if (e.getSource() == bttn_MenuDespl) {
             DesplazarMenu();
-        }
-        if (e.getSource() == bttn_close) {
-            System.exit(0);
         }
     }
 
