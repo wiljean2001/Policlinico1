@@ -4,8 +4,8 @@ import DAO.Login_DAO;
 import DBO.Medicos;
 import DBO.Recepcionista;
 import Vistas.Login;
-import Vistas.Menu1;
-import Vistas.Menu2;
+import Vistas.MenuMedicos;
+import Vistas.MenuRecep;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,15 +22,16 @@ public class cntrlLogin implements ActionListener, KeyListener {
     private Login l = new Login();
     private JLabel iconoLog;
     private JButton ingresarButton, closeAll;
-    private Menu1 m1 = null;
-    private Menu2 m2 = null;
-    private cntrlMenu2 cntrlM = null;
+    private MenuMedicos m1 = null;
+    private MenuRecep m2 = null;
+    private cntrlMenuMedicos cntrlMM = null;
+    private cntrlMenuRecep cntrlMR = null;
     private Login_DAO DAO_login = new Login_DAO();
 
     public cntrlLogin(Login l) {
         this.l = l;
-        m1 = new Menu1();
-        m2 = new Menu2();
+        m1 = new MenuMedicos();
+        m2 = new MenuRecep();
         l.setLocationRelativeTo(null);
         iconoLog = l.jLaberIcon;
         ImageIcon imagenicon = new ImageIcon(cntrlLogin.class.getResource("/recursos/hospital-login.gif"));
@@ -57,7 +58,9 @@ public class cntrlLogin implements ActionListener, KeyListener {
 
             if (medicos != null) {
                 if (medicos.getComtraseña().equals(contraseñaString)) {
-                    
+                    cntrlMM = new cntrlMenuMedicos(m1);
+                    m1.setVisible(true);
+                    l.setVisible(false);
                 } else {
                     JOptionPane.showConfirmDialog(null, "Contraseña Incorrecta");
                 }
@@ -65,7 +68,9 @@ public class cntrlLogin implements ActionListener, KeyListener {
                 Recepcionista recepcionista;
                 recepcionista = DAO_login.ReadRecepcionista(l.txtUSER.getText());
                 if (recepcionista.getComtraseña().equals(contraseñaString)) {
-                    JOptionPane.showConfirmDialog(null, "bien");
+                    cntrlMR = new cntrlMenuRecep(m2);
+                    m2.setVisible(true);
+                    l.setVisible(false);
                 } else {
                     JOptionPane.showConfirmDialog(null, "Contraseña Incorrecta");
                 }
@@ -75,7 +80,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
         /*
         Login_DAO l_DAO;
         l.dispose();
-        cntrlM = new cntrlMenu2(m);
+        cntrlM = new cntrlMenuRecep(m);
         m.setVisible(true);
             l_DAO = new Login_DAO();
             Login_DBO login_DBO = new Login_DBO(l.txtUSER.getText(), contraseñaString);

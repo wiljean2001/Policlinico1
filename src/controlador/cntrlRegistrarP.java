@@ -2,7 +2,7 @@ package controlador;
 
 import DAO.RegistrarPac_DAO;
 import DBO.Paciente_DBO;
-import Vistas.Menu1;
+import Vistas.MenuMedicos;
 import Vistas.RegistrarP;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
@@ -25,7 +25,7 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
     private JTextField DNI, Nom_Apll, Dir;
 
     private RegistrarP r = new RegistrarP();
-    private Menu1 m = new Menu1();
+    private MenuMedicos m = new MenuMedicos();
 
     public cntrlRegistrarP(RegistrarP r) {
         this.r = r;

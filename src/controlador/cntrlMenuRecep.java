@@ -1,10 +1,9 @@
 package controlador;
 
 import Vistas.BuscarHC;
-import Vistas.Menu1;
+import Vistas.MenuRecep;
 import Vistas.RegistrarP;
 import java.awt.Cursor;
-import java.awt.Dimension;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
@@ -22,9 +21,9 @@ import rojerusan.RSAnimation;
  *
  * @author HP-Litzy-Jean
  */
-public class cntrlMenu1 implements MouseListener {
+public class cntrlMenuRecep implements MouseListener {
 
-    Menu1 m = new Menu1();
+    MenuRecep m = new MenuRecep();
     RSMoveWindow a = new RSMoveWindow();
 
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
@@ -37,19 +36,20 @@ public class cntrlMenu1 implements MouseListener {
     // otros
     boolean estado;
 
-    public cntrlMenu1(Menu1 m) {
+    public cntrlMenuRecep(MenuRecep m) {
         this.m = m;
         Acciones(m);
         Panel_cont.add(Panel_Bott);
         estado = false;
         a.setMoveWindow(this.m);
         bttn_Menu.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        informacionUser();
         //
         DesplazarMenu();
         m.setExtendedState(JFrame.NORMAL);
     }
 
-    private void Acciones(Menu1 m) {
+    private void Acciones(MenuRecep m) {
         //Panelenes--------------------
         Panel_cont = m.PanelContenedor;
         Panel_Bott = m.bttnExtra;
