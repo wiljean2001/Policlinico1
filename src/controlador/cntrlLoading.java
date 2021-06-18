@@ -3,7 +3,6 @@ package controlador;
 import Vistas.Cargando;
 import Vistas.Login;
 import Vistas.MenuMedicos;
-import com.sun.awt.AWTUtilities;
 import java.awt.Color;
 import java.awt.Image;
 import java.util.logging.Level;

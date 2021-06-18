@@ -63,7 +63,6 @@ public class cntrlMenuRecep implements MouseListener {
         button_Reg = m.button_RegPaciente;
         bttn_MenuDespl = m.MovButt_Menu;
 
-        button_Bus.addMouseListener(this);
         button_Reg.addMouseListener(this);
         bttn_MenuDespl.addMouseListener(this);
 

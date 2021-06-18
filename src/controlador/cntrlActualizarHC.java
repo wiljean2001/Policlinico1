@@ -10,6 +10,10 @@ package controlador;
  * @author wil-laptop
  */
 public class cntrlActualizarHC {
+
     ///willllllllllllllllll
     
+
+    //espero que no salga errores
+
 }
