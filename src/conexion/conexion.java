@@ -16,7 +16,7 @@ public class conexion {
 
     private conexion() {
         try {
-            String url = "jdbc:sqlserver://localhost:1433;databaseName=Hospital_v2";
+            String url = "jdbc:sqlserver://localhost:1433;databaseName=Policlinico1";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             cnn = DriverManager.getConnection(url, "sa","jayalaga");
         } catch (ClassNotFoundException | SQLException e) {
