@@ -41,6 +41,8 @@ public class BuscarHC extends javax.swing.JInternalFrame {
         jMenuItem1.setText("Close");
         rSPopuMenu1.add(jMenuItem1);
 
+        setClosable(true);
+        setIconifiable(true);
         setTitle("Buscar Historial Clínico");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

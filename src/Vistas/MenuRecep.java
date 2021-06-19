@@ -178,8 +178,10 @@ public class MenuRecep extends javax.swing.JFrame {
         jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 830));
 
         rSScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
+        rSScrollPane1.setDoubleBuffered(true);
 
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jDesktopPaneMenu.setDoubleBuffered(true);
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 
         jPanel1.add(rSScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1340, 830));

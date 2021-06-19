@@ -77,6 +77,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         txtDNI9 = new app.bolivia.swing.JCTextField();
         jLabel9 = new javax.swing.JLabel();
 
+        setClosable(true);
+        setIconifiable(true);
         setTitle("Registrar Historial Clínico");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));

@@ -155,7 +155,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
                         Direccion.getText(), Sexo, 0, EstadoCivil, foto);
                 Paciente_DAO registrarDAO = new Paciente_DAO();
-                if(registrarDAO.create(pacienteDBO.retornarPac())!=false){
+                if(registrarDAO.RegistrarPac(pacienteDBO.retornarPac())!=false){
                     JOptionPane.showMessageDialog(null, "MENSAJE", "REGISTRO EXITOSO", JOptionPane.OK_OPTION);
                 }
                 

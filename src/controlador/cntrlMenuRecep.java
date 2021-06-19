@@ -1,6 +1,8 @@
 package controlador;
 
+import Vistas.ActualizarP;
 import Vistas.BuscarHC;
+import Vistas.BuscarP;
 import Vistas.MenuRecep;
 import Vistas.RegistrarP;
 import java.awt.event.MouseEvent;
@@ -23,7 +25,7 @@ public class cntrlMenuRecep implements MouseListener {
     RSMoveWindow a = new RSMoveWindow();
 
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
-    private JButton button_Reg, button_Bus;
+    private JButton button_Reg, button_BusHC, button_BusPac, button_ActPac;
     private JToggleButton bttn_MenuDespl;
     private JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
@@ -50,18 +52,24 @@ public class cntrlMenuRecep implements MouseListener {
 
         // Botones----------------- jDesktopPaneMenu
         button_Reg = m.button_RegPaciente;
+        button_BusHC = m.button_BuscarHC;
         bttn_MenuDespl = m.MovButt_Menu;
+        button_BusPac = m.button_BuscarPaciente;
+        button_ActPac = m.button_ActPaciente;
 
         button_Reg.addMouseListener(this);
+        button_BusHC.addMouseListener(this);
         bttn_MenuDespl.addMouseListener(this);
+        button_BusPac.addMouseListener(this);
+        button_ActPac.addMouseListener(this);
     }
-
 
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == bttn_MenuDespl) {
             DesplazarMenu();
         }
+        //Botòn buscar Registrar Paciente
         if (e.getSource() == button_Reg) {
             if (r == null) {
                 r = new RegistrarP();
@@ -70,11 +78,28 @@ public class cntrlMenuRecep implements MouseListener {
             DesktopPaneMenu.add(r);
             r.setVisible(true);
         }
-        if (e.getSource() == button_Bus) {
+        //Botòn buscar paciente
+        if(e.getSource()==button_BusPac){
+            BuscarP buscarP = new BuscarP();
+            cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
+            DesktopPaneMenu.add(buscarP);
+            buscarP.setVisible(true);
+        }
+        //Botòn Actualizar Paciente
+        if(e.getSource()==button_ActPac){
+            ActualizarP actualizarP = new ActualizarP();
+            cntrlActualizarP cntrl_ActualizarP = new cntrlActualizarP(actualizarP);
+            DesktopPaneMenu.add(actualizarP);
+            actualizarP.setVisible(true);
+        }
+        //Botòn buscar Historial clinico
+        if (e.getSource() == button_BusHC) {
             BuscarHC c = new BuscarHC();
+            //falta controlador
             DesktopPaneMenu.add(c);
             c.setVisible(true);
         }
+        
     }
 
     @Override
@@ -96,19 +121,19 @@ public class cntrlMenuRecep implements MouseListener {
 
     private void DesplazarMenu() {
         if (PanelIzq.getX() == 5) {
-                    //PanelIzq
-                    RSAnimation.setMoverIzquierda(5, -250, 5, 5, PanelIzq);
-                    RSAnimation.setMoverIzquierda(5, -(245 - 60), 4, 4, PanelIzqArriba);
-                    RSAnimation.setMoverIzquierda(255, 5, 4, 4, m.rSScrollPane1);
-                    m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), m.getHeight());
+            //PanelIzq
+            RSAnimation.setMoverIzquierda(5, -250, 5, 5, PanelIzq);
+            RSAnimation.setMoverIzquierda(5, -(245 - 60), 4, 4, PanelIzqArriba);
+            RSAnimation.setMoverIzquierda(255, 5, 4, 4, m.rSScrollPane1);
+            m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), m.getHeight());
 
-                } else {
-                    RSAnimation.setMoverDerecha(-250, 5, 5, 5, PanelIzq);
-                    RSAnimation.setMoverDerecha(-(245 - 60), 0, 4, 4, PanelIzqArriba);
-                    RSAnimation.setMoverDerecha(5, 255, 4, 4, m.rSScrollPane1);
-                    m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 10, m.getHeight());
-                }
-        
+        } else {
+            RSAnimation.setMoverDerecha(-250, 5, 5, 5, PanelIzq);
+            RSAnimation.setMoverDerecha(-(245 - 60), 0, 4, 4, PanelIzqArriba);
+            RSAnimation.setMoverDerecha(5, 255, 4, 4, m.rSScrollPane1);
+            m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 10, m.getHeight());
+        }
+
     }
 
 }

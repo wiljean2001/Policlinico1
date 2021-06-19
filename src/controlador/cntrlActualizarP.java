@@ -78,6 +78,14 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         if (e.getSource() == button_ActP) {
             actualizar();
         }
+        
+        if (e.getSource() == button_Limpiar) {
+            DNI.setText("");
+            apellidos.setText("");
+            nombres.setText("");
+            Direccion.setText("");
+            telefono.setText("");
+        }
     }
 
     private void actualizar() {
@@ -110,7 +118,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                         Direccion.getText(), Sexo, 0, EstadoCivil, foto);
                 Paciente_DAO registrarDAO = new Paciente_DAO();
                 //
-                if (registrarDAO.create(pacienteDBO.retornarPac()) != false) {
+                if (registrarDAO.ActualizarPac(pacienteDBO.retornarPac()) != false) {
                     JOptionPane.showMessageDialog(null, "MENSAJE", "REGISTRO EXITOSO", JOptionPane.OK_OPTION);
                 }
 

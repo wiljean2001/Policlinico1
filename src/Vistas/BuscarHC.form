@@ -17,6 +17,8 @@
     </Container>
   </NonVisualComponents>
   <Properties>
+    <Property name="closable" type="boolean" value="true"/>
+    <Property name="iconifiable" type="boolean" value="true"/>
     <Property name="title" type="java.lang.String" value="Buscar Historial Cl&#xed;nico"/>
   </Properties>
   <SyntheticProperties>
