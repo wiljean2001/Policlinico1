@@ -227,6 +227,7 @@
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="button_RegistrarHC" alignment="0" pref="233" max="32767" attributes="0"/>
                                           <Component id="Button_BuscarHC" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="button_ActHC" alignment="0" pref="233" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
@@ -242,6 +243,8 @@
                               <Component id="Button_BuscarHC" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="button_RegistrarHC" min="-2" pref="50" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                              <Component id="button_ActHC" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Component id="button_RegistrarPaciente" min="-2" pref="50" max="-2" attributes="0"/>
                               <EmptySpace pref="24" max="32767" attributes="0"/>
@@ -279,7 +282,19 @@
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cd" green="8f" red="37" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="REGISTRAR PACIENTE"/>
+                        <Property name="text" type="java.lang.String" value="BUSCAR PACIENTE"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Registrar Nuevo Paciente"/>
+                      </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                      </AuxValues>
+                    </Component>
+                    <Component class="RSMaterialComponent.RSButtonMaterialRipple" name="button_ActHC">
+                      <Properties>
+                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                          <Color blue="cd" green="8f" red="37" type="rgb"/>
+                        </Property>
+                        <Property name="text" type="java.lang.String" value="ACTUALIZAR HISTORIAL CL&#xcd;NICO"/>
                         <Property name="toolTipText" type="java.lang.String" value="Registrar Nuevo Paciente"/>
                       </Properties>
                       <AuxValues>

@@ -7,30 +7,29 @@ import Vistas.RegistrarP;
 import app.bolivia.swing.JCTextField;
 import java.awt.Checkbox;
 import java.awt.HeadlessException;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import rojeru_san.rsdate.RSDateChooser;
+import rojeru_san.componentes.RSDateChooser;
+import rojerusan.RSFotoSquare;
 
-/**
- *
- * @author HP-Litzy-Jean
- */
 public class cntrlRegistrarP implements ActionListener, KeyListener {
 
     private JButton button_Reg, button_Limpiar, button_Historial;
-    //        String DNI_Paciente, Date FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion,
-    //        char Sexo, int edad, String EstadoCivil, Image Foto
     private JCTextField DNI, apellidos, nombres, Direccion, telefono;
-    private Checkbox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
+    private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
     private RSDateChooser FechadeNacimiento;
-    
+    private RSFotoSquare Foto;
+
     private RegistrarP r = new RegistrarP();
     private MenuMedicos m = new MenuMedicos();
 
@@ -38,7 +37,7 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         this.r = r;
         ListenerEventos(r);
     }
-//sasasa
+
     private void ListenerEventos(RegistrarP r) {
         // textfield y otros : --------------------------
         DNI = r.txt_DNI;
@@ -46,13 +45,15 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         nombres = r.txt_Nombres;
         Direccion = r.txt_Direccion;
         telefono = r.txt_Telefono;
-        FechadeNacimiento.getDatoFecha()
-        
-        DNI.addActionListener(this);
-        apellidos.addActionListener(this);
-        nombres.addActionListener(this);
-        Direccion.addActionListener(this);
-        telefono.addActionListener(this);
+        FechadeNacimiento = r.Calendar_FechaNac;
+
+        //Checkbox
+        SexoH = r.Check_Hombre;
+        SexoM = r.Check_Mujer;
+        EstadoCivil_Sol = r.Check_Soltero;
+        EstadoCivil_Cas = r.Check_Casado;
+        EstadoCivil_viud = r.Check_Viudo;
+        EstadoCivil_Div = r.Check_Divorciado;
 
         // Botones :---------------
         button_Reg = r.ButtonRegistrarP;
@@ -62,7 +63,8 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         button_Reg.addActionListener(this);
         button_Limpiar.addActionListener(this);
         button_Historial.addActionListener(this);
-        // CheckBox
+        // Foto Image
+        Foto = r.Foto;
     }
 
     private void bottonRegistrar() {
@@ -77,7 +79,10 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         if (e.getSource() == button_Limpiar) {
             DNI.setText("");
             apellidos.setText("");
-            Dir.setText("");
+            nombres.setText("");
+            Direccion.setText("");
+            telefono.setText("");
+            FechadeNacimiento.setTextMayusculas(true);
         }
     }
 
@@ -97,11 +102,10 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
             }
         }
         // Solo Letras
-        if (e.getSource() == Nom_Apll) {
+        if (e.getSource() == apellidos) {
             a = e.getKeyChar();
             if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
                 e.consume();
-
             }
         }
 
@@ -133,16 +137,14 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
             }
             Check_CasillasVac.setSelected(false);
             return true;
-        }
-    }
-     */
+        }*/
     @Override
     public void keyPressed(KeyEvent e) {
-
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
 }

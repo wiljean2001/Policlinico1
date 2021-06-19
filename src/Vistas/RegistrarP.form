@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="SEXO_GROUP">
     </Component>
+    <Component class="javax.swing.ButtonGroup" name="EstadoCIvil">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -82,7 +84,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="rSFotoSquare1" max="32767" attributes="0"/>
+                          <Component id="Foto" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
@@ -102,7 +104,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="rSFotoSquare1" min="-2" max="-2" attributes="0"/>
+                          <Component id="Foto" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ButtonBuscarPaciente" min="-2" pref="70" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -153,7 +155,7 @@
             <Property name="text" type="java.lang.String" value="REGISTRAR PACIENTE"/>
           </Properties>
         </Component>
-        <Component class="rojerusan.RSFotoSquare" name="rSFotoSquare1">
+        <Component class="rojerusan.RSFotoSquare" name="Foto">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
@@ -283,7 +285,9 @@
           <SubComponents>
             <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="Check_Soltero">
               <Properties>
-                <Property name="selected" type="boolean" value="true"/>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="EstadoCIvil"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Soltero"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
@@ -297,6 +301,9 @@
             </Component>
             <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="Check_Casado">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="EstadoCIvil"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Casado"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
@@ -310,6 +317,9 @@
             </Component>
             <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="Check_Viudo">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="EstadoCIvil"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Viudo"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
@@ -323,6 +333,9 @@
             </Component>
             <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="Check_Divorciado">
               <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="EstadoCIvil"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Divorciado"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
