@@ -3,6 +3,7 @@ package controlador;
 import DAO.Login_DAO;
 import DBO.Medicos;
 import DBO.Recepcionista;
+import static Interfaces.Mensaje.Mensaje;
 import Vistas.Login;
 import Vistas.MenuMedicos;
 import Vistas.MenuRecep;
@@ -48,7 +49,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
     private void BotonIngresar() {
 
         if (l.txtContr.getPassword().length < 2 || l.txtUSER.getText().isEmpty()) {
-            JOptionPane.showConfirmDialog(null, "Error", "Error: ¡Campos vacios!", 1);
+            Mensaje("Error", "Error: ¡Campos vacios!", 1);
         } else {
             char[] contraseña = l.txtContr.getPassword();
             String contraseñaString = String.valueOf(contraseña);
@@ -62,7 +63,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
                     m1.setVisible(true);
                     l.setVisible(false);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
+                    Mensaje("Contraseña Incorrecta");
                 }
             } else {
                 Recepcionista recepcionista;
@@ -72,7 +73,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
                     m2.setVisible(true);
                     l.setVisible(false);
                 } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
+                    Mensaje("Contraseña Incorrecta");
                 }
             }
         }
