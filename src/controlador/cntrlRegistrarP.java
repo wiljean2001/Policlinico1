@@ -47,12 +47,12 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         Direccion = r.txt_Direccion;
         telefono = r.txt_Telefono;
         FechadeNacimiento = r.Calendar_FechaNac;
-
         DNI.addKeyListener(this);
         apellidos.addKeyListener(this);
         nombres.addKeyListener(this);
         Direccion.addKeyListener(this);
         telefono.addKeyListener(this);
+        FechadeNacimiento.addKeyListener(this);
 
         //Checkbox
         SexoH = r.Check_Hombre;
@@ -89,7 +89,6 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
             nombres.setText("");
             Direccion.setText("");
             telefono.setText("");
-            FechadeNacimiento.setTextMayusculas(true);
         }
     }
 
@@ -124,9 +123,14 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
             }
         }
         if (e.getSource() == FechadeNacimiento) {
-            
-            e.consume();
-            Toolkit.getDefaultToolkit().beep();
+            a = e.getKeyChar();
+            if (DNI.getText().length() < 0) {
+                if (a < '0' || a > '9') {
+                    JOptionPane.showMessageDialog(null, "", "No puedes ingresar letras, seleccionar el botón...",1);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "", "No puedes ingresar letras, seleccionar el botón...",1);
+            }
         }
 
         e.getKeyChar();
