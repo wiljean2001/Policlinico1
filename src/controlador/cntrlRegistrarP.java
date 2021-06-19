@@ -8,6 +8,7 @@ import app.bolivia.swing.JCTextField;
 import java.awt.Checkbox;
 import java.awt.HeadlessException;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -46,6 +47,12 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         Direccion = r.txt_Direccion;
         telefono = r.txt_Telefono;
         FechadeNacimiento = r.Calendar_FechaNac;
+
+        DNI.addKeyListener(this);
+        apellidos.addKeyListener(this);
+        nombres.addKeyListener(this);
+        Direccion.addKeyListener(this);
+        telefono.addKeyListener(this);
 
         //Checkbox
         SexoH = r.Check_Hombre;
@@ -90,23 +97,36 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
     public void keyTyped(KeyEvent e) {
         //Solo Numeros
         char a = 0;
-
         if (e.getSource() == DNI) {
+            a = e.getKeyChar();
             if (DNI.getText().length() < 8) {
-                a = e.getKeyChar();
-                if (!Character.isDigit(a)) {
+                if (a < '0' || a > '9') {
                     e.consume();
+                    Toolkit.getDefaultToolkit().beep();
                 }
             } else {
                 e.consume();
+                Toolkit.getDefaultToolkit().beep();
             }
+
         }
         // Solo Letras
-        if (e.getSource() == apellidos) {
+        if (e.getSource() == apellidos || e.getSource() == nombres) {
             a = e.getKeyChar();
-            if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
+            if (apellidos.getText().length() < 4) {
+                if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
+                    e.consume();
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            } else {
                 e.consume();
+                Toolkit.getDefaultToolkit().beep();
             }
+        }
+        if (e.getSource() == FechadeNacimiento) {
+            
+            e.consume();
+            Toolkit.getDefaultToolkit().beep();
         }
 
         e.getKeyChar();
@@ -140,11 +160,11 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         }*/
     @Override
     public void keyPressed(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 }

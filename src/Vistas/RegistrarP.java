@@ -152,7 +152,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         );
 
         txt_DNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_DNI.setToolTipText("");
+        txt_DNI.setToolTipText("DNI");
         txt_DNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_DNI.setPlaceholder("DNI:        Ej.  73889322");
 
@@ -184,6 +184,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         ButtonBuscarPaciente.setToolTipText("Click para registrar historial clínico");
         ButtonBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        Calendar_FechaNac.setEnabled(false);
         Calendar_FechaNac.setPlaceholder("FECHA DE NAC.");
 
         txt_Telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);

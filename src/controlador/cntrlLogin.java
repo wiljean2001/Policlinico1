@@ -1,11 +1,13 @@
 package controlador;
 //hola
+
 import DAO.Login_DAO;
 import DBO.Medicos;
 import DBO.Recepcionista;
 import Vistas.Login;
 import Vistas.MenuMedicos;
 import Vistas.MenuRecep;
+import java.awt.HeadlessException;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -48,33 +50,36 @@ public class cntrlLogin implements ActionListener, KeyListener {
     private void BotonIngresar() {
 
         if (l.txtContr.getPassword().length < 2 || l.txtUSER.getText().isEmpty()) {
-            JOptionPane.showConfirmDialog(null, "Error", "Error: ¡Campos vacios!", 1);
+            JOptionPane.showMessageDialog(null, "Error", "Error: ¡Campos vacios!", 1);
         } else {
             char[] contraseña = l.txtContr.getPassword();
             String contraseñaString = String.valueOf(contraseña);
-
-
-            if (DAO_login.ReadMedicos(l.txtUSER.getText())!=null) {
-            Medicos medicos;
-            medicos = DAO_login.ReadMedicos(l.txtUSER.getText());
-                if (medicos.getComtraseña().equals(contraseñaString)) {
-                    cntrlMM = new cntrlMenuMedicos(m1);
-                    m1.setVisible(true);
-                    l.setVisible(false);
+            try {
+                if (DAO_login.ReadMedicos(l.txtUSER.getText()) != null) {
+                    Medicos medicos;
+                    medicos = DAO_login.ReadMedicos(l.txtUSER.getText());
+                    if (medicos.getComtraseña().equals(contraseñaString)) {
+                        cntrlMM = new cntrlMenuMedicos(m1);
+                        m1.setVisible(true);
+                        l.setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
+                    Recepcionista recepcionista;
+                    recepcionista = DAO_login.ReadRecepcionista(l.txtUSER.getText());
+                    if (recepcionista.getComtraseña().equals(contraseñaString)) {
+                        cntrlMR = new cntrlMenuRecep(m2);
+                        m2.setVisible(true);
+                        l.setVisible(false);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
+                    }
                 }
-            } else {
-                Recepcionista recepcionista;
-                recepcionista = DAO_login.ReadRecepcionista(l.txtUSER.getText());
-                if (recepcionista.getComtraseña().equals(contraseñaString)) {
-                    cntrlMR = new cntrlMenuRecep(m2);
-                    m2.setVisible(true);
-                    l.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
-                }
+            } catch (HeadlessException e) {
+                JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA NO ENCONTRADO");
             }
+
         }
     }
 
