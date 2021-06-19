@@ -4,8 +4,9 @@ import DAO.RegistrarPac_DAO;
 import DBO.Paciente_DBO;
 import Vistas.MenuMedicos;
 import Vistas.RegistrarP;
+import app.bolivia.swing.JCTextField;
+import java.awt.Checkbox;
 import java.awt.HeadlessException;
-import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -15,6 +16,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import rojeru_san.rsdate.RSDateChooser;
 
 /**
  *
@@ -28,7 +30,10 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
     private JButton button_Reg, button_Limpiar, button_Historial;
     //        String DNI_Paciente, Date FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion,
     //        char Sexo, int edad, String EstadoCivil, Image Foto
-    private TextField DNI, apellidos, nombres;
+    private JCTextField DNI, apellidos, nombres, Direccion, telefono;
+    private Checkbox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
+    private RSDateChooser FechadeNacimiento;
+    
     private RegistrarP r = new RegistrarP();
     private MenuMedicos m = new MenuMedicos();
 
@@ -39,11 +44,18 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
 //sasasa
     private void ListenerEventos(RegistrarP r) {
         // textfield y otros : --------------------------
-        r.txt_DNI.addActionListener(this);
-        r.txt_Apellidos.addActionListener(this);
-        r.txt_Nombres.addActionListener(this);
-        r.txt_Direccion.addActionListener(this);
-        r.txt_Telefono.addActionListener(this);
+        DNI = r.txt_DNI;
+        apellidos = r.txt_Apellidos;
+        nombres = r.txt_Nombres;
+        Direccion = r.txt_Direccion;
+        telefono = r.txt_Telefono;
+        FechadeNacimiento.getDatoFecha()
+        
+        DNI.addActionListener(this);
+        apellidos.addActionListener(this);
+        nombres.addActionListener(this);
+        Direccion.addActionListener(this);
+        telefono.addActionListener(this);
 
         // Botones :---------------
         button_Reg = r.ButtonRegistrarP;
