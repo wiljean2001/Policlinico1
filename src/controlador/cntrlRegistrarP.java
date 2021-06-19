@@ -109,7 +109,7 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
             }
 
         }
-        // Solo Letras
+        // 
         if (e.getSource() == apellidos || e.getSource() == nombres) {
             a = e.getKeyChar();
             if (apellidos.getText().length() < 4) {
