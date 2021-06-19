@@ -1,18 +1,21 @@
 package DBO;
 
 import java.awt.Image;
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import rojeru_san.rsdate.RSDateChooser;
 
 public class Paciente_DBO {
 
-    private String DNI_Paciente, telefono, Apellidos, nombres, Direccion, EstadoCivil;;
-    private Date FechadeNacimiento; 
+    private String DNI_Paciente, telefono, Apellidos, nombres, Direccion, EstadoCivil;
+    private Date FechadeNacimiento;
     private int edad;
     private char Sexo;
-    private Image Foto;
+    private byte[] Foto;
 
     public Paciente_DBO(String DNI_Paciente, Date FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion,
-            char Sexo, int edad, String EstadoCivil, Image Foto) {
+            char Sexo, int edad, String EstadoCivil, byte[] Foto) {
         this.DNI_Paciente = DNI_Paciente;
         this.FechadeNacimiento = FechadeNacimiento;
         this.telefono = telefono;
@@ -20,10 +23,26 @@ public class Paciente_DBO {
         this.nombres = nombres;
         this.Direccion = Direccion;
         this.EstadoCivil = EstadoCivil;
-        this.edad = edad;
+        if(edad==0){
+        this.edad = calcularEdad(FechadeNacimiento);
+        }else{
+            this.edad = edad;
+        }
         this.Sexo = Sexo;
         this.Foto = Foto;
     }
+
+    public Paciente_DBO retornarPac() {
+        return new Paciente_DBO(DNI_Paciente, FechadeNacimiento, telefono, Apellidos, nombres, Direccion, Sexo, edad, EstadoCivil, Foto);
+    }
+
+    /*Calcula la edad tomando como referencia la fecha actual con la fecha de  nació*/
+    public int calcularEdad(Date fechaNaci) {
+        Date hoy = new Date();
+        int diff_año = hoy.getYear() - fechaNaci.getYear();
+        JOptionPane.showMessageDialog(null,"Edad: > " +diff_año + " <","Edad:",1);
+        return diff_año;
+    }//Cierra método calcularEdad
 
     public String getDNI_Paciente() {
         return DNI_Paciente;
@@ -97,11 +116,11 @@ public class Paciente_DBO {
         this.Sexo = Sexo;
     }
 
-    public Image getFoto() {
+    public byte[] getFoto() {
         return Foto;
     }
 
-    public void setFoto(Image Foto) {
+    public void setFoto(byte[] Foto) {
         this.Foto = Foto;
     }
 }

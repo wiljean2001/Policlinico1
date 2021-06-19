@@ -28,6 +28,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         FotoPaciente = new rojerusan.RSFotoSquare();
@@ -38,7 +39,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         Check_Soltero = new RSMaterialComponent.RSCheckBoxMaterial();
         Check_Casado = new RSMaterialComponent.RSCheckBoxMaterial();
         Check_Viudo = new RSMaterialComponent.RSCheckBoxMaterial();
-        Check_ = new RSMaterialComponent.RSCheckBoxMaterial();
+        Check_Divorciado = new RSMaterialComponent.RSCheckBoxMaterial();
         txtDNI = new app.bolivia.swing.JCTextField();
         txt_Nombres = new app.bolivia.swing.JCTextField();
         txtDireccion = new app.bolivia.swing.JCTextField();
@@ -46,8 +47,11 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         ButtonActualizarPac = new rojeru_san.RSButtonRiple();
         ButtonLimpiarTodo = new rojeru_san.RSButtonRiple();
         ButtonBuscarP = new rojeru_san.RSButtonRiple();
-        Calendario_FechaNac = new rojeru_san.componentes.RSDateChooser();
+        Calendar_FechaNac = new rojeru_san.componentes.RSDateChooser();
+        txtTelefono = new app.bolivia.swing.JCTextField();
 
+        setClosable(true);
+        setIconifiable(true);
         setTitle("Actualizar Paciente");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -58,6 +62,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         jLabel1.setText("ACTUALIZAR PACIENTE");
 
         FotoPaciente.setBorder(null);
+        FotoPaciente.setToolTipText("Ingresar foto");
         FotoPaciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -66,11 +71,13 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         buttonGroup1.add(Check_Hombre);
         Check_Hombre.setSelected(true);
         Check_Hombre.setText("HOMBRE");
+        Check_Hombre.setToolTipText("Seleccionar Sexo");
         Check_Hombre.setIsEffectRipple(false);
         Check_Hombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         buttonGroup1.add(Check_Mujer);
         Check_Mujer.setText("MUJER");
+        Check_Mujer.setToolTipText("Seleccionar Sexo");
         Check_Mujer.setIsEffectRipple(false);
         Check_Mujer.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -93,22 +100,29 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Estado Civil"));
 
-        Check_Soltero.setSelected(true);
+        buttonGroup2.add(Check_Soltero);
         Check_Soltero.setText("Soltero");
+        Check_Soltero.setToolTipText("Seleccionar Estado Civil");
         Check_Soltero.setIsEffectRipple(false);
         Check_Soltero.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
+        buttonGroup2.add(Check_Casado);
         Check_Casado.setText("Casado");
+        Check_Casado.setToolTipText("Seleccionar Estado Civil");
         Check_Casado.setIsEffectRipple(false);
         Check_Casado.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
+        buttonGroup2.add(Check_Viudo);
         Check_Viudo.setText("Viudo");
+        Check_Viudo.setToolTipText("Seleccionar Estado Civil");
         Check_Viudo.setIsEffectRipple(false);
         Check_Viudo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
-        Check_.setText("Divorciado");
-        Check_.setIsEffectRipple(false);
-        Check_.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        buttonGroup2.add(Check_Divorciado);
+        Check_Divorciado.setText("Divorciado");
+        Check_Divorciado.setToolTipText("Seleccionar Estado Civil");
+        Check_Divorciado.setIsEffectRipple(false);
+        Check_Divorciado.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -120,7 +134,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
                     .addComponent(Check_Casado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Check_, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                    .addComponent(Check_Divorciado, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                     .addComponent(Check_Viudo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -135,15 +149,17 @@ public class ActualizarP extends javax.swing.JInternalFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(Check_Viudo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Check_, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Check_Divorciado, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDNI.setToolTipText("DNI:        Ej.  73889322");
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDNI.setPlaceholder("DNI:        Ej.  73889322");
 
         txt_Nombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_Nombres.setToolTipText("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
         txt_Nombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Nombres.setPlaceholder("NOMBRES:        Ej.  Wilmer Jean Pierre");
 
@@ -152,25 +168,31 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         txtDireccion.setPlaceholder("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
 
         txt_Apellidos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_Apellidos.setToolTipText("APELLIDOS:      Ej.  Ayala García");
         txt_Apellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Apellidos.setPlaceholder("APELLIDOS:      Ej.  Ayala García");
 
         ButtonActualizarPac.setBorder(null);
         ButtonActualizarPac.setText("ACTUALIZAR PACIENTE");
-        ButtonActualizarPac.setToolTipText("Click para guardar paciente");
+        ButtonActualizarPac.setToolTipText("Click para actualizar paciente");
         ButtonActualizarPac.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         ButtonLimpiarTodo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         ButtonLimpiarTodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/broom_52px.png"))); // NOI18N
-        ButtonLimpiarTodo.setToolTipText("Click para guardar paciente");
+        ButtonLimpiarTodo.setToolTipText("Click para limpiar campos");
         ButtonLimpiarTodo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         ButtonBuscarP.setBorder(null);
         ButtonBuscarP.setText("BUSCAR PACIENTE");
-        ButtonBuscarP.setToolTipText("Cama de hospitalización");
+        ButtonBuscarP.setToolTipText("Click para buscar un paciente");
         ButtonBuscarP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        Calendario_FechaNac.setPlaceholder("FECHA DE NAC.");
+        Calendar_FechaNac.setPlaceholder("FECHA DE NAC.");
+
+        txtTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTelefono.setToolTipText("TELÉFONO:       Ej.  953433761");
+        txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTelefono.setPlaceholder("TELÉFONO:       Ej.  953433761");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,8 +215,9 @@ public class ActualizarP extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(Calendario_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -213,33 +236,32 @@ public class ActualizarP extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(FotoPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ButtonBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(ButtonActualizarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(Calendario_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txt_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(ButtonBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(ButtonActualizarPac, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)))
+                                .addGap(10, 10, 10)
+                                .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(85, 85, 85))))
         );
 
@@ -251,7 +273,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -262,21 +284,23 @@ public class ActualizarP extends javax.swing.JInternalFrame {
     public rojeru_san.RSButtonRiple ButtonActualizarPac;
     public rojeru_san.RSButtonRiple ButtonBuscarP;
     public rojeru_san.RSButtonRiple ButtonLimpiarTodo;
-    public rojeru_san.componentes.RSDateChooser Calendario_FechaNac;
-    public RSMaterialComponent.RSCheckBoxMaterial Check_;
+    public rojeru_san.componentes.RSDateChooser Calendar_FechaNac;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Casado;
+    public RSMaterialComponent.RSCheckBoxMaterial Check_Divorciado;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Soltero;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Viudo;
     public rojerusan.RSFotoSquare FotoPaciente;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     public app.bolivia.swing.JCTextField txtDNI;
     public app.bolivia.swing.JCTextField txtDireccion;
+    public app.bolivia.swing.JCTextField txtTelefono;
     public app.bolivia.swing.JCTextField txt_Apellidos;
     public app.bolivia.swing.JCTextField txt_Nombres;
     // End of variables declaration//GEN-END:variables
