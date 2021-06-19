@@ -63,6 +63,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
                     m1.setVisible(true);
                     l.setVisible(false);
                 } else {
+                    //ERROR
                     Mensaje("Contraseña Incorrecta");
                 }
             } else {
@@ -73,6 +74,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
                     m2.setVisible(true);
                     l.setVisible(false);
                 } else {
+                    //ERROR
                     Mensaje("Contraseña Incorrecta");
                 }
             }
