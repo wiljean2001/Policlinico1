@@ -20,13 +20,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import rojeru_san.componentes.RSDateChooser;
+import rojeru_san.rsdate.RSDateChooser;
 import rojerusan.RSFotoSquare;
 
-public class cntrlRegistrarP implements ActionListener, KeyListener {
+public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     private JButton button_Reg, button_Limpiar, button_Historial;
-    private JCTextField DNI, apellidos, nombres, Direccion, telefono;
+    private JCTextField DNI, apellidos, nombres, Direccion, telefono, Fecha_Nac;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
     private RSDateChooser FechadeNacimiento;
     private RSFotoSquare Foto;
@@ -46,12 +46,15 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         nombres = r.txt_Nombres;
         Direccion = r.txt_Direccion;
         telefono = r.txt_Telefono;
+        Fecha_Nac = r.txt_Calendar_FechaNac;
         FechadeNacimiento = r.Calendar_FechaNac;
+        
         DNI.addKeyListener(this);
         apellidos.addKeyListener(this);
         nombres.addKeyListener(this);
         Direccion.addKeyListener(this);
         telefono.addKeyListener(this);
+        Fecha_Nac.addKeyListener(this);
         FechadeNacimiento.addKeyListener(this);
 
         //Checkbox
@@ -67,29 +70,15 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         button_Limpiar = r.ButtonLimpiarTodo;
         button_Historial = r.ButtonBuscarPaciente;
 
-        button_Reg.addActionListener(this);
-        button_Limpiar.addActionListener(this);
-        button_Historial.addActionListener(this);
+        button_Reg.addMouseListener(this);
+        button_Limpiar.addMouseListener(this);
+        button_Historial.addMouseListener(this);
         // Foto Image
         Foto = r.Foto;
     }
 
     private void bottonRegistrar() {
 
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == button_Reg) {
-            bottonRegistrar();
-        }
-        if (e.getSource() == button_Limpiar) {
-            DNI.setText("");
-            apellidos.setText("");
-            nombres.setText("");
-            Direccion.setText("");
-            telefono.setText("");
-        }
     }
 
     @Override
@@ -107,7 +96,6 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
                 e.consume();
                 Toolkit.getDefaultToolkit().beep();
             }
-
         }
         // 
         if (e.getSource() == apellidos || e.getSource() == nombres) {
@@ -122,9 +110,10 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
                 Toolkit.getDefaultToolkit().beep();
             }
         }
-        if (e.getSource() == FechadeNacimiento) {
+        if (e.getSource() == Fecha_Nac) {
             a = e.getKeyChar();
-            
+            e.consume();
+            Toolkit.getDefaultToolkit().beep();
         }
 
         e.getKeyChar();
@@ -164,5 +153,42 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
 
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        if (e.getSource() == button_Reg) {
+            bottonRegistrar();
+        }
+        if (e.getSource() == button_Limpiar) {
+            DNI.setText("");
+            apellidos.setText("");
+            nombres.setText("");
+            Direccion.setText("");
+            telefono.setText("");
+        }
+        if(e.getSource() == Fecha_Nac){
+            
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+       
     }
 }

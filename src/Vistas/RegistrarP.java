@@ -47,8 +47,10 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         ButtonRegistrarP = new rojeru_san.RSButtonRiple();
         ButtonLimpiarTodo = new rojeru_san.RSButtonRiple();
         ButtonBuscarPaciente = new rojeru_san.RSButtonRiple();
+        jPanel3 = new javax.swing.JPanel();
+        txt_Calendar_FechaNac = new app.bolivia.swing.JCTextField();
         txt_Telefono = new app.bolivia.swing.JCTextField();
-        Calendar_FechaNac = new rojeru_san.componentes.RSDateChooser();
+        Calendar_FechaNac = new rojeru_san.rsdate.RSDateChooser();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -59,15 +61,18 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         setMaximumSize(new java.awt.Dimension(2147483647, 525));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("REGISTRAR PACIENTE");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 13, 521, 41));
 
         Foto.setBorder(null);
         Foto.setToolTipText("Click para cargar una imagen");
         Foto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel1.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(569, 13, 223, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
@@ -87,7 +92,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Check_Hombre, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(Check_Hombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, Short.MAX_VALUE)
             .addComponent(Check_Mujer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -98,6 +103,8 @@ public class RegistrarP extends javax.swing.JInternalFrame {
                 .addComponent(Check_Mujer, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 351, -1, -1));
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Estado Civil"));
@@ -151,119 +158,84 @@ public class RegistrarP extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 351, -1, -1));
+
         txt_DNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_DNI.setToolTipText("DNI");
         txt_DNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_DNI.setPlaceholder("DNI:        Ej.  73889322");
+        jPanel1.add(txt_DNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 61, 280, 40));
 
         txt_Nombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Nombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Nombres.setPlaceholder("NOMBRES:        Ej.  Wilmer Jean Pierre");
+        jPanel1.add(txt_Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 177, 521, 40));
 
         txt_Direccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Direccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Direccion.setPlaceholder("DIRECCIÓN:     Ej.  Calle Tacna 105 - La Union");
+        jPanel1.add(txt_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 235, 521, 40));
 
         txt_Apellidos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Apellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Apellidos.setPlaceholder("APELLIDOS:      Ej.  Ayala García");
+        jPanel1.add(txt_Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 119, 521, 40));
 
         ButtonRegistrarP.setBorder(null);
         ButtonRegistrarP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/add_user_male_52px.png"))); // NOI18N
         ButtonRegistrarP.setText("REGISTRAR PACIENTE");
         ButtonRegistrarP.setToolTipText("Click para registrar paciente");
         ButtonRegistrarP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(ButtonRegistrarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 305, 220, 70));
 
         ButtonLimpiarTodo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         ButtonLimpiarTodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/broom_52px.png"))); // NOI18N
         ButtonLimpiarTodo.setToolTipText("Click para guardar paciente");
         ButtonLimpiarTodo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(ButtonLimpiarTodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(378, 361, 165, 68));
 
         ButtonBuscarPaciente.setBorder(null);
         ButtonBuscarPaciente.setText("REGISTRAR HISTORIAL CLÍNICO");
         ButtonBuscarPaciente.setToolTipText("Click para registrar historial clínico");
         ButtonBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.add(ButtonBuscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 217, 220, 70));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        txt_Calendar_FechaNac.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_Calendar_FechaNac.setToolTipText("DNI");
+        txt_Calendar_FechaNac.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_Calendar_FechaNac.setPlaceholder("INGRESAR FECEHA NAC.");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txt_Calendar_FechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_Calendar_FechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 190, 40));
 
         txt_Telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Telefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Telefono.setPlaceholder("TELÉFONO:       Ej.  953433761");
+        jPanel1.add(txt_Telefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 293, 521, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txt_Direccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_Nombres, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_Apellidos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(txt_DNI, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_Telefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(Foto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ButtonRegistrarP, javax.swing.GroupLayout.DEFAULT_SIZE, 222, Short.MAX_VALUE)
-                            .addComponent(ButtonBuscarPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ButtonBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonRegistrarP, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_DNI, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(85, 85, 85))))
-        );
+        Calendar_FechaNac.setEnabled(false);
+        jPanel1.add(Calendar_FechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(503, 61, 40, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +250,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
     public rojeru_san.RSButtonRiple ButtonBuscarPaciente;
     public rojeru_san.RSButtonRiple ButtonLimpiarTodo;
     public rojeru_san.RSButtonRiple ButtonRegistrarP;
-    public rojeru_san.componentes.RSDateChooser Calendar_FechaNac;
+    public rojeru_san.rsdate.RSDateChooser Calendar_FechaNac;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Casado;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Divorciado;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre;
@@ -291,8 +263,10 @@ public class RegistrarP extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     public app.bolivia.swing.JCTextField txt_Apellidos;
+    public app.bolivia.swing.JCTextField txt_Calendar_FechaNac;
     public app.bolivia.swing.JCTextField txt_DNI;
     public app.bolivia.swing.JCTextField txt_Direccion;
     public app.bolivia.swing.JCTextField txt_Nombres;
