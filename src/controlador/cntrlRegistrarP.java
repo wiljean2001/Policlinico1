@@ -124,13 +124,7 @@ public class cntrlRegistrarP implements ActionListener, KeyListener {
         }
         if (e.getSource() == FechadeNacimiento) {
             a = e.getKeyChar();
-            if (DNI.getText().length() < 0) {
-                if (a < '0' || a > '9') {
-                    JOptionPane.showMessageDialog(null, "", "No puedes ingresar letras, seleccionar el botón...",1);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "", "No puedes ingresar letras, seleccionar el botón...",1);
-            }
+            
         }
 
         e.getKeyChar();
