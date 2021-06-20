@@ -5,6 +5,7 @@ import Vistas.BuscarHC;
 import Vistas.BuscarPaciente;
 import Vistas.MenuRecep;
 import Vistas.RegistrarP;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -79,15 +80,16 @@ public class cntrlMenuRecep implements MouseListener {
             r.setVisible(true);
         }
         //Botòn buscar paciente
-        if(e.getSource()==button_BusPac){
+        if (e.getSource() == button_BusPac) {
             BuscarPaciente buscarP = new BuscarPaciente(m, false);
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
             //DesktopPaneMenu.add(buscarP);
             buscarP.ButtonEnviarPaciente.setVisible(false);
+            buscarP.setSize(new Dimension(1163, 409-50));
             buscarP.setVisible(true);
         }
         //Botòn Actualizar PacienteHGGHGHG
-        if(e.getSource()==button_ActPac){
+        if (e.getSource() == button_ActPac) {
             ActualizarP actualizarP = new ActualizarP();
             cntrlActualizarP cntrl_ActualizarP = new cntrlActualizarP(actualizarP);
             DesktopPaneMenu.add(actualizarP);
@@ -101,7 +103,7 @@ public class cntrlMenuRecep implements MouseListener {
             c.ButtonEnviarHC.setVisible(false);
             c.setVisible(true);
         }
-        
+
     }
 
     @Override

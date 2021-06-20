@@ -34,6 +34,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     public cntrlBuscarP(BuscarPaciente BusP) {
         this.BusP = BusP;
         acciones(BusP);
+        BusP.setLocationRelativeTo(null);
         modelo = new DefaultTableModel(null, Titulo);
         TablaImagen tablaImagen = new TablaImagen();
         tablaImagen.setHorizontalAlignment(SwingConstants.CENTER);

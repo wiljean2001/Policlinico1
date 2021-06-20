@@ -36,6 +36,7 @@ public class BuscarP extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         Table_Paciente = new rojeru_san.complementos.RSTableMetro();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
         setIconifiable(true);
 

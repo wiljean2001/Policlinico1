@@ -26,6 +26,7 @@ public class MenuMedicos extends javax.swing.JFrame {
         jPanelARRIBA = new javax.swing.JPanel();
         jPanelIzqArriba = new javax.swing.JPanel();
         MovButt_Menu = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanelIzq = new javax.swing.JPanel();
         PanelContenedor = new javax.swing.JPanel();
         bttnExtra = new javax.swing.JPanel();
@@ -80,6 +81,11 @@ public class MenuMedicos extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MÉDICO - ESPECIALISTA");
+
         javax.swing.GroupLayout jPanelARRIBALayout = new javax.swing.GroupLayout(jPanelARRIBA);
         jPanelARRIBA.setLayout(jPanelARRIBALayout);
         jPanelARRIBALayout.setHorizontalGroup(
@@ -87,12 +93,22 @@ public class MenuMedicos extends javax.swing.JFrame {
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(1660, Short.MAX_VALUE))
+            .addGroup(jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelARRIBALayout.createSequentialGroup()
+                    .addGap(762, 762, 762)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(828, Short.MAX_VALUE)))
         );
         jPanelARRIBALayout.setVerticalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelARRIBALayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         jPanel1.add(jPanelARRIBA, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 1910, 60));
@@ -244,6 +260,7 @@ public class MenuMedicos extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonMaterialRipple button_RegistrarHC;
     public RSMaterialComponent.RSButtonMaterialRipple button_RegistrarPaciente;
     public rojeru_san.rspanel.RSDesktopPane jDesktopPaneMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JPanel jPanelARRIBA;
     public javax.swing.JPanel jPanelIzq;

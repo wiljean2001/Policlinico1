@@ -213,7 +213,7 @@ public class MenuRecep extends javax.swing.JFrame {
         jDesktopPaneMenu.add(jPanel2);
         jPanel2.setBounds(1140, 0, 200, 40);
         jDesktopPaneMenu.add(rSLabelHora1);
-        rSLabelHora1.setBounds(0, 0, 200, 40);
+        rSLabelHora1.setBounds(0, 0, 130, 40);
 
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 

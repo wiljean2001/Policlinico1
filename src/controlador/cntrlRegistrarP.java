@@ -5,16 +5,12 @@ import DBO.Paciente_DBO;
 import Vistas.MenuMedicos;
 import Vistas.RegistrarP;
 import app.bolivia.swing.JCTextField;
-import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
-import java.sql.Date;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
@@ -38,6 +34,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         this.r = r;
         ListenerEventos(r);
         r.ButtonBuscarPaciente.setVisible(false);
+        limpiar();
     }
 
     private void ListenerEventos(RegistrarP r) {
@@ -121,6 +118,15 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     }
 
+    private void limpiar() {
+        DNI.setText("");
+        apellidos.setText("");
+        nombres.setText("");
+        Direccion.setText("");
+        telefono.setText("");
+        FechadeNacimiento.setDatoFecha(new java.util.Date(""));
+    }
+
     @Override
     public void mouseClicked(MouseEvent e) {
         if (e.getSource() == button_Reg) {
@@ -128,11 +134,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
         }
         if (e.getSource() == button_Limpiar) {
-            DNI.setText("");
-            apellidos.setText("");
-            nombres.setText("");
-            Direccion.setText("");
-            telefono.setText("");
+            limpiar();
         }
     }
 
