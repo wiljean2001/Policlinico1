@@ -103,6 +103,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Estado Civil"));
 
         EstadoCIvil.add(Check_Soltero);
+        Check_Soltero.setSelected(true);
         Check_Soltero.setText("Soltero");
         Check_Soltero.setIsEffectRipple(false);
         Check_Soltero.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);

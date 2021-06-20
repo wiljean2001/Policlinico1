@@ -31,16 +31,21 @@ public class Paciente_DBO {
         this.Sexo = Sexo;
         this.Foto = Foto;
     }
-
+//AGREGAR A LA DOCUMENTACIÓN
     public Paciente_DBO retornarPac() {
         return new Paciente_DBO(DNI_Paciente, FechadeNacimiento, telefono, Apellidos, nombres, Direccion, Sexo, edad, EstadoCivil, Foto);
     }
-
+    
+    public boolean EnviarPaciente(){
+        
+        return false;
+    }
+    
+//
     /*Calcula la edad tomando como referencia la fecha actual con la fecha de  nació*/
     public int calcularEdad(Date fechaNaci) {
         Date hoy = new Date();
         int diff_año = hoy.getYear() - fechaNaci.getYear();
-        JOptionPane.showMessageDialog(null,"Edad: > " +diff_año + " <","Edad:",1);
         return diff_año;
     }//Cierra método calcularEdad
 

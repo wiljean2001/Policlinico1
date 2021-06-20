@@ -3,6 +3,7 @@ package controlador;
 import Vistas.ActualizarP;
 import Vistas.BuscarHC;
 import Vistas.BuscarP;
+import Vistas.BuscarPaciente;
 import Vistas.MenuRecep;
 import Vistas.RegistrarP;
 import java.awt.event.MouseEvent;
@@ -80,9 +81,9 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar paciente
         if(e.getSource()==button_BusPac){
-            BuscarP buscarP = new BuscarP();
+            BuscarPaciente buscarP = new BuscarPaciente(m, false);
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
-            DesktopPaneMenu.add(buscarP);
+            //DesktopPaneMenu.add(buscarP);
             buscarP.setVisible(true);
         }
         //Botòn Actualizar Paciente
@@ -97,6 +98,7 @@ public class cntrlMenuRecep implements MouseListener {
             BuscarHC c = new BuscarHC();
             //falta controlador
             DesktopPaneMenu.add(c);
+            c.ButtonEnviarHC.setVisible(false);
             c.setVisible(true);
         }
         
@@ -125,13 +127,13 @@ public class cntrlMenuRecep implements MouseListener {
             RSAnimation.setMoverIzquierda(5, -250, 5, 5, PanelIzq);
             RSAnimation.setMoverIzquierda(5, -(245 - 60), 4, 4, PanelIzqArriba);
             RSAnimation.setMoverIzquierda(255, 5, 4, 4, m.rSScrollPane1);
-            m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), m.getHeight());
+            m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), 830);
 
         } else {
             RSAnimation.setMoverDerecha(-250, 5, 5, 5, PanelIzq);
             RSAnimation.setMoverDerecha(-(245 - 60), 0, 4, 4, PanelIzqArriba);
             RSAnimation.setMoverDerecha(5, 255, 4, 4, m.rSScrollPane1);
-            m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 10, m.getHeight());
+            m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 10, 830);
         }
 
     }

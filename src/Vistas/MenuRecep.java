@@ -26,6 +26,7 @@ public class MenuRecep extends javax.swing.JFrame {
         jPanelARRIBA = new javax.swing.JPanel();
         jPanelIzqArriba = new javax.swing.JPanel();
         MovButt_Menu = new javax.swing.JToggleButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanelIzq = new javax.swing.JPanel();
         PanelContenedor = new javax.swing.JPanel();
         bttnExtra = new javax.swing.JPanel();
@@ -36,6 +37,8 @@ public class MenuRecep extends javax.swing.JFrame {
         Foto = new rojerusan.RSFotoSquare();
         rSScrollPane1 = new necesario.RSScrollPane();
         jDesktopPaneMenu = new rojeru_san.rspanel.RSDesktopPane();
+        jPanel2 = new javax.swing.JPanel();
+        rSLabelHora1 = new rojeru_san.RSLabelHora();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -80,16 +83,27 @@ public class MenuRecep extends javax.swing.JFrame {
                 .addGap(15, 15, 15))
         );
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("RECEPCIONISTA");
+
         javax.swing.GroupLayout jPanelARRIBALayout = new javax.swing.GroupLayout(jPanelARRIBA);
         jPanelARRIBA.setLayout(jPanelARRIBALayout);
         jPanelARRIBALayout.setHorizontalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1660, Short.MAX_VALUE))
+                .addGap(542, 542, 542)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(864, Short.MAX_VALUE))
         );
         jPanelARRIBALayout.setVerticalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelARRIBALayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -182,6 +196,25 @@ public class MenuRecep extends javax.swing.JFrame {
 
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPaneMenu.setDoubleBuffered(true);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 200, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+
+        jDesktopPaneMenu.add(jPanel2);
+        jPanel2.setBounds(1140, 0, 200, 40);
+        jDesktopPaneMenu.add(rSLabelHora1);
+        rSLabelHora1.setBounds(0, 0, 200, 40);
+
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 
         jPanel1.add(rSScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1340, 830));
@@ -239,10 +272,13 @@ public class MenuRecep extends javax.swing.JFrame {
     public RSMaterialComponent.RSButtonMaterialRipple button_BuscarPaciente;
     public RSMaterialComponent.RSButtonMaterialRipple button_RegPaciente;
     public rojeru_san.rspanel.RSDesktopPane jDesktopPaneMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanelARRIBA;
     public javax.swing.JPanel jPanelIzq;
     public javax.swing.JPanel jPanelIzqArriba;
+    private rojeru_san.RSLabelHora rSLabelHora1;
     public necesario.RSScrollPane rSScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

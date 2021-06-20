@@ -3,7 +3,10 @@ package controlador;
 import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
 import Vistas.ActualizarP;
+import Vistas.BuscarP;
+import Vistas.MenuRecep;
 import app.bolivia.swing.JCTextField;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -13,6 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSFotoSquare;
@@ -78,13 +82,16 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         if (e.getSource() == button_ActP) {
             actualizar();
         }
-        
+//
         if (e.getSource() == button_Limpiar) {
             DNI.setText("");
             apellidos.setText("");
             nombres.setText("");
             Direccion.setText("");
             telefono.setText("");
+        }
+        if (e.getSource() == button_BuscarPaciente) {
+            
         }
     }
 
@@ -116,10 +123,10 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 Paciente_DBO pacienteDBO;
                 pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
                         Direccion.getText(), Sexo, 0, EstadoCivil, foto);
-                Paciente_DAO registrarDAO = new Paciente_DAO();
+                Paciente_DAO ActDAO = new Paciente_DAO();
                 //
-                if (registrarDAO.ActualizarPac(pacienteDBO.retornarPac()) != false) {
-                    JOptionPane.showMessageDialog(null, "MENSAJE", "REGISTRO EXITOSO", JOptionPane.OK_OPTION);
+                if (ActDAO.ActualizarPac(pacienteDBO.retornarPac()) != false) {
+                    JOptionPane.showMessageDialog(null, "MENSAJE", "ACTUALIZACIÓN EXITOSA", JOptionPane.OK_OPTION);
                 }
 
             } catch (IOException e) {
