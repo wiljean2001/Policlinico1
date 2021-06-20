@@ -86,7 +86,7 @@ public class cntrlMenuRecep implements MouseListener {
             //DesktopPaneMenu.add(buscarP);
             buscarP.setVisible(true);
         }
-        //Botòn Actualizar Paciente
+        //Botòn Actualizar PacienteHGGHGHG
         if(e.getSource()==button_ActPac){
             ActualizarP actualizarP = new ActualizarP();
             cntrlActualizarP cntrl_ActualizarP = new cntrlActualizarP(actualizarP);
