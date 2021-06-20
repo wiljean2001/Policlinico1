@@ -74,7 +74,7 @@ public class BuscarP extends javax.swing.JInternalFrame {
         ));
         Table_Paciente.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_NEXT_COLUMN);
         Table_Paciente.setEnabled(false);
-        Table_Paciente.setPreferredSize(new java.awt.Dimension(1200, 80));
+        Table_Paciente.setPreferredSize(new java.awt.Dimension(1100, 80));
         Table_Paciente.setRowHeight(80);
         jScrollPane2.setViewportView(Table_Paciente);
 

@@ -4,6 +4,7 @@ package controlador;
 import DAO.Login_DAO;
 import DBO.Medicos;
 import DBO.Recepcionista;
+import static Interfaces.Mensaje.Mensaje;
 import Vistas.Login;
 import Vistas.MenuMedicos;
 import Vistas.MenuRecep;
@@ -49,8 +50,8 @@ public class cntrlLogin implements ActionListener, KeyListener {
 
     private void BotonIngresar() {
 
-        if (l.txtContr.getPassword().length < 2 || l.txtUSER.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Error", "Error: ¡Campos vacios!", 1);
+        if (l.txtContr.getPassword().length < 1 || l.txtUSER.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Error: ¡Campos vacios!", "Error", 1);
         } else {
             char[] contraseña = l.txtContr.getPassword();
             String contraseñaString = String.valueOf(contraseña);
@@ -79,7 +80,6 @@ public class cntrlLogin implements ActionListener, KeyListener {
             } catch (HeadlessException e) {
                 JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA NO ENCONTRADO");
             }
-
         }
     }
 

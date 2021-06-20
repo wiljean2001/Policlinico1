@@ -11,10 +11,13 @@ public class Mensaje {
      JOptionPane.showMessageDialog(null,texto);
   
      }
-     public static void MD_YES_NO(String texto, String texto_1){
+     public static void Mensaje(String texto, String texto_1){
      int respuesta= JOptionPane.showConfirmDialog(null, texto_1, texto, JOptionPane.YES_NO_OPTION);
      if(respuesta==JOptionPane.YES_OPTION) {
          System.exit(1);
+        }
      }
-    }
+     public static void Mensaje(String texto, String texto_1, int i){
+     JOptionPane.showMessageDialog(null,texto, texto_1, i);
+     }
 }

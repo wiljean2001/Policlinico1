@@ -24,6 +24,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import rojeru_san.complementos.RSTableMetro;
 
@@ -40,11 +42,12 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         this.BusP = BusP;
         acciones(BusP);
         modelo = new DefaultTableModel(null, Titulo);
-        contenidoPac.setDefaultRenderer(Object.class, new TablaImagen());
+        TablaImagen tablaImagen = new TablaImagen();
+        tablaImagen.setHorizontalAlignment(SwingConstants.CENTER);
+        contenidoPac.setDefaultRenderer(Object.class, tablaImagen);
         contenidoPac.setModel(modelo);
         contenidoPac.setRowHeight(80);
         contenidoPac.setEnabled(false);
-
     }
 
     private void acciones(BuscarPaciente BusP) {
@@ -122,7 +125,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     }
 
                 } else {
-                    JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE","ERROR", 0);
+                    JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE", "ERROR", 0);
                 }
             }
         }
