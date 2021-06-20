@@ -1,16 +1,10 @@
 package DAO;
 
 import DBO.Paciente_DBO;
-import Interfaces.Obligaciones;
-import Vistas.RegistrarP;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 

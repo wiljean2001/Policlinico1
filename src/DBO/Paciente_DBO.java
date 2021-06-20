@@ -1,10 +1,6 @@
 package DBO;
 
-import java.awt.Image;
-import java.util.Calendar;
 import java.util.Date;
-import javax.swing.JOptionPane;
-import rojeru_san.rsdate.RSDateChooser;
 
 public class Paciente_DBO {
 

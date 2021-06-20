@@ -3,7 +3,6 @@ package controlador;
 import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
 import Vistas.ActualizarP;
-import Vistas.BuscarP;
 import Vistas.BuscarPaciente;
 import app.bolivia.swing.JCTextField;
 import java.awt.Toolkit;
@@ -13,19 +12,13 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-import javax.swing.CellRendererPane;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import rojeru_san.complementos.RSTableMetro;
 
@@ -105,7 +98,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                                 byte[] bi = a.getFoto();
                                 BufferedImage image = null;
                                 image = ImageIO.read(new ByteArrayInputStream(bi));
-                                imgi = new ImageIcon(image.getScaledInstance(80, 80, 0));
+                                imgi = new ImageIcon(image.getScaledInstance(100, 100, 0));
                             }
                             Object[] objNuevo = new Object[9];
                             objNuevo[0] = a.getDNI_Paciente();

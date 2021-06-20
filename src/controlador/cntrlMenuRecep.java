@@ -2,7 +2,6 @@ package controlador;
 
 import Vistas.ActualizarP;
 import Vistas.BuscarHC;
-import Vistas.BuscarP;
 import Vistas.BuscarPaciente;
 import Vistas.MenuRecep;
 import Vistas.RegistrarP;
@@ -84,6 +83,7 @@ public class cntrlMenuRecep implements MouseListener {
             BuscarPaciente buscarP = new BuscarPaciente(m, false);
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
             //DesktopPaneMenu.add(buscarP);
+            buscarP.ButtonEnviarPaciente.setVisible(false);
             buscarP.setVisible(true);
         }
         //Botòn Actualizar PacienteHGGHGHG
