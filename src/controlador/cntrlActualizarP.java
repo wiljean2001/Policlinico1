@@ -119,21 +119,35 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             } else if (EstadoCivil_viud.isSelected()) {
                 EstadoCivil = EstadoCivil_viud.getText();
             }
-            // falta enviar nulos
-            try {
-                File ruta = new File(Foto.getRutaImagen());
-                byte[] foto = Files.readAllBytes(ruta.toPath());
-                Paciente_DBO pacienteDBO;
-                pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
-                        Direccion.getText(), Sexo, 0, EstadoCivil, foto);
-                Paciente_DAO ActDAO = new Paciente_DAO();
-                //
-                if (ActDAO.ActualizarPac(pacienteDBO.retornarPac()) != false) {
-                    JOptionPane.showMessageDialog(null, "MENSAJE", "ACTUALIZACIÓN EXITOSA", JOptionPane.OK_OPTION);
+            Paciente_DBO pacienteDBO;
+            byte[] foto = null;
+            if (Foto.getRutaImagen() != null) {
+                // falta enviar nulos
+                try {
+                    File ruta = new File(Foto.getRutaImagen());
+                    foto = Files.readAllBytes(ruta.toPath());
+                } catch (IOException e) {
+                }
+            }
+            if (Foto.getRutaImagen() == null) {
+                foto = null;
+            }
+            if (DNI.getText().length() < 8) {
+                JOptionPane.showMessageDialog(null, "DNI CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN", 0);
+            } else {
+                if (telefono.getText().length() < 5) {
+                    JOptionPane.showMessageDialog(null, "TELEFONO CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN", 0);
+                } else {
+                    pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
+                            Direccion.getText(), Sexo, 0, EstadoCivil, foto);
+                    Paciente_DAO registrarDAO = new Paciente_DAO();
+                    if (registrarDAO.ActualizarPac(pacienteDBO.retornarPac()) != false) {
+                        JOptionPane.showMessageDialog(null, "ACCIÓN COMPLETADA!", "MENSAJE", 1);
+                        //JOptionPane.OK_CANCEL_OPTION
+                    } 
+
                 }
 
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, "Eror: ", "Eror: " + e, 1);
             }
         }
 

@@ -73,7 +73,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         actualizarP.txtDireccion.setEnabled(true);
                         actualizarP.Calendar_FechaNac.setEnabled(true);
                         actualizarP.txtTelefono.setEnabled(true);
-                        
+
                         actualizarP.txtDNI.setText(a.getDNI_Paciente());
                         actualizarP.txt_Apellidos.setText(a.getApellidos());
                         actualizarP.txt_Nombres.setText(a.getNombres());
@@ -95,16 +95,16 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             } else {
                                 actualizarP.Check_Mujer.setSelected(true);
                             }
-                            if (actualizarP.Check_Soltero.getText() == a.getEstadoCivil()){
+                            if (actualizarP.Check_Soltero.getText() == a.getEstadoCivil()) {
                                 actualizarP.Check_Soltero.setSelected(true);
-                            }else if(actualizarP.Check_Casado.getText() == a.getEstadoCivil()){
+                            } else if (actualizarP.Check_Casado.getText() == a.getEstadoCivil()) {
                                 actualizarP.Check_Casado.setSelected(true);
-                            }else if(actualizarP.Check_Viudo.getText() == a.getEstadoCivil()){
+                            } else if (actualizarP.Check_Viudo.getText() == a.getEstadoCivil()) {
                                 actualizarP.Check_Viudo.setSelected(true);
-                            }else{
+                            } else {
                                 actualizarP.Check_Divorciado.setSelected(true);
                             }
-                        }catch(Exception ex){
+                        } catch (Exception ex) {
                         }
                     }
                 }
@@ -127,8 +127,8 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 // VUELVO
 
                 lista = paciente_DAO.BuscarPac(DNI.getText());
-                if (lista != null) {
-                    for (Paciente_DBO a : lista) {
+                for (Paciente_DBO a : lista) {
+                    if (a.getDNI_Paciente() == DNI.getText()) {
                         try {
                             ImageIcon imgi = null;
                             if (a.getFoto() != null) {
@@ -150,13 +150,13 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             modelo.addRow(objNuevo);
                             JOptionPane.showMessageDialog(null, "PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE", 1);
                         } catch (Exception ex) {
-
+                            JOptionPane.showMessageDialog(BusP, "PACIENTE NO EXISTENTE", "ERROR", 0);
                         }
+                    } else {
+                        JOptionPane.showMessageDialog(BusP, "PACIENTE NO EXISTENTE", "ERROR", 0);
                     }
-
-                } else {
-                    JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE", "ERROR", 0);
                 }
+
             }
         }
 

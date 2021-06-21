@@ -66,7 +66,7 @@ public class Paciente_DAO {
             }
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR
-            JOptionPane.showMessageDialog(null, "PACIENTE NO ENCONTRADO","ERROR", 0);
+            JOptionPane.showMessageDialog(null, "DNI EXISTENTE","ERROR", 0);
         } finally {
             //Cerrar conexion
             con.setCnn();
