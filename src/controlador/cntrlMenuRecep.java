@@ -75,10 +75,12 @@ public class cntrlMenuRecep implements MouseListener {
             if (r == null) {
                 r = new RegistrarP();
                 cntrlR = new cntrlRegistrarP(r);
+            } else {
+                cntrlR = new cntrlRegistrarP(r);
+                DesktopPaneMenu.add(r);
+                cntrlR.limpiar();
+                r.setVisible(true);
             }
-            DesktopPaneMenu.add(r);
-            cntrlR.limpiar();
-            r.setVisible(true);
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {
@@ -86,7 +88,7 @@ public class cntrlMenuRecep implements MouseListener {
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
             //DesktopPaneMenu.add(buscarP);
             buscarP.ButtonEnviarPaciente.setVisible(false);
-            buscarP.setSize(new Dimension(1163, 409-80));
+            buscarP.setSize(new Dimension(1163, 409 - 80));
             buscarP.setVisible(true);
         }
         //Botòn Actualizar PacienteHGGHGHG

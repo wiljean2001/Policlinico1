@@ -65,14 +65,46 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 cntrlMenuRecep.DesktopPaneMenu.add(actualizarP);
                 actualizarP.setVisible(true);
                 if (actualizarP.isVisible()) {
-                JOptionPane.showMessageDialog(null, "hola");
                     // para actualizar
                     for (Paciente_DBO a : lista) {
+                        actualizarP.txtDNI.setEnabled(true);
+                        actualizarP.txt_Apellidos.setEnabled(true);
+                        actualizarP.txt_Nombres.setEnabled(true);
+                        actualizarP.txtDireccion.setEnabled(true);
+                        actualizarP.Calendar_FechaNac.setEnabled(true);
+                        
                         actualizarP.txtDNI.setText(a.getDNI_Paciente());
                         actualizarP.txt_Apellidos.setText(a.getApellidos());
                         actualizarP.txt_Nombres.setText(a.getNombres());
                         actualizarP.txtDireccion.setText(a.getDireccion());
                         actualizarP.Calendar_FechaNac.setDatoFecha(a.getFechadeNacimiento());
+                        // convertir
+                        try {
+                            ImageIcon imgi = null;
+                            if (a.getFoto() != null) {
+                                byte[] bi = a.getFoto();
+                                BufferedImage image = null;
+                                image = ImageIO.read(new ByteArrayInputStream(bi));
+                                imgi = new ImageIcon(image.getScaledInstance(100, 100, 0));
+                            }
+                            actualizarP.FotoPaciente.setImagenDefault(imgi);
+                            actualizarP.txtTelefono.setText(a.getTelefono());
+                            if ("H".equals(a.getSexo())) {
+                                actualizarP.Check_Hombre.setSelected(true);
+                            } else {
+                                actualizarP.Check_Mujer.setSelected(true);
+                            }
+                            if (actualizarP.Check_Soltero.getText() == a.getEstadoCivil()){
+                                actualizarP.Check_Soltero.setSelected(true);
+                            }else if(actualizarP.Check_Casado.getText() == a.getEstadoCivil()){
+                                actualizarP.Check_Casado.setSelected(true);
+                            }else if(actualizarP.Check_Viudo.getText() == a.getEstadoCivil()){
+                                actualizarP.Check_Viudo.setSelected(true);
+                            }else{
+                                actualizarP.Check_Divorciado.setSelected(true);
+                            }
+                        }catch(Exception ex){
+                        }
                     }
                 }
             } else {

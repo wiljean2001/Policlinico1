@@ -63,6 +63,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
 
         FotoPaciente.setBorder(null);
         FotoPaciente.setToolTipText("Ingresar foto");
+        FotoPaciente.setEnabled(false);
         FotoPaciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -72,12 +73,14 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         Check_Hombre.setSelected(true);
         Check_Hombre.setText("HOMBRE");
         Check_Hombre.setToolTipText("Seleccionar Sexo");
+        Check_Hombre.setEnabled(false);
         Check_Hombre.setIsEffectRipple(false);
         Check_Hombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         buttonGroup1.add(Check_Mujer);
         Check_Mujer.setText("MUJER");
         Check_Mujer.setToolTipText("Seleccionar Sexo");
+        Check_Mujer.setEnabled(false);
         Check_Mujer.setIsEffectRipple(false);
         Check_Mujer.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -104,24 +107,28 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         Check_Soltero.setSelected(true);
         Check_Soltero.setText("Soltero");
         Check_Soltero.setToolTipText("Seleccionar Estado Civil");
+        Check_Soltero.setEnabled(false);
         Check_Soltero.setIsEffectRipple(false);
         Check_Soltero.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         buttonGroup2.add(Check_Casado);
         Check_Casado.setText("Casado");
         Check_Casado.setToolTipText("Seleccionar Estado Civil");
+        Check_Casado.setEnabled(false);
         Check_Casado.setIsEffectRipple(false);
         Check_Casado.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         buttonGroup2.add(Check_Viudo);
         Check_Viudo.setText("Viudo");
         Check_Viudo.setToolTipText("Seleccionar Estado Civil");
+        Check_Viudo.setEnabled(false);
         Check_Viudo.setIsEffectRipple(false);
         Check_Viudo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         buttonGroup2.add(Check_Divorciado);
         Check_Divorciado.setText("Divorciado");
         Check_Divorciado.setToolTipText("Seleccionar Estado Civil");
+        Check_Divorciado.setEnabled(false);
         Check_Divorciado.setIsEffectRipple(false);
         Check_Divorciado.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -156,20 +163,24 @@ public class ActualizarP extends javax.swing.JInternalFrame {
 
         txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDNI.setToolTipText("DNI:        Ej.  73889322");
+        txtDNI.setEnabled(false);
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDNI.setPlaceholder("DNI:        Ej.  73889322");
 
         txt_Nombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Nombres.setToolTipText("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
+        txt_Nombres.setEnabled(false);
         txt_Nombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Nombres.setPlaceholder("NOMBRES:        Ej.  Wilmer Jean Pierre");
 
         txtDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDireccion.setEnabled(false);
         txtDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDireccion.setPlaceholder("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
 
         txt_Apellidos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Apellidos.setToolTipText("APELLIDOS:      Ej.  Ayala García");
+        txt_Apellidos.setEnabled(false);
         txt_Apellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Apellidos.setPlaceholder("APELLIDOS:      Ej.  Ayala García");
 
@@ -188,10 +199,12 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         ButtonBuscarP.setToolTipText("Click para buscar un paciente");
         ButtonBuscarP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        Calendar_FechaNac.setEnabled(false);
         Calendar_FechaNac.setPlaceholder("FECHA DE NAC.");
 
         txtTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTelefono.setToolTipText("TELÉFONO:       Ej.  953433761");
+        txtTelefono.setEnabled(false);
         txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtTelefono.setPlaceholder("TELÉFONO:       Ej.  953433761");
 
