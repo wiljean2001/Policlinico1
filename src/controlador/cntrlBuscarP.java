@@ -40,7 +40,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         tablaImagen.setHorizontalAlignment(SwingConstants.CENTER);
         contenidoPac.setDefaultRenderer(Object.class, tablaImagen);
         contenidoPac.setModel(modelo);
-        contenidoPac.setRowHeight(80);
+        contenidoPac.setRowHeight(100);
         contenidoPac.setEnabled(false);
     }
 
@@ -54,16 +54,19 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         button_BuscarPac.addActionListener(this);
         button_Aceptar.addActionListener(this);
     }
-    private ArrayList<Paciente_DBO> lista;
+    private ArrayList<Paciente_DBO> lista = null;
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button_Aceptar) {
             if (lista != null) {
                 ActualizarP actualizarP = new ActualizarP();
+                cntrlActualizarP cntrlActualizarP = new cntrlActualizarP(actualizarP);
+                cntrlMenuRecep.DesktopPaneMenu.add(actualizarP);
+                actualizarP.setVisible(true);
                 if (actualizarP.isVisible()) {
+                JOptionPane.showMessageDialog(null, "hola");
                     // para actualizar
-                    //cntrlActualizarP actualizarP1 = new cntrlActualizarP(actualizarP);
                     for (Paciente_DBO a : lista) {
                         actualizarP.txtDNI.setText(a.getDNI_Paciente());
                         actualizarP.txt_Apellidos.setText(a.getApellidos());

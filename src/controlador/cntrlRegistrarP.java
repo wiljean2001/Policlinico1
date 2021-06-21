@@ -18,6 +18,7 @@ import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSFotoSquare;
 import java.nio.file.Files;
 import java.io.File;
+import java.util.Date;
 
 public class cntrlRegistrarP implements KeyListener, MouseListener {
 
@@ -33,8 +34,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     public cntrlRegistrarP(RegistrarP r) {
         this.r = r;
         ListenerEventos(r);
-        r.ButtonBuscarPaciente.setVisible(false);
-        limpiar();
     }
 
     private void ListenerEventos(RegistrarP r) {
@@ -118,13 +117,12 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     }
 
-    private void limpiar() {
+    public void limpiar() {
         DNI.setText("");
         apellidos.setText("");
         nombres.setText("");
         Direccion.setText("");
         telefono.setText("");
-        FechadeNacimiento.setDatoFecha(new java.util.Date(""));
     }
 
     @Override

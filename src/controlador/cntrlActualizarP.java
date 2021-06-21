@@ -22,9 +22,9 @@ import rojerusan.RSFotoSquare;
 public class cntrlActualizarP implements KeyListener, MouseListener {
 
     private JButton button_ActP, button_Limpiar, button_BuscarPaciente;
-    private JCTextField DNI, apellidos, nombres, Direccion, telefono;
+    public static JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
-    private RSDateChooser FechadeNacimiento;
+    public static RSDateChooser FechadeNacimiento;
     private RSFotoSquare Foto;
     private ActualizarP ActP;
 
@@ -91,9 +91,10 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         if (e.getSource() == button_BuscarPaciente) {
             BuscarPaciente buscarP = new BuscarPaciente(new MenuRecep(), false);
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
-            //DesktopPaneMenu.add(buscarP);
             buscarP.ButtonEnviarPaciente.setVisible(true);
             buscarP.setVisible(true);
+            ActP.setVisible(false);
+            ActP = null;
         }
     }
 

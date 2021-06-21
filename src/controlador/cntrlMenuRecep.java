@@ -28,7 +28,7 @@ public class cntrlMenuRecep implements MouseListener {
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
     private JButton button_Reg, button_BusHC, button_BusPac, button_ActPac;
     private JToggleButton bttn_MenuDespl;
-    private JDesktopPane DesktopPaneMenu;
+    public static JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
     RegistrarP r = null;
     cntrlRegistrarP cntrlR = null;
@@ -77,6 +77,7 @@ public class cntrlMenuRecep implements MouseListener {
                 cntrlR = new cntrlRegistrarP(r);
             }
             DesktopPaneMenu.add(r);
+            cntrlR.limpiar();
             r.setVisible(true);
         }
         //Botòn buscar paciente
@@ -85,7 +86,7 @@ public class cntrlMenuRecep implements MouseListener {
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
             //DesktopPaneMenu.add(buscarP);
             buscarP.ButtonEnviarPaciente.setVisible(false);
-            buscarP.setSize(new Dimension(1163, 409-50));
+            buscarP.setSize(new Dimension(1163, 409-80));
             buscarP.setVisible(true);
         }
         //Botòn Actualizar PacienteHGGHGHG
