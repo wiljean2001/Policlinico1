@@ -38,9 +38,10 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         modelo = new DefaultTableModel(null, Titulo);
         TablaImagen tablaImagen = new TablaImagen();
         tablaImagen.setHorizontalAlignment(SwingConstants.CENTER);
+        //tablaImagen.setVerticalAlignment(SwingConstants.CENTER);
         contenidoPac.setDefaultRenderer(Object.class, tablaImagen);
         contenidoPac.setModel(modelo);
-        contenidoPac.setRowHeight(100);
+        contenidoPac.setRowHeight(140);
         contenidoPac.setEnabled(false);
     }
 
@@ -74,6 +75,13 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         actualizarP.Calendar_FechaNac.setEnabled(true);
                         actualizarP.txtTelefono.setEnabled(true);
 
+                        actualizarP.Check_Hombre.setEnabled(true);
+                        actualizarP.Check_Mujer.setEnabled(true);
+                        actualizarP.Check_Soltero.setEnabled(true);
+                        actualizarP.Check_Casado.setEnabled(true);
+                        actualizarP.Check_Viudo.setEnabled(true);
+                        actualizarP.Check_Divorciado.setEnabled(true);
+
                         actualizarP.txtDNI.setText(a.getDNI_Paciente());
                         actualizarP.txt_Apellidos.setText(a.getApellidos());
                         actualizarP.txt_Nombres.setText(a.getNombres());
@@ -90,21 +98,21 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             }
                             actualizarP.FotoPaciente.setImagenDefault(imgi);
                             actualizarP.txtTelefono.setText(a.getTelefono());
-                            if ("H".equals(a.getSexo())) {
-                                actualizarP.Check_Hombre.setSelected(true);
-                            } else {
-                                actualizarP.Check_Mujer.setSelected(true);
-                            }
-                            if (actualizarP.Check_Soltero.getText() == a.getEstadoCivil()) {
-                                actualizarP.Check_Soltero.setSelected(true);
-                            } else if (actualizarP.Check_Casado.getText() == a.getEstadoCivil()) {
-                                actualizarP.Check_Casado.setSelected(true);
-                            } else if (actualizarP.Check_Viudo.getText() == a.getEstadoCivil()) {
-                                actualizarP.Check_Viudo.setSelected(true);
-                            } else {
-                                actualizarP.Check_Divorciado.setSelected(true);
-                            }
                         } catch (Exception ex) {
+                        }
+                        if ("H".equals(a.getSexo())) {
+                            actualizarP.Check_Hombre.setSelected(true);
+                        } else {
+                            actualizarP.Check_Mujer.setSelected(true);
+                        }
+                        if ("Soltero".equals(a.getEstadoCivil())) {
+                            actualizarP.Check_Soltero.setSelected(true);
+                        } else if ("Casado".equals(a.getEstadoCivil())) {
+                            actualizarP.Check_Casado.setSelected(true);
+                        } else if ("Viudo".equals(a.getEstadoCivil())) {
+                            actualizarP.Check_Viudo.setSelected(true);
+                        } else if ("Divorciado".equals(a.getEstadoCivil())) {
+                            actualizarP.Check_Divorciado.setSelected(true);
                         }
                     }
                 }
@@ -127,34 +135,33 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 // VUELVO
 
                 lista = paciente_DAO.BuscarPac(DNI.getText());
+                if (lista.isEmpty()) {
+                    JOptionPane.showMessageDialog(BusP, "PACIENTE NO EXISTENTE", "ERROR", 0);
+                }
                 for (Paciente_DBO a : lista) {
-                    if (a.getDNI_Paciente() == DNI.getText()) {
-                        try {
-                            ImageIcon imgi = null;
-                            if (a.getFoto() != null) {
-                                byte[] bi = a.getFoto();
-                                BufferedImage image = null;
-                                image = ImageIO.read(new ByteArrayInputStream(bi));
-                                imgi = new ImageIcon(image);
-                            }
-                            Object[] objNuevo = new Object[9];
-                            objNuevo[0] = a.getDNI_Paciente();
-                            objNuevo[1] = a.getFechadeNacimiento().toString();
-                            objNuevo[2] = a.getTelefono();
-                            objNuevo[3] = a.getApellidos() + " " + a.getNombres();
-                            objNuevo[4] = a.getDireccion();
-                            objNuevo[5] = a.getSexo();
-                            objNuevo[6] = a.getEdad();
-                            objNuevo[7] = a.getEstadoCivil();
-                            objNuevo[8] = new JLabel(imgi);
-                            modelo.addRow(objNuevo);
-                            JOptionPane.showMessageDialog(null, "PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE", 1);
-                        } catch (Exception ex) {
-                            JOptionPane.showMessageDialog(BusP, "PACIENTE NO EXISTENTE", "ERROR", 0);
+                    try {
+                        ImageIcon imgi = null;
+                        if (a.getFoto() != null) {
+                            byte[] bi = a.getFoto();
+                            BufferedImage image = null;
+                            image = ImageIO.read(new ByteArrayInputStream(bi));
+                            imgi = new ImageIcon(image.getScaledInstance(120, 120, 0));
                         }
-                    } else {
-                        JOptionPane.showMessageDialog(BusP, "PACIENTE NO EXISTENTE", "ERROR", 0);
+                        Object[] objNuevo = new Object[9];
+                        objNuevo[0] = a.getDNI_Paciente();
+                        objNuevo[1] = a.getFechadeNacimiento().toString();
+                        objNuevo[2] = a.getTelefono();
+                        objNuevo[3] = a.getApellidos() + " " + a.getNombres();
+                        objNuevo[4] = a.getDireccion();
+                        objNuevo[5] = a.getSexo();
+                        objNuevo[6] = a.getEdad();
+                        objNuevo[7] = a.getEstadoCivil();
+                        objNuevo[8] = new JLabel(imgi);
+                        modelo.addRow(objNuevo);
+                        JOptionPane.showMessageDialog(null, "PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE", 1);
+                    } catch (Exception ex) {
                     }
+
                 }
 
             }

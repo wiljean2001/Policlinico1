@@ -17,7 +17,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import rojeru_san.componentes.RSDateChooser;
-import rojerusan.RSFotoSquare;
+import rojerusan.RSFotoSquareResize;
 
 public class cntrlActualizarP implements KeyListener, MouseListener {
 
@@ -25,7 +25,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     public static JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
     public static RSDateChooser FechadeNacimiento;
-    private RSFotoSquare Foto;
+    private RSFotoSquareResize Foto;
     private ActualizarP ActP;
 
     public cntrlActualizarP(ActualizarP ActP) {
@@ -40,6 +40,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         Direccion = ActP.txtDireccion;
         telefono = ActP.txtTelefono;
         FechadeNacimiento = ActP.Calendar_FechaNac;
+        Foto = ActP.FotoPaciente;
 
         DNI.addKeyListener(this);
         apellidos.addKeyListener(this);
@@ -101,7 +102,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     private void actualizar() {
         if (DNI.getText().isEmpty() || apellidos.getText().isEmpty() || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
                 || FechadeNacimiento.getDatoFecha() == null) {
-            JOptionPane.showMessageDialog(null, "CAMPOS VACÍOS", "ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", JOptionPane.OK_OPTION);
+            JOptionPane.showMessageDialog(null, "ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS", JOptionPane.OK_OPTION);
         } else {
             char Sexo = 0;
             if (SexoH.isSelected()) {
@@ -128,8 +129,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                     foto = Files.readAllBytes(ruta.toPath());
                 } catch (IOException e) {
                 }
-            }
-            if (Foto.getRutaImagen() == null) {
+            } else {
                 foto = null;
             }
             if (DNI.getText().length() < 8) {
@@ -144,7 +144,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                     if (registrarDAO.ActualizarPac(pacienteDBO.retornarPac()) != false) {
                         JOptionPane.showMessageDialog(null, "ACCIÓN COMPLETADA!", "MENSAJE", 1);
                         //JOptionPane.OK_CANCEL_OPTION
-                    } 
+                    }
 
                 }
 

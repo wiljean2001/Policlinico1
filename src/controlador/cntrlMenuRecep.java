@@ -84,7 +84,7 @@ public class cntrlMenuRecep implements MouseListener {
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
             //DesktopPaneMenu.add(buscarP);
             buscarP.ButtonEnviarPaciente.setVisible(false);
-            buscarP.setSize(new Dimension(1163, 409 - 80));
+            buscarP.setSize(new Dimension(1200, 440-40));
             buscarP.setVisible(true);
         }
         //Botòn Actualizar PacienteHGGHGHG
