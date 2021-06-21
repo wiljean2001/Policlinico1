@@ -38,10 +38,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         BusP.setLocationRelativeTo(null);
         modelo = new DefaultTableModel(null, Titulo);
         TablaImagen tablaImagen = new TablaImagen();
-        tablaImagen.setHorizontalAlignment(SwingConstants.CENTER);
-        //tablaImagen.setVerticalTextPosition(SwingConstants.CENTER);
         contenidoPac.setDefaultRenderer(Object.class, tablaImagen);
-        contenidoPac.setRowHeight(120);
         contenidoPac.setModel(modelo);
         contenidoPac.setEnabled(false);
     }
@@ -101,6 +98,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             actualizarP.txtTelefono.setText(a.getTelefono());
                         } catch (Exception ex) {
                         }
+                        JOptionPane.showMessageDialog(null, ""+a.getSexo());
                         if ("H".equals(a.getSexo())) {
                             actualizarP.Check_Hombre.setSelected(true);
                         } else {
