@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -29,9 +30,9 @@ import rojerusan.RSLabelImage;
 public class cntrlActualizarP implements KeyListener, MouseListener {
 
     private JButton button_ActP, button_Limpiar, button_BuscarPaciente;
-    public  JCTextField DNI, apellidos, nombres, Direccion, telefono;
+    public JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
-    public  RSDateChooser FechadeNacimiento;
+    public RSDateChooser FechadeNacimiento;
     private RSLabelImage Foto;
     private ActualizarP ActP;
     public static byte[] fotoByte = null;
@@ -140,7 +141,16 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 System.out.println(ex.getMessage());
             }
             ImageIcon icono = new ImageIcon(img);
-            */
+             */
+            if (rutaImagen != null) {
+                // falta enviar nulos
+                try {
+                    JOptionPane.showMessageDialog(null, "" + rutaImagen);
+                    fotoByte = Files.readAllBytes(rutaImagen.toPath());
+                } catch (IOException e) {
+                }
+            }
+
             Paciente_DBO pacienteDBO;
             Paciente_DAO pacientedao = new Paciente_DAO();
 
@@ -163,18 +173,18 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         }
 
     }
-    private File rutaImagen;
+    private File rutaImagen = null;
 
     private File abrirImagen() {
         JFileChooser jf = new JFileChooser();
         //solo puedo selecionar archivos(txt o musica o imagen pero no carpetas: no directorios
-        jf.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         //solo puedo seleccionar un archivo a la vez no varios a la vez
         jf.setMultiSelectionEnabled(false);
         //aqui filtro lo que quiero que se cargue
         //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
         //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG-PNG-GIF", "wav");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG-PNG, GIF", "jpg", "png", "gif");
         jf.setFileFilter(filter);
         //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
         jf.showOpenDialog(ActP);
@@ -182,34 +192,48 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
         if (seleccion_ruta != null) {
-            rutaImagen = seleccion_ruta;
-            return seleccion_ruta;
+            try {
+                ImageIcon imgi = null;
+                BufferedImage image = ImageIO.read(seleccion_ruta);
+                imgi = new ImageIcon(image);
+
+                Foto.setIcon(imgi);
+                rutaImagen = seleccion_ruta;
+                return seleccion_ruta;
+            } catch (Exception e) {
+
+            }
         }
         return null;
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e
+    ) {
 
     }
 
     @Override
-    public void mouseReleased(MouseEvent e) {
+    public void mouseReleased(MouseEvent e
+    ) {
 
     }
 
     @Override
-    public void mouseEntered(MouseEvent e) {
+    public void mouseEntered(MouseEvent e
+    ) {
 
     }
 
     @Override
-    public void mouseExited(MouseEvent e) {
+    public void mouseExited(MouseEvent e
+    ) {
 
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e
+    ) {
 
     }
 

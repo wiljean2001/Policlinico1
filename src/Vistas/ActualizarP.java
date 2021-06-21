@@ -61,6 +61,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         setTitle("Actualizar Paciente");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setEnabled(false);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -211,7 +212,6 @@ public class ActualizarP extends javax.swing.JInternalFrame {
 
         FotoPaciente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         FotoPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/descarga.png"))); // NOI18N
-        FotoPaciente.setLabelFor(BUSCARFOTO);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

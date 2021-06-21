@@ -5,7 +5,6 @@ import DBO.Paciente_DBO;
 import Vistas.ActualizarP;
 import Vistas.BuscarPaciente;
 import app.bolivia.swing.JCTextField;
-import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,7 +18,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableModel;
 import rojeru_san.complementos.RSTableMetro;
 
@@ -72,8 +70,8 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         actualizarP.txt_Apellidos.setEnabled(true);
                         actualizarP.txt_Nombres.setEnabled(true);
                         actualizarP.txtDireccion.setEnabled(true);
-                        actualizarP.Calendar_FechaNac.setEnabled(true);
                         actualizarP.txtTelefono.setEnabled(true);
+                        
 
                         actualizarP.Check_Hombre.setEnabled(true);
                         actualizarP.Check_Mujer.setEnabled(true);
