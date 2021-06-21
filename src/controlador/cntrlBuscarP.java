@@ -115,6 +115,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         }
                     }
                 }
+                BusP.setVisible(false);
             } else {
                 JOptionPane.showMessageDialog(null, "ERROR: ENVIAR DATOS A LA INTERFAZ", "MENSAJE", 0);
             }
