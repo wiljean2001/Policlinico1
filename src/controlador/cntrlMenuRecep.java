@@ -72,15 +72,11 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar Registrar Paciente
         if (e.getSource() == button_Reg) {
-            if (r == null) {
-                r = new RegistrarP();
-                cntrlR = new cntrlRegistrarP(r);
-            } else {
-                cntrlR = new cntrlRegistrarP(r);
-                DesktopPaneMenu.add(r);
-                cntrlR.limpiar();
-                r.setVisible(true);
-            }
+            r = new RegistrarP();
+            cntrlR = new cntrlRegistrarP(r);
+            DesktopPaneMenu.add(r);
+            cntrlR.limpiar();
+            r.setVisible(true);
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {

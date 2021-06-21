@@ -34,12 +34,10 @@ public class Paciente_DAO {
             PS.setBytes(10, x.getFoto());
             if (PS.executeUpdate() > 0) {
                 return true;
-            }else{
-                JOptionPane.showMessageDialog(null, "DNI EXISTENTE","ERROR", 0);
             }
         } catch (SQLException e) {
             // AGREGAR MENSAJE DE ERROR
-            
+            JOptionPane.showMessageDialog(null, "DNI EXISTENTE", "ERROR", 0);
         } finally {
             //Cerrar conexion
             con.setCnn();

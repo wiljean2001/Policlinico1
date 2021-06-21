@@ -127,10 +127,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getSource() == button_Reg) {
-            
-            bottonRegistrar();
-        }
+
         if (e.getSource() == button_Limpiar) {
             limpiar();
         }
@@ -179,10 +176,10 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                     pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, foto);
                     Paciente_DAO registrarDAO = new Paciente_DAO();
-                    if (registrarDAO.RegistrarPac(pacienteDBO.retornarPac()) ==true) {
+                    if (registrarDAO.RegistrarPac(pacienteDBO.retornarPac()) != false) {
                         JOptionPane.showMessageDialog(null, "ACCIÓN COMPLETADA!", "MENSAJE", 1);
                         //JOptionPane.OK_CANCEL_OPTION
-                    }
+                    } 
 
                 }
 
@@ -205,7 +202,9 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     @Override
     public void mousePressed(MouseEvent e
     ) {
-
+        if (e.getSource() == button_Reg) {
+            bottonRegistrar();
+        }
     }
 
     @Override
