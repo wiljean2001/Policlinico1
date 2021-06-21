@@ -72,6 +72,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         actualizarP.txt_Nombres.setEnabled(true);
                         actualizarP.txtDireccion.setEnabled(true);
                         actualizarP.Calendar_FechaNac.setEnabled(true);
+                        actualizarP.txtTelefono.setEnabled(true);
                         
                         actualizarP.txtDNI.setText(a.getDNI_Paciente());
                         actualizarP.txt_Apellidos.setText(a.getApellidos());
@@ -85,7 +86,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                                 byte[] bi = a.getFoto();
                                 BufferedImage image = null;
                                 image = ImageIO.read(new ByteArrayInputStream(bi));
-                                imgi = new ImageIcon(image.getScaledInstance(100, 100, 0));
+                                imgi = new ImageIcon(image);
                             }
                             actualizarP.FotoPaciente.setImagenDefault(imgi);
                             actualizarP.txtTelefono.setText(a.getTelefono());
@@ -134,7 +135,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                                 byte[] bi = a.getFoto();
                                 BufferedImage image = null;
                                 image = ImageIO.read(new ByteArrayInputStream(bi));
-                                imgi = new ImageIcon(image.getScaledInstance(100, 100, 0));
+                                imgi = new ImageIcon(image);
                             }
                             Object[] objNuevo = new Object[9];
                             objNuevo[0] = a.getDNI_Paciente();
