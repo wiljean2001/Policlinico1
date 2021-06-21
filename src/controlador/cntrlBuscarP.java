@@ -5,6 +5,7 @@ import DBO.Paciente_DBO;
 import Vistas.ActualizarP;
 import Vistas.BuscarPaciente;
 import app.bolivia.swing.JCTextField;
+import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,10 +39,10 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         modelo = new DefaultTableModel(null, Titulo);
         TablaImagen tablaImagen = new TablaImagen();
         tablaImagen.setHorizontalAlignment(SwingConstants.CENTER);
-        //tablaImagen.setVerticalAlignment(SwingConstants.CENTER);
+        //tablaImagen.setVerticalTextPosition(SwingConstants.CENTER);
         contenidoPac.setDefaultRenderer(Object.class, tablaImagen);
+        contenidoPac.setRowHeight(120);
         contenidoPac.setModel(modelo);
-        contenidoPac.setRowHeight(140);
         contenidoPac.setEnabled(false);
     }
 
@@ -94,7 +95,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                                 byte[] bi = a.getFoto();
                                 BufferedImage image = null;
                                 image = ImageIO.read(new ByteArrayInputStream(bi));
-                                imgi = new ImageIcon(image);
+                                imgi = new ImageIcon(image.getScaledInstance(60, 60, 0));
                             }
                             actualizarP.FotoPaciente.setImagenDefault(imgi);
                             actualizarP.txtTelefono.setText(a.getTelefono());
