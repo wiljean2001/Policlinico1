@@ -59,6 +59,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button_Aceptar) {
             if (lista != null) {
+
                 ActualizarP actualizarP = new ActualizarP();
                 cntrlActualizarP cntrlActualizarP = new cntrlActualizarP(actualizarP);
                 cntrlMenuRecep.DesktopPaneMenu.add(actualizarP);
@@ -66,6 +67,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 if (actualizarP.isVisible()) {
                     // para actualizar
                     for (Paciente_DBO a : lista) {
+                        cntrlActualizarP.fotoByte = a.getFoto();
                         actualizarP.txtDNI.setEnabled(true);
                         actualizarP.txt_Apellidos.setEnabled(true);
                         actualizarP.txt_Nombres.setEnabled(true);
@@ -92,16 +94,16 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                                 byte[] bi = a.getFoto();
                                 BufferedImage image = null;
                                 image = ImageIO.read(new ByteArrayInputStream(bi));
-                                imgi = new ImageIcon(image.getScaledInstance(60, 60, 0));
+                                imgi = new ImageIcon(image);
                             }
-                            actualizarP.FotoPaciente.setImagenDefault(imgi);
+                            actualizarP.FotoPaciente.setIcon(imgi);
                             actualizarP.txtTelefono.setText(a.getTelefono());
                         } catch (Exception ex) {
                         }
-                        JOptionPane.showMessageDialog(null, ""+a.getSexo());
+
                         if ("H".equals(a.getSexo())) {
                             actualizarP.Check_Hombre.setSelected(true);
-                        } else {
+                        } else if ("M".equals(a.getSexo())) {
                             actualizarP.Check_Mujer.setSelected(true);
                         }
                         if ("Soltero".equals(a.getEstadoCivil())) {

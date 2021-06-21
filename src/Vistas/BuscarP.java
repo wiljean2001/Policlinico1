@@ -65,6 +65,9 @@ public class BuscarP extends javax.swing.JInternalFrame {
         ButtonEnviarPaciente.setToolTipText("Click para guardar paciente");
         ButtonEnviarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        ScrollPanel.setBackground(new java.awt.Color(255, 255, 255));
+        ScrollPanel.setBorder(null);
+
         Table_Paciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"cfdfdfd", null, null, null, null, null, null, null, null}
@@ -112,8 +115,8 @@ public class BuscarP extends javax.swing.JInternalFrame {
                     .addComponent(ButtonBuscarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(ScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(ButtonEnviarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );

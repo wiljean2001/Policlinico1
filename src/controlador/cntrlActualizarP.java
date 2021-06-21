@@ -10,23 +10,31 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import rojeru_san.componentes.RSDateChooser;
-import rojerusan.RSFotoSquareResize;
+import rojerusan.RSLabelImage;
 
 public class cntrlActualizarP implements KeyListener, MouseListener {
 
     private JButton button_ActP, button_Limpiar, button_BuscarPaciente;
-    public static JCTextField DNI, apellidos, nombres, Direccion, telefono;
+    public  JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
-    public static RSDateChooser FechadeNacimiento;
-    private RSFotoSquareResize Foto;
+    public  RSDateChooser FechadeNacimiento;
+    private RSLabelImage Foto;
     private ActualizarP ActP;
+    public static byte[] fotoByte = null;
 
     public cntrlActualizarP(ActualizarP ActP) {
         this.ActP = ActP;
@@ -60,6 +68,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         button_ActP = ActP.ButtonActualizarPac;
         button_Limpiar = ActP.ButtonLimpiarTodo;
         button_BuscarPaciente = ActP.ButtonBuscarP;
+        Foto.addMouseListener(this);
 
         button_ActP.addMouseListener(this);
         button_Limpiar.addMouseListener(this);
@@ -78,6 +87,9 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if (e.getSource() == Foto) {
+            abrirImagen();
+        }
         if (e.getSource() == button_ActP) {
             actualizar();
         }
@@ -120,18 +132,18 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             } else if (EstadoCivil_viud.isSelected()) {
                 EstadoCivil = EstadoCivil_viud.getText();
             }
-            Paciente_DBO pacienteDBO;
-            byte[] foto = null;
-            if (Foto.getRutaImagen() != null) {
-                // falta enviar nulos
-                try {
-                    File ruta = new File(Foto.getRutaImagen());
-                    foto = Files.readAllBytes(ruta.toPath());
-                } catch (IOException e) {
-                }
-            } else {
-                foto = null;
+            /*
+            BufferedImage img = null;
+            try {
+                img = ImageIO.read(new ByteArrayInputStream(fotoByte));
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
             }
+            ImageIcon icono = new ImageIcon(img);
+            */
+            Paciente_DBO pacienteDBO;
+            Paciente_DAO pacientedao = new Paciente_DAO();
+
             if (DNI.getText().length() < 8) {
                 JOptionPane.showMessageDialog(null, "DNI CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN", 0);
             } else {
@@ -139,9 +151,8 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                     JOptionPane.showMessageDialog(null, "TELEFONO CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN", 0);
                 } else {
                     pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
-                            Direccion.getText(), Sexo, 0, EstadoCivil, foto);
-                    Paciente_DAO registrarDAO = new Paciente_DAO();
-                    if (registrarDAO.ActualizarPac(pacienteDBO.retornarPac()) != false) {
+                            Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte);
+                    if (pacientedao.ActualizarPac(pacienteDBO.retornarPac()) != false) {
                         JOptionPane.showMessageDialog(null, "ACCIÓN COMPLETADA!", "MENSAJE", 1);
                         //JOptionPane.OK_CANCEL_OPTION
                     }
@@ -151,6 +162,30 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             }
         }
 
+    }
+    private File rutaImagen;
+
+    private File abrirImagen() {
+        JFileChooser jf = new JFileChooser();
+        //solo puedo selecionar archivos(txt o musica o imagen pero no carpetas: no directorios
+        jf.setFileSelectionMode(JFileChooser.FILES_ONLY);
+        //solo puedo seleccionar un archivo a la vez no varios a la vez
+        jf.setMultiSelectionEnabled(false);
+        //aqui filtro lo que quiero que se cargue
+        //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
+        //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG-PNG-GIF", "wav");
+        jf.setFileFilter(filter);
+        //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
+        jf.showOpenDialog(ActP);
+        //agarre lo que seleciona
+        File seleccion_ruta = jf.getSelectedFile();
+        //si la selccion es diferente de null , pasela a txt
+        if (seleccion_ruta != null) {
+            rutaImagen = seleccion_ruta;
+            return seleccion_ruta;
+        }
+        return null;
     }
 
     @Override
