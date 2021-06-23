@@ -16,10 +16,6 @@ import javax.swing.JToggleButton;
 import rojeru_san.complementos.RSMoveWindow;
 import rojerusan.RSAnimation;
 
-/**
- *
- * @author HP-Litzy-Jean
- */
 public class cntrlMenuRecep implements MouseListener {
 
     MenuRecep m = new MenuRecep();

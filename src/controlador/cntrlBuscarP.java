@@ -29,6 +29,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     private BuscarPaciente BusP;
     private String Titulo[] = {"DNI", "FECHA NAC.", "TELF.", "NOMBRE", "DIR.", "SEXO", "EDAD", "ESTADO CIV.", "FOTO"};
     DefaultTableModel modelo = new DefaultTableModel();
+    private ArrayList<Paciente_DBO> lista = null;
 
     public cntrlBuscarP(BuscarPaciente BusP) {
         this.BusP = BusP;
@@ -51,7 +52,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         button_BuscarPac.addActionListener(this);
         button_Aceptar.addActionListener(this);
     }
-    private ArrayList<Paciente_DBO> lista = null;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -71,7 +71,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         actualizarP.txt_Nombres.setEnabled(true);
                         actualizarP.txtDireccion.setEnabled(true);
                         actualizarP.txtTelefono.setEnabled(true);
-                        
 
                         actualizarP.Check_Hombre.setEnabled(true);
                         actualizarP.Check_Mujer.setEnabled(true);
