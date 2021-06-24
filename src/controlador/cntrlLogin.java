@@ -49,9 +49,12 @@ public class cntrlLogin implements ActionListener, KeyListener {
     }
 
     private void BotonIngresar() {
+        String usuario = l.txtUSER.getText();
 
-        if (l.txtContr.getPassword().length < 1 || l.txtUSER.getText().isEmpty()) {
+        if (l.txtContr.getPassword().length < 4 || usuario.isEmpty()) {
+            
             JOptionPane.showMessageDialog(null, "Error: ¡Campos vacios!", "Error", 1);
+            
         } else {
             char[] contraseña = l.txtContr.getPassword();
             String contraseñaString = String.valueOf(contraseña);
@@ -59,17 +62,17 @@ public class cntrlLogin implements ActionListener, KeyListener {
                 if (DAO_login.ReadMedicos(l.txtUSER.getText()) != null) {
                     Medicos medicos;
                     medicos = DAO_login.ReadMedicos(l.txtUSER.getText());
-                    if (medicos.getComtraseña().equals(contraseñaString)) {
+                    if (medicos.getComtraseña().equals(contraseñaString) && medicos.getUsuario().equals(usuario)) {
                         cntrlMM = new cntrlMenuMedicos(m1);
                         m1.setVisible(true);
                         l.setVisible(false);
                     } else {
-                        JOptionPane.showMessageDialog(null, "Contraseña Incorrecta");
+                        JOptionPane.showMessageDialog(null, "Usaurio o contraseña Incorrecta");
                     }
                 } else {
                     Recepcionista recepcionista;
                     recepcionista = DAO_login.ReadRecepcionista(l.txtUSER.getText());
-                    if (recepcionista.getComtraseña().equals(contraseñaString)) {
+                    if (recepcionista.getComtraseña().equals(contraseñaString) && recepcionista.getUsuario().equals(usuario)) {
                         cntrlMR = new cntrlMenuRecep(m2);
                         m2.setVisible(true);
                         l.setVisible(false);
