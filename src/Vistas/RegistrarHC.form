@@ -61,7 +61,6 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="ButtonBuscarP" min="-2" pref="280" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -79,6 +78,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="Foto_Paciente" min="-2" pref="185" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="jPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jTabbedPane1" min="-2" pref="503" max="-2" attributes="0"/>
@@ -192,9 +192,10 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="Check_Hombre" min="-2" pref="106" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Check_Mujer" min="-2" pref="96" max="-2" attributes="0"/>
+                      <Component id="Check_Hombre" min="-2" pref="130" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="Check_Mujer" pref="119" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -213,7 +214,7 @@
           <SubComponents>
             <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="Check_Hombre">
               <Properties>
-                <Property name="text" type="java.lang.String" value="HOMBRE"/>
+                <Property name="text" type="java.lang.String" value="MASCULINO"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
@@ -226,7 +227,7 @@
             </Component>
             <Component class="RSMaterialComponent.RSCheckBoxMaterial" name="Check_Mujer">
               <Properties>
-                <Property name="text" type="java.lang.String" value="MUJER"/>
+                <Property name="text" type="java.lang.String" value="FEMENINO"/>
                 <Property name="enabled" type="boolean" value="false"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">

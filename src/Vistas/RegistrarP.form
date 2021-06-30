@@ -75,9 +75,9 @@
                           <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           <Component id="jPanel4" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                          <Component id="jPanel2" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Component id="ButtonLimpiarTodo" pref="0" max="32767" attributes="0"/>
+                          <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="ButtonLimpiarTodo" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -188,7 +188,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Check_Hombre" pref="0" max="32767" attributes="0"/>
+                  <Component id="Check_Hombre" pref="132" max="32767" attributes="0"/>
                   <Component id="Check_Mujer" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -210,7 +210,7 @@
                   <ComponentRef name="SEXO_GROUP"/>
                 </Property>
                 <Property name="selected" type="boolean" value="true"/>
-                <Property name="text" type="java.lang.String" value="HOMBRE"/>
+                <Property name="text" type="java.lang.String" value="MASCULINO"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                   <Value id="LIGHT"/>
@@ -225,7 +225,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="SEXO_GROUP"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="MUJER"/>
+                <Property name="text" type="java.lang.String" value="FEMENINO"/>
                 <Property name="isEffectRipple" type="boolean" value="false"/>
                 <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                   <Value id="LIGHT"/>

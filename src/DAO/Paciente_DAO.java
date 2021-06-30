@@ -12,10 +12,11 @@ public class Paciente_DAO {
 
     private static final String INSERT_SQL = "INSERT INTO Paciente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_SQL = "UPDATE Paciente SET DNI =?, Fecha_Nacimiento=?, Telefono=?,"
-                                    + "Apellido=?, Nombre=?, Dirección=?, Sexo=?, Edad=?, EstadoCivil=?, Foto=? WHERE DNI =? ";
+            + "Apellido=?, Nombre=?, Dirección=?, Sexo=?, Edad=?, EstadoCivil=?, Foto=? WHERE DNI =? ";
     private static final String BUSCAR_SQL = "SELECT * FROM Paciente WHERE DNI=?";
     //private static final String READ_ALL_SQL = "SELECT * FROM RegistroPac";
     private static final conexion con = conexion.SaberEstado();
+
     public boolean RegistrarPac(Paciente_DBO x) {
         //preparar consulta
         PreparedStatement PS;
@@ -44,7 +45,7 @@ public class Paciente_DAO {
         }
         return false;
     }
-    
+
     public boolean ActualizarPac(Paciente_DBO x) {
         PreparedStatement PS;
         try {
@@ -66,35 +67,12 @@ public class Paciente_DAO {
             }
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR
-            JOptionPane.showMessageDialog(null, "DNI EXISTENTE","ERROR", 0);
+            JOptionPane.showMessageDialog(null, "DNI EXISTENTE", "ERROR", 0);
         } finally {
             //Cerrar conexion
             con.setCnn();
         }
         return false;
-    }
-    
-    public ArrayList<Paciente_DBO> BuscarPac(String key) {
-        PreparedStatement ps;
-        ResultSet res;
-        ArrayList<Paciente_DBO> lista = new ArrayList();
-        try {
-            ps = con.getCnn().prepareStatement(BUSCAR_SQL);
-            ps.setString(1, key);
-            res = ps.executeQuery();
-            while(res.next()){
-                java.sql.Date date = new java.sql.Date(res.getDate(2).getTime());
-                lista.add(new Paciente_DBO(res.getString(1), date, res.getString(3), res.getString(4), res.getString(5)
-                        , res.getString(6), res.getString(7).charAt(0), res.getInt(8), res.getString(9), res.getBytes(10)));
-            }
-            return lista;
-        } catch (SQLException ex) {
-            // AGREGAR AL WORD MENSAJE DE ERROR
-            JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE","ERROR", 0);
-        } finally{
-            con.setCnn();
-        }
-        return null;
     }
 
     /*
@@ -144,4 +122,28 @@ public class Paciente_DAO {
 }
 
      */
+    public ArrayList<Paciente_DBO> BuscarPac(String key) {
+        PreparedStatement ps;
+        ResultSet res;
+        ArrayList<Paciente_DBO> lista = new ArrayList();
+        try {
+            ps = con.getCnn().prepareStatement(BUSCAR_SQL);
+            ps.setString(1, key);
+            res = ps.executeQuery();
+            while (res.next()) {
+                java.sql.Date date = new java.sql.Date(res.getDate(2).getTime());
+                lista.add(new Paciente_DBO(
+                        res.getString(1), date, res.getString(3), res.getString(4),
+                        res.getString(5), res.getString(6), res.getString(7).charAt(0),
+                        res.getInt(8), res.getString(9), res.getBytes(10)));
+            }
+            return lista;
+        } catch (SQLException ex) {
+            // AGREGAR AL WORD MENSAJE DE ERROR
+            JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE", "ERROR", 0);
+        } finally {
+            con.setCnn();
+        }
+        return null;
+    }
 }

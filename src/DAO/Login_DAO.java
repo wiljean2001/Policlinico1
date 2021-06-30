@@ -10,18 +10,19 @@ import javax.swing.JOptionPane;
 
 public class Login_DAO {
 
-    private static final String ReadAll = "select * from Usuario where Usuario =?";
+    private static final String ReadAll = "select * from Usuario where Usuario =? and Contraseña =?";
     private Recepcionista DBO_Recepcionista;
     private Medicos DBO_Medicos;
     private static final conexion con = conexion.SaberEstado();
     private boolean colaborador = false;
     
-    public Recepcionista ReadRecepcionista(Object key) {
+    public Recepcionista ReadRecepcionista(Object key, Object key2) {
         PreparedStatement ps;
         ResultSet res;
         try {
             ps = con.getCnn().prepareStatement(ReadAll);
             ps.setString(1, key.toString());
+            ps.setString(2, key2.toString());
             res = ps.executeQuery();
             
             while (res.next()) {
@@ -43,12 +44,13 @@ public class Login_DAO {
         return null;
     }
 
-    public Medicos ReadMedicos(Object key) {
+    public Medicos ReadMedicos(Object key, Object key2) {
         PreparedStatement ps;
         ResultSet res;
         try {
             ps = con.getCnn().prepareStatement(ReadAll);
             ps.setString(1, key.toString());
+            ps.setString(2, key2.toString());
             res = ps.executeQuery();
             while (res.next()) {
                 colaborador = res.getBoolean(1);

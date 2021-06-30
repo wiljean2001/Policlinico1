@@ -113,8 +113,9 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     }
 
     private void actualizar() {
-        if (DNI.getText().isEmpty() || apellidos.getText().isEmpty() || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
-                || FechadeNacimiento.getDatoFecha() == null) {
+        if (DNI.getText().isEmpty() || apellidos.getText().isEmpty() || 
+                nombres.getText().isEmpty() || Direccion.getText().isEmpty() || 
+                FechadeNacimiento.getDatoFecha() == null) {
             JOptionPane.showMessageDialog(null, "ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS", JOptionPane.OK_OPTION);
         } else {
             char Sexo = 0;

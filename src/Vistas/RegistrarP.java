@@ -75,12 +75,12 @@ public class RegistrarP extends javax.swing.JInternalFrame {
 
         SEXO_GROUP.add(Check_Hombre);
         Check_Hombre.setSelected(true);
-        Check_Hombre.setText("HOMBRE");
+        Check_Hombre.setText("MASCULINO");
         Check_Hombre.setIsEffectRipple(false);
         Check_Hombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         SEXO_GROUP.add(Check_Mujer);
-        Check_Mujer.setText("MUJER");
+        Check_Mujer.setText("FEMENINO");
         Check_Mujer.setIsEffectRipple(false);
         Check_Mujer.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -88,7 +88,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Check_Hombre, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(Check_Hombre, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
             .addComponent(Check_Mujer, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -205,9 +205,9 @@ public class RegistrarP extends javax.swing.JInternalFrame {
                         .addGap(19, 19, 19)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(12, 12, 12)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Foto, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)

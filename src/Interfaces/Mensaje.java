@@ -8,8 +8,7 @@ import javax.swing.JOptionPane;
     */
 public class Mensaje {
      public static void MD(String texto){
-     JOptionPane.showMessageDialog(null,texto);
-  
+     JOptionPane.showMessageDialog(null,texto);  
      }
      public static void Mensaje(String texto, String texto_1){
      int respuesta= JOptionPane.showConfirmDialog(null, texto_1, texto, JOptionPane.YES_NO_OPTION);

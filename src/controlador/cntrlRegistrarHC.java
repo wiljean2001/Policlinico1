@@ -5,6 +5,20 @@
  */
 package controlador;
 
-public class cntrlRegistrarHC {
+import Vistas.RegistrarHC;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class cntrlRegistrarHC implements ActionListener{
+    
+    RegistrarHC rHC = new RegistrarHC();
+    public cntrlRegistrarHC(RegistrarHC rHC){
+        this.rHC = rHC;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+    }
     
 }
