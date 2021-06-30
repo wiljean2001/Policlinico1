@@ -64,12 +64,15 @@ public class cntrlMenuMedicos implements MouseListener {
 // botón registrar
     private void PanelDesktop(MouseEvent e) {
         if (e.getSource() == button_Reg) {
+            /*
             if (r == null) {
                 r = new RegistrarP();
                 cntrlR = new cntrlRegistrarP(r);
             }
             DesktopPaneMenu.add(r);
             r.setVisible(true);
+             */
+
         }
 
     }

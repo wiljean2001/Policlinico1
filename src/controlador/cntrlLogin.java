@@ -1,9 +1,10 @@
 package controlador;
 //hola
 
-import DAO.Login_DAO;
-import DBO.Medicos;
-import DBO.Recepcionista;
+import DAO.Usuario_DAO;
+import DBO.Usuario;
+
+import javax.swing.JOptionPane;
 import static Interfaces.Mensaje.Mensaje;
 import Vistas.Login;
 import Vistas.MenuMedicos;
@@ -29,7 +30,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
     private MenuRecep m2 = null;
     private cntrlMenuMedicos cntrlMM = null;
     private cntrlMenuRecep cntrlMR = null;
-    private Login_DAO DAO_login = new Login_DAO();
+    private Usuario_DAO DAO_login = new Usuario_DAO();
 
     public cntrlLogin(Login l) {
         this.l = l;
@@ -52,27 +53,23 @@ public class cntrlLogin implements ActionListener, KeyListener {
         String usuario = l.txtUSER.getText();
 
         if (l.txtContr.getPassword().length < 4 || usuario.isEmpty()) {
-
             JOptionPane.showMessageDialog(null, "Error: ¡Campos vacios!", "Error", 1);
-
         } else {
             char[] contraseña = l.txtContr.getPassword();
             String contraseñaString = String.valueOf(contraseña);
-            Medicos medicos = null;
-            Recepcionista recepcionista = null;
             try {
-                if (DAO_login.ReadMedicos(l.txtUSER.getText(), contraseñaString) != null) {
+                if (DAO_login.BuscarUsuario(usuario, contraseñaString).isPerfil()) {
                     cntrlMM = new cntrlMenuMedicos(m1);
                     m1.setVisible(true);
                     l.setVisible(false);
-                } else if (DAO_login.ReadRecepcionista(l.txtUSER.getText(), contraseñaString) != null) {
+                } else if (DAO_login.BuscarUsuario(usuario, contraseñaString).isPerfil() == false) {
                     cntrlMR = new cntrlMenuRecep(m2);
                     m2.setVisible(true);
                     l.setVisible(false);
-                }else{
+                } else {
                     JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA NO ENCONTRADO");
                 }
-            } catch (HeadlessException e) {
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "USUARIO O CONTRASEÑA NO ENCONTRADO");
             }
         }

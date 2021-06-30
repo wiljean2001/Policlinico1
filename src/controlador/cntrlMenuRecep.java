@@ -26,8 +26,8 @@ public class cntrlMenuRecep implements MouseListener {
     private JToggleButton bttn_MenuDespl;
     public static JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
-    RegistrarP r = null;
-    cntrlRegistrarP cntrlR = null;
+    RegistrarP r = new RegistrarP();;
+    cntrlRegistrarP cntrlR = new cntrlRegistrarP(r);;
     // otros
 
     public cntrlMenuRecep(MenuRecep m) {
@@ -63,20 +63,20 @@ public class cntrlMenuRecep implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        DesktopPaneMenu.removeAll();
+        DesktopPaneMenu.repaint();
         if (e.getSource() == bttn_MenuDespl) {
             DesplazarMenu();
         }
         //Botòn buscar Registrar Paciente
         if (e.getSource() == button_Reg) {
-            r = new RegistrarP();
-            cntrlR = new cntrlRegistrarP(r);
             DesktopPaneMenu.add(r);
             cntrlR.limpiar();
             r.setVisible(true);
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {
-            BuscarPaciente buscarP = new BuscarPaciente(m, false);
+            BuscarPaciente buscarP = new BuscarPaciente(m, true);
             cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
             //DesktopPaneMenu.add(buscarP);
             buscarP.ButtonEnviarPaciente.setVisible(false);
@@ -92,9 +92,8 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar Historial clinico
         if (e.getSource() == button_BusHC) {
-            BuscarHC c = new BuscarHC();
-            //falta controlador
-            DesktopPaneMenu.add(c);
+            BuscarHC c = new BuscarHC(m, true);
+            cntrlBuscarHC bhc = new cntrlBuscarHC(c);
             c.ButtonEnviarHC.setVisible(false);
             c.setVisible(true);
         }
