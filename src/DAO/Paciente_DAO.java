@@ -1,6 +1,7 @@
 package DAO;
 
 import DBO.Paciente_DBO;
+import Interfaces.Mensaje;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -38,7 +39,7 @@ public class Paciente_DAO {
             }
         } catch (SQLException e) {
             // AGREGAR MENSAJE DE ERROR
-            JOptionPane.showMessageDialog(null, "DNI EXISTENTE", "ERROR", 0);
+            Mensaje.MensajeError("DNI EXISTENTE", "ERROR");
         } finally {
             //Cerrar conexion
             con.setCnn();
@@ -67,7 +68,7 @@ public class Paciente_DAO {
             }
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR
-            JOptionPane.showMessageDialog(null, "DNI EXISTENTE", "ERROR", 0);
+            Mensaje.MensajeError("DNI EXISTENTE", "ERROR");
         } finally {
             //Cerrar conexion
             con.setCnn();
@@ -75,8 +76,33 @@ public class Paciente_DAO {
         return false;
     }
 
+    public ArrayList<Paciente_DBO> BuscarPac(String key) {
+        PreparedStatement ps;
+        ResultSet res;
+        ArrayList<Paciente_DBO> lista = new ArrayList();
+        try {
+            ps = con.getCnn().prepareStatement(BUSCAR_SQL);
+            ps.setString(1, key);
+            res = ps.executeQuery();
+            while (res.next()) {
+                java.sql.Date date = new java.sql.Date(res.getDate(2).getTime());
+                lista.add(new Paciente_DBO(
+                        res.getString(1), date, res.getString(3), res.getString(4),
+                        res.getString(5), res.getString(6), res.getString(7).charAt(0),
+                        res.getInt(8), res.getString(9), res.getBytes(10)));
+            }
+            return lista;
+        } catch (SQLException ex) {
+            // AGREGAR AL WORD MENSAJE DE ERROR
+            Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
+        } finally {
+            con.setCnn();
+        }
+        return null;
+    }
+    
+    
     /*
- 
     @Override
     public dboCamas read(Object key) {
         PreparedStatement ps;
@@ -122,28 +148,4 @@ public class Paciente_DAO {
 }
 
      */
-    public ArrayList<Paciente_DBO> BuscarPac(String key) {
-        PreparedStatement ps;
-        ResultSet res;
-        ArrayList<Paciente_DBO> lista = new ArrayList();
-        try {
-            ps = con.getCnn().prepareStatement(BUSCAR_SQL);
-            ps.setString(1, key);
-            res = ps.executeQuery();
-            while (res.next()) {
-                java.sql.Date date = new java.sql.Date(res.getDate(2).getTime());
-                lista.add(new Paciente_DBO(
-                        res.getString(1), date, res.getString(3), res.getString(4),
-                        res.getString(5), res.getString(6), res.getString(7).charAt(0),
-                        res.getInt(8), res.getString(9), res.getBytes(10)));
-            }
-            return lista;
-        } catch (SQLException ex) {
-            // AGREGAR AL WORD MENSAJE DE ERROR
-            JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE", "ERROR", 0);
-        } finally {
-            con.setCnn();
-        }
-        return null;
-    }
 }

@@ -1,13 +1,13 @@
 package DBO;
 
-public class Usuario {
+public class Usuario_DBO {
 
     private String IDMedico, DNI, Apellidos, Nombres, Genero, Especialidad;
     private boolean Perfil;
     private String Usuario;
     private String Comtraseña;
 
-    public Usuario(String IDMedico, String DNI, String Apellidos, String Nombres,
+    public Usuario_DBO(String IDMedico, String DNI, String Apellidos, String Nombres,
             String Genero, String Especialidad, boolean Perfil, String Usuario, String Comtraseña) {
         this.IDMedico = IDMedico;
         this.DNI = DNI;
@@ -20,7 +20,7 @@ public class Usuario {
         this.Comtraseña = Comtraseña;
     }
 
-    public Usuario(String Usuario, String Comtraseña) {
+    public Usuario_DBO(String Usuario, String Comtraseña) {
         this.Usuario = Usuario;
         this.Comtraseña = Comtraseña;
     }
@@ -100,4 +100,4 @@ public class Usuario {
 
     
 
-}//end Usuario
+}//end Usuario_DBO

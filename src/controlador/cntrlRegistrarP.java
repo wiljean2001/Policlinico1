@@ -2,9 +2,11 @@ package controlador;
 
 import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
-import Vistas.MenuMedicos;
+import Interfaces.Mensaje;
+import Interfaces.Seteo;
 import Vistas.RegistrarP;
 import app.bolivia.swing.JCTextField;
+import com.toedter.calendar.JDateChooser;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -13,26 +15,20 @@ import java.awt.event.MouseListener;
 import java.io.IOException;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
-import javax.swing.JOptionPane;
-import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSFotoSquare;
 import java.nio.file.Files;
 import java.io.File;
-import java.util.Date;
 
 public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     private JButton button_Reg, button_Limpiar;
     private JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
-    private RSDateChooser FechadeNacimiento;
+    private JDateChooser FechadeNacimiento;
     private RSFotoSquare Foto;
-
-    private RegistrarP r = new RegistrarP();
-    private MenuMedicos m = new MenuMedicos();
-
+    RegistrarP r;
     public cntrlRegistrarP(RegistrarP r) {
-        this.r = r;
+        this.r=r;
         ListenerEventos(r);
     }
 
@@ -66,6 +62,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
         button_Reg.addMouseListener(this);
         button_Limpiar.addMouseListener(this);
+        FechadeNacimiento.addKeyListener(this);
     }
 
     @Override
@@ -118,11 +115,8 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     }
 
     public void limpiar() {
-        DNI.setText("");
-        apellidos.setText("");
-        nombres.setText("");
-        Direccion.setText("");
-        telefono.setText("");
+        Seteo.SeteoTextField(r.jPanel1);
+        
     }
 
     @Override
@@ -131,12 +125,18 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         if (e.getSource() == button_Limpiar) {
             limpiar();
         }
+        if (e.getSource() == button_Reg) {
+            bottonRegistrar();
+        }
     }
 
     private void bottonRegistrar() {
-        if (DNI.getText().isEmpty() || apellidos.getText().isEmpty() || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
-                || FechadeNacimiento.getDatoFecha() == null) {
-            JOptionPane.showMessageDialog(null, "ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS", JOptionPane.OK_OPTION);
+        if (DNI.getText().isEmpty() || apellidos.getText().isEmpty()
+                || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
+                || FechadeNacimiento.getDate()== null) {
+
+            Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+
         } else {
             char Sexo = 0;
             if (SexoH.isSelected()) {
@@ -146,6 +146,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             }
             String EstadoCivil = "";
             if (EstadoCivil_Cas.isSelected()) {
+
                 EstadoCivil = EstadoCivil_Cas.getText();
             } else if (EstadoCivil_Sol.isSelected()) {
                 EstadoCivil = EstadoCivil_Sol.getText();
@@ -154,6 +155,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             } else if (EstadoCivil_viud.isSelected()) {
                 EstadoCivil = EstadoCivil_viud.getText();
             }
+
             Paciente_DBO pacienteDBO;
             byte[] foto = null;
             if (Foto.getRutaImagen() != null) {
@@ -168,18 +170,21 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 foto = null;
             }
             if (DNI.getText().length() < 8) {
-                JOptionPane.showMessageDialog(null, "DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO", 0);
+                Mensaje.MensajeConformidad("DNI CON DIGITOS FALTANTE", "MENSAJE");
             } else {
                 if (telefono.getText().length() < 5) {
-                    JOptionPane.showMessageDialog(null, "TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO", 0);
+                    Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
                 } else {
-                    pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
+
+                    pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDate(),
+                            telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, foto);
+
                     Paciente_DAO registrarDAO = new Paciente_DAO();
                     if (registrarDAO.RegistrarPac(pacienteDBO.retornarPac()) != false) {
-                        JOptionPane.showMessageDialog(null, "ACCIÓN COMPLETADA!", "MENSAJE", 1);
+                        Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
-                    } 
+                    }
 
                 }
 
@@ -187,6 +192,10 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         }
     }
 
+    
+    
+    
+    
     @Override
     public void keyPressed(KeyEvent e
     ) {
@@ -202,9 +211,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     @Override
     public void mousePressed(MouseEvent e
     ) {
-        if (e.getSource() == button_Reg) {
-            bottonRegistrar();
-        }
+        
     }
 
     @Override

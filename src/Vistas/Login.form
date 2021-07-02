@@ -293,6 +293,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto Bold" size="18" style="1"/>
                 </Property>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="jButtonIngresar"/>
+                </Property>
                 <Property name="placeholder" type="java.lang.String" value="Password"/>
               </Properties>
               <AuxValues>
@@ -318,6 +321,9 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto Bold" size="18" style="1"/>
                 </Property>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="txtContr"/>
+                </Property>
                 <Property name="placeholder" type="java.lang.String" value="Usuario"/>
               </Properties>
               <AuxValues>
@@ -334,7 +340,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="INGRESAR"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Default Cursor"/>
+                  <Color id="Cursor Por defecto"/>
                 </Property>
                 <Property name="focusCycleRoot" type="boolean" value="true"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">

@@ -1,10 +1,7 @@
 package controlador;
 
-import Vistas.ActualizarP;
-import Vistas.BuscarHC;
-import Vistas.BuscarPaciente;
+import Interfaces.Seteo;
 import Vistas.MenuRecep;
-import Vistas.RegistrarP;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -15,19 +12,22 @@ import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import rojeru_san.complementos.RSMoveWindow;
 import rojerusan.RSAnimation;
+import Main.*;
 
 public class cntrlMenuRecep implements MouseListener {
 
-    MenuRecep m = new MenuRecep();
-    RSMoveWindow a = new RSMoveWindow();
+    private MenuRecep m;
+    private RSMoveWindow a = new RSMoveWindow();
 
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
-    private JButton button_Reg, button_BusHC, button_BusPac, button_ActPac;
+    private JButton button_Reg, button_BusHC, button_BusPac, button_ActPac, cerrarSesion;
     private JToggleButton bttn_MenuDespl;
-    public static JDesktopPane DesktopPaneMenu;
+    private JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
-    RegistrarP r = new RegistrarP();;
-    cntrlRegistrarP cntrlR = new cntrlRegistrarP(r);;
+    private final int altoAct = Hospital_v2.FBP.getHeight() - Hospital_v2.FBP.ButtonEnviarPaciente.getHeight();
+    private final int anchoAct = Hospital_v2.FBP.getWidth();
+    private final int anchoPanel;
+    private final int altoPanel;
     // otros
 
     public cntrlMenuRecep(MenuRecep m) {
@@ -35,6 +35,9 @@ public class cntrlMenuRecep implements MouseListener {
         Acciones(m);
         Panel_cont.add(Panel_Bott);
         a.setMoveWindow(this.m);
+
+        anchoPanel = DesktopPaneMenu.getWidth();
+        altoPanel = DesktopPaneMenu.getHeight();
     }
 
     private void Acciones(MenuRecep m) {
@@ -53,7 +56,9 @@ public class cntrlMenuRecep implements MouseListener {
         bttn_MenuDespl = m.MovButt_Menu;
         button_BusPac = m.button_BuscarPaciente;
         button_ActPac = m.button_ActPaciente;
+        cerrarSesion = m.buttonCerrarSesion;
 
+        cerrarSesion.addMouseListener(this);
         button_Reg.addMouseListener(this);
         button_BusHC.addMouseListener(this);
         bttn_MenuDespl.addMouseListener(this);
@@ -63,39 +68,38 @@ public class cntrlMenuRecep implements MouseListener {
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        DesktopPaneMenu.removeAll();
-        DesktopPaneMenu.repaint();
+        Seteo.SeteoPaneles();
         if (e.getSource() == bttn_MenuDespl) {
             DesplazarMenu();
         }
         //Botòn buscar Registrar Paciente
         if (e.getSource() == button_Reg) {
-            DesktopPaneMenu.add(r);
-            cntrlR.limpiar();
-            r.setVisible(true);
+            Hospital_v2.cRP.limpiar();
+            DesktopPaneMenu.add(Hospital_v2.FRP);
+            Hospital_v2.FRP.setVisible(true);
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {
-            BuscarPaciente buscarP = new BuscarPaciente(m, true);
-            cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
-            //DesktopPaneMenu.add(buscarP);
-            buscarP.ButtonEnviarPaciente.setVisible(false);
-            buscarP.setSize(new Dimension(1200, 440-40));
-            buscarP.setVisible(true);
+            Hospital_v2.cBP.limpiar();
+            Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(false);
+            Hospital_v2.FBP.setSize(new Dimension(anchoAct, altoAct));
+            Hospital_v2.FBP.setVisible(true);
+
         }
         //Botòn Actualizar PacienteHGGHGHG
         if (e.getSource() == button_ActPac) {
-            ActualizarP actualizarP = new ActualizarP();
-            cntrlActualizarP cntrl_ActualizarP = new cntrlActualizarP(actualizarP);
-            DesktopPaneMenu.add(actualizarP);
-            actualizarP.setVisible(true);
+            Hospital_v2.cAP.Limpiar();
+            DesktopPaneMenu.add(Hospital_v2.FAP);
+            Hospital_v2.FAP.setVisible(true);
+
         }
         //Botòn buscar Historial clinico
         if (e.getSource() == button_BusHC) {
-            BuscarHC c = new BuscarHC(m, true);
-            cntrlBuscarHC bhc = new cntrlBuscarHC(c);
-            c.ButtonEnviarHC.setVisible(false);
-            c.setVisible(true);
+            Hospital_v2.FBHC.setVisible(true);
+        }
+        if (e.getSource() == cerrarSesion) {
+            m.dispose();
+            Hospital_v2.FL.setVisible(true);
         }
 
     }
@@ -118,18 +122,21 @@ public class cntrlMenuRecep implements MouseListener {
     }
 
     private void DesplazarMenu() {
+
         if (PanelIzq.getX() == 5) {
             //PanelIzq
             RSAnimation.setMoverIzquierda(5, -250, 5, 5, PanelIzq);
             RSAnimation.setMoverIzquierda(5, -(245 - 60), 4, 4, PanelIzqArriba);
             RSAnimation.setMoverIzquierda(255, 5, 4, 4, m.rSScrollPane1);
-            m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), 830);
+            //m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), 830);
+            m.rSScrollPane1.setSize(new Dimension(m.getWidth() + (255 - 15), altoPanel));
 
         } else {
             RSAnimation.setMoverDerecha(-250, 5, 5, 5, PanelIzq);
             RSAnimation.setMoverDerecha(-(245 - 60), 0, 4, 4, PanelIzqArriba);
             RSAnimation.setMoverDerecha(5, 255, 4, 4, m.rSScrollPane1);
-            m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 10, 830);
+            //m.rSScrollPane1.setBounds(255, 65, m.getWidth() - 10, 830);
+            m.rSScrollPane1.setSize(new Dimension(anchoPanel, altoPanel));
         }
 
     }

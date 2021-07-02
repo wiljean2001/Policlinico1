@@ -9,16 +9,6 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelLoad">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="doubleBuffered" type="boolean" value="true"/>
-        <Property name="opaque" type="boolean" value="true"/>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-      </AuxValues>
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>

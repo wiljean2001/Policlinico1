@@ -1,19 +1,19 @@
 package DAO;
 
-import DBO.Usuario;
+import DBO.Usuario_DBO;
+import Interfaces.Mensaje;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 public class Usuario_DAO {
 
     private static final String ReadAll = "select * from Usuario where Usuario =? and Contraseña =?";
-    private Usuario DBOUsuario = null;
+    private Usuario_DBO DBOUsuario = null;
     private static final conexion con = conexion.SaberEstado();
 
-    public Usuario BuscarUsuario(Object key, Object key2) {
+    public Usuario_DBO BuscarUsuario(Object key, Object key2) {
         PreparedStatement ps;
         ResultSet res;
         try {
@@ -22,12 +22,12 @@ public class Usuario_DAO {
             ps.setString(2, key2.toString());
             res = ps.executeQuery();
             while (res.next()) {
-                DBOUsuario = new Usuario(res.getString(1), res.getString(2), res.getString(3), res.getString(4),
+                DBOUsuario = new Usuario_DBO(res.getString(1), res.getString(2), res.getString(3), res.getString(4),
                             res.getString(5), res.getString(6), res.getBoolean(7), res.getString(8), res.getString(9));
             }
             return DBOUsuario;
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "SQL Recepcionista error: " + e);
+                Mensaje.MensajeError("USUARIO NO EXISTENTE", "ERROR");
         } finally {
             con.setCnn();
         }

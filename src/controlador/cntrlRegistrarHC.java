@@ -13,8 +13,8 @@ import rojeru_san.RSButtonRiple;
 
 public class cntrlRegistrarHC implements ActionListener{
     
-    RegistrarHC rHC = new RegistrarHC();
-    RSButtonRiple buttonBuscarP, buttonRegistrarHC;
+    private RegistrarHC rHC;
+    private RSButtonRiple buttonBuscarP, buttonRegistrarHC;
     
     public cntrlRegistrarHC(RegistrarHC rHC){
         this.rHC = rHC;

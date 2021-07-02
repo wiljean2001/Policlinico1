@@ -2,9 +2,13 @@ package controlador;
 
 import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
+import Interfaces.Mensaje;
+import Interfaces.Seteo;
+import Main.Hospital_v2;
 import Vistas.ActualizarP;
 import Vistas.BuscarPaciente;
 import app.bolivia.swing.JCTextField;
+import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,12 +16,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import rojeru_san.complementos.RSTableMetro;
 
@@ -27,17 +31,19 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     private JCTextField DNI;
     private RSTableMetro contenidoPac;
     private BuscarPaciente BusP;
-    private String Titulo[] = {"DNI", "FECHA NAC.", "TELF.", "NOMBRE", "DIR.", "SEXO", "EDAD", "ESTADO CIV.", "FOTO"};
-    DefaultTableModel modelo = new DefaultTableModel();
+    private final String Titulo[] = {"DNI", "FECHA NAC.", "TELF.", "NOMBRE", "DIR.", "SEXO", "EDAD", "ESTADO CIV.", "FOTO"};
+    private DefaultTableModel modelo = new DefaultTableModel();
     private ArrayList<Paciente_DBO> lista = null;
 
     public cntrlBuscarP(BuscarPaciente BusP) {
         this.BusP = BusP;
+
         acciones(BusP);
         BusP.setLocationRelativeTo(null);
+
         modelo = new DefaultTableModel(null, Titulo);
-        TablaImagen tablaImagen = new TablaImagen();
-        contenidoPac.setDefaultRenderer(Object.class, tablaImagen);
+        contenidoPac.setDefaultRenderer(Object.class, new TablaImagen());
+
         contenidoPac.setModel(modelo);
         contenidoPac.setEnabled(false);
     }
@@ -52,122 +58,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         button_BuscarPac.addActionListener(this);
         button_Aceptar.addActionListener(this);
     }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == button_Aceptar) {
-            if (lista != null) {
-
-                ActualizarP actualizarP = new ActualizarP();
-                cntrlActualizarP cntrlActualizarP = new cntrlActualizarP(actualizarP);
-                cntrlMenuRecep.DesktopPaneMenu.add(actualizarP);
-                actualizarP.setVisible(true);
-                if (actualizarP.isVisible()) {
-                    // para actualizar
-                    for (Paciente_DBO a : lista) {
-                        cntrlActualizarP.fotoByte = a.getFoto();
-                        actualizarP.txtDNI.setEnabled(true);
-                        actualizarP.txt_Apellidos.setEnabled(true);
-                        actualizarP.txt_Nombres.setEnabled(true);
-                        actualizarP.txtDireccion.setEnabled(true);
-                        actualizarP.txtTelefono.setEnabled(true);
-
-                        actualizarP.Check_Hombre.setEnabled(true);
-                        actualizarP.Check_Mujer.setEnabled(true);
-                        actualizarP.Check_Soltero.setEnabled(true);
-                        actualizarP.Check_Casado.setEnabled(true);
-                        actualizarP.Check_Viudo.setEnabled(true);
-                        actualizarP.Check_Divorciado.setEnabled(true);
-
-                        actualizarP.txtDNI.setText(a.getDNI_Paciente());
-                        actualizarP.txt_Apellidos.setText(a.getApellidos());
-                        actualizarP.txt_Nombres.setText(a.getNombres());
-                        actualizarP.txtDireccion.setText(a.getDireccion());
-                        actualizarP.Calendar_FechaNac.setDatoFecha(a.getFechadeNacimiento());
-                        // convertir
-                        try {
-                            ImageIcon imgi = null;
-                            if (a.getFoto() != null) {
-                                byte[] bi = a.getFoto();
-                                BufferedImage image = null;
-                                image = ImageIO.read(new ByteArrayInputStream(bi));
-                                imgi = new ImageIcon(image);
-                            }
-                            actualizarP.FotoPaciente.setIcon(imgi);
-                            actualizarP.txtTelefono.setText(a.getTelefono());
-                        } catch (Exception ex) {
-                        }
-
-                        if ("H".equals(a.getSexo())) {
-                            actualizarP.Check_Hombre.setSelected(true);
-                        } else if ("M".equals(a.getSexo())) {
-                            actualizarP.Check_Mujer.setSelected(true);
-                        }
-                        if ("Soltero".equals(a.getEstadoCivil())) {
-                            actualizarP.Check_Soltero.setSelected(true);
-                        } else if ("Casado".equals(a.getEstadoCivil())) {
-                            actualizarP.Check_Casado.setSelected(true);
-                        } else if ("Viudo".equals(a.getEstadoCivil())) {
-                            actualizarP.Check_Viudo.setSelected(true);
-                        } else if ("Divorciado".equals(a.getEstadoCivil())) {
-                            actualizarP.Check_Divorciado.setSelected(true);
-                        }
-                    }
-                }
-                BusP.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(null, "ERROR: ENVIAR DATOS A LA INTERFAZ", "MENSAJE", 0);
-            }
-        }
-
-        // DNI CON DATOS FALTANTES MODIFICAR EN EL WORD
-        if (DNI.getText().length() < 8) {
-            JOptionPane.showMessageDialog(null, "DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO", 0);
-        } else {
-            if (e.getSource() == button_BuscarPac) {
-
-                Paciente_DAO paciente_DAO = new Paciente_DAO();
-                int valor = modelo.getRowCount() - 1;
-                for (int i = valor; i >= 0; i--) {
-                    modelo.removeRow(i);
-                }
-                // VUELVO
-
-                lista = paciente_DAO.BuscarPac(DNI.getText());
-                if (lista.isEmpty()) {
-                    JOptionPane.showMessageDialog(BusP, "PACIENTE NO EXISTENTE", "ERROR", 0);
-                }
-                for (Paciente_DBO a : lista) {
-                    try {
-                        ImageIcon imgi = null;
-                        if (a.getFoto() != null) {
-                            byte[] bi = a.getFoto();
-                            BufferedImage image = null;
-                            image = ImageIO.read(new ByteArrayInputStream(bi));
-                            imgi = new ImageIcon(image.getScaledInstance(120, 120, 0));
-                        }
-                        Object[] objNuevo = new Object[9];
-                        objNuevo[0] = a.getDNI_Paciente();
-                        objNuevo[1] = a.getFechadeNacimiento().toString();
-                        objNuevo[2] = a.getTelefono();
-                        objNuevo[3] = a.getApellidos() + " " + a.getNombres();
-                        objNuevo[4] = a.getDireccion();
-                        objNuevo[5] = a.getSexo();
-                        objNuevo[6] = a.getEdad();
-                        objNuevo[7] = a.getEstadoCivil();
-                        objNuevo[8] = new JLabel(imgi);
-                        modelo.addRow(objNuevo);
-                        JOptionPane.showMessageDialog(null, "PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE", 1);
-                    } catch (Exception ex) {
-                    }
-
-                }
-
-            }
-        }
-
-    }
-
+    
     // AGREGAR AL WORD (VALIDAR CAMPO DNI)
     @Override
     public void keyTyped(KeyEvent e) {
@@ -185,7 +76,133 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
             }
         }
     }
+    public void limpiar(){
+        Seteo.SeteoTextField(BusP.jPanel1);
+        Seteo.SeteoJTable(modelo);
+    }
 
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == button_Aceptar) {
+            BotonAceptar();
+        }
+        if (e.getSource() == button_BuscarPac) {
+            // DNI CON DATOS FALTANTES MODIFICAR EN EL WORD
+            BuscarPaciente();
+        }
+
+    }
+    
+    private void BuscarPaciente(){
+        if (DNI.getText().length() < 8) {
+                Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
+            } else {
+                Paciente_DAO paciente_DAO = new Paciente_DAO();
+                // VUELVO
+                lista = paciente_DAO.BuscarPac(DNI.getText());
+                if (lista.isEmpty()) {
+                    Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
+                }
+                for (Paciente_DBO a : lista) {
+                    try {
+                        ImageIcon imgi = null;
+                        if (a.getFoto() != null) {
+                            byte[] bi = a.getFoto();
+                            BufferedImage image;
+                            image = ImageIO.read(new ByteArrayInputStream(bi));
+                            imgi = new ImageIcon(image.getScaledInstance(120, 120, 0));
+                        }
+                        Object[] objNuevo = new Object[9];
+                        objNuevo[0] = a.getDNI_Paciente();
+                        objNuevo[1] = a.getFechadeNacimiento().toString();
+                        objNuevo[2] = a.getTelefono();
+                        objNuevo[3] = a.getApellidos() + " " + a.getNombres();
+                        objNuevo[4] = a.getDireccion();
+                        objNuevo[5] = a.getSexo();
+                        objNuevo[6] = a.getEdad();
+                        objNuevo[7] = a.getEstadoCivil();
+                        objNuevo[8] = new JLabel(imgi);
+                        modelo.addRow(objNuevo);
+                        Mensaje.MensajeConformidad("PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE");
+                    } catch (HeadlessException | IOException ex) {
+                    }
+
+                }
+               
+            }
+    }
+
+    private void BotonAceptar() {
+        if (lista != null) {
+            Seteo.SeteoPaneles();
+            Hospital_v2.FMR.jDesktopPaneMenu.add(Hospital_v2.FAP);
+            Hospital_v2.FAP.setVisible(true);
+            // para actualizar
+            for (Paciente_DBO a : lista) {
+                cntrlActualizarP.fotoByte = a.getFoto();
+                Hospital_v2.FAP.txtDNI.setEnabled(true);
+                Hospital_v2.FAP.txt_Apellidos.setEnabled(true);
+                Hospital_v2.FAP.txt_Nombres.setEnabled(true);
+                Hospital_v2.FAP.txtDireccion.setEnabled(true);
+                Hospital_v2.FAP.txtTelefono.setEnabled(true);
+
+                Hospital_v2.FAP.Check_Hombre.setEnabled(true);
+                Hospital_v2.FAP.Check_Mujer.setEnabled(true);
+                Hospital_v2.FAP.Check_Soltero.setEnabled(true);
+                Hospital_v2.FAP.Check_Casado.setEnabled(true);
+                Hospital_v2.FAP.Check_Viudo.setEnabled(true);
+                Hospital_v2.FAP.Check_Divorciado.setEnabled(true);
+
+                Hospital_v2.FAP.txtDNI.setText(a.getDNI_Paciente());
+                Hospital_v2.FAP.txt_Apellidos.setText(a.getApellidos());
+                Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
+                Hospital_v2.FAP.txtDireccion.setText(a.getDireccion());
+                Hospital_v2.FAP.Calendar_FechaNac.setDate(a.getFechadeNacimiento());
+                // convertir
+                try {
+                    ImageIcon imgi = null;
+                    if (a.getFoto() != null) {
+                        byte[] bi = a.getFoto();
+                        BufferedImage image;
+                        image = ImageIO.read(new ByteArrayInputStream(bi));
+                        imgi = new ImageIcon(image);
+                    }
+                    Hospital_v2.FAP.FotoPaciente.setIcon(imgi);
+                    Hospital_v2.FAP.txtTelefono.setText(a.getTelefono());
+                } catch (IOException ex) {
+                }
+
+                if ("H".equals(a.getSexo())) {
+                    Hospital_v2.FAP.Check_Hombre.setSelected(true);
+                } else if ("M".equals(a.getSexo())) {
+                    Hospital_v2.FAP.Check_Mujer.setSelected(true);
+                }
+                else switch (a.getEstadoCivil()) {
+                    case "Soltero":
+                        Hospital_v2.FAP.Check_Soltero.setSelected(true);
+                        break;
+                    case "Casado":
+                        Hospital_v2.FAP.Check_Casado.setSelected(true);
+                        break;
+                    case "Viudo":
+                        Hospital_v2.FAP.Check_Viudo.setSelected(true);
+                        break;
+                    case "Divorciado":
+                        Hospital_v2.FAP.Check_Divorciado.setSelected(true);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            BusP.setVisible(false);
+        } else {
+            Mensaje.MensajeError("ERROR: ENVIAR DATOS A LA INTERFAZ", "ERROR");
+        }
+    }
+
+    
     @Override
     public void keyPressed(KeyEvent e) {
 

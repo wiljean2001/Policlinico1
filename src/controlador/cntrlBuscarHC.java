@@ -12,7 +12,7 @@ import Vistas.BuscarHC;
  * @author wil-laptop
  */
 public class cntrlBuscarHC {
-    BuscarHC bhc = new BuscarHC(null, false);
+    BuscarHC bhc;
     public cntrlBuscarHC(BuscarHC bhc){
         
     }

@@ -35,8 +35,10 @@ public class MenuMedicos extends javax.swing.JFrame {
         button_RegistrarPaciente = new RSMaterialComponent.RSButtonMaterialRipple();
         button_ActHC = new RSMaterialComponent.RSButtonMaterialRipple();
         Foto = new rojerusan.RSFotoSquare();
+        buttonCerrarSesion = new javax.swing.JButton();
         rSScrollPane1 = new necesario.RSScrollPane();
         jDesktopPaneMenu = new rojeru_san.rspanel.RSDesktopPane();
+        rSLabelHora1 = new rojeru_san.RSLabelHora();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -186,11 +188,21 @@ public class MenuMedicos extends javax.swing.JFrame {
         Foto.setOpaque(false);
         jPanelIzq.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 170, 150));
 
+        buttonCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/close_pane_50px.png"))); // NOI18N
+        buttonCerrarSesion.setBorder(null);
+        buttonCerrarSesion.setContentAreaFilled(false);
+        jPanelIzq.add(buttonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 770, 60, 50));
+
         jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 830));
 
         rSScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
 
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
+
+        rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+        jDesktopPaneMenu.add(rSLabelHora1);
+        rSLabelHora1.setBounds(0, 0, 130, 40);
+
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 
         jPanel1.add(rSScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(255, 65, 1340, 830));
@@ -256,6 +268,7 @@ public class MenuMedicos extends javax.swing.JFrame {
     public javax.swing.JToggleButton MovButt_Menu;
     public javax.swing.JPanel PanelContenedor;
     public javax.swing.JPanel bttnExtra;
+    public javax.swing.JButton buttonCerrarSesion;
     public RSMaterialComponent.RSButtonMaterialRipple button_ActHC;
     public RSMaterialComponent.RSButtonMaterialRipple button_RegistrarHC;
     public RSMaterialComponent.RSButtonMaterialRipple button_RegistrarPaciente;
@@ -265,6 +278,7 @@ public class MenuMedicos extends javax.swing.JFrame {
     public javax.swing.JPanel jPanelARRIBA;
     public javax.swing.JPanel jPanelIzq;
     public javax.swing.JPanel jPanelIzqArriba;
+    private rojeru_san.RSLabelHora rSLabelHora1;
     public necesario.RSScrollPane rSScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

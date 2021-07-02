@@ -1,5 +1,6 @@
 package controlador;
 
+import Main.Hospital_v2;
 import Vistas.BuscarHC;
 import Vistas.MenuMedicos;
 import Vistas.RegistrarP;
@@ -15,16 +16,14 @@ import rojerusan.RSAnimation;
 
 public class cntrlMenuMedicos implements MouseListener {
 
-    MenuMedicos m = new MenuMedicos();
-    RSMoveWindow a = new RSMoveWindow();
+    private MenuMedicos m;
+    private RSMoveWindow a = new RSMoveWindow();
 
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
-    private JButton button_Reg;
+    private JButton button_Reg, cerrarSesion;
     private JToggleButton bttn_MenuDespl;
     private JDesktopPane DesktopPaneMenu;
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
-    RegistrarP r = null;
-    cntrlRegistrarP cntrlR = null;
     // otros
 
     public cntrlMenuMedicos(MenuMedicos m) {
@@ -45,6 +44,9 @@ public class cntrlMenuMedicos implements MouseListener {
         PanelIzq = m.jPanelIzq;
         PanelIzqArriba = m.jPanelIzqArriba;
 
+        cerrarSesion = m.buttonCerrarSesion;
+        
+        cerrarSesion.addMouseListener(this);
         // Botones----------------- jDesktopPaneMenu
         button_Reg = m.Button_BuscarHC;
         bttn_MenuDespl = m.MovButt_Menu;
@@ -73,6 +75,10 @@ public class cntrlMenuMedicos implements MouseListener {
             r.setVisible(true);
              */
 
+        }
+        if(e.getSource()== cerrarSesion){
+            m.dispose();
+            Hospital_v2.FL.setVisible(true);
         }
 
     }

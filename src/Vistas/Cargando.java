@@ -28,14 +28,9 @@ public class Cargando extends javax.swing.JFrame {
     private void initComponents() {
 
         rSMoveWindow1 = new rojeru_san.complementos.RSMoveWindow();
-        jLabelLoad = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         rSMoveWindow1.setMoveWindow(this);
-
-        jLabelLoad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelLoad.setDoubleBuffered(true);
-        jLabelLoad.setOpaque(true);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -87,7 +82,6 @@ public class Cargando extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    public javax.swing.JLabel jLabelLoad;
     private rojeru_san.complementos.RSMoveWindow rSMoveWindow1;
     // End of variables declaration//GEN-END:variables
 

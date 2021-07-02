@@ -8,7 +8,7 @@ import java.sql.Date;
  * @version 1.0
  * @created 16-jun.-2021 5:43:31
  */
-public class HistoriaClinica {
+public class HistoriaClinica_DBO {
 
     private String CodigoHC;
     private Date FechaCreacion;
@@ -22,7 +22,7 @@ public class HistoriaClinica {
     private String Sueño;
     private String EnfermedadActual;
 
-    public HistoriaClinica(String CodigoHC, Date FechaCreacion, String ConsumeAlcohol, String ConsumeTabaco, String ConsumeDrogas, String ConsumeInfusiones, String Alimentacion, String Diuresis, String Catarsis, String Sueño, String EnfermedadActual) {
+    public HistoriaClinica_DBO(String CodigoHC, Date FechaCreacion, String ConsumeAlcohol, String ConsumeTabaco, String ConsumeDrogas, String ConsumeInfusiones, String Alimentacion, String Diuresis, String Catarsis, String Sueño, String EnfermedadActual) {
         this.CodigoHC = CodigoHC;
         this.FechaCreacion = FechaCreacion;
         this.ConsumeAlcohol = ConsumeAlcohol;

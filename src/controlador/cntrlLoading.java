@@ -1,28 +1,17 @@
 package controlador;
 
+import Main.Hospital_v2;
 import Vistas.Cargando;
-import Vistas.Login;
-import Vistas.MenuMedicos;
-import java.awt.Color;
-import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public class cntrlLoading implements Runnable {
 
-    private JLabel iconoLog;
     private Thread tiempo = null;
-    private Login l = null;
-    private cntrlLogin cntrlL = null;
-    Cargando c = new Cargando();
+    private Cargando c;
 
     public cntrlLoading(Cargando c) {
         this.c = c;
-        l = new Login();
-        iconoLog = c.jLabelLoad;
         c.setLocationRelativeTo(null);
 
         /*ImageIcon imagenicon = new ImageIcon(cntrlLogin.class.getResource("/recursos/cat_loading.gif"));
@@ -39,15 +28,12 @@ public class cntrlLoading implements Runnable {
             try {
                 Thread.sleep(5000);
                 tiempo = null;
+                Hospital_v2.FL.setVisible(true);
                 c.dispose();
-                cntrlL = new cntrlLogin(l);
-                l.setVisible(true);
-                c = null;
             } catch (InterruptedException ex) {
                 Logger.getLogger(Cargando.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
     }
 
 }

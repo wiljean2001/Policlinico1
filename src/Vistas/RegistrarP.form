@@ -19,6 +19,7 @@
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[836, 479]"/>
     </Property>
+    <Property name="opaque" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -54,6 +55,9 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -61,14 +65,8 @@
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="521" max="-2" attributes="0"/>
                       <Component id="txt_Apellidos" max="32767" attributes="0"/>
                       <Component id="txt_Nombres" max="32767" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="txt_DNI" max="32767" attributes="0"/>
-                          <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
-                          <Component id="Calendar_FechaNac" max="32767" attributes="0"/>
-                      </Group>
                       <Component id="txt_Direccion" max="32767" attributes="0"/>
                       <Component id="txt_Telefono" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
@@ -78,6 +76,17 @@
                           <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ButtonLimpiarTodo" min="-2" pref="100" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel1" min="-2" pref="521" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="txt_DNI" min="-2" pref="261" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="Calendar_FechaNac" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
@@ -97,9 +106,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="txt_DNI" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="Calendar_FechaNac" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txt_DNI" pref="40" max="32767" attributes="0"/>
+                              <Component id="Calendar_FechaNac" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace pref="18" max="32767" attributes="0"/>
                           <Component id="txt_Apellidos" min="-2" pref="40" max="-2" attributes="0"/>
@@ -454,7 +463,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="rojeru_san.componentes.RSDateChooser" name="Calendar_FechaNac">
+        <Component class="com.toedter.calendar.JDateChooser" name="Calendar_FechaNac">
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

@@ -2,37 +2,37 @@ package controlador;
 
 import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
+import Interfaces.Mensaje;
+import Interfaces.Seteo;
+import Main.Hospital_v2;
 import Vistas.ActualizarP;
-import Vistas.BuscarPaciente;
-import Vistas.MenuRecep;
 import app.bolivia.swing.JCTextField;
+import com.toedter.calendar.JDateChooser;
+import java.awt.Cursor;
+import java.awt.Dimension;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import rojeru_san.componentes.RSDateChooser;
 import rojerusan.RSLabelImage;
 
 public class cntrlActualizarP implements KeyListener, MouseListener {
 
     private JButton button_ActP, button_Limpiar, button_BuscarPaciente;
-    public JCTextField DNI, apellidos, nombres, Direccion, telefono;
+    private JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
-    public RSDateChooser FechadeNacimiento;
+    private JDateChooser FechadeNacimiento;
     private RSLabelImage Foto;
     private ActualizarP ActP;
     public static byte[] fotoByte = null;
@@ -40,6 +40,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     public cntrlActualizarP(ActualizarP ActP) {
         this.ActP = ActP;
         acciones(ActP);
+        Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
     }
 
     private void acciones(ActualizarP ActP) {
@@ -86,6 +87,10 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
 
     }
 
+    public void Limpiar() {
+        Seteo.SeteoTextField(ActP.jPanel1);
+    }
+
     @Override
     public void mousePressed(MouseEvent e) {
         if (e.getSource() == Foto) {
@@ -96,27 +101,24 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         }
 //
         if (e.getSource() == button_Limpiar) {
-            DNI.setText("");
-            apellidos.setText("");
-            nombres.setText("");
-            Direccion.setText("");
-            telefono.setText("");
+            Limpiar();
         }
         if (e.getSource() == button_BuscarPaciente) {
-            BuscarPaciente buscarP = new BuscarPaciente(new MenuRecep(), false);
-            cntrlBuscarP cntrl_BuscPac = new cntrlBuscarP(buscarP);
-            buscarP.ButtonEnviarPaciente.setVisible(true);
-            buscarP.setVisible(true);
-            ActP.setVisible(false);
-            ActP = null;
+            Seteo.SeteoPaneles();
+            Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
+            Hospital_v2.FBP.setSize(new Dimension(
+                    Hospital_v2.FBP.getWidth(),
+                    Hospital_v2.FBP.getHeight() + Hospital_v2.FBP.ButtonEnviarPaciente.getHeight()));
+            Hospital_v2.FBP.setVisible(true);
+            ActP.dispose();
         }
     }
 
     private void actualizar() {
-        if (DNI.getText().isEmpty() || apellidos.getText().isEmpty() || 
-                nombres.getText().isEmpty() || Direccion.getText().isEmpty() || 
-                FechadeNacimiento.getDatoFecha() == null) {
-            JOptionPane.showMessageDialog(null, "ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS", JOptionPane.OK_OPTION);
+        if (DNI.getText().isEmpty() || apellidos.getText().isEmpty()
+                || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
+                || FechadeNacimiento.getDate() == null) {
+            Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
         } else {
             char Sexo = 0;
             if (SexoH.isSelected()) {
@@ -151,25 +153,24 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 } catch (IOException e) {
                 }
             }
-
             Paciente_DBO pacienteDBO;
             Paciente_DAO pacientedao = new Paciente_DAO();
 
             if (DNI.getText().length() < 8) {
-                JOptionPane.showMessageDialog(null, "DNI CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN", 0);
+                Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN");
             } else {
                 if (telefono.getText().length() < 5) {
-                    JOptionPane.showMessageDialog(null, "TELEFONO CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN", 0);
+                    Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN");
                 } else {
-                    pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDatoFecha(), telefono.getText(), apellidos.getText(), nombres.getText(),
+                    pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDate(), telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte);
                     if (pacientedao.ActualizarPac(pacienteDBO.retornarPac()) != false) {
-                        JOptionPane.showMessageDialog(null, "ACCIÓN COMPLETADA!", "MENSAJE", 1);
+                        Mensaje.MensajeError("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
                     }
 
                 }
-
+                Limpiar();
             }
         }
 

@@ -130,6 +130,7 @@ public class Login extends javax.swing.JFrame {
         txtContr.setBordeColorFocus(new java.awt.Color(93, 139, 124));
         txtContr.setBotonColor(new java.awt.Color(0, 0, 0));
         txtContr.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+        txtContr.setNextFocusableComponent(jButtonIngresar);
         txtContr.setPlaceholder("Password");
 
         txtUSER.setBackground(new java.awt.Color(244, 244, 244));
@@ -139,12 +140,13 @@ public class Login extends javax.swing.JFrame {
         txtUSER.setBotonColor(new java.awt.Color(0, 0, 0));
         txtUSER.setColorTransparente(true);
         txtUSER.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+        txtUSER.setNextFocusableComponent(txtContr);
         txtUSER.setPlaceholder("Usuario");
 
         jButtonIngresar.setBackground(new java.awt.Color(183, 214, 225));
         jButtonIngresar.setBorder(null);
         jButtonIngresar.setText("INGRESAR");
-        jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonIngresar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButtonIngresar.setFocusCycleRoot(true);
         jButtonIngresar.setFont(new java.awt.Font("Roboto Bold", 1, 16)); // NOI18N
 

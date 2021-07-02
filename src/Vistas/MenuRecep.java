@@ -35,9 +35,9 @@ public class MenuRecep extends javax.swing.JFrame {
         button_ActPaciente = new RSMaterialComponent.RSButtonMaterialRipple();
         button_BuscarHC = new RSMaterialComponent.RSButtonMaterialRipple();
         Foto = new rojerusan.RSFotoSquare();
+        buttonCerrarSesion = new javax.swing.JButton();
         rSScrollPane1 = new necesario.RSScrollPane();
-        jDesktopPaneMenu = new rojeru_san.rspanel.RSDesktopPane();
-        jPanel2 = new javax.swing.JPanel();
+        jDesktopPaneMenu = new javax.swing.JDesktopPane();
         rSLabelHora1 = new rojeru_san.RSLabelHora();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -189,31 +189,37 @@ public class MenuRecep extends javax.swing.JFrame {
         Foto.setOpaque(false);
         jPanelIzq.add(Foto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 170, 150));
 
+        buttonCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/close_pane_50px.png"))); // NOI18N
+        buttonCerrarSesion.setBorder(null);
+        buttonCerrarSesion.setContentAreaFilled(false);
+        jPanelIzq.add(buttonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 770, 60, 50));
+
         jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 830));
 
         rSScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         rSScrollPane1.setDoubleBuffered(true);
 
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
-        jDesktopPaneMenu.setDoubleBuffered(true);
+        jDesktopPaneMenu.setForeground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+        jDesktopPaneMenu.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPaneMenuLayout = new javax.swing.GroupLayout(jDesktopPaneMenu);
+        jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
+        jDesktopPaneMenuLayout.setHorizontalGroup(
+            jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneMenuLayout.createSequentialGroup()
+                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1140, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 40, Short.MAX_VALUE)
+        jDesktopPaneMenuLayout.setVerticalGroup(
+            jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPaneMenuLayout.createSequentialGroup()
+                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 790, Short.MAX_VALUE))
         );
-
-        jDesktopPaneMenu.add(jPanel2);
-        jPanel2.setBounds(1140, 0, 200, 40);
-        jDesktopPaneMenu.add(rSLabelHora1);
-        rSLabelHora1.setBounds(0, 0, 130, 40);
 
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 
@@ -267,14 +273,14 @@ public class MenuRecep extends javax.swing.JFrame {
     public javax.swing.JToggleButton MovButt_Menu;
     public javax.swing.JPanel PanelContenedor;
     public javax.swing.JPanel bttnExtra;
+    public javax.swing.JButton buttonCerrarSesion;
     public RSMaterialComponent.RSButtonMaterialRipple button_ActPaciente;
     public RSMaterialComponent.RSButtonMaterialRipple button_BuscarHC;
     public RSMaterialComponent.RSButtonMaterialRipple button_BuscarPaciente;
     public RSMaterialComponent.RSButtonMaterialRipple button_RegPaciente;
-    public rojeru_san.rspanel.RSDesktopPane jDesktopPaneMenu;
+    public javax.swing.JDesktopPane jDesktopPaneMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     public javax.swing.JPanel jPanelARRIBA;
     public javax.swing.JPanel jPanelIzq;
     public javax.swing.JPanel jPanelIzqArriba;
