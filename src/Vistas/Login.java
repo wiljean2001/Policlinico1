@@ -14,6 +14,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         setUndecorated(true);
         setBackground(new Color(0, 0, 0, 10));
+        
         initComponents();
     }
 

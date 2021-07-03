@@ -22,7 +22,7 @@ public class Usuario_DAO {
             ps.setString(2, key2.toString());
             res = ps.executeQuery();
             while (res.next()) {
-                DBOUsuario = new Usuario_DBO(res.getString(1), res.getString(2), res.getString(3), res.getString(4),
+                DBOUsuario = new Usuario_DBO(res.getInt(1), res.getString(2), res.getString(3), res.getString(4),
                             res.getString(5), res.getString(6), res.getBoolean(7), res.getString(8), res.getString(9));
             }
             return DBOUsuario;

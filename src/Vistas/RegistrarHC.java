@@ -34,11 +34,11 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtDNI = new app.bolivia.swing.JCTextField();
-        txt_tarjetaCP = new app.bolivia.swing.JCTextField();
-        txtDireccion = new app.bolivia.swing.JCTextField();
+        txt_NombreApll = new app.bolivia.swing.JCTextField();
+        txt_Direccion = new app.bolivia.swing.JCTextField();
         jPanel3 = new javax.swing.JPanel();
-        Check_Hombre = new RSMaterialComponent.RSCheckBoxMaterial();
-        Check_Mujer = new RSMaterialComponent.RSCheckBoxMaterial();
+        Check_Masculino = new RSMaterialComponent.RSCheckBoxMaterial();
+        Check_Femenino = new RSMaterialComponent.RSCheckBoxMaterial();
         ButtonBuscarP = new rojeru_san.RSButtonRiple();
         ButtonRegistrarHC = new rojeru_san.RSButtonRiple();
         jLabel2 = new javax.swing.JLabel();
@@ -97,45 +97,45 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtDNI.setPlaceholder("DNI:        Ej.  73889322");
 
-        txt_tarjetaCP.setEditable(false);
-        txt_tarjetaCP.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txt_tarjetaCP.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_tarjetaCP.setPlaceholder("APELLIDOS Y NOMBRES:      Ej.  Ayala García Wilmer Jean");
+        txt_NombreApll.setEditable(false);
+        txt_NombreApll.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_NombreApll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_NombreApll.setPlaceholder("APELLIDOS Y NOMBRES:      Ej.  Ayala García Wilmer Jean");
 
-        txtDireccion.setEditable(false);
-        txtDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDireccion.setPlaceholder("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
+        txt_Direccion.setEditable(false);
+        txt_Direccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_Direccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_Direccion.setPlaceholder("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
 
-        Check_Hombre.setText("MASCULINO");
-        Check_Hombre.setEnabled(false);
-        Check_Hombre.setIsEffectRipple(false);
-        Check_Hombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        Check_Masculino.setText("MASCULINO");
+        Check_Masculino.setEnabled(false);
+        Check_Masculino.setIsEffectRipple(false);
+        Check_Masculino.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
-        Check_Mujer.setText("FEMENINO");
-        Check_Mujer.setEnabled(false);
-        Check_Mujer.setIsEffectRipple(false);
-        Check_Mujer.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        Check_Femenino.setText("FEMENINO");
+        Check_Femenino.setEnabled(false);
+        Check_Femenino.setIsEffectRipple(false);
+        Check_Femenino.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(Check_Hombre, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Check_Masculino, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Check_Mujer, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                .addComponent(Check_Femenino, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Check_Hombre, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Check_Mujer, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Check_Masculino, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Check_Femenino, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -147,7 +147,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         ButtonRegistrarHC.setBorder(null);
         ButtonRegistrarHC.setText("REGISTRAR H.C.");
         ButtonRegistrarHC.setToolTipText("Click para guardar paciente");
-        ButtonRegistrarHC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonRegistrarHC.setEnabled(false);
 
         jLabel2.setText("DNI:");
 
@@ -156,6 +156,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         jLabel4.setText("DIRECCIÓN:");
 
         Foto_Paciente.setBorder(null);
+        Foto_Paciente.setColorBorde(new java.awt.Color(255, 255, 255));
+        Foto_Paciente.setEnabled(false);
         Foto_Paciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("ANAMNESIS"));
@@ -170,12 +172,14 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
 
         Group1.add(Check_Alcoholsi);
         Check_Alcoholsi.setText("SÍ");
+        Check_Alcoholsi.setEnabled(false);
         Check_Alcoholsi.setIsEffectRipple(false);
         Check_Alcoholsi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group1.add(Check_Alcoholno);
         Check_Alcoholno.setSelected(true);
         Check_Alcoholno.setText("NO");
+        Check_Alcoholno.setEnabled(false);
         Check_Alcoholno.setIsEffectRipple(false);
         Check_Alcoholno.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -196,6 +200,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         );
 
         txtalcohol.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtalcohol.setEnabled(false);
         txtalcohol.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtalcohol.setPlaceholder("Descripción:");
 
@@ -205,12 +210,14 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         Group2.add(Check_Tabacosi);
         Check_Tabacosi.setText("SÍ");
         Check_Tabacosi.setToolTipText("");
+        Check_Tabacosi.setEnabled(false);
         Check_Tabacosi.setIsEffectRipple(false);
         Check_Tabacosi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group2.add(Check_Tabacono);
         Check_Tabacono.setSelected(true);
         Check_Tabacono.setText("NO");
+        Check_Tabacono.setEnabled(false);
         Check_Tabacono.setIsEffectRipple(false);
         Check_Tabacono.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -231,10 +238,12 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         );
 
         txttabaco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txttabaco.setEnabled(false);
         txttabaco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txttabaco.setPlaceholder("Descripción:");
 
         txtinfuciones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtinfuciones.setEnabled(false);
         txtinfuciones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtinfuciones.setPlaceholder("Descripción:");
 
@@ -244,12 +253,14 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         Group3.add(Check_Drogassi);
         Check_Drogassi.setText("SÍ");
         Check_Drogassi.setToolTipText("");
+        Check_Drogassi.setEnabled(false);
         Check_Drogassi.setIsEffectRipple(false);
         Check_Drogassi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group3.add(Check_Drogasno);
         Check_Drogasno.setSelected(true);
         Check_Drogasno.setText("NO");
+        Check_Drogasno.setEnabled(false);
         Check_Drogasno.setIsEffectRipple(false);
         Check_Drogasno.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -275,12 +286,14 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         Group4.add(Check_infucionessi);
         Check_infucionessi.setText("SÍ");
         Check_infucionessi.setToolTipText("");
+        Check_infucionessi.setEnabled(false);
         Check_infucionessi.setIsEffectRipple(false);
         Check_infucionessi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group4.add(Check_infucionesno);
         Check_infucionesno.setSelected(true);
         Check_infucionesno.setText("NO");
+        Check_infucionesno.setEnabled(false);
         Check_infucionesno.setIsEffectRipple(false);
         Check_infucionesno.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
@@ -301,6 +314,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         );
 
         txtdrogas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtdrogas.setEnabled(false);
         txtdrogas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtdrogas.setPlaceholder("Descripción:");
 
@@ -353,16 +367,19 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         jLabel5.setText("Qué tipo de alimentación consume:");
 
         txt_alimentacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_alimentacion.setEnabled(false);
         txt_alimentacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_alimentacion.setPlaceholder("Escribir aquí...");
 
         jLabel6.setText("Diuresis:");
 
         txt_diuresis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_diuresis.setEnabled(false);
         txt_diuresis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_diuresis.setPlaceholder("Escribir aquí...");
 
         txt_catarsis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_catarsis.setEnabled(false);
         txt_catarsis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_catarsis.setPlaceholder("Escribir aquí...");
 
@@ -371,10 +388,12 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         jLabel8.setText("Sueño:");
 
         txt_sueño.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_sueño.setEnabled(false);
         txt_sueño.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_sueño.setPlaceholder("Escribir aquí...");
 
         txt_enfermedad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txt_enfermedad.setEnabled(false);
         txt_enfermedad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_enfermedad.setPlaceholder("Escribir aquí...");
 
@@ -457,8 +476,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel11)
                                     .addComponent(lbl_fecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addComponent(txt_tarjetaCP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_NombreApll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txt_Direccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -488,7 +507,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Foto_Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
@@ -502,13 +520,14 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txt_tarjetaCP, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel3))
+                            .addComponent(Foto_Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_NombreApll, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
@@ -523,7 +542,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(11, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -545,8 +564,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
     public RSMaterialComponent.RSCheckBoxMaterial Check_Alcoholsi;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Drogasno;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Drogassi;
-    public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre;
-    public RSMaterialComponent.RSCheckBoxMaterial Check_Mujer;
+    public RSMaterialComponent.RSCheckBoxMaterial Check_Femenino;
+    public RSMaterialComponent.RSCheckBoxMaterial Check_Masculino;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Tabacono;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Tabacosi;
     public RSMaterialComponent.RSCheckBoxMaterial Check_infucionesno;
@@ -578,16 +597,16 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lbl_codigo;
-    private javax.swing.JLabel lbl_fecha;
+    public javax.swing.JLabel lbl_codigo;
+    public javax.swing.JLabel lbl_fecha;
     public app.bolivia.swing.JCTextField txtDNI;
-    public app.bolivia.swing.JCTextField txtDireccion;
+    public app.bolivia.swing.JCTextField txt_Direccion;
+    public app.bolivia.swing.JCTextField txt_NombreApll;
     public app.bolivia.swing.JCTextField txt_alimentacion;
     public app.bolivia.swing.JCTextField txt_catarsis;
     public app.bolivia.swing.JCTextField txt_diuresis;
     public app.bolivia.swing.JCTextField txt_enfermedad;
     public app.bolivia.swing.JCTextField txt_sueño;
-    public app.bolivia.swing.JCTextField txt_tarjetaCP;
     public app.bolivia.swing.JCTextField txtalcohol;
     public app.bolivia.swing.JCTextField txtdrogas;
     public app.bolivia.swing.JCTextField txtinfuciones;

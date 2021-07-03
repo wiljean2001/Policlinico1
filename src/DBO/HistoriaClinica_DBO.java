@@ -1,7 +1,7 @@
 package DBO;
 
 //import controlador.Recepcionista;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @author Se_Perdio_Mi_Cuenta
@@ -22,7 +22,10 @@ public class HistoriaClinica_DBO {
     private String Sueño;
     private String EnfermedadActual;
 
-    public HistoriaClinica_DBO(String CodigoHC, Date FechaCreacion, String ConsumeAlcohol, String ConsumeTabaco, String ConsumeDrogas, String ConsumeInfusiones, String Alimentacion, String Diuresis, String Catarsis, String Sueño, String EnfermedadActual) {
+    public HistoriaClinica_DBO(String CodigoHC, Date FechaCreacion, String ConsumeAlcohol, 
+            String ConsumeTabaco, String ConsumeDrogas, String ConsumeInfusiones, String Alimentacion,
+            String Diuresis, String Catarsis, String Sueño, String EnfermedadActual) {
+        
         this.CodigoHC = CodigoHC;
         this.FechaCreacion = FechaCreacion;
         this.ConsumeAlcohol = ConsumeAlcohol;

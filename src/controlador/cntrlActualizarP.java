@@ -104,13 +104,15 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             Limpiar();
         }
         if (e.getSource() == button_BuscarPaciente) {
-            Seteo.SeteoPaneles();
+            Limpiar();
+            Hospital_v2.cBP.limpiar();
+             ActP.dispose();
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
             Hospital_v2.FBP.setSize(new Dimension(
                     Hospital_v2.FBP.getWidth(),
                     Hospital_v2.FBP.getHeight() + Hospital_v2.FBP.ButtonEnviarPaciente.getHeight()));
             Hospital_v2.FBP.setVisible(true);
-            ActP.dispose();
+           
         }
     }
 

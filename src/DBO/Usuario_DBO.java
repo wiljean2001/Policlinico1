@@ -2,14 +2,15 @@ package DBO;
 
 public class Usuario_DBO {
 
-    private String IDMedico, DNI, Apellidos, Nombres, Genero, Especialidad;
+    public static int IDMedico;
+    private String DNI, Apellidos, Nombres, Genero, Especialidad;
     private boolean Perfil;
     private String Usuario;
     private String Comtraseña;
 
-    public Usuario_DBO(String IDMedico, String DNI, String Apellidos, String Nombres,
+    public Usuario_DBO(int IDMedico, String DNI, String Apellidos, String Nombres,
             String Genero, String Especialidad, boolean Perfil, String Usuario, String Comtraseña) {
-        this.IDMedico = IDMedico;
+        Usuario_DBO.IDMedico = IDMedico;
         this.DNI = DNI;
         this.Apellidos = Apellidos;
         this.Nombres = Nombres;
@@ -24,16 +25,7 @@ public class Usuario_DBO {
         this.Usuario = Usuario;
         this.Comtraseña = Comtraseña;
     }
-    
-
-    public String getIDMedico() {
-        return IDMedico;
-    }
-
-    public void setIDMedico(String IDMedico) {
-        this.IDMedico = IDMedico;
-    }
-
+   
     public String getDNI() {
         return DNI;
     }
