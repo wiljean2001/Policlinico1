@@ -76,6 +76,7 @@ public class cntrlMenuMedicos implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         Seteo.SeteoPaneles();
         if (e.getSource() == buttonBuscarHC) {
+            Hospital_v2.FBHC.ButtonEnviarHC.setVisible(false);
             Hospital_v2.FBHC.setVisible(true);
         }
         if (e.getSource() == button_RegHC) {
@@ -87,6 +88,7 @@ public class cntrlMenuMedicos implements MouseListener {
             Hospital_v2.FAHC.setVisible(true);
         }
         if (e.getSource() == buttonBuscarPaciente) {
+            Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(false);
             Hospital_v2.FBP.setVisible(true);
         }
         

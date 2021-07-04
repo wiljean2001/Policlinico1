@@ -1,18 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controlador;
 
 import DAO.HistorialClinico_DAO;
 import DBO.HistoriaClinica_DBO;
-import DBO.Usuario_DBO;
 import Interfaces.Mensaje;
 import Main.Hospital_v2;
 import Vistas.RegistrarHC;
 import app.bolivia.swing.JCTextField;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -25,7 +18,7 @@ import rojeru_san.RSButtonRiple;
 
 public class cntrlRegistrarHC implements ActionListener, KeyListener {
 
-    private RSButtonRiple buttonBuscarP, buttonRegistrarHC;
+    private RSButtonRiple buttonBuscarHC, buttonRegistrarHC;
     //copiar
     private JCTextField Alcohol_des, Tabaco_des, Drogas_des, Infuciones_des,
             Alimentacion, Diuresis, Catarsis, Sueño, Enfermedad, DNI;
@@ -36,7 +29,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     String CodigoGenerado;
 
     private JLabel txtCodigoHC;
-    String DateFormato = "hh//mm//ss a dd//MMM//aaaa";
+    String DateFormato = "hh//mm//ss a dd//MMM//YYYY";
     SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
 
     public cntrlRegistrarHC(RegistrarHC rHC) {
@@ -80,30 +73,62 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         Infuciones_si = rHC.Check_infucionessi;
         Infuciones_no = rHC.Check_infucionesno;
 
+        Alcohol_si.addActionListener(this);
+        Alcohol_no.addActionListener(this);
+        Tabaco_si.addActionListener(this);
+        Tabaco_no.addActionListener(this);
+        Drogras_si.addActionListener(this);
+        Drogas_no.addActionListener(this);
+        Infuciones_si.addActionListener(this);
+        Infuciones_no.addActionListener(this);
+
         //botones
-        buttonBuscarP = rHC.ButtonBuscarP;
+        buttonBuscarHC = rHC.ButtonBuscarP;
         buttonRegistrarHC = rHC.ButtonRegistrarHC;
 
-        buttonBuscarP.addActionListener(this);
+        buttonBuscarHC.addActionListener(this);
         buttonRegistrarHC.addActionListener(this);
     }
 
     private void bottonRegistrarHC() {
 
     }
-
+    private int codigo=0;
     private String GenerarCodHC() {
-
-        return "CodigoGenerado";
+        String ceros = "00";
+        codigo+=1;
+        if(codigo==10){
+            if(codigo==100){
+                return "WA"+ codigo;
+            }else{
+                
+                return "WA" + ceros.substring(0) + "" + codigo;
+            }
+        }else{
+            return "WA"+ceros+""+codigo;
+        }
     }
+
+    private boolean validateAll() {
+        if (Alcohol_no.isSelected() || Alcohol_si.isSelected()) {
+            if (Tabaco_si.isSelected() || Tabaco_no.isSelected()) {
+                if (Drogras_si.isSelected() || Drogas_no.isSelected()) {
+                    if (Infuciones_si.isSelected() || Infuciones_no.isSelected()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    ///                 VUELVO EN 30 MINUTS
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // Registrar HC
         if (e.getSource() == buttonRegistrarHC) {
-            if (Alcohol_des.getText().isEmpty() || Tabaco_des.getText().isEmpty()
-                    || Drogas_des.getText().isEmpty() || Infuciones_des.getText().isEmpty()
-                    || Alimentacion.getText().isEmpty() || Diuresis.getText().isEmpty()
+
+            if (validateAll() == false || Alimentacion.getText().isEmpty() || Diuresis.getText().isEmpty()
                     || Catarsis.getText().isEmpty() || Sueño.getText().isEmpty() || Enfermedad.getText().isEmpty()) {
 
                 Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
@@ -116,7 +141,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                     ConsumeAlcohol = Alcohol_no.getText() + " " + Alcohol_des.getText();
                 }
                 String ConsumeTabaco = "";
-                if (Alcohol_si.isSelected()) {
+                if (Tabaco_si.isSelected()) {
                     ConsumeTabaco = Tabaco_si.getText() + " " + Tabaco_des.getText();
                 } else {
                     ConsumeTabaco = Tabaco_no.getText() + " " + Tabaco_des.getText();
@@ -140,20 +165,66 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                         Sueño.getText(), Enfermedad.getText());
 
                 HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
-                daoHC.RegistrarPac(historialDBO, DNI.getText(), Usuario_DBO.IDMedico);
-
-                Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
+                daoHC.RegistrarHC(historialDBO, DNI.getText());
             }
         }
-        if (e.getSource() == buttonBuscarP) {
+        if (e.getSource() == buttonBuscarHC) {
+            Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
+            
             Hospital_v2.cBP.ventanaAnterior = 1;
             Hospital_v2.FRHC.setVisible(false);
             Hospital_v2.FBP.setVisible(true);
 
-
             CodigoGenerado = GenerarCodHC();
             txtCodigoHC.setText(CodigoGenerado);
         }
+
+        if (e.getSource() == Alcohol_no) {
+            if (Alcohol_des.isEditable()) {
+                Alcohol_des.setEditable(false);
+                Alcohol_des.setText("");
+            }
+        }
+        if (e.getSource() == Tabaco_no) {
+            if (Tabaco_des.isEditable()) {
+                Tabaco_des.setEditable(false);
+                Tabaco_des.setText("");
+            }
+        }
+        if (e.getSource() == Drogas_no) {
+            if (Drogas_des.isEditable()) {
+                Drogas_des.setEditable(false);
+                Drogas_des.setText("");
+            }
+        }
+        if (e.getSource() == Infuciones_no) {
+            if (Infuciones_des.isEditable()) {
+                Infuciones_des.setEditable(false);
+                Infuciones_des.setText("");
+            }
+        }
+        if (e.getSource() == Alcohol_si) {
+            if (!Alcohol_des.isEditable()) {
+                Alcohol_des.setEditable(true);
+                Alcohol_des.setText("");
+            }
+        }
+        if (e.getSource() == Tabaco_si) {
+            if (!Tabaco_des.isEditable()) {
+                Tabaco_des.setEditable(true);
+            }
+        }
+        if (e.getSource() == Drogras_si) {
+            if (!Drogas_des.isEditable()) {
+                Drogas_des.setEditable(true);
+            }
+        }
+        if (e.getSource() == Infuciones_si) {
+            if (!Infuciones_des.isEditable()) {
+                Infuciones_des.setEditable(true);
+            }
+        }
+
     }
 
     @Override

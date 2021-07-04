@@ -31,9 +31,9 @@ public class Login extends javax.swing.JFrame {
         rSPanelBorderGradient1 = new RSMaterialComponent.RSPanelBorderGradient();
         jLaberIcon = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        BuscarNav = new javax.swing.JButton();
+        BuscarFacebook = new javax.swing.JButton();
+        BuscarInstag = new javax.swing.JButton();
         rSPanelBorderGradient2 = new RSMaterialComponent.RSPanelBorderGradient();
         rSPanelVector1 = new rojeru_san.rspanel.RSPanelVector();
         txtContr = new rojeru_san.RSMPassView();
@@ -67,17 +67,20 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel4.setText("POLICLÍNICO FLORES S.A.C.");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/globe_45px.png"))); // NOI18N
-        jButton1.setBorder(null);
-        jButton1.setContentAreaFilled(false);
+        BuscarNav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/globe_45px.png"))); // NOI18N
+        BuscarNav.setBorder(null);
+        BuscarNav.setContentAreaFilled(false);
+        BuscarNav.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/facebook_45px.png"))); // NOI18N
-        jButton2.setBorder(null);
-        jButton2.setContentAreaFilled(false);
+        BuscarFacebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/facebook_45px.png"))); // NOI18N
+        BuscarFacebook.setBorder(null);
+        BuscarFacebook.setContentAreaFilled(false);
+        BuscarFacebook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/instagram_45px.png"))); // NOI18N
-        jButton3.setBorder(null);
-        jButton3.setContentAreaFilled(false);
+        BuscarInstag.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/instagram_45px.png"))); // NOI18N
+        BuscarInstag.setBorder(null);
+        BuscarInstag.setContentAreaFilled(false);
+        BuscarInstag.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout rSPanelBorderGradient1Layout = new javax.swing.GroupLayout(rSPanelBorderGradient1);
         rSPanelBorderGradient1.setLayout(rSPanelBorderGradient1Layout);
@@ -89,11 +92,11 @@ public class Login extends javax.swing.JFrame {
                 .addGap(62, 62, 62))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, rSPanelBorderGradient1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BuscarNav, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BuscarInstag, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BuscarFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
             .addGroup(rSPanelBorderGradient1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
@@ -109,9 +112,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLaberIcon, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                 .addGap(51, 51, 51)
                 .addGroup(rSPanelBorderGradient1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(BuscarNav, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarFacebook, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BuscarInstag, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -285,10 +288,10 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton BuscarFacebook;
+    public javax.swing.JButton BuscarInstag;
+    public javax.swing.JButton BuscarNav;
     public javax.swing.JButton botton_Close;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     public rojeru_san.RSButtonRiple jButtonIngresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

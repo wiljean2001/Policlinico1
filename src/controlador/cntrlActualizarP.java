@@ -167,7 +167,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                     pacienteDBO = new Paciente_DBO(DNI.getText(), FechadeNacimiento.getDate(), telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte);
                     if (pacientedao.ActualizarPac(pacienteDBO.retornarPac()) != false) {
-                        Mensaje.MensajeError("ACCIÓN COMPLETADA!", "MENSAJE");
+                        Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
                     }
 

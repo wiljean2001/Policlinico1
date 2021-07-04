@@ -58,8 +58,11 @@ public class BuscarHC extends javax.swing.JDialog {
         ButtonBuscarHC.setToolTipText("Click para guardar paciente");
         ButtonBuscarHC.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        TextArea_HistorialClinico.setEditable(false);
         TextArea_HistorialClinico.setColumns(20);
+        TextArea_HistorialClinico.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         TextArea_HistorialClinico.setRows(5);
+        TextArea_HistorialClinico.setText("dadadada");
         jScrollPane1.setViewportView(TextArea_HistorialClinico);
 
         ButtonEnviarHC.setBorder(null);

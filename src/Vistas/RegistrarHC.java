@@ -95,17 +95,14 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         txtDNI.setEditable(false);
         txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDNI.setPlaceholder("DNI:        Ej.  73889322");
 
         txt_NombreApll.setEditable(false);
         txt_NombreApll.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_NombreApll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_NombreApll.setPlaceholder("APELLIDOS Y NOMBRES:      Ej.  Ayala García Wilmer Jean");
 
         txt_Direccion.setEditable(false);
         txt_Direccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Direccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_Direccion.setPlaceholder("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
@@ -172,7 +169,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         Check_Alcoholsi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group1.add(Check_Alcoholno);
-        Check_Alcoholno.setSelected(true);
         Check_Alcoholno.setText("NO");
         Check_Alcoholno.setEnabled(false);
         Check_Alcoholno.setIsEffectRipple(false);
@@ -210,7 +206,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         Check_Tabacosi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group2.add(Check_Tabacono);
-        Check_Tabacono.setSelected(true);
         Check_Tabacono.setText("NO");
         Check_Tabacono.setEnabled(false);
         Check_Tabacono.setIsEffectRipple(false);
@@ -253,7 +248,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         Check_Drogassi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group3.add(Check_Drogasno);
-        Check_Drogasno.setSelected(true);
         Check_Drogasno.setText("NO");
         Check_Drogasno.setEnabled(false);
         Check_Drogasno.setIsEffectRipple(false);
@@ -286,7 +280,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         Check_infucionessi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Group4.add(Check_infucionesno);
-        Check_infucionesno.setSelected(true);
         Check_infucionesno.setText("NO");
         Check_infucionesno.setEnabled(false);
         Check_infucionesno.setIsEffectRipple(false);
@@ -484,7 +477,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                         .addComponent(FOTO, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ButtonBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                         .addComponent(ButtonRegistrarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -537,9 +530,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 12, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -3,6 +3,7 @@ package DAO;
 import DBO.HistoriaClinica_DBO;
 import DBO.Paciente_DBO;
 import Interfaces.Mensaje;
+import Main.Hospital_v2;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -116,10 +117,14 @@ public class Paciente_DAO {
             while (res.next()) {
 
                 if (res.getString(1) != null) {
-
+                    Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(false);
                     Mensaje.MensajeError("El Historial clínico ya existe", "HC EXISTENTE");
+                } else {
+                    Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
 
+                    Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                 }
+
             }
             lista = BuscarPac(key);
             return lista;

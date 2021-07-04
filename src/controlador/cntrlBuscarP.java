@@ -110,6 +110,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
             Paciente_DAO paciente_DAO = new Paciente_DAO();
             // VUELVO
             lista = paciente_DAO.BuscarPac(DNI.getText());
+            limpiar();
             if (lista.isEmpty()) {
                 Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
             }
@@ -149,6 +150,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
             Paciente_DAO paciente_DAO = new Paciente_DAO();
             // VUELVO
             lista = paciente_DAO.BuscarHC(DNI.getText());
+            limpiar();
             if (lista.isEmpty()) {
                 Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
             }
@@ -189,19 +191,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 // para actualizar
                 for (Paciente_DBO a : lista) {
                     cntrlActualizarP.fotoByte = a.getFoto();
-                    Hospital_v2.FAP.txtDNI.setEnabled(true);
-                    Hospital_v2.FAP.txt_Apellidos.setEnabled(true);
-                    Hospital_v2.FAP.txt_Nombres.setEnabled(true);
-                    Hospital_v2.FAP.txtDireccion.setEnabled(true);
-                    Hospital_v2.FAP.txtTelefono.setEnabled(true);
-
-                    Hospital_v2.FAP.Check_Hombre.setEnabled(true);
-                    Hospital_v2.FAP.Check_Mujer.setEnabled(true);
-                    Hospital_v2.FAP.Check_Soltero.setEnabled(true);
-                    Hospital_v2.FAP.Check_Casado.setEnabled(true);
-                    Hospital_v2.FAP.Check_Viudo.setEnabled(true);
-                    Hospital_v2.FAP.Check_Divorciado.setEnabled(true);
-                    Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
 
                     Hospital_v2.FAP.txtDNI.setText(a.getDNI_Paciente());
                     Hospital_v2.FAP.txt_Apellidos.setText(a.getApellidos());
@@ -216,38 +205,59 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             BufferedImage image;
                             image = ImageIO.read(new ByteArrayInputStream(bi));
                             imgi = new ImageIcon(image);
+                            Hospital_v2.FAP.FotoPaciente.setIcon(imgi);
                         }
-                        Hospital_v2.FAP.FotoPaciente.setIcon(imgi);
                         Hospital_v2.FAP.txtTelefono.setText(a.getTelefono());
                     } catch (IOException ex) {
                     }
 
-                    if ("H".equals(a.getSexo())) {
+                    if ("M".equals(String.valueOf(a.getSexo()))) {
+                        Mensaje.Mensaje(String.valueOf(a.getSexo()));
                         Hospital_v2.FAP.Check_Hombre.setSelected(true);
-                    } else if ("M".equals(a.getSexo())) {
+                        Hospital_v2.FAP.Check_Mujer.setSelected(false);
+                    }
+                    if ("F".equals(String.valueOf(a.getSexo()))) {
                         Hospital_v2.FAP.Check_Mujer.setSelected(true);
-                    } else {
-                        switch (a.getEstadoCivil()) {
-                            case "Soltero":
-                                Hospital_v2.FAP.Check_Soltero.setSelected(true);
-                                break;
-                            case "Casado":
-                                Hospital_v2.FAP.Check_Casado.setSelected(true);
-                                break;
-                            case "Viudo":
-                                Hospital_v2.FAP.Check_Viudo.setSelected(true);
-                                break;
-                            case "Divorciado":
-                                Hospital_v2.FAP.Check_Divorciado.setSelected(true);
-                                break;
-                            default:
-                                break;
-                        }
+                        Hospital_v2.FAP.Check_Hombre.setSelected(false);
+                    }
+                    switch (a.getEstadoCivil()) {
+                        case "Soltero":
+                            Hospital_v2.FAP.Check_Soltero.setSelected(true);
+                            break;
+                        case "Casado":
+                            Hospital_v2.FAP.Check_Casado.setSelected(true);
+                            break;
+                        case "Viudo":
+                            Hospital_v2.FAP.Check_Viudo.setSelected(true);
+                            break;
+                        case "Divorciado":
+                            Hospital_v2.FAP.Check_Divorciado.setSelected(true);
+                            break;
+                        default:
+                            Hospital_v2.FAP.Check_Soltero.setSelected(false);
+                            Hospital_v2.FAP.Check_Casado.setSelected(false);
+                            Hospital_v2.FAP.Check_Viudo.setSelected(false);
+                            Hospital_v2.FAP.Check_Divorciado.setSelected(false);
+                            break;
                     }
                 }
-                BusP.setVisible(false);
-            }
 
+                Hospital_v2.FAP.txtDNI.setEnabled(true);
+                Hospital_v2.FAP.txt_Apellidos.setEnabled(true);
+                Hospital_v2.FAP.txt_Nombres.setEnabled(true);
+                Hospital_v2.FAP.txtDireccion.setEnabled(true);
+                Hospital_v2.FAP.txtTelefono.setEnabled(true);
+
+                Hospital_v2.FAP.Check_Hombre.setEnabled(true);
+                Hospital_v2.FAP.Check_Mujer.setEnabled(true);
+                Hospital_v2.FAP.Check_Soltero.setEnabled(true);
+                Hospital_v2.FAP.Check_Casado.setEnabled(true);
+                Hospital_v2.FAP.Check_Viudo.setEnabled(true);
+                Hospital_v2.FAP.Check_Divorciado.setEnabled(true);
+                Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
+
+            }
+            BusP.setVisible(false);
         } else {
             Mensaje.MensajeError("ERROR: ENVIAR DATOS A LA INTERFAZ", "ERROR");
         }
@@ -261,12 +271,13 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 Hospital_v2.FMM.jDesktopPaneMenu.add(Hospital_v2.FRHC);
                 Hospital_v2.FRHC.setVisible(true);
                 Hospital_v2.FBP.setVisible(false);
+                Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
                 // para actualizar
                 for (Paciente_DBO a : lista) {
                     Hospital_v2.FRHC.txtDNI.setText(a.getDNI_Paciente());
                     Hospital_v2.FRHC.txt_NombreApll.setText(a.getApellidos() + " " + a.getNombres());
                     Hospital_v2.FRHC.txt_Direccion.setText(a.getDireccion());
-                    
+
                     try {
                         ImageIcon imgi = null;
                         if (a.getFoto() != null) {
@@ -278,14 +289,33 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         }
                     } catch (IOException ex) {
                     }
-                    
+
                     if ("M".equals(a.getSexo())) {
                         Hospital_v2.FRHC.Check_Femenino.setSelected(true);
 
                     } else {
                         Hospital_v2.FRHC.Check_Masculino.setSelected(true);
                     }
-                    
+
+                    Hospital_v2.FRHC.ButtonRegistrarHC.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Tabacono.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Tabacosi.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Alcoholno.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Alcoholsi.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Drogasno.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Drogassi.setEnabled(true);
+                    Hospital_v2.FRHC.Check_infucionesno.setEnabled(true);
+                    Hospital_v2.FRHC.Check_infucionessi.setEnabled(true);
+                    Hospital_v2.FRHC.txttabaco.setEnabled(true);
+                    Hospital_v2.FRHC.txtinfuciones.setEnabled(true);
+                    Hospital_v2.FRHC.txtdrogas.setEnabled(true);
+                    Hospital_v2.FRHC.txtalcohol.setEnabled(true);
+                    Hospital_v2.FRHC.txt_alimentacion.setEnabled(true);
+                    Hospital_v2.FRHC.txt_catarsis.setEnabled(true);
+                    Hospital_v2.FRHC.txt_diuresis.setEnabled(true);
+                    Hospital_v2.FRHC.txt_enfermedad.setEnabled(true);
+                    Hospital_v2.FRHC.txt_sueño.setEnabled(true);
+
                 }
             }
         }
