@@ -38,6 +38,20 @@ public class HistoriaClinica_DBO {
         this.Sueño = Sueño;
         this.EnfermedadActual = EnfermedadActual;
     }
+    public HistoriaClinica_DBO(String ConsumeAlcohol, 
+            String ConsumeTabaco, String ConsumeDrogas, String ConsumeInfusiones, String Alimentacion,
+            String Diuresis, String Catarsis, String Sueño, String EnfermedadActual) {
+        
+        this.ConsumeAlcohol = ConsumeAlcohol;
+        this.ConsumeTabaco = ConsumeTabaco;
+        this.ConsumeDrogas = ConsumeDrogas;
+        this.ConsumeInfusiones = ConsumeInfusiones;
+        this.Alimentacion = Alimentacion;
+        this.Diuresis = Diuresis;
+        this.Catarsis = Catarsis;
+        this.Sueño = Sueño;
+        this.EnfermedadActual = EnfermedadActual;
+    }
 
     public String getCodigoHC() {
         return CodigoHC;

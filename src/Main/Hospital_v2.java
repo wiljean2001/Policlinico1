@@ -59,7 +59,7 @@ public class Hospital_v2 {
         FRHC = new RegistrarHC();
         FRP = new RegistrarP();
         //creamos los controlodores para manipular los formularios
-        cAHC = new cntrlActualizarHC();
+        cAHC = new cntrlActualizarHC(FAHC);
         cAP = new cntrlActualizarP(FAP);
         cBHC = new cntrlBuscarHC(FBHC);
         cBP = new cntrlBuscarP(FBP);

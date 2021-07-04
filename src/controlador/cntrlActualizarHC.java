@@ -30,7 +30,7 @@ public class cntrlActualizarHC implements KeyListener, MouseListener, ActionList
     private RSButtonRiple buttonBuscarP, buttonRegistrarHC;
     //copiar
     private JCTextField Alcohol_des, Tabaco_des, Drogas_des, Infuciones_des,
-            Alimentacion, Diuresis, Catarsis, Sueño, Enfermedad, DNI;
+            Alimentacion, Diuresis, Catarsis, Sueño, Enfermedad, CodigoAct;
     private JCheckBox Alcohol_si, Alcohol_no, Tabaco_si, Tabaco_no, Drogras_si,
             Drogas_no, Infuciones_si, Infuciones_no;
     HistoriaClinica_DBO historialDBO;
@@ -43,6 +43,7 @@ public class cntrlActualizarHC implements KeyListener, MouseListener, ActionList
     }
     private void acciones(ActualizarHC ActHC) {
 
+        CodigoAct = ActHC.txtDN;
         Alcohol_des = ActHC.txtalcohol;
         Tabaco_des = ActHC.txttabaco;
         Drogas_des = ActHC.txtdrogas;
@@ -118,12 +119,12 @@ public class cntrlActualizarHC implements KeyListener, MouseListener, ActionList
                 }
 
                 historialDBO = new HistoriaClinica_DBO(
-                        CodigoGenerado, fecha, ConsumeAlcohol, ConsumeTabaco, ConsumeDrogas,
+                        ConsumeAlcohol, ConsumeTabaco, ConsumeDrogas,
                         ConsumeInfusiones, Alimentacion.getText(), Diuresis.getText(), Catarsis.getText(),
                         Sueño.getText(), Enfermedad.getText());
 
                 HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
-                daoHC.ActualizarHC(historialDBO, DNI.getText(), Usuario_DBO.IDMedico);
+                daoHC.ActualizarPac(historialDBO);
 
                 Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
             }

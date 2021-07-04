@@ -8,14 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 public class HistorialClinico_DAO {
 
     private static final String INSERT_SQL = "INSERT INTO HistorialClinico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_SQL = "UPDATE HistorialClinico SET DNI =?, Fecha_Nacimiento=?, Telefono=?,"
             + "Apellido=?, Nombre=?, Dirección=?, Sexo=?, Edad=?, EstadoCivil=?, Foto=? WHERE DNI =? ";
-    private static final String BUSCAR_SQL = "SELECT * FROM HistorialClinico HC join Paciente P On P.DNI = HC.DNI"
-                                            + "WHERE P.DNI=? or HC.CodigoHC =?";
+    private static final String BUSCAR_SQL = "select * FROM HistorialClinico HC ? Paciente p On p.DNI = HC.DNI where p.DNI=? or HC.CodigoHC=?";
+
     //private static final String READ_ALL_SQL = "SELECT * FROM RegistroPac";
     private static final conexion con = conexion.SaberEstado();
 
@@ -24,7 +25,7 @@ public class HistorialClinico_DAO {
         PreparedStatement PS;
         try {
             PS = con.getCnn().prepareStatement(INSERT_SQL);
-            
+
             PS.setString(1, x.getCodigoHC());
             java.sql.Date date = new java.sql.Date(x.getFechaCreacion().getTime());
             PS.setDate(2, date);
@@ -52,8 +53,11 @@ public class HistorialClinico_DAO {
         return false;
     }
 
-    public boolean ActualizarPac(Paciente_DBO x) {
+    public boolean ActualizarPac(HistoriaClinica_DBO x) {
         PreparedStatement PS;
+        /*
+        
+        
         try {
             PS = con.getCnn().prepareStatement(UPDATE_SQL);
             PS.setString(1, x.getDNI_Paciente());
@@ -78,38 +82,51 @@ public class HistorialClinico_DAO {
             //Cerrar conexion
             con.setCnn();
         }
+         */
         return false;
     }
-    
-    private enum tipo {HistoriaClinica_DBO, Paciente_DBO}
-    /*
-    public ArrayList<tipo> BuscarPac(String key) {
+    private ArrayList<Paciente_DBO> arrayPac = new ArrayList();
+
+    public ArrayList<HistoriaClinica_DBO> BuscarHC(String key, String join) {
         PreparedStatement ps;
         ResultSet res;
-        ArrayList<tipo> lista = new ArrayList();
+        ArrayList<HistoriaClinica_DBO> arrayHC = new ArrayList();
         try {
             ps = con.getCnn().prepareStatement(BUSCAR_SQL);
             ps.setString(1, key);
+            ps.setString(2, key);
+            ps.setString(3, join);
             res = ps.executeQuery();
+
             while (res.next()) {
-                
-                java.sql.Date date = new java.sql.Date(res.getDate(2).getTime());
-                
-                
-                lista.add(new Paciente_DBO(
-                        res.getString(1), date, res.getString(3), res.getString(4),
-                        res.getString(5), res.getString(6), res.getString(7).charAt(0),
-                        res.getInt(8), res.getString(9), res.getBytes(10)));
+
+                java.sql.Date FechaNac = new java.sql.Date(res.getDate(15).getTime());
+                java.sql.Date FechaCreacionHC = new java.sql.Date(res.getDate(2).getTime());
+
+                arrayHC.add(new HistoriaClinica_DBO(
+                        res.getString(1), FechaCreacionHC, res.getString(3),
+                        res.getString(4), res.getString(5), res.getString(6),
+                        res.getString(7), res.getString(8), res.getString(9),
+                        res.getString(10), res.getString(11)));
+                arrayPac.add(new Paciente_DBO(
+                        res.getString(14), FechaNac, res.getString(16), res.getString(17),
+                        res.getString(18), res.getString(19), res.getString(20).charAt(0),
+                        res.getInt(21), res.getString(22), res.getBytes(23)));
+
             }
-            return lista;
+
+            return arrayHC;
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR
-            JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE", "ERROR", 0);
+            JOptionPane.showMessageDialog(null, "PACIENTE NO EXISTENTE: " + ex, "ERROR", 0);
         } finally {
             con.setCnn();
         }
         return null;
     }
-    
-    */
+
+    public ArrayList<Paciente_DBO> BuscarPaciente() {
+        return arrayPac;
+    }
+
 }
