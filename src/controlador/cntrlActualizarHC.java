@@ -7,7 +7,6 @@ package controlador;
 
 import DAO.HistorialClinico_DAO;
 import DBO.HistoriaClinica_DBO;
-import DBO.Usuario_DBO;
 import Interfaces.Mensaje;
 import Main.Hospital_v2;
 import Vistas.ActualizarHC;

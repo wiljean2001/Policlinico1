@@ -33,6 +33,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     private final String Titulo[] = {"DNI", "FECHA NAC.", "TELF.", "NOMBRE", "DIR.", "SEXO", "EDAD", "ESTADO CIV.", "FOTO"};
     private DefaultTableModel modelo = new DefaultTableModel();
     private ArrayList<Paciente_DBO> lista = null;
+    public int ventanaAnterior = 0;
 
     public cntrlBuscarP(BuscarPaciente BusP) {
         this.BusP = BusP;
@@ -84,11 +85,20 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == button_Aceptar) {
-            BotonAceptar();
+            if (ventanaAnterior == 1) {
+                BotonAceptar_HC();
+            } else {
+                BotonAceptar();
+            }
+
         }
         if (e.getSource() == button_BuscarPac) {
             // DNI CON DATOS FALTANTES MODIFICAR EN EL WORD
-            BuscarPaciente();
+            if (ventanaAnterior == 1) {
+                BuscarPacHC();
+            } else {
+                BuscarPaciente();
+            }
         }
 
     }
@@ -132,9 +142,46 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
         }
     }
 
+    private void BuscarPacHC() {
+        if (DNI.getText().length() < 8) {
+            Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
+        } else {
+            Paciente_DAO paciente_DAO = new Paciente_DAO();
+            // VUELVO
+            lista = paciente_DAO.BuscarHC(DNI.getText());
+            if (lista.isEmpty()) {
+                Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
+            }
+            for (Paciente_DBO a : lista) {
+                try {
+                    ImageIcon imgi = null;
+                    if (a.getFoto() != null) {
+                        byte[] bi = a.getFoto();
+                        BufferedImage image;
+                        image = ImageIO.read(new ByteArrayInputStream(bi));
+                        imgi = new ImageIcon(image.getScaledInstance(120, 120, 0));
+                    }
+                    Object[] objNuevo = new Object[9];
+                    objNuevo[0] = a.getDNI_Paciente();
+                    objNuevo[1] = a.getFechadeNacimiento().toString();
+                    objNuevo[2] = a.getTelefono();
+                    objNuevo[3] = a.getApellidos() + " " + a.getNombres();
+                    objNuevo[4] = a.getDireccion();
+                    objNuevo[5] = a.getSexo();
+                    objNuevo[6] = a.getEdad();
+                    objNuevo[7] = a.getEstadoCivil();
+                    objNuevo[8] = new JLabel(imgi);
+                    modelo.addRow(objNuevo);
+                    Mensaje.MensajeConformidad("PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE");
+                } catch (HeadlessException | IOException ex) {
+                }
+            }
+        }
+    }
+
     private void BotonAceptar() {
         if (lista != null) {
-            
+
             if (Hospital_v2.FMR.isVisible()) {
                 Seteo.SeteoPaneles();
                 Hospital_v2.FMR.jDesktopPaneMenu.add(Hospital_v2.FAP);
@@ -203,6 +250,44 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
 
         } else {
             Mensaje.MensajeError("ERROR: ENVIAR DATOS A LA INTERFAZ", "ERROR");
+        }
+    }
+
+    private void BotonAceptar_HC() {
+        if (lista != null) {
+
+            if (Hospital_v2.FMM.isVisible()) {
+                Seteo.SeteoPaneles();
+                Hospital_v2.FMM.jDesktopPaneMenu.add(Hospital_v2.FRHC);
+                Hospital_v2.FRHC.setVisible(true);
+                Hospital_v2.FBP.setVisible(false);
+                // para actualizar
+                for (Paciente_DBO a : lista) {
+                    Hospital_v2.FRHC.txtDNI.setText(a.getDNI_Paciente());
+                    Hospital_v2.FRHC.txt_NombreApll.setText(a.getApellidos() + " " + a.getNombres());
+                    Hospital_v2.FRHC.txt_Direccion.setText(a.getDireccion());
+                    
+                    try {
+                        ImageIcon imgi = null;
+                        if (a.getFoto() != null) {
+                            byte[] bi = a.getFoto();
+                            BufferedImage image;
+                            image = ImageIO.read(new ByteArrayInputStream(bi));
+                            imgi = new ImageIcon(image);
+                            Hospital_v2.FRHC.FOTO.setIcon(imgi);
+                        }
+                    } catch (IOException ex) {
+                    }
+                    
+                    if ("M".equals(a.getSexo())) {
+                        Hospital_v2.FRHC.Check_Femenino.setSelected(true);
+
+                    } else {
+                        Hospital_v2.FRHC.Check_Masculino.setSelected(true);
+                    }
+                    
+                }
+            }
         }
     }
 

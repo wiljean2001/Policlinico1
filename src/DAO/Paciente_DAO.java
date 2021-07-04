@@ -1,11 +1,11 @@
 package DAO;
 
+import DBO.HistoriaClinica_DBO;
 import DBO.Paciente_DBO;
 import Interfaces.Mensaje;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -15,6 +15,8 @@ public class Paciente_DAO {
     private static final String UPDATE_SQL = "UPDATE Paciente SET DNI =?, Fecha_Nacimiento=?, Telefono=?,"
             + "Apellido=?, Nombre=?, Dirección=?, Sexo=?, Edad=?, EstadoCivil=?, Foto=? WHERE DNI =? ";
     private static final String BUSCAR_SQL = "SELECT * FROM Paciente WHERE DNI=?";
+    private static final String BUSCAR_Inner = "select CodigoHC FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=?";
+
     //private static final String READ_ALL_SQL = "SELECT * FROM RegistroPac";
     private static final conexion con = conexion.SaberEstado();
 
@@ -100,8 +102,36 @@ public class Paciente_DAO {
         }
         return null;
     }
-    
-    
+
+    public ArrayList<Paciente_DBO> BuscarHC(String key) {
+        PreparedStatement ps;
+        ResultSet res;
+        ArrayList<Paciente_DBO> lista = new ArrayList();
+        try {
+            ps = con.getCnn().prepareStatement(BUSCAR_Inner);
+            ps.setString(1, key);
+
+            res = ps.executeQuery();
+
+            while (res.next()) {
+
+                if (res.getString(1) != null) {
+
+                    Mensaje.MensajeError("El Historial clínico ya existe", "HC EXISTENTE");
+
+                }
+            }
+            lista = BuscarPac(key);
+            return lista;
+        } catch (SQLException ex) {
+            // AGREGAR AL WORD MENSAJE DE ERROR
+            Mensaje.MensajeError("PACIENTE NO EXISTENTE: " + ex, "ERROR");
+        } finally {
+            con.setCnn();
+        }
+        return null;
+    }
+
     /*
     @Override
     public dboCamas read(Object key) {

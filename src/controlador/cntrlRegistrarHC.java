@@ -12,6 +12,7 @@ import Interfaces.Mensaje;
 import Main.Hospital_v2;
 import Vistas.RegistrarHC;
 import app.bolivia.swing.JCTextField;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -35,15 +36,17 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     String CodigoGenerado;
 
     private JLabel txtCodigoHC;
-    String DateFormato = "hh: mm: ss a dd-MMM-aaaa";
+    String DateFormato = "hh//mm//ss a dd//MMM//aaaa";
     SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
 
     public cntrlRegistrarHC(RegistrarHC rHC) {
+
         rHC.lbl_fecha.setText(formato.format(fecha));
         eventos(rHC);
     }
 
     private void eventos(RegistrarHC rHC) {
+
         //txt
         DNI = rHC.txtDNI;
         txtCodigoHC = rHC.lbl_codigo;
@@ -143,9 +146,11 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             }
         }
         if (e.getSource() == buttonBuscarP) {
-            
-            Hospital_v2.FBHC.setVisible(true);
-            
+            Hospital_v2.cBP.ventanaAnterior = 1;
+            Hospital_v2.FRHC.setVisible(false);
+            Hospital_v2.FBP.setVisible(true);
+
+
             CodigoGenerado = GenerarCodHC();
             txtCodigoHC.setText(CodigoGenerado);
         }

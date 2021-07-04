@@ -51,7 +51,7 @@ public class BuscarHC extends javax.swing.JDialog {
         txt_CodigoHC.setPlaceholder("CODIGO H.C.:        Ej.  AG001");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("CODIGO H.C.:");
+        jLabel2.setText("DNI o CODIGO H.C.:");
 
         ButtonBuscarHC.setBorder(null);
         ButtonBuscarHC.setText("BUSCAR");

@@ -49,6 +49,7 @@ public class Hospital_v2 {
         FC = null;
         cL = null;
 
+        FRHC = new RegistrarHC();
         FAHC = new ActualizarHC();
         FAP = new ActualizarP();
         FBHC = new BuscarHC(null, true);
@@ -56,9 +57,9 @@ public class Hospital_v2 {
         FL = new Login();
         FMM = new MenuMedicos();
         FMR = new MenuRecep();
-        FRHC = new RegistrarHC();
         FRP = new RegistrarP();
         //creamos los controlodores para manipular los formularios
+        cRHC = new cntrlRegistrarHC(FRHC);
         cAHC = new cntrlActualizarHC(FAHC);
         cAP = new cntrlActualizarP(FAP);
         cBHC = new cntrlBuscarHC(FBHC);
@@ -66,7 +67,6 @@ public class Hospital_v2 {
         cLO = new cntrlLogin(FL);
         cMM = new cntrlMenuMedicos(FMM);
         cMR = new cntrlMenuRecep(FMR);
-        cRHC = new cntrlRegistrarHC(FRHC);
         cRP = new cntrlRegistrarP(FRP);
     }
 

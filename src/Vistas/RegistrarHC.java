@@ -44,7 +44,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        Foto_Paciente = new rojerusan.RSFotoSquare();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel6 = new javax.swing.JPanel();
@@ -80,6 +79,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         lbl_fecha = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         lbl_codigo = new javax.swing.JLabel();
+        FOTO = new rojeru_san.rslabel.RSLabelImage();
 
         setClosable(true);
         setIconifiable(true);
@@ -154,11 +154,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         jLabel3.setText("NOMBRES Y APELLIDOS:");
 
         jLabel4.setText("DIRECCIÓN:");
-
-        Foto_Paciente.setBorder(null);
-        Foto_Paciente.setColorBorde(new java.awt.Color(255, 255, 255));
-        Foto_Paciente.setEnabled(false);
-        Foto_Paciente.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTabbedPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("ANAMNESIS"));
 
@@ -485,9 +480,9 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Foto_Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(FOTO, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(ButtonBuscarP, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                         .addComponent(ButtonRegistrarHC, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -506,7 +501,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
@@ -521,7 +516,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
                                 .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel3))
-                            .addComponent(Foto_Paciente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(FOTO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_NombreApll, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -570,7 +565,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
     public RSMaterialComponent.RSCheckBoxMaterial Check_Tabacosi;
     public RSMaterialComponent.RSCheckBoxMaterial Check_infucionesno;
     public RSMaterialComponent.RSCheckBoxMaterial Check_infucionessi;
-    public rojerusan.RSFotoSquare Foto_Paciente;
+    public rojeru_san.rslabel.RSLabelImage FOTO;
     private javax.swing.ButtonGroup Group1;
     private javax.swing.ButtonGroup Group2;
     private javax.swing.ButtonGroup Group3;

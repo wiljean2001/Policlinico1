@@ -24,6 +24,8 @@ public class cntrlLogin implements ActionListener, KeyListener {
     public cntrlLogin(Login l) {
         this.l = l;
         l.setLocationRelativeTo(null);
+        
+        
         iconoLog = l.jLaberIcon;
         ImageIcon imagenicon = new ImageIcon(
                 cntrlLogin.class.getResource("/recursos/hospital-login.gif")
