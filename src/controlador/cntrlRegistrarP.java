@@ -194,6 +194,73 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     
     
+    public static boolean ValidateIdentificationDocumentPeru(String identificationDocument)
+        {
+            if (identificationDocument!= null){
+                int addition = 0;
+               // int[] hash = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
+                int[] hash = { 3, 2, 7, 6, 5, 4, 3, 2 };
+                int identificationDocumentLength = identificationDocument.length();
+
+                String identificationComponent = identificationDocument.substring(0, identificationDocumentLength - 1);
+
+                int identificationComponentLength = identificationComponent.length();
+
+                int diff = hash.length - identificationComponentLength;
+
+                for (int i = 0; i < identificationDocument.length(); i++)
+                {
+                    addition += Integer.parseInt(identificationDocument.substring(i,1)) * hash[i];
+                }
+
+                addition = 11 - (addition % 11);
+                int abc=addition;
+                if (addition == 11)
+                {
+                    addition = 0;
+                }
+                else if (addition == 10)
+                {
+                    addition = 1;
+
+                }
+ 
+               
+              //  char last = char.ToUpperInvariant(identificationDocument[identificationDocumentLength - 1]);
+                String dcontrol = identificationDocument.substring(0, 1);
+                
+          
+                char last = dcontrol.charAt(0);
+                if (identificationDocumentLength == 11)
+                {
+                    // The identification document corresponds to a RUC.
+                   //return addition.equals(last - '0');
+                }
+                /*
+                
+                else if (char.IsDigit(last))
+                {
+                    // The identification document corresponds to a DNI with a number as verification digit.
+                    //char[] hashNumbers = { '6', '7', '8', '9', '0', '1', '1', '2', '3', '4', '5' };
+                    char[] hashNumbers = { '6', '7', '8', '9', '0', '1', '1', '2', '3', '4','5','6'};
+                    
+                    return last.Equals(hashNumbers[addition]);
+                }
+                else if (char.IsLetter(last))
+                {
+                    // The identification document corresponds to a DNI with a letter as verification digit.
+                    char[] hashLetters = { 'K', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
+                    return last.Equals(hashLetters[addition]);
+                }
+                */
+            }
+
+            return false;
+        }
+    
+    
+    
+    
     
     
     @Override
