@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import rojerusan.RSFotoSquare;
 import java.nio.file.Files;
 import java.io.File;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class cntrlRegistrarP implements KeyListener, MouseListener {
@@ -29,8 +30,10 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     private RSCheckBoxMaterial SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
     private JDateChooser FechadeNacimiento;
     private RSFotoSquare Foto;
-    RegistrarP r;
-
+    private RegistrarP r;
+    private ArrayList<RSCheckBoxMaterial> arrayCheck = new ArrayList();
+    
+    
     public cntrlRegistrarP(RegistrarP r) {
         this.r = r;
         ListenerEventos(r);
@@ -69,6 +72,15 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         button_Reg.addMouseListener(this);
         button_Limpiar.addMouseListener(this);
         FechadeNacimiento.addKeyListener(this);
+        
+        arrayCheck.add(SexoH);
+        arrayCheck.add(SexoM);
+        arrayCheck.add(EstadoCivil_Sol);
+        arrayCheck.add(EstadoCivil_Cas);
+        arrayCheck.add(EstadoCivil_viud);
+        arrayCheck.add(EstadoCivil_Div);
+        
+        
     }
 
     @Override
@@ -129,7 +141,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 Toolkit.getDefaultToolkit().beep();
             }
         }
-
     }
     private int primeravez = 0;
 
@@ -139,14 +150,16 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             if (result == 0) {
                 Seteo.SeteoTextField(r.jPanel1);
                 Seteo.SeteoJCalendar(FechadeNacimiento);
-                Seteo.SeteoCheckbox(r.jPanel2);
-                Seteo.SeteoCheckbox(r.jPanel4);
+                Seteo.SeteoCheckbox(arrayCheck);
+                Foto.setImagenDefault(null);
             }
         }
         if (primeravez == 0) {
-
             primeravez = 1;
+        }else{
+            primeravez = 0;
         }
+        
     }
 
     @Override
@@ -220,6 +233,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                             Direccion.getText(), Sexo, 0, EstadoCivil, foto);
 
                     Paciente_DAO registrarDAO = new Paciente_DAO();
+                    limpiar();
                     if (registrarDAO.RegistrarPac(pacienteDBO.retornarPac()) != false) {
                         Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION

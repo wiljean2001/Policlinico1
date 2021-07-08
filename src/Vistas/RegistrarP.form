@@ -200,8 +200,8 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Check_Hombre" pref="132" max="32767" attributes="0"/>
-                  <Component id="Check_Mujer" pref="0" max="32767" attributes="0"/>
+                  <Component id="Check_Mujer" pref="132" max="32767" attributes="0"/>
+                  <Component id="Check_Hombre" alignment="1" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -474,6 +474,11 @@
           </AuxValues>
         </Component>
         <Component class="com.toedter.calendar.JDateChooser" name="Calendar_FechaNac">
+          <Properties>
+            <Property name="maxSelectableDate" type="java.util.Date" editor="org.netbeans.beaninfo.editors.DateEditor">
+              <SerializedValue value="-84,-19,0,5,115,114,0,14,106,97,118,97,46,117,116,105,108,46,68,97,116,101,104,106,-127,1,75,89,116,25,3,0,0,120,112,119,8,0,0,1,122,127,-114,-94,96,120"/>
+            </Property>
+          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>

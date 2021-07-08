@@ -4,6 +4,7 @@ import Main.Hospital_v2;
 import RSMaterialComponent.RSCheckBoxMaterial;
 import app.bolivia.swing.JCTextField;
 import com.toedter.calendar.JDateChooser;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,14 +26,11 @@ public class Seteo {
             }
         }
     }
-    public static void SeteoCheckbox(JPanel formulario) {
-        RSCheckBoxMaterial clear;
-        for (int i = 0; i < formulario.getComponentCount(); i++) {
-            if (formulario.getComponent(i).getClass().getName().equals("RSMaterialComponent.RSCheckBoxMaterial")) {
-                clear = (RSCheckBoxMaterial) formulario.getComponent(i);
-                clear.setSelected(false);
-            }
+    public static void SeteoCheckbox(ArrayList<RSCheckBoxMaterial> formulario) {
+        for (RSCheckBoxMaterial clear : formulario) {
+            clear.setSelected(false);
         }
+        
     }
 
     public static void SeteoJCalendar(JDateChooser datechooser) {
