@@ -6,6 +6,7 @@ import Main.Hospital_v2;
 import Vistas.Login;
 import java.awt.Desktop;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -53,6 +54,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
         BuscIns = l.BuscarInstag;
         BuscFacebook = l.BuscarFacebook;
 
+        l.txtUSER.addKeyListener(this);
         BuscNav.addActionListener(this);
         BuscIns.addActionListener(this);
         BuscFacebook.addActionListener(this);
@@ -65,8 +67,14 @@ public class cntrlLogin implements ActionListener, KeyListener {
         char[] contraseña = l.txtContr.getPassword();
         String contraseñaString = String.valueOf(contraseña);
 
-        if (l.txtContr.getPassword().length < 4 || usuario.isEmpty()) {
-            Mensaje.MensajeError("Error: ¡Campos vacios!", "Error");
+        if (l.txtContr.getPassword().length < 5 && l.txtContr.getPassword().length > 10
+                && usuario.length() < 5 && usuario.length() > 10) {
+
+            if (usuario.isEmpty()) {
+                Mensaje.MensajeError("Error: ¡Campos vacios!", "Error");
+            } else {
+                Mensaje.MensajeError("USUARIO O CONTRASEÑA NO ENCONTRADO", "ERROR");
+            }
         } else {
             try {
                 DAO_login = new Usuario_DAO();
@@ -98,15 +106,15 @@ public class cntrlLogin implements ActionListener, KeyListener {
         }
         try {
             if (e.getSource() == BuscNav) {
-                
+
                 Abrir_URL("https://www.google.com");
             }
             if (e.getSource() == BuscIns) {
-                
+
                 Abrir_URL("https://www.instagram.com");
             }
             if (e.getSource() == BuscFacebook) {
-                
+
                 Abrir_URL("https://www.facebook.com");
             }
         } catch (URISyntaxException ex) {
@@ -122,6 +130,18 @@ public class cntrlLogin implements ActionListener, KeyListener {
             BotonIngresar();
             DAO_login = null;
         }
+        char a = 0;
+        a = e.getKeyChar();
+        if (e.getSource() == l.txtUSER) {
+            if (Character.isAlphabetic(a) || (a < '0' || a > '9')) {
+
+            } else {
+                e.consume();
+                Toolkit.getDefaultToolkit().beep();
+            }
+
+        } 
+
     }
 
     private void Abrir_URL(String url) throws URISyntaxException {

@@ -82,9 +82,21 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             }
         }
         // 
-        if (e.getSource() == apellidos || e.getSource() == nombres) {
+        if (e.getSource() == apellidos ) {
             a = e.getKeyChar();
             if (apellidos.getText().length() < 50) {
+                if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
+                    e.consume();
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            } else {
+                e.consume();
+                Toolkit.getDefaultToolkit().beep();
+            }
+        }
+        if (e.getSource() == nombres ) {
+            a = e.getKeyChar();
+            if (nombres.getText().length() < 50) {
                 if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
                     e.consume();
                     Toolkit.getDefaultToolkit().beep();
