@@ -130,7 +130,6 @@ public class cntrlLogin implements ActionListener, KeyListener {
             BotonIngresar();
             DAO_login = null;
         }
-        
 
     }
 
