@@ -74,8 +74,8 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo"));
 
+        Check_Hombre.setBorder(null);
         SEXO_GROUP.add(Check_Hombre);
-        Check_Hombre.setSelected(true);
         Check_Hombre.setText("MASCULINO");
         Check_Hombre.setIsEffectRipple(false);
         Check_Hombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -104,8 +104,8 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Estado Civil"));
 
+        Check_Soltero.setBorder(null);
         EstadoCIvil.add(Check_Soltero);
-        Check_Soltero.setSelected(true);
         Check_Soltero.setText("Soltero");
         Check_Soltero.setIsEffectRipple(false);
         Check_Soltero.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);

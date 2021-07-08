@@ -132,7 +132,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     public void limpiar() {
         Seteo.SeteoTextField(r.jPanel1);
-        FechadeNacimiento.setDate(null);
+        Seteo.SeteoJCalendar(FechadeNacimiento);
     }
 
     @Override
