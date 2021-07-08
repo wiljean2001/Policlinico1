@@ -286,8 +286,8 @@ public class RegistrarP extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup SEXO_GROUP;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel4;
     public app.bolivia.swing.JCTextField txt_Apellidos;
     public app.bolivia.swing.JCTextField txt_DNI;
     public app.bolivia.swing.JCTextField txt_Direccion;

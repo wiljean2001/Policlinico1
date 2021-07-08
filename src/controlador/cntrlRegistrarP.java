@@ -133,7 +133,10 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     public void limpiar() {
         Seteo.SeteoTextField(r.jPanel1);
         Seteo.SeteoJCalendar(FechadeNacimiento);
-        Seteo.SeteoCheckbox(r.jPanel1);
+        Seteo.SeteoCheckbox(r.jPanel2);
+        Seteo.SeteoCheckbox(r.jPanel4);
+        Foto.removeAll();
+        
     }
 
     @Override
@@ -146,6 +149,16 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             bottonRegistrar();
         }
     }
+    
+    private boolean validarCheck(){
+        // SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div; 
+        if(SexoH.isSelected()||SexoM.isSelected()){
+            
+            return true;
+        }
+        return false;
+    }
+    
 
     private void bottonRegistrar() {
         if (DNI.getText().isEmpty() || apellidos.getText().isEmpty()
