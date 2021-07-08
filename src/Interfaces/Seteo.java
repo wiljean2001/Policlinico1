@@ -3,6 +3,7 @@ package Interfaces;
 import Main.Hospital_v2;
 import app.bolivia.swing.JCTextField;
 import com.toedter.calendar.JDateChooser;
+import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,6 +22,15 @@ public class Seteo {
             if (formulario.getComponent(i).getClass().getName().equals("app.bolivia.swing.JCTextField")) {
                 clear = (JCTextField) formulario.getComponent(i);
                 clear.setText("");
+            }
+        }
+    }
+    public static void SeteoCheckbox(JPanel formulario) {
+        JCheckBox clear;
+        for (int i = 0; i < formulario.getComponentCount(); i++) {
+            if (formulario.getComponent(i).getClass().getName().equals("javax.swing.JCheckBox")) {
+                clear = (JCheckBox) formulario.getComponent(i);
+                clear.setSelected(false);
             }
         }
     }
