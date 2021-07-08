@@ -130,17 +130,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
             BotonIngresar();
             DAO_login = null;
         }
-        char a = 0;
-        a = e.getKeyChar();
-        if (e.getSource() == l.txtUSER) {
-            if (Character.isAlphabetic(a) || (a < '0' || a > '9')) {
-
-            } else {
-                e.consume();
-                Toolkit.getDefaultToolkit().beep();
-            }
-
-        } 
+        
 
     }
 

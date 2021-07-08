@@ -7,6 +7,7 @@ import Interfaces.Seteo;
 import Vistas.RegistrarP;
 import app.bolivia.swing.JCTextField;
 import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -27,9 +28,12 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     private JDateChooser FechadeNacimiento;
     private RSFotoSquare Foto;
     RegistrarP r;
+
     public cntrlRegistrarP(RegistrarP r) {
-        this.r=r;
+        this.r = r;
         ListenerEventos(r);
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) FechadeNacimiento.getDateEditor();
+        editor.setEditable(false);
     }
 
     private void ListenerEventos(RegistrarP r) {
@@ -82,7 +86,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             }
         }
         // 
-        if (e.getSource() == apellidos ) {
+        if (e.getSource() == apellidos) {
             a = e.getKeyChar();
             if (apellidos.getText().length() < 50) {
                 if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
@@ -94,7 +98,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 Toolkit.getDefaultToolkit().beep();
             }
         }
-        if (e.getSource() == nombres ) {
+        if (e.getSource() == nombres) {
             a = e.getKeyChar();
             if (nombres.getText().length() < 50) {
                 if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
@@ -128,7 +132,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     public void limpiar() {
         Seteo.SeteoTextField(r.jPanel1);
-        
+        Seteo.SeteoJCalendar(FechadeNacimiento);
     }
 
     @Override
@@ -145,7 +149,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     private void bottonRegistrar() {
         if (DNI.getText().isEmpty() || apellidos.getText().isEmpty()
                 || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
-                || FechadeNacimiento.getDate()== null) {
+                || FechadeNacimiento.getDate() == null) {
 
             Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
 
@@ -204,51 +208,41 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         }
     }
 
-    
-    
-    public static boolean ValidateIdentificationDocumentPeru(String identificationDocument)
-        {
-            if (identificationDocument!= null){
-                int addition = 0;
-               // int[] hash = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
-                int[] hash = { 3, 2, 7, 6, 5, 4, 3, 2 };
-                int identificationDocumentLength = identificationDocument.length();
+    public static boolean ValidateIdentificationDocumentPeru(String identificationDocument) {
+        if (identificationDocument != null) {
+            int addition = 0;
+            // int[] hash = { 5, 4, 3, 2, 7, 6, 5, 4, 3, 2 };
+            int[] hash = {3, 2, 7, 6, 5, 4, 3, 2};
+            int identificationDocumentLength = identificationDocument.length();
 
-                String identificationComponent = identificationDocument.substring(0, identificationDocumentLength - 1);
+            String identificationComponent = identificationDocument.substring(0, identificationDocumentLength - 1);
 
-                int identificationComponentLength = identificationComponent.length();
+            int identificationComponentLength = identificationComponent.length();
 
-                int diff = hash.length - identificationComponentLength;
+            int diff = hash.length - identificationComponentLength;
 
-                for (int i = 0; i < identificationDocument.length(); i++)
-                {
-                    addition += Integer.parseInt(identificationDocument.substring(i,1)) * hash[i];
-                }
+            for (int i = 0; i < identificationDocument.length(); i++) {
+                addition += Integer.parseInt(identificationDocument.substring(i, 1)) * hash[i];
+            }
 
-                addition = 11 - (addition % 11);
-                int abc=addition;
-                if (addition == 11)
-                {
-                    addition = 0;
-                }
-                else if (addition == 10)
-                {
-                    addition = 1;
+            addition = 11 - (addition % 11);
+            int abc = addition;
+            if (addition == 11) {
+                addition = 0;
+            } else if (addition == 10) {
+                addition = 1;
 
-                }
- 
-               
-              //  char last = char.ToUpperInvariant(identificationDocument[identificationDocumentLength - 1]);
-                String dcontrol = identificationDocument.substring(0, 1);
-                
-          
-                char last = dcontrol.charAt(0);
-                if (identificationDocumentLength == 11)
-                {
-                    // The identification document corresponds to a RUC.
-                   //return addition.equals(last - '0');
-                }
-                /*
+            }
+
+            //  char last = char.ToUpperInvariant(identificationDocument[identificationDocumentLength - 1]);
+            String dcontrol = identificationDocument.substring(0, 1);
+
+            char last = dcontrol.charAt(0);
+            if (identificationDocumentLength == 11) {
+                // The identification document corresponds to a RUC.
+                //return addition.equals(last - '0');
+            }
+            /*
                 
                 else if (char.IsDigit(last))
                 {
@@ -264,17 +258,12 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                     char[] hashLetters = { 'K', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
                     return last.Equals(hashLetters[addition]);
                 }
-                */
-            }
-
-            return false;
+             */
         }
-    
-    
-    
-    
-    
-    
+
+        return false;
+    }
+
     @Override
     public void keyPressed(KeyEvent e
     ) {
@@ -290,7 +279,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     @Override
     public void mousePressed(MouseEvent e
     ) {
-        
+
     }
 
     @Override
