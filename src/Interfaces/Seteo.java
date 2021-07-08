@@ -1,9 +1,9 @@
 package Interfaces;
 
 import Main.Hospital_v2;
+import RSMaterialComponent.RSCheckBoxMaterial;
 import app.bolivia.swing.JCTextField;
 import com.toedter.calendar.JDateChooser;
-import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -26,10 +26,10 @@ public class Seteo {
         }
     }
     public static void SeteoCheckbox(JPanel formulario) {
-        JCheckBox clear;
+        RSCheckBoxMaterial clear;
         for (int i = 0; i < formulario.getComponentCount(); i++) {
-            if (formulario.getComponent(i).getClass().getName().equals("javax.swing.JCheckBox")) {
-                clear = (JCheckBox) formulario.getComponent(i);
+            if (formulario.getComponent(i).getClass().getName().equals("RSMaterialComponent.RSCheckBoxMaterial")) {
+                clear = (RSCheckBoxMaterial) formulario.getComponent(i);
                 clear.setSelected(false);
             }
         }

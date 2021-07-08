@@ -4,6 +4,7 @@ import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
 import Interfaces.Mensaje;
 import Interfaces.Seteo;
+import RSMaterialComponent.RSCheckBoxMaterial;
 import Vistas.RegistrarP;
 import app.bolivia.swing.JCTextField;
 import com.toedter.calendar.JDateChooser;
@@ -15,16 +16,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
+//import javax.swing.JCheckBox;
 import rojerusan.RSFotoSquare;
 import java.nio.file.Files;
 import java.io.File;
+import javax.swing.JOptionPane;
 
 public class cntrlRegistrarP implements KeyListener, MouseListener {
 
     private JButton button_Reg, button_Limpiar;
     private JCTextField DNI, apellidos, nombres, Direccion, telefono;
-    private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
+    private RSCheckBoxMaterial SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
     private JDateChooser FechadeNacimiento;
     private RSFotoSquare Foto;
     RegistrarP r;
@@ -129,14 +131,22 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         }
 
     }
+    private int primeravez = 0;
 
     public void limpiar() {
-        Seteo.SeteoTextField(r.jPanel1);
-        Seteo.SeteoJCalendar(FechadeNacimiento);
-        Seteo.SeteoCheckbox(r.jPanel2);
-        Seteo.SeteoCheckbox(r.jPanel4);
-        Foto.removeAll();
-        
+        if (primeravez == 1) {
+            int result = JOptionPane.showConfirmDialog(null, "¿DESEA LIMPIAR TODOS LOS CAMPOS?", "CONFIRMAR", JOptionPane.YES_NO_OPTION);
+            if (result == 0) {
+                Seteo.SeteoTextField(r.jPanel1);
+                Seteo.SeteoJCalendar(FechadeNacimiento);
+                Seteo.SeteoCheckbox(r.jPanel2);
+                Seteo.SeteoCheckbox(r.jPanel4);
+            }
+        }
+        if (primeravez == 0) {
+
+            primeravez = 1;
+        }
     }
 
     @Override
@@ -149,16 +159,15 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             bottonRegistrar();
         }
     }
-    
-    private boolean validarCheck(){
+
+    private boolean validarCheck() {
         // SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div; 
-        if(SexoH.isSelected()||SexoM.isSelected()){
-            
+        if (SexoH.isSelected() || SexoM.isSelected()) {
+
             return true;
         }
         return false;
     }
-    
 
     private void bottonRegistrar() {
         if (DNI.getText().isEmpty() || apellidos.getText().isEmpty()
