@@ -98,7 +98,8 @@ public class cntrlMenuMedicos implements MouseListener {
             Hospital_v2.FL.setVisible(true);
         }
         if (e.getSource() == bttn_MenuDespl) {
-            DesplazarMenu();
+            //Desplazar
+            //DesplazarMenu();
         }
     }
 

@@ -205,15 +205,17 @@ public class MenuMedicos extends javax.swing.JFrame {
         jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
         jDesktopPaneMenuLayout.setHorizontalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPaneMenuLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneMenuLayout.createSequentialGroup()
+                .addContainerGap(1128, Short.MAX_VALUE)
                 .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1140, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jDesktopPaneMenuLayout.setVerticalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPaneMenuLayout.createSequentialGroup()
-                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 777, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(777, Short.MAX_VALUE))
         );
 
         rSScrollPane1.setViewportView(jDesktopPaneMenu);

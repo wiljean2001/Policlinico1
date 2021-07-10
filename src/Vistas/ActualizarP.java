@@ -153,6 +153,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         txtDNI.setToolTipText("DNI:        Ej.  73889322");
         txtDNI.setEnabled(false);
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDNI.setNextFocusableComponent(Calendar_FechaNac);
         txtDNI.setPlaceholder("DNI:        Ej.  73889322");
 
         txt_Nombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -175,7 +176,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         ButtonActualizarPac.setBorder(null);
         ButtonActualizarPac.setText("ACTUALIZAR PACIENTE");
         ButtonActualizarPac.setToolTipText("Click para actualizar paciente");
-        ButtonActualizarPac.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonActualizarPac.setEnabled(false);
 
         ButtonLimpiarTodo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         ButtonLimpiarTodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/broom_52px.png"))); // NOI18N
@@ -290,7 +291,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 455, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, Short.MAX_VALUE)
         );
 
         pack();
@@ -312,8 +313,8 @@ public class ActualizarP extends javax.swing.JInternalFrame {
     public rojerusan.RSLabelImage Foto;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
+    public javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel jPanel4;
     public app.bolivia.swing.JCTextField txtDNI;
     public app.bolivia.swing.JCTextField txtDireccion;
     public app.bolivia.swing.JCTextField txtTelefono;

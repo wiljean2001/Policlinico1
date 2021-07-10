@@ -41,6 +41,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     private RSLabelImage Foto;
     private JLabel button_Foto;
     private ActualizarP ActP;
+
     private File rutaImagen = null;
     private final ImageIcon imagenIcon;
     private byte[] fotoByte = null;
@@ -93,8 +94,8 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         button_BuscarPaciente.addMouseListener(this);
     }
 
-    
     public boolean primeravez = true;
+
     public void limpiar() {
         int result = 0;
         if (primeravez) {
@@ -105,9 +106,9 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         if (result == 0) {
             Seteo.SeteoTextField(ActP.jPanel1);
             Seteo.SeteoJCalendar(FechadeNacimiento);
-           //Seteo.SeteoCheckbox(ActP.jPanel2);
-            //Seteo.SeteoCheckbox(ActP.jPanel4);
-            
+            Seteo.SeteoCheckbox(ActP.jPanel2);
+            Seteo.SeteoCheckbox(ActP.jPanel4);
+
             Icon icono = new ImageIcon(imagenIcon.getImage());
             Foto.setIcon(icono);
             rutaImagen = null;
@@ -117,62 +118,81 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     }
 
     @Override
-    public void mousePressed(MouseEvent e) {
-        if (e.getSource() == Foto) {
-            abrirImagen();
-        }
+    public void mouseClicked(MouseEvent e
+    ) {
+
         if (e.getSource() == button_ActP) {
             actualizar();
+            limpiar();
         }
 //
         if (e.getSource() == button_Limpiar) {
             limpiar();
         }
         if (e.getSource() == button_BuscarPaciente) {
+            primeravez = false;
             limpiar();
             Hospital_v2.cBP.limpiar();
-             ActP.dispose();
+
+            button_BuscarPaciente.setEnabled(true);
+            ActP.dispose();
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
+            // redimensioar para restar la altura del botón aceptar (por estética)
             Hospital_v2.FBP.setSize(new Dimension(
                     Hospital_v2.FBP.getWidth(),
                     Hospital_v2.FBP.getHeight() + Hospital_v2.FBP.ButtonEnviarPaciente.getHeight()));
             Hospital_v2.FBP.setVisible(true);
-           
+
         }
         if (e.getSource() == SexoH) {
-            SexoH.setSelected(true);
-            SexoM.setSelected(false);
+            if (SexoH.isEnabled() != false) {
+
+                SexoH.setSelected(true);
+                SexoM.setSelected(false);
+            }
+
         }
         if (e.getSource() == SexoM) {
-            SexoH.setSelected(false);
-            SexoM.setSelected(true);
+            if (SexoH.isEnabled() != false) {
+                SexoM.setSelected(true);
+                SexoH.setSelected(false);
+            }
         }
         if (e.getSource() == EstadoCivil_Sol) {
-            EstadoCivil_Sol.setSelected(true);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_Sol.setSelected(true);
+                EstadoCivil_Cas.setSelected(false);
+                EstadoCivil_viud.setSelected(false);
+                EstadoCivil_Div.setSelected(false);
+            }
         }
         if (e.getSource() == EstadoCivil_Cas) {
-            EstadoCivil_Cas.setSelected(true);
-            EstadoCivil_Sol.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_Cas.setSelected(true);
+                EstadoCivil_Sol.setSelected(false);
+                EstadoCivil_viud.setSelected(false);
+                EstadoCivil_Div.setSelected(false);
+            }
         }
         if (e.getSource() == EstadoCivil_viud) {
-            EstadoCivil_viud.setSelected(true);
-            EstadoCivil_Sol.setSelected(false);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_viud.setSelected(true);
+                EstadoCivil_Sol.setSelected(false);
+                EstadoCivil_Cas.setSelected(false);
+                EstadoCivil_Div.setSelected(false);
+            }
         }
         if (e.getSource() == EstadoCivil_Div) {
-            EstadoCivil_Div.setSelected(true);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Sol.setSelected(false);
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_Div.setSelected(true);
+                EstadoCivil_Cas.setSelected(false);
+                EstadoCivil_viud.setSelected(false);
+                EstadoCivil_Sol.setSelected(false);
+            }
+
         }
-        
-        if(e.getSource()==Foto || e.getSource()==button_Foto){
+
+        if (e.getSource() == Foto || e.getSource() == button_Foto) {
             abrirImagen();
         }
     }
@@ -222,7 +242,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                         fecha = formato.parse(FechadeNacimiento.getFechaSeleccionada());
                     } catch (ParseException e) {
                     }
-                    
+
                     pacienteDBO = new Paciente_DBO(DNI.getText(), fecha, telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte);
                     if (pacientedao.ActualizarPac(pacienteDBO.retornarPac()) != false) {
@@ -230,11 +250,11 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                         //JOptionPane.OK_CANCEL_OPTION
                     }
                 }
-                limpiar();
             }
         }
 
     }
+
     private File abrirImagen() {
         JFileChooser jf = new JFileChooser();
         jf.setDialogTitle("BUSCAR FOTO");
@@ -252,7 +272,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         //agarre lo que seleciona
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length()<=10485760) {
+        if (seleccion_ruta != null && seleccion_ruta.length() <= 10485760) {
             try {
                 ImageIcon imgi = null;
                 BufferedImage image = ImageIO.read(seleccion_ruta);
@@ -269,8 +289,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e
-    ) {
+    public void mousePressed(MouseEvent e) {
 
     }
 

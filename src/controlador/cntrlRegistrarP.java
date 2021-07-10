@@ -43,7 +43,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     private File rutaImagen = null;
     private final ImageIcon imagenIcon;
     private byte[] fotoByte = null;
-    private JFileChooser jf = new JFileChooser();
+    
 
     public cntrlRegistrarP(RegistrarP r) {
         this.r = r;
@@ -187,7 +187,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
                     Paciente_DAO registrarDAO = new Paciente_DAO();
                     primeravez = false;
-                    limpiar();
                     if (registrarDAO.RegistrarPac(pacienteDBO.retornarPac()) != false) {
                         Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
@@ -200,8 +199,89 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             }
         }
     }
-
     @Override
+    public void mouseClicked(MouseEvent e) {
+
+        if (e.getSource() == button_Limpiar) {
+            limpiar();
+        }
+        if (e.getSource() == button_Reg) {
+            bottonRegistrar();
+            limpiar();
+        }
+        if (e.getSource() == SexoH) {
+            SexoH.setSelected(true);
+            SexoM.setSelected(false);
+        }
+        if (e.getSource() == SexoM) {
+            SexoH.setSelected(false);
+            SexoM.setSelected(true);
+        }
+        if (e.getSource() == EstadoCivil_Sol) {
+            EstadoCivil_Sol.setSelected(true);
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+        }
+        if (e.getSource() == EstadoCivil_Cas) {
+            EstadoCivil_Cas.setSelected(true);
+            EstadoCivil_Sol.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+        }
+        if (e.getSource() == EstadoCivil_viud) {
+            EstadoCivil_viud.setSelected(true);
+            EstadoCivil_Sol.setSelected(false);
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+        }
+        if (e.getSource() == EstadoCivil_Div) {
+            EstadoCivil_Div.setSelected(true);
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Sol.setSelected(false);
+        }
+        
+        if(e.getSource()==Foto || e.getSource()==button_Foto){
+            abrirImagen();
+        }
+        
+    }
+
+    private File abrirImagen() {
+        JFileChooser jf = new JFileChooser();
+        jf.setDialogTitle("BUSCAR FOTO");
+        //solo puedo selecionar archivos(txt o musica o imagen pero no carpetas: no directorios
+        jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        //solo puedo seleccionar un archivo a la vez no varios a la vez
+        jf.setMultiSelectionEnabled(false);
+        //aqui filtro lo que quiero que se cargue
+        //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
+        //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif");
+        jf.setFileFilter(filter);
+        //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
+        jf.showOpenDialog(r);
+        //agarre lo que seleciona
+        File seleccion_ruta = jf.getSelectedFile();
+        //si la selccion es diferente de null , pasela a txt
+        if (seleccion_ruta != null && seleccion_ruta.length()<=10485760 ) {
+            try {
+                ImageIcon imgi = null;
+                BufferedImage image = ImageIO.read(seleccion_ruta);
+                imgi = new ImageIcon(image);
+                
+                Foto.setIcon(imgi);
+                rutaImagen = seleccion_ruta;
+                return seleccion_ruta;
+            } catch (IOException e) {
+            }
+        }
+        jf = null;
+        return null;
+    }
+    
+     @Override
     public void keyTyped(KeyEvent e) {
 
         //Solo Numeros
@@ -260,87 +340,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 Toolkit.getDefaultToolkit().beep();
             }
         }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-
-        if (e.getSource() == button_Limpiar) {
-            limpiar();
-        }
-        if (e.getSource() == button_Reg) {
-            bottonRegistrar();
-        }
-        if (e.getSource() == SexoH) {
-            SexoH.setSelected(true);
-            SexoM.setSelected(false);
-        }
-        if (e.getSource() == SexoM) {
-            SexoH.setSelected(false);
-            SexoM.setSelected(true);
-        }
-        if (e.getSource() == EstadoCivil_Sol) {
-            EstadoCivil_Sol.setSelected(true);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
-        }
-        if (e.getSource() == EstadoCivil_Cas) {
-            EstadoCivil_Cas.setSelected(true);
-            EstadoCivil_Sol.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
-        }
-        if (e.getSource() == EstadoCivil_viud) {
-            EstadoCivil_viud.setSelected(true);
-            EstadoCivil_Sol.setSelected(false);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
-        }
-        if (e.getSource() == EstadoCivil_Div) {
-            EstadoCivil_Div.setSelected(true);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Sol.setSelected(false);
-        }
-        
-        if(e.getSource()==Foto || e.getSource()==button_Foto){
-            abrirImagen();
-        }
-        
-    }
-
-    private File abrirImagen() {
-        
-        jf.setDialogTitle("BUSCAR FOTO");
-        //solo puedo selecionar archivos(txt o musica o imagen pero no carpetas: no directorios
-        jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        //solo puedo seleccionar un archivo a la vez no varios a la vez
-        jf.setMultiSelectionEnabled(false);
-        //aqui filtro lo que quiero que se cargue
-        //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
-        //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif");
-        jf.setFileFilter(filter);
-        //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
-        jf.showOpenDialog(r);
-        //agarre lo que seleciona
-        File seleccion_ruta = jf.getSelectedFile();
-        //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length()<=10485760) {
-            try {
-                ImageIcon imgi = null;
-                BufferedImage image = ImageIO.read(seleccion_ruta);
-                imgi = new ImageIcon(image);
-                
-                Foto.setIcon(imgi);
-                rutaImagen = seleccion_ruta;
-                return seleccion_ruta;
-            } catch (IOException e) {
-            }
-        }
-        jf = null;
-        return null;
     }
 
     /*

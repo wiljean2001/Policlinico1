@@ -16,7 +16,6 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -103,6 +102,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 BuscarPaciente();
             }
         }
+        ventanaAnterior = 0;
 
     }
 
@@ -186,7 +186,8 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
 
     private void BotonAceptar() {
         if (lista != null) {
-
+            Hospital_v2.cAP.primeravez = false;
+            Hospital_v2.cAP.limpiar();
             if (Hospital_v2.FMR.isVisible()) {
                 Seteo.SeteoPaneles();
                 Hospital_v2.FMR.jDesktopPaneMenu.add(Hospital_v2.FAP);
@@ -217,7 +218,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     }
 
                     if ("M".equals(String.valueOf(a.getSexo()))) {
-                        Mensaje.Mensaje(String.valueOf(a.getSexo()));
                         Hospital_v2.FAP.Check_Hombre.setSelected(true);
                         Hospital_v2.FAP.Check_Mujer.setSelected(false);
                     }

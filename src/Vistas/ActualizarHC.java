@@ -440,6 +440,8 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Más", jScrollPane3);
 
+        FOTO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos2/descarga.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
