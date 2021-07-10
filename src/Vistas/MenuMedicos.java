@@ -130,10 +130,12 @@ public class MenuMedicos extends javax.swing.JFrame {
         Button_BuscarHC.setBackground(new java.awt.Color(55, 143, 205));
         Button_BuscarHC.setText("BUSCAR HISTORIAL CLÍNICO");
         Button_BuscarHC.setToolTipText("Registrar Nuevo Paciente");
+        Button_BuscarHC.setNextFocusableComponent(button_RegistrarHC);
 
         button_RegistrarHC.setBackground(new java.awt.Color(55, 143, 205));
         button_RegistrarHC.setText("REGISTRAR HISTORIAL CLÍNICO");
         button_RegistrarHC.setToolTipText("Registrar Nuevo Paciente");
+        button_RegistrarHC.setNextFocusableComponent(button_ActHC);
 
         button_BuscarPaciente.setBackground(new java.awt.Color(55, 143, 205));
         button_BuscarPaciente.setText("BUSCAR PACIENTE");
@@ -142,6 +144,7 @@ public class MenuMedicos extends javax.swing.JFrame {
         button_ActHC.setBackground(new java.awt.Color(55, 143, 205));
         button_ActHC.setText("ACTUALIZAR HISTORIAL CLÍNICO");
         button_ActHC.setToolTipText("Registrar Nuevo Paciente");
+        button_ActHC.setNextFocusableComponent(button_BuscarPaciente);
 
         javax.swing.GroupLayout bttnExtraLayout = new javax.swing.GroupLayout(bttnExtra);
         bttnExtra.setLayout(bttnExtraLayout);
@@ -199,8 +202,6 @@ public class MenuMedicos extends javax.swing.JFrame {
         rSLabelHora1.setDoubleBuffered(true);
         rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
-        jDesktopPaneMenu.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jDesktopPaneMenuLayout = new javax.swing.GroupLayout(jDesktopPaneMenu);
         jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
         jDesktopPaneMenuLayout.setHorizontalGroup(
@@ -217,6 +218,7 @@ public class MenuMedicos extends javax.swing.JFrame {
                 .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(777, Short.MAX_VALUE))
         );
+        jDesktopPaneMenu.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 

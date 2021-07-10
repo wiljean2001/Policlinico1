@@ -461,6 +461,9 @@
                             <Property name="text" type="java.lang.String" value="S&#xcd;"/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="Check_Alcoholno"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -475,6 +478,9 @@
                             <Property name="text" type="java.lang.String" value="NO"/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="txtalcohol"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -491,6 +497,9 @@
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="Check_Tabacosi"/>
                         </Property>
                         <Property name="placeholder" type="java.lang.String" value="Descripci&#xf3;n:"/>
                       </Properties>
@@ -536,6 +545,9 @@
                             <Property name="toolTipText" type="java.lang.String" value=""/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="Check_Tabacono"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -550,6 +562,9 @@
                             <Property name="text" type="java.lang.String" value="NO"/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="txttabaco"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -567,6 +582,9 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="Check_Drogassi"/>
+                        </Property>
                         <Property name="placeholder" type="java.lang.String" value="Descripci&#xf3;n:"/>
                       </Properties>
                       <AuxValues>
@@ -579,6 +597,9 @@
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txt_alimentacion"/>
                         </Property>
                         <Property name="placeholder" type="java.lang.String" value="Descripci&#xf3;n:"/>
                       </Properties>
@@ -624,6 +645,9 @@
                             <Property name="toolTipText" type="java.lang.String" value=""/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="Check_Drogasno"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -638,6 +662,9 @@
                             <Property name="text" type="java.lang.String" value="NO"/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="txtdrogas"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -686,6 +713,9 @@
                             <Property name="toolTipText" type="java.lang.String" value=""/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="Check_infucionesno"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -700,6 +730,9 @@
                             <Property name="text" type="java.lang.String" value="NO"/>
                             <Property name="enabled" type="boolean" value="false"/>
                             <Property name="isEffectRipple" type="boolean" value="false"/>
+                            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                              <ComponentRef name="txtinfuciones"/>
+                            </Property>
                             <Property name="themeTooltip" type="necesario.Global$THEMETOOLTIP" editor="org.netbeans.modules.form.editors.EnumEditor">
                               <Value id="LIGHT"/>
                             </Property>
@@ -716,6 +749,9 @@
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="Check_infucionessi"/>
                         </Property>
                         <Property name="placeholder" type="java.lang.String" value="Descripci&#xf3;n:"/>
                       </Properties>
@@ -806,6 +842,9 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txt_diuresis"/>
+                        </Property>
                         <Property name="placeholder" type="java.lang.String" value="Escribir aqu&#xed;..."/>
                       </Properties>
                       <AuxValues>
@@ -824,6 +863,9 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txt_catarsis"/>
+                        </Property>
                         <Property name="placeholder" type="java.lang.String" value="Escribir aqu&#xed;..."/>
                       </Properties>
                       <AuxValues>
@@ -836,6 +878,9 @@
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txt_sue&#xf1;o"/>
                         </Property>
                         <Property name="placeholder" type="java.lang.String" value="Escribir aqu&#xed;..."/>
                       </Properties>
@@ -860,6 +905,9 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="txt_enfermedad"/>
+                        </Property>
                         <Property name="placeholder" type="java.lang.String" value="Escribir aqu&#xed;..."/>
                       </Properties>
                       <AuxValues>
@@ -872,6 +920,9 @@
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
+                        </Property>
+                        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                          <ComponentRef name="ButtonActualizarHC"/>
                         </Property>
                         <Property name="placeholder" type="java.lang.String" value="Escribir aqu&#xed;..."/>
                       </Properties>

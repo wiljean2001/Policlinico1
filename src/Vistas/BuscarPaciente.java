@@ -52,6 +52,7 @@ public class BuscarPaciente extends javax.swing.JDialog {
         txtDNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDNI.setToolTipText("INGRESAR DNI");
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDNI.setNextFocusableComponent(ButtonBuscarPaciente);
         txtDNI.setPlaceholder("DNI:        Ej.  73889322");
         jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 822, 40));
 

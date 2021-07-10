@@ -49,6 +49,7 @@ public class BuscarHC extends javax.swing.JDialog {
 
         txt_CodigoHC.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_CodigoHC.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_CodigoHC.setNextFocusableComponent(ButtonBuscarHC);
         txt_CodigoHC.setPlaceholder("CODIGO H.C.:        Ej.  AG001");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

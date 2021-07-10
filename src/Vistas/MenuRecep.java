@@ -129,18 +129,21 @@ public class MenuRecep extends javax.swing.JFrame {
         button_RegPaciente.setToolTipText("Caja");
         button_RegPaciente.setBackgroundHover(new java.awt.Color(183, 214, 225));
         button_RegPaciente.setForegroundHover(new java.awt.Color(0, 0, 0));
+        button_RegPaciente.setNextFocusableComponent(button_BuscarPaciente);
 
         button_BuscarPaciente.setBackground(new java.awt.Color(55, 143, 205));
         button_BuscarPaciente.setText("BUSCAR PACIENTE");
         button_BuscarPaciente.setToolTipText("Caja");
         button_BuscarPaciente.setBackgroundHover(new java.awt.Color(183, 214, 225));
         button_BuscarPaciente.setForegroundHover(new java.awt.Color(0, 0, 0));
+        button_BuscarPaciente.setNextFocusableComponent(button_ActPaciente);
 
         button_ActPaciente.setBackground(new java.awt.Color(55, 143, 205));
         button_ActPaciente.setText("ACTUALIZAR PACIENTE");
         button_ActPaciente.setToolTipText("Caja");
         button_ActPaciente.setBackgroundHover(new java.awt.Color(183, 214, 225));
         button_ActPaciente.setForegroundHover(new java.awt.Color(0, 0, 0));
+        button_ActPaciente.setNextFocusableComponent(button_BuscarHC);
 
         button_BuscarHC.setBackground(new java.awt.Color(55, 143, 205));
         button_BuscarHC.setText("BUSCAR HISTORIAL CLÍNICO");
@@ -203,8 +206,6 @@ public class MenuRecep extends javax.swing.JFrame {
         rSLabelHora1.setDoubleBuffered(true);
         rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
-        jDesktopPaneMenu.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jDesktopPaneMenuLayout = new javax.swing.GroupLayout(jDesktopPaneMenu);
         jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
         jDesktopPaneMenuLayout.setHorizontalGroup(
@@ -221,6 +222,7 @@ public class MenuRecep extends javax.swing.JFrame {
                 .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(777, Short.MAX_VALUE))
         );
+        jDesktopPaneMenu.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 

@@ -173,12 +173,14 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         Check_Alcoholsi.setText("SÍ");
         Check_Alcoholsi.setEnabled(false);
         Check_Alcoholsi.setIsEffectRipple(false);
+        Check_Alcoholsi.setNextFocusableComponent(Check_Alcoholno);
         Check_Alcoholsi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_Alcoholno.setSelected(true);
         Check_Alcoholno.setText("NO");
         Check_Alcoholno.setEnabled(false);
         Check_Alcoholno.setIsEffectRipple(false);
+        Check_Alcoholno.setNextFocusableComponent(txtalcohol);
         Check_Alcoholno.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -200,6 +202,7 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         txtalcohol.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtalcohol.setEnabled(false);
         txtalcohol.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtalcohol.setNextFocusableComponent(Check_Tabacosi);
         txtalcohol.setPlaceholder("Descripción:");
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
@@ -209,12 +212,14 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         Check_Tabacosi.setToolTipText("");
         Check_Tabacosi.setEnabled(false);
         Check_Tabacosi.setIsEffectRipple(false);
+        Check_Tabacosi.setNextFocusableComponent(Check_Tabacono);
         Check_Tabacosi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_Tabacono.setSelected(true);
         Check_Tabacono.setText("NO");
         Check_Tabacono.setEnabled(false);
         Check_Tabacono.setIsEffectRipple(false);
+        Check_Tabacono.setNextFocusableComponent(txttabaco);
         Check_Tabacono.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -236,11 +241,13 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         txttabaco.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txttabaco.setEnabled(false);
         txttabaco.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txttabaco.setNextFocusableComponent(Check_Drogassi);
         txttabaco.setPlaceholder("Descripción:");
 
         txtinfuciones.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtinfuciones.setEnabled(false);
         txtinfuciones.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtinfuciones.setNextFocusableComponent(txt_alimentacion);
         txtinfuciones.setPlaceholder("Descripción:");
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
@@ -250,12 +257,14 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         Check_Drogassi.setToolTipText("");
         Check_Drogassi.setEnabled(false);
         Check_Drogassi.setIsEffectRipple(false);
+        Check_Drogassi.setNextFocusableComponent(Check_Drogasno);
         Check_Drogassi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_Drogasno.setSelected(true);
         Check_Drogasno.setText("NO");
         Check_Drogasno.setEnabled(false);
         Check_Drogasno.setIsEffectRipple(false);
+        Check_Drogasno.setNextFocusableComponent(txtdrogas);
         Check_Drogasno.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
@@ -281,12 +290,14 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         Check_infucionessi.setToolTipText("");
         Check_infucionessi.setEnabled(false);
         Check_infucionessi.setIsEffectRipple(false);
+        Check_infucionessi.setNextFocusableComponent(Check_infucionesno);
         Check_infucionessi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_infucionesno.setSelected(true);
         Check_infucionesno.setText("NO");
         Check_infucionesno.setEnabled(false);
         Check_infucionesno.setIsEffectRipple(false);
+        Check_infucionesno.setNextFocusableComponent(txtinfuciones);
         Check_infucionesno.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
@@ -308,6 +319,7 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         txtdrogas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtdrogas.setEnabled(false);
         txtdrogas.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtdrogas.setNextFocusableComponent(Check_infucionessi);
         txtdrogas.setPlaceholder("Descripción:");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -361,6 +373,7 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         txt_alimentacion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_alimentacion.setEnabled(false);
         txt_alimentacion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_alimentacion.setNextFocusableComponent(txt_diuresis);
         txt_alimentacion.setPlaceholder("Escribir aquí...");
 
         jLabel6.setText("Diuresis:");
@@ -368,11 +381,13 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         txt_diuresis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_diuresis.setEnabled(false);
         txt_diuresis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_diuresis.setNextFocusableComponent(txt_catarsis);
         txt_diuresis.setPlaceholder("Escribir aquí...");
 
         txt_catarsis.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_catarsis.setEnabled(false);
         txt_catarsis.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_catarsis.setNextFocusableComponent(txt_sueño);
         txt_catarsis.setPlaceholder("Escribir aquí...");
 
         jLabel7.setText("Catarsis:");
@@ -382,11 +397,13 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
         txt_sueño.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_sueño.setEnabled(false);
         txt_sueño.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_sueño.setNextFocusableComponent(txt_enfermedad);
         txt_sueño.setPlaceholder("Escribir aquí...");
 
         txt_enfermedad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_enfermedad.setEnabled(false);
         txt_enfermedad.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_enfermedad.setNextFocusableComponent(ButtonActualizarHC);
         txt_enfermedad.setPlaceholder("Escribir aquí...");
 
         jLabel9.setText("Enfermedad:");

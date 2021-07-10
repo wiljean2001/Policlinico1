@@ -69,12 +69,14 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         Check_Hombre.setToolTipText("Seleccionar Sexo");
         Check_Hombre.setEnabled(false);
         Check_Hombre.setIsEffectRipple(false);
+        Check_Hombre.setNextFocusableComponent(Check_Mujer);
         Check_Hombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_Mujer.setText("FEMENINO");
         Check_Mujer.setToolTipText("Seleccionar Sexo");
         Check_Mujer.setEnabled(false);
         Check_Mujer.setIsEffectRipple(false);
+        Check_Mujer.setNextFocusableComponent(Foto);
         Check_Mujer.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -100,24 +102,28 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         Check_Soltero.setToolTipText("Seleccionar Estado Civil");
         Check_Soltero.setEnabled(false);
         Check_Soltero.setIsEffectRipple(false);
+        Check_Soltero.setNextFocusableComponent(Check_Casado);
         Check_Soltero.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_Casado.setText("Casado");
         Check_Casado.setToolTipText("Seleccionar Estado Civil");
         Check_Casado.setEnabled(false);
         Check_Casado.setIsEffectRipple(false);
+        Check_Casado.setNextFocusableComponent(Check_Viudo);
         Check_Casado.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_Viudo.setText("Viudo");
         Check_Viudo.setToolTipText("Seleccionar Estado Civil");
         Check_Viudo.setEnabled(false);
         Check_Viudo.setIsEffectRipple(false);
+        Check_Viudo.setNextFocusableComponent(Check_Divorciado);
         Check_Viudo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         Check_Divorciado.setText("Divorciado");
         Check_Divorciado.setToolTipText("Seleccionar Estado Civil");
         Check_Divorciado.setEnabled(false);
         Check_Divorciado.setIsEffectRipple(false);
+        Check_Divorciado.setNextFocusableComponent(Check_Hombre);
         Check_Divorciado.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -160,23 +166,27 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         txt_Nombres.setToolTipText("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
         txt_Nombres.setEnabled(false);
         txt_Nombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_Nombres.setNextFocusableComponent(txtDireccion);
         txt_Nombres.setPlaceholder("NOMBRES:        Ej.  Wilmer Jean Pierre");
 
         txtDireccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtDireccion.setEnabled(false);
         txtDireccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtDireccion.setNextFocusableComponent(txtTelefono);
         txtDireccion.setPlaceholder("DIRECCIÓN:        Ej.  Calle Tacna 105 - La Union");
 
         txt_Apellidos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Apellidos.setToolTipText("APELLIDOS:      Ej.  Ayala García");
         txt_Apellidos.setEnabled(false);
         txt_Apellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_Apellidos.setNextFocusableComponent(txt_Nombres);
         txt_Apellidos.setPlaceholder("APELLIDOS:      Ej.  Ayala García");
 
         ButtonActualizarPac.setBorder(null);
         ButtonActualizarPac.setText("ACTUALIZAR PACIENTE");
         ButtonActualizarPac.setToolTipText("Click para actualizar paciente");
         ButtonActualizarPac.setEnabled(false);
+        ButtonActualizarPac.setNextFocusableComponent(ButtonLimpiarTodo);
 
         ButtonLimpiarTodo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         ButtonLimpiarTodo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/broom_52px.png"))); // NOI18N
@@ -187,16 +197,19 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         ButtonBuscarP.setText("BUSCAR PACIENTE");
         ButtonBuscarP.setToolTipText("Click para buscar un paciente");
         ButtonBuscarP.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ButtonBuscarP.setNextFocusableComponent(ButtonActualizarPac);
 
         txtTelefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTelefono.setToolTipText("TELÉFONO:       Ej.  953433761");
         txtTelefono.setEnabled(false);
         txtTelefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txtTelefono.setNextFocusableComponent(Check_Soltero);
         txtTelefono.setPlaceholder("TELÉFONO:       Ej.  953433761");
 
         Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/descarga.png"))); // NOI18N
         Foto.setToolTipText("Foto menor a 10MB");
+        Foto.setNextFocusableComponent(ButtonBuscarP);
 
         Button_CargarFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_CargarFoto.setText("Seleccionar una foto");
@@ -205,6 +218,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
 
         Calendar_FechaNac.setFormatoFecha("yyyy-MM-dd");
         Calendar_FechaNac.setFuente(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        Calendar_FechaNac.setNextFocusableComponent(txt_Apellidos);
         Calendar_FechaNac.setPlaceholder("FECHA DE NACIMIENTO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -291,7 +305,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 463, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, Short.MAX_VALUE)
         );
 
         pack();
