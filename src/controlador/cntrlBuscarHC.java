@@ -33,6 +33,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
     private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
 
     public cntrlBuscarHC(BuscarHC bhc) {
+        bhc.setLocationRelativeTo(null);
         bhc.TextArea_HistorialClinico.setEditable(false);
         BuscarDNI_IDHC = bhc.txt_CodigoHC;
         buttonBuscarHC = bhc.ButtonBuscarHC;

@@ -83,7 +83,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Registrar Historial Clínico");
+        setTitle("REGISTRAR HISTORIAL CLÍNICO");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

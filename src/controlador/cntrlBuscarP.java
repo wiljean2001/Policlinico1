@@ -16,7 +16,10 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -190,13 +193,15 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 Hospital_v2.FAP.setVisible(true);
                 // para actualizar
                 for (Paciente_DBO a : lista) {
-                    cntrlActualizarP.fotoByte = a.getFoto();
-
                     Hospital_v2.FAP.txtDNI.setText(a.getDNI_Paciente());
                     Hospital_v2.FAP.txt_Apellidos.setText(a.getApellidos());
                     Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
                     Hospital_v2.FAP.txtDireccion.setText(a.getDireccion());
-                    Hospital_v2.FAP.Calendar_FechaNac.setDate(a.getFechadeNacimiento());
+                    
+                    SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-YYYY");
+                    Date fecha = null;
+                    
+                    Hospital_v2.FAP.Calendar_FechaNac.setTextoFecha(formato.format(a.getFechadeNacimiento()));
                     // convertir
                     try {
                         ImageIcon imgi = null;
@@ -205,7 +210,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             BufferedImage image;
                             image = ImageIO.read(new ByteArrayInputStream(bi));
                             imgi = new ImageIcon(image);
-                            Hospital_v2.FAP.FotoPaciente.setIcon(imgi);
+                            Hospital_v2.FAP.Foto.setIcon(imgi);
                         }
                         Hospital_v2.FAP.txtTelefono.setText(a.getTelefono());
                     } catch (IOException ex) {

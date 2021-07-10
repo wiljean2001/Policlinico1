@@ -1,8 +1,5 @@
 package Vistas;
 
-import java.awt.LayoutManager;
-
-
 public class MenuMedicos extends javax.swing.JFrame {
 
     /**
@@ -10,7 +7,6 @@ public class MenuMedicos extends javax.swing.JFrame {
      */
     public MenuMedicos() {
         initComponents();
-        this.setLocationRelativeTo(this);
     }
 
     /**
@@ -41,6 +37,7 @@ public class MenuMedicos extends javax.swing.JFrame {
         rSLabelHora1 = new rojeru_san.RSLabelHora();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MENÚ MÉDICOS - ESPECIALISTAS");
         setLocationByPlatform(true);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -199,6 +196,7 @@ public class MenuMedicos extends javax.swing.JFrame {
 
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
 
+        rSLabelHora1.setDoubleBuffered(true);
         rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
 
         jDesktopPaneMenu.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -207,11 +205,15 @@ public class MenuMedicos extends javax.swing.JFrame {
         jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
         jDesktopPaneMenuLayout.setHorizontalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jDesktopPaneMenuLayout.createSequentialGroup()
+                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1140, Short.MAX_VALUE))
         );
         jDesktopPaneMenuLayout.setVerticalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jDesktopPaneMenuLayout.createSequentialGroup()
+                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 777, Short.MAX_VALUE))
         );
 
         rSScrollPane1.setViewportView(jDesktopPaneMenu);

@@ -4,6 +4,7 @@ import Vistas.*;
 import controlador.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -40,34 +41,58 @@ public class Hospital_v2 {
     public static void main(String[] args) {
         // "com.sun.java.swing.plaf.windows.WindowsLookAndFeel"  org.jdesktop.swingx.plaf.windows.WindowsClassicLookAndFeelAddons();
         try {
-            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
             Logger.getLogger(Cargando.class.getName()).log(Level.SEVERE, null, ex);
         }
+        //
         cL = new cntrlLoading(FC);
         FC.setVisible(true);
         FC = null;
         cL = null;
 
+        FL = new Login();
         FRHC = new RegistrarHC();
         FAHC = new ActualizarHC();
         FAP = new ActualizarP();
         FBHC = new BuscarHC(null, true);
         FBP = new BuscarPaciente(null, true);
-        FL = new Login();
         FMM = new MenuMedicos();
         FMR = new MenuRecep();
         FRP = new RegistrarP();
-        //creamos los controlodores para manipular los formularios
+        //
+        ImageIcon IconoFRHC = new ImageIcon(Hospital_v2.class.getResource("/recursos2/Button Add.png"));
+        ImageIcon IconoFRP = new ImageIcon(Hospital_v2.class.getResource("/recursos2/Button Add.png")); // 
+        ImageIcon IconoFAHC = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnEditar.png"));
+        ImageIcon IconoFAP = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnEditar.png"));
+        ImageIcon IconoFMM = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnHome.png"));
+        ImageIcon IconoFMR = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnHome.png"));
+        ImageIcon IconoFBP = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnVer.png"));
+        ImageIcon IconoFBHC = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnVer.png"));
+        //ImageIcon IconoFL = new ImageIcon(Hospital_v2.class.getResource("/recursos/hospital-cargando.gif"));
+        //ImageIcon IconocL = new ImageIcon(Hospital_v2.class.getResource("/recursos/hospital-cargando.gif"));
+        FRHC.setFrameIcon(IconoFRHC);
+        FAHC.setFrameIcon(IconoFAHC);
+
+        FAP.setFrameIcon(IconoFAP);
+        FBP.setIconImage(IconoFBP.getImage());
+
+        FRP.setFrameIcon(IconoFRP);
+        FBHC.setIconImage(IconoFBHC.getImage());
+
+        FMM.setIconImage(IconoFMM.getImage());
+        FMR.setIconImage(IconoFMR.getImage());
+        //FL.setIconImage(IconoFL.getImage());
+        //FMR.setIconImage(IconocL.getImage());
+        cLO = new cntrlLogin(FL);
         cRHC = new cntrlRegistrarHC(FRHC);
         cAHC = new cntrlActualizarHC(FAHC);
         cAP = new cntrlActualizarP(FAP);
         cBHC = new cntrlBuscarHC(FBHC);
         cBP = new cntrlBuscarP(FBP);
-        cLO = new cntrlLogin(FL);
         cMM = new cntrlMenuMedicos(FMM);
         cMR = new cntrlMenuRecep(FMR);
         cRP = new cntrlRegistrarP(FRP);
     }
-
 }

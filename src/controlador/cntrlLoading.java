@@ -28,8 +28,8 @@ public class cntrlLoading implements Runnable {
             try {
                 Thread.sleep(5000);
                 tiempo = null;
-                Hospital_v2.FL.setVisible(true);
                 c.dispose();
+                Hospital_v2.FL.setVisible(true);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Cargando.class.getName()).log(Level.SEVERE, null, ex);
             }

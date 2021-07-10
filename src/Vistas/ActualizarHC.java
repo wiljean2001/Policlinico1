@@ -79,7 +79,7 @@ public class ActualizarHC extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
-        setTitle("Actualizar Historial Clínico");
+        setTitle("ACTUALIZAR HISTORIAL CLÍNICO");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

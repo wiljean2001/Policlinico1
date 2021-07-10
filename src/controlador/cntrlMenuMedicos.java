@@ -33,6 +33,7 @@ public class cntrlMenuMedicos implements MouseListener {
 
     public cntrlMenuMedicos(MenuMedicos m) {
         this.m = m;
+        m.setLocationRelativeTo(null);
         Acciones(m);
         Panel_cont.add(Panel_Bott);
         a.setMoveWindow(this.m);

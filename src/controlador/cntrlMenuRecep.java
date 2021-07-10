@@ -18,7 +18,6 @@ public class cntrlMenuRecep implements MouseListener {
 
     private MenuRecep m;
     private RSMoveWindow a = new RSMoveWindow();
-
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
     private JButton button_Reg, button_BusHC, button_BusPac, button_ActPac, cerrarSesion;
     private JToggleButton bttn_MenuDespl;
@@ -32,6 +31,7 @@ public class cntrlMenuRecep implements MouseListener {
 
     public cntrlMenuRecep(MenuRecep m) {
         this.m = m;
+        m.setLocationRelativeTo(null);
         Acciones(m);
         Panel_cont.add(Panel_Bott);
         a.setMoveWindow(this.m);
@@ -74,9 +74,11 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar Registrar Paciente
         if (e.getSource() == button_Reg) {
+            Hospital_v2.cRP.primeravez = false;
             Hospital_v2.cRP.limpiar();
             DesktopPaneMenu.add(Hospital_v2.FRP);
             Hospital_v2.FRP.setVisible(true);
+            
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {
@@ -88,7 +90,7 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn Actualizar PacienteHGGHGHG
         if (e.getSource() == button_ActPac) {
-            Hospital_v2.cAP.Limpiar();
+            Hospital_v2.cAP.limpiar();
             DesktopPaneMenu.add(Hospital_v2.FAP);
             Hospital_v2.FAP.setVisible(true);
 
@@ -128,8 +130,8 @@ public class cntrlMenuRecep implements MouseListener {
             RSAnimation.setMoverIzquierda(5, -250, 5, 5, PanelIzq);
             RSAnimation.setMoverIzquierda(5, -(245 - 60), 4, 4, PanelIzqArriba);
             RSAnimation.setMoverIzquierda(255, 5, 4, 4, m.rSScrollPane1);
-            //m.rSScrollPane1.setBounds(5, 65, m.getWidth() + (255 - 15), 830);
-            m.rSScrollPane1.setSize(new Dimension(m.getWidth() + (255 - 15), altoPanel));
+            m.rSScrollPane1.setBounds(m.rSScrollPane1.getX(), m.rSScrollPane1.getY(), m.getWidth() + (255 - 15), altoPanel);
+            //m.rSScrollPane1.setSize(new Dimension());
 
         } else {
             RSAnimation.setMoverDerecha(-250, 5, 5, 5, PanelIzq);

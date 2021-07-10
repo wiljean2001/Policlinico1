@@ -38,6 +38,7 @@ public class BuscarHC extends javax.swing.JDialog {
         ButtonEnviarHC = new rojeru_san.RSButtonRiple();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("BUSCAR HISTORIAL CLÍNICO");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
