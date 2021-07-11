@@ -188,7 +188,8 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                     Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                     //JOptionPane.OK_CANCEL_OPTION
                 }
-                //limpiar();
+                primeravez = false;
+                limpiar();
 
             }
         }
