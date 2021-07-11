@@ -48,7 +48,7 @@ public class HistorialClinico_DAO {
             }
         } catch (SQLException e) {
             // AGREGAR MENSAJE DE ERROR
-            Mensaje.MensajeError("HISTORIAL CLÍNICO EXISTENTE", "ERROR");
+            //Mensaje.MensajeError("HISTORIAL CLÍNICO EXISTENTE", "ERROR");
         } finally {
             //Cerrar conexion
             con.setCnn();

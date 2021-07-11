@@ -6,7 +6,6 @@ import Main.Hospital_v2;
 import Vistas.Login;
 import java.awt.Desktop;
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -115,7 +114,7 @@ public class cntrlLogin implements ActionListener, KeyListener {
             }
             if (e.getSource() == BuscFacebook) {
 
-                Abrir_URL("https://www.facebook.com");
+                Abrir_URL("https://www.facebook.com/Policlinico-Flores-1684153691816035");
             }
         } catch (URISyntaxException ex) {
             Logger.getLogger(cntrlLogin.class.getName()).log(Level.SEVERE, null, ex);

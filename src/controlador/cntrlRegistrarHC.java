@@ -32,8 +32,6 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     private String DateFormato = "hh//mm//ss a dd//MMM//YYYY";
     private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
 
-    private double aleatorio;
-
     public cntrlRegistrarHC(RegistrarHC rHC) {
         rHC.lbl_fecha.setText(formato.format(fecha));
         eventos(rHC);
@@ -94,11 +92,12 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     private final int minimo = 99999;
     private ArrayList<HistoriaClinica_DBO> h;
     private boolean codigoExiste = false;
+    private int aleatorio;
 
     private String GenerarCodHC() {
         HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
 
-        aleatorio = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+        aleatorio = (int) Math.floor(Math.random()* (maximo - minimo + 1)) + minimo;
         String cod = String.valueOf(aleatorio);
         h = daoHC.BuscarHC(cod);
         if (h.isEmpty()) {
@@ -111,9 +110,9 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                     codigoExiste = false;
                 }
             }
-                if (codigoExiste) {
-                    return cod;
-                }
+            if (codigoExiste) {
+                return cod;
+            }
         }
         daoHC = null;
         return GenerarCodHC();
@@ -173,9 +172,13 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                         CodigoGenerado, fecha, ConsumeAlcohol, ConsumeTabaco, ConsumeDrogas,
                         ConsumeInfusiones, Alimentacion.getText(), Diuresis.getText(), Catarsis.getText(),
                         Sueño.getText(), Enfermedad.getText());
-
                 HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
-                daoHC.RegistrarHC(historialDBO, DNI.getText());
+                if (daoHC.RegistrarHC(historialDBO, DNI.getText()) != false) {
+                    Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
+                    //JOptionPane.OK_CANCEL_OPTION
+                }
+                //limpiar();
+
             }
         }
         if (e.getSource() == buttonBuscarHC) {
@@ -184,7 +187,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             Hospital_v2.cBP.ventanaAnterior = 1;
             Hospital_v2.FRHC.setVisible(false);
             Hospital_v2.FBP.setVisible(true);
-            
+
             txtCodigoHC.setText(GenerarCodHC());
         }
 
