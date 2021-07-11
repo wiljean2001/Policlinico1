@@ -198,11 +198,12 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     Hospital_v2.FAP.txt_Apellidos.setText(a.getApellidos());
                     Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
                     Hospital_v2.FAP.txt_Direccion.setText(a.getDireccion());
+                    Hospital_v2.FAP.Calendar_FechaNac.setDate(a.getFechadeNacimiento());
                     
-                    SimpleDateFormat formato = new SimpleDateFormat(Hospital_v2.FAP.Calendar_FechaNac.getFormatoFecha());
+                    
                     Date fecha = null;
                     
-                    Hospital_v2.FAP.Calendar_FechaNac.setTextoFecha(formato.format(a.getFechadeNacimiento()));
+                    
                     // convertir
                     try {
                         ImageIcon imgi = null;
@@ -259,7 +260,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 Hospital_v2.FAP.Check_Casado.setEnabled(true);
                 Hospital_v2.FAP.Check_Viudo.setEnabled(true);
                 Hospital_v2.FAP.Check_Divorciado.setEnabled(true);
-                //Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
+                Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
 
             }
             limpiar();

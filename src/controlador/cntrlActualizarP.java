@@ -7,6 +7,8 @@ import Interfaces.Seteo;
 import Main.Hospital_v2;
 import Vistas.ActualizarPac;
 import app.bolivia.swing.JCTextField;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.event.KeyEvent;
@@ -21,6 +23,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -36,7 +39,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     private JButton button_ActP, button_Limpiar, button_BuscarPaciente;
     private JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private JCheckBox SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
-    private RSDateChooser FechadeNacimiento;
+    private JDateChooser FechadeNacimiento;
     private RSLabelImage Foto;
     private JLabel button_Foto;
     private ActualizarPac ActP;
@@ -50,6 +53,10 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         acciones(ActP);
         Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) FechadeNacimiento.getDateEditor();
+        editor.setEditable(false);
+        FechadeNacimiento.setEnabled(false);
+
     }
 
     private void acciones(ActualizarPac ActP) {
@@ -96,8 +103,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     public boolean primeravez = true;
 
     public void limpiar() {
-        /*
-        
+
         int result = 0;
         if (primeravez) {
             result = JOptionPane.showConfirmDialog(
@@ -113,96 +119,19 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             Icon icono = new ImageIcon(imagenIcon.getImage());
             Foto.setIcon(icono);
             rutaImagen = null;
-
         }
         primeravez = true;
-        */
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e
-    ) {
-
-        if (e.getSource() == button_ActP) {
-            actualizar();
-            limpiar();
-        }
-//
-        if (e.getSource() == button_Limpiar) {
-            limpiar();
-        }
-        if (e.getSource() == button_BuscarPaciente) {
-            primeravez = false;
-            limpiar();
-            Hospital_v2.cBP.limpiar();
-
-            button_BuscarPaciente.setEnabled(true);
-            ActP.dispose();
-            Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
-            // redimensioar para restar la altura del botón aceptar (por estética)
-            Hospital_v2.FBP.setSize(new Dimension(
-                    Hospital_v2.FBP.getWidth(),
-                    Hospital_v2.FBP.getHeight() + Hospital_v2.FBP.ButtonEnviarPaciente.getHeight()));
-            Hospital_v2.FBP.setVisible(true);
-
-        }
-        if (e.getSource() == SexoH) {
-            if (SexoH.isEnabled() != false) {
-
-                SexoH.setSelected(true);
-                SexoM.setSelected(false);
-            }
-
-        }
-        if (e.getSource() == SexoM) {
-            if (SexoH.isEnabled() != false) {
-                SexoM.setSelected(true);
-                SexoH.setSelected(false);
-            }
-        }
-        if (e.getSource() == EstadoCivil_Sol) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_Sol.setSelected(true);
-                EstadoCivil_Cas.setSelected(false);
-                EstadoCivil_viud.setSelected(false);
-                EstadoCivil_Div.setSelected(false);
-            }
-        }
-        if (e.getSource() == EstadoCivil_Cas) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_Cas.setSelected(true);
-                EstadoCivil_Sol.setSelected(false);
-                EstadoCivil_viud.setSelected(false);
-                EstadoCivil_Div.setSelected(false);
-            }
-        }
-        if (e.getSource() == EstadoCivil_viud) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_viud.setSelected(true);
-                EstadoCivil_Sol.setSelected(false);
-                EstadoCivil_Cas.setSelected(false);
-                EstadoCivil_Div.setSelected(false);
-            }
-        }
-        if (e.getSource() == EstadoCivil_Div) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_Div.setSelected(true);
-                EstadoCivil_Cas.setSelected(false);
-                EstadoCivil_viud.setSelected(false);
-                EstadoCivil_Sol.setSelected(false);
-            }
-
-        }
-
-        if (e.getSource() == Foto || e.getSource() == button_Foto) {
-            abrirImagen();
-        }
     }
 
     private void actualizar() {
+        SimpleDateFormat formato = new SimpleDateFormat(
+                FechadeNacimiento.getDateFormatString()
+        );
+
         if (DNI.getText().isEmpty() || apellidos.getText().isEmpty()
                 || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
-                || FechadeNacimiento.getFechaSeleccionada().isEmpty()) {
+                || formato.format(FechadeNacimiento.getDate()).isEmpty()) {
+
             Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
         } else {
             char Sexo = 0;
@@ -238,15 +167,12 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 if (telefono.getText().length() < 5) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN");
                 } else {
-                    SimpleDateFormat formato = new SimpleDateFormat(FechadeNacimiento.getFormatoFecha());
-                    Date fecha = null;
-                    try {
-                        fecha = formato.parse(FechadeNacimiento.getFechaSeleccionada());
-                    } catch (ParseException e) {
-                    }
 
-                    pacienteDBO = new Paciente_DBO(DNI.getText(), fecha, telefono.getText(), apellidos.getText(), nombres.getText(),
+                    pacienteDBO = new Paciente_DBO(
+                            DNI.getText(), FechadeNacimiento.getDate(), 
+                            telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte);
+                    
                     if (pacientedao.ActualizarPac(pacienteDBO.retornarPac()) != false) {
                         Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
@@ -254,7 +180,6 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 }
             }
         }
-
     }
 
     private File abrirImagen() {
@@ -293,7 +218,77 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if (e.getSource() == button_ActP) {
+            actualizar();
+            limpiar();
+        }
+//
+        if (e.getSource() == button_Limpiar) {
+            limpiar();
+        }
+        if (e.getSource() == button_BuscarPaciente) {
+            primeravez = false;
+            limpiar();
+            Hospital_v2.cBP.limpiar();
 
+            button_BuscarPaciente.setEnabled(true);
+            ActP.dispose();
+            Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
+            // redimensioar para restar la altura del botón aceptar (por estética)
+            Hospital_v2.FBP.setSize(new Dimension(
+                    Hospital_v2.FBP.getWidth(),
+                    Hospital_v2.FBP.getHeight() + Hospital_v2.FBP.ButtonEnviarPaciente.getHeight()));
+            Hospital_v2.FBP.setVisible(true);
+
+        }
+        if (e.getSource() == SexoH) {
+            if (SexoH.isEnabled() != false) {
+
+                SexoH.setSelected(true);
+                SexoM.setSelected(false);
+            }
+        }
+        if (e.getSource() == SexoM) {
+            if (SexoH.isEnabled() != false) {
+                SexoM.setSelected(true);
+                SexoH.setSelected(false);
+            }
+        }
+        if (e.getSource() == EstadoCivil_Sol) {
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_Sol.setSelected(true);
+                EstadoCivil_Cas.setSelected(false);
+                EstadoCivil_viud.setSelected(false);
+                EstadoCivil_Div.setSelected(false);
+            }
+        }
+        if (e.getSource() == EstadoCivil_Cas) {
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_Cas.setSelected(true);
+                EstadoCivil_Sol.setSelected(false);
+                EstadoCivil_viud.setSelected(false);
+                EstadoCivil_Div.setSelected(false);
+            }
+        }
+        if (e.getSource() == EstadoCivil_viud) {
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_viud.setSelected(true);
+                EstadoCivil_Sol.setSelected(false);
+                EstadoCivil_Cas.setSelected(false);
+                EstadoCivil_Div.setSelected(false);
+            }
+        }
+        if (e.getSource() == EstadoCivil_Div) {
+            if (SexoH.isEnabled() != false) {
+                EstadoCivil_Div.setSelected(true);
+                EstadoCivil_Cas.setSelected(false);
+                EstadoCivil_viud.setSelected(false);
+                EstadoCivil_Sol.setSelected(false);
+            }
+        }
+        if (e.getSource() == Foto || e.getSource() == button_Foto) {
+            abrirImagen();
+        }
     }
 
     @Override
@@ -327,6 +322,12 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e
+    ) {
 
     }
 

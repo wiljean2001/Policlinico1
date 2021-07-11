@@ -189,13 +189,12 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                         Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
                     }
-
+                    limpiar();
                 }
             } else {
                 Mensaje.MensajeError("DNI INCORRECTO", "ERROR DE REGISTRO");
 
             }
-            limpiar();
         }
     }
 

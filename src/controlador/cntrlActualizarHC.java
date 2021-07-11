@@ -30,9 +30,8 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
             Alimentacion, Diuresis, Catarsis, Sueño, Enfermedad, CodigoAct;
     private JCheckBox Alcohol_si, Alcohol_no, Tabaco_si, Tabaco_no, Drogras_si,
             Drogas_no, Infuciones_si, Infuciones_no;
-    HistoriaClinica_DBO historialDBO;
-
-    private ActualizarHC ActHC;
+    private HistoriaClinica_DBO historialDBO;
+    private ActualizarHC ActHC; 
 
     public cntrlActualizarHC(ActualizarHC ActHC) {
         this.ActHC = ActHC;

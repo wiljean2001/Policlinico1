@@ -3,6 +3,7 @@ package Interfaces;
 import Main.Hospital_v2;
 import RSMaterialComponent.RSCheckBoxMaterial;
 import app.bolivia.swing.JCTextField;
+import com.toedter.calendar.JDateChooser;
 import rojerusan.RSDateChooser;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -37,6 +38,9 @@ public class Seteo {
         }
     }
 
+    public static void SeteoJCalendar(JDateChooser datechooser) {
+        datechooser.setDate(null);
+    }
     public static void SeteoJCalendar(RSDateChooser datechooser) {
         datechooser.setLimpiarFecha(true);
     }
