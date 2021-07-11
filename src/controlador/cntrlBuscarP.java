@@ -302,25 +302,16 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         Hospital_v2.FRHC.Check_Masculino.setSelected(true);
                     }
 
+                    Enable.ActivarRSTextField(Hospital_v2.FRHC.jPanel1);
+                    Enable.ActivarRSTextField(Hospital_v2.FRHC.PanelConsume);
+                    Enable.ActivarRSTextField(Hospital_v2.FRHC.PanelMas);
+                    
                     Hospital_v2.FRHC.ButtonRegistrarHC.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Tabacono.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Tabacosi.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Alcoholno.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Alcoholsi.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Drogasno.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Drogassi.setEnabled(true);
-                    Hospital_v2.FRHC.Check_infucionesno.setEnabled(true);
-                    Hospital_v2.FRHC.Check_infucionessi.setEnabled(true);
-                    Hospital_v2.FRHC.txttabaco.setEnabled(true);
-                    Hospital_v2.FRHC.txtinfuciones.setEnabled(true);
-                    Hospital_v2.FRHC.txtdrogas.setEnabled(true);
-                    Hospital_v2.FRHC.txtalcohol.setEnabled(true);
-                    Hospital_v2.FRHC.txt_alimentacion.setEnabled(true);
-                    Hospital_v2.FRHC.txt_catarsis.setEnabled(true);
-                    Hospital_v2.FRHC.txt_diuresis.setEnabled(true);
-                    Hospital_v2.FRHC.txt_enfermedad.setEnabled(true);
-                    Hospital_v2.FRHC.txt_sueño.setEnabled(true);
-
+                    Hospital_v2.FRHC.Check_Tabacosi.setSelected(true);
+                    Hospital_v2.FRHC.Check_Alcoholsi.setSelected(true);
+                    Hospital_v2.FRHC.Check_Drogassi.setSelected(true);
+                    Hospital_v2.FRHC.Check_infucionessi.setSelected(true);
+                    
                 }
             }
             limpiar();

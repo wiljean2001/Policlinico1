@@ -2,6 +2,7 @@ package controlador;
 
 import DAO.HistorialClinico_DAO;
 import DBO.HistoriaClinica_DBO;
+import Interfaces.Enable;
 import Interfaces.Mensaje;
 import Interfaces.Seteo;
 import Main.Hospital_v2;
@@ -39,7 +40,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
     private RegistrarHC rHC;
     private final ImageIcon imagenIcon;
-    
+
     public cntrlRegistrarHC(RegistrarHC rHC) {
         rHC.lbl_fecha.setText(formato.format(fecha));
         eventos(rHC);
@@ -48,7 +49,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
 
     private void eventos(RegistrarHC rHC) {
         //txt
-        this.rHC =rHC;
+        this.rHC = rHC;
         DNI = rHC.txtDNI;
         txtCodigoHC = rHC.lbl_codigo;
         Alcohol_des = rHC.txtalcohol;
@@ -108,7 +109,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     private String GenerarCodHC() {
         HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
 
-        aleatorio = (int) Math.floor(Math.random()* (maximo - minimo + 1)) + minimo;
+        aleatorio = (int) Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
         String cod = String.valueOf(aleatorio);
         h = daoHC.BuscarHC(cod);
         if (h.isEmpty()) {
@@ -187,9 +188,12 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                 if (daoHC.RegistrarHC(historialDBO, DNI.getText()) != false) {
                     Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                     //JOptionPane.OK_CANCEL_OPTION
+                    primeravez = false;
+                    limpiar();
+                    Enable.DesactivarRSTextField(rHC.jPanel1);
+                    Enable.DesactivarRSTextField(rHC.PanelConsume);
+                    Enable.DesactivarRSTextField(rHC.PanelMas);
                 }
-                primeravez = false;
-                limpiar();
 
             }
         }
@@ -273,7 +277,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         }
         primeravez = true;
     }
-    
+
     @Override
     public void keyTyped(KeyEvent e) {
 

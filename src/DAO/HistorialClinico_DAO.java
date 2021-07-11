@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class HistorialClinico_DAO {
 
-    private static final String INSERT_SQL = "INSERT INTO HistorialClinico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String INSERT_SQL = "INSERT INTO HistorialClinico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_SQL = "UPDATE HistorialClinico SET ConsumeAlcohol=?, "
             + "ConsuConsumoTabaco=?, ?ConsumoDrogas=, ConsumeInfusiones=?, Alimentacion=?, Diuresis=?,"
             + " Catarsis=?, Sueño=?, EnfermedadActul=?, where CodigoHC?";
@@ -40,7 +40,6 @@ public class HistorialClinico_DAO {
             PS.setString(10, x.getSueño());
             PS.setString(11, x.getEnfermedadActual());
             PS.setString(12, DNI);
-            PS.setInt(13, 0);
             if (PS.executeUpdate() > 0) {
                 return true;
             }

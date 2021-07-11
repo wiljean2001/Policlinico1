@@ -33,7 +33,8 @@ import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import rojerusan.RSLabelImage;
 
-public class cntrlActualizarP implements KeyListener, MouseListener {
+public class cntrlActualizarP
+        implements KeyListener, MouseListener {
 
     private JButton button_ActP, button_Limpiar, button_BuscarPaciente;
     private JCTextField DNI, apellidos, nombres, Direccion, telefono;
@@ -70,7 +71,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         FechadeNacimiento = ActP.Calendar_FechaNac;
         Foto = ActP.Foto;
         button_Foto = ActP.Button_CargarFoto;
-        
+
         button_Foto.addMouseListener(this);
         DNI.addKeyListener(this);
         apellidos.addKeyListener(this);
@@ -280,7 +281,9 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         }
 
         if (e.getSource() == Foto || e.getSource() == button_Foto) {
-            abrirImagen();
+            if (!Foto.isEnabled()) {
+                abrirImagen();
+            }
         }
     }
 
