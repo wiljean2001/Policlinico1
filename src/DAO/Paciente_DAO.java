@@ -111,25 +111,23 @@ public class Paciente_DAO {
         try {
             ps = con.getCnn().prepareStatement(BUSCAR_Inner);
             ps.setString(1, key);
-
             res = ps.executeQuery();
-
             while (res.next()) {
 
                 if (res.getString(1) != null) {
                     Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(false);
-                    Mensaje.MensajeError("El Historial clínico ya existe", "HC EXISTENTE");
+                    Mensaje.MensajeError(
+                            "EL HISTORIAL CLÍNICO EXISTENTE", "HC DETECTADO");
                 } else {
                     Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
-
-                    Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
+                    Mensaje.MensajeError(
+                            "HISTORIAL CÍNICO NO EXISTENTE", "ERROR");
                 }
 
             }
             lista = BuscarPac(key);
             return lista;
         } catch (SQLException ex) {
-            // AGREGAR AL WORD MENSAJE DE ERROR
             Mensaje.MensajeError("PACIENTE NO EXISTENTE: " + ex, "ERROR");
         } finally {
             con.setCnn();

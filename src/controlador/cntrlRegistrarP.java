@@ -51,6 +51,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         button_Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
+        DNI.requestFocus();
     }
 
     private void ListenerEventos(RegistrarP r) {
@@ -114,7 +115,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             Icon icono = new ImageIcon(imagenIcon.getImage());
             Foto.setIcon(icono);
             rutaImagen = null;
-
+            DNI.requestFocus();
         }
         primeravez = true;
     }
@@ -154,7 +155,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 EstadoCivil = EstadoCivil_viud.getText();
             }
 
-            byte[] foto = null;
             Paciente_DBO pacienteDBO;
             if (rutaImagen != null) {
                 // falta enviar nulos
@@ -171,7 +171,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 if (telefono.getText().length() < 5) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
                 } else {
-
                     SimpleDateFormat formato = new SimpleDateFormat(FechadeNacimiento.getFormatoFecha());
                     Date fecha = null;
                     try {
@@ -182,7 +181,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                     pacienteDBO = new Paciente_DBO(
                             DNI.getText(), fecha,
                             telefono.getText(), apellidos.getText(), nombres.getText(),
-                            Direccion.getText(), Sexo, 0, EstadoCivil, foto
+                            Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte
                     );
 
                     Paciente_DAO registrarDAO = new Paciente_DAO();
@@ -197,8 +196,42 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 Mensaje.MensajeError("DNI INCORRECTO", "ERROR DE REGISTRO");
 
             }
+            limpiar();
         }
     }
+    
+    private File abrirImagen() {
+        JFileChooser jf = new JFileChooser();
+        jf.setDialogTitle("BUSCAR FOTO");
+        //solo puedo selecionar archivos(txt o musica o imagen pero no carpetas: no directorios
+        jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        //solo puedo seleccionar un archivo a la vez no varios a la vez
+        jf.setMultiSelectionEnabled(false);
+        //aqui filtro lo que quiero que se cargue
+        //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
+        //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif");
+        jf.setFileFilter(filter);
+        //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
+        jf.showOpenDialog(r);
+        //agarre lo que seleciona
+        File seleccion_ruta = jf.getSelectedFile();
+        //si la selccion es diferente de null , pasela a txt
+        if (seleccion_ruta != null && seleccion_ruta.length()<=10485760 ) {
+            try {
+                ImageIcon imgi = null;
+                BufferedImage image = ImageIO.read(seleccion_ruta);
+                imgi = new ImageIcon(image);
+                
+                Foto.setIcon(imgi);
+                rutaImagen = seleccion_ruta;
+                return seleccion_ruta;
+            } catch (IOException e) {
+            }
+        }
+        return null;
+    }
+        
     @Override
     public void mouseClicked(MouseEvent e) {
 
@@ -207,7 +240,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         }
         if (e.getSource() == button_Reg) {
             bottonRegistrar();
-            limpiar();
+            
         }
         if (e.getSource() == SexoH) {
             SexoH.setSelected(true);
@@ -248,38 +281,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         
     }
 
-    private File abrirImagen() {
-        JFileChooser jf = new JFileChooser();
-        jf.setDialogTitle("BUSCAR FOTO");
-        //solo puedo selecionar archivos(txt o musica o imagen pero no carpetas: no directorios
-        jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-        //solo puedo seleccionar un archivo a la vez no varios a la vez
-        jf.setMultiSelectionEnabled(false);
-        //aqui filtro lo que quiero que se cargue
-        //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
-        //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif");
-        jf.setFileFilter(filter);
-        //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
-        jf.showOpenDialog(r);
-        //agarre lo que seleciona
-        File seleccion_ruta = jf.getSelectedFile();
-        //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length()<=10485760 ) {
-            try {
-                ImageIcon imgi = null;
-                BufferedImage image = ImageIO.read(seleccion_ruta);
-                imgi = new ImageIcon(image);
-                
-                Foto.setIcon(imgi);
-                rutaImagen = seleccion_ruta;
-                return seleccion_ruta;
-            } catch (IOException e) {
-            }
-        }
-        jf = null;
-        return null;
-    }
+    
     
      @Override
     public void keyTyped(KeyEvent e) {

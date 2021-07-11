@@ -51,6 +51,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         acciones(ActP);
         Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
+        
     }
 
     private void acciones(ActualizarP ActP) {
@@ -59,7 +60,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         nombres = ActP.txt_Nombres;
         Direccion = ActP.txtDireccion;
         telefono = ActP.txtTelefono;
-        FechadeNacimiento = ActP.Calendar_FechaNac;
+        FechadeNacimiento = ActP.Calendar_FechaNac1;
         Foto = ActP.Foto;
         button_Foto = ActP.Button_CargarFoto;
 
@@ -108,6 +109,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             Seteo.SeteoJCalendar(FechadeNacimiento);
             Seteo.SeteoCheckbox(ActP.jPanel2);
             Seteo.SeteoCheckbox(ActP.jPanel4);
+            FechadeNacimiento.setTextoFecha("20");
 
             Icon icono = new ImageIcon(imagenIcon.getImage());
             Foto.setIcon(icono);
@@ -274,14 +276,15 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         //si la selccion es diferente de null , pasela a txt
         if (seleccion_ruta != null && seleccion_ruta.length() <= 10485760) {
             try {
-                ImageIcon imgi = null;
+                ImageIcon imgi;
+                imgi = null;
                 BufferedImage image = ImageIO.read(seleccion_ruta);
                 imgi = new ImageIcon(image);
 
                 Foto.setIcon(imgi);
                 rutaImagen = seleccion_ruta;
                 return seleccion_ruta;
-            } catch (Exception e) {
+            } catch (IOException e) {
 
             }
         }

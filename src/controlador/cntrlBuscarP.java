@@ -199,10 +199,10 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
                     Hospital_v2.FAP.txtDireccion.setText(a.getDireccion());
                     
-                    SimpleDateFormat formato = new SimpleDateFormat("dd-MMM-YYYY");
+                    SimpleDateFormat formato = new SimpleDateFormat(Hospital_v2.FAP.Calendar_FechaNac1.getFormatoFecha());
                     Date fecha = null;
                     
-                    Hospital_v2.FAP.Calendar_FechaNac.setTextoFecha(formato.format(a.getFechadeNacimiento()));
+                    Hospital_v2.FAP.Calendar_FechaNac1.setTextoFecha(formato.format(a.getFechadeNacimiento()));
                     // convertir
                     try {
                         ImageIcon imgi = null;
@@ -246,7 +246,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             break;
                     }
                 }
-
+                
                 Hospital_v2.FAP.txtDNI.setEnabled(true);
                 Hospital_v2.FAP.txt_Apellidos.setEnabled(true);
                 Hospital_v2.FAP.txt_Nombres.setEnabled(true);
@@ -259,9 +259,10 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 Hospital_v2.FAP.Check_Casado.setEnabled(true);
                 Hospital_v2.FAP.Check_Viudo.setEnabled(true);
                 Hospital_v2.FAP.Check_Divorciado.setEnabled(true);
-                Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
+                //Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
 
             }
+            limpiar();
             BusP.setVisible(false);
         } else {
             Mensaje.MensajeError("ERROR: ENVIAR DATOS A LA INTERFAZ", "ERROR");
@@ -323,6 +324,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
 
                 }
             }
+            limpiar();
         }
     }
 

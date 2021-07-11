@@ -47,7 +47,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         txtTelefono = new app.bolivia.swing.JCTextField();
         Foto = new rojerusan.RSLabelImage();
         Button_CargarFoto = new javax.swing.JLabel();
-        Calendar_FechaNac = new rojerusan.RSDateChooser();
+        Calendar_FechaNac1 = new rojerusan.RSDateChooser();
 
         setClosable(true);
         setIconifiable(true);
@@ -159,7 +159,6 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         txtDNI.setToolTipText("DNI:        Ej.  73889322");
         txtDNI.setEnabled(false);
         txtDNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txtDNI.setNextFocusableComponent(Calendar_FechaNac);
         txtDNI.setPlaceholder("DNI:        Ej.  73889322");
 
         txt_Nombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -216,10 +215,9 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         Button_CargarFoto.setToolTipText("Foto menor a 10MB");
         Button_CargarFoto.setBorder(new org.edisoncor.gui.util.DropShadowBorder());
 
-        Calendar_FechaNac.setFormatoFecha("yyyy-MM-dd");
-        Calendar_FechaNac.setFuente(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        Calendar_FechaNac.setNextFocusableComponent(txt_Apellidos);
-        Calendar_FechaNac.setPlaceholder("FECHA DE NACIMIENTO");
+        Calendar_FechaNac1.setFormatoFecha("yyyy-MM-dd");
+        Calendar_FechaNac1.setFuente(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        Calendar_FechaNac1.setPlaceholder("FECHA DE NACIMIENTO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -230,6 +228,12 @@ public class ActualizarP extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Calendar_FechaNac1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(22, 22, 22))
                             .addComponent(txtDireccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_Nombres, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_Apellidos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -240,11 +244,6 @@ public class ActualizarP extends javax.swing.JInternalFrame {
                                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,10 +268,11 @@ public class ActualizarP extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Calendar_FechaNac1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
                         .addComponent(txt_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txt_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -305,7 +305,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 467, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 471, Short.MAX_VALUE)
         );
 
         pack();
@@ -317,7 +317,7 @@ public class ActualizarP extends javax.swing.JInternalFrame {
     public rojeru_san.RSButtonRiple ButtonBuscarP;
     public rojeru_san.RSButtonRiple ButtonLimpiarTodo;
     public javax.swing.JLabel Button_CargarFoto;
-    public rojerusan.RSDateChooser Calendar_FechaNac;
+    public rojerusan.RSDateChooser Calendar_FechaNac1;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Casado;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Divorciado;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre;

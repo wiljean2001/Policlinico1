@@ -120,25 +120,25 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
             Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
 
         } else {
-            String ConsumeAlcohol = "";
+            String ConsumeAlcohol="";
             if (Alcohol_si.isSelected()) {
                 ConsumeAlcohol = Alcohol_si.getText() + " " + Alcohol_des.getText();
             } else {
                 ConsumeAlcohol = Alcohol_no.getText() + " " + Alcohol_des.getText();
             }
-            String ConsumeTabaco = "";
-            if (Alcohol_si.isSelected()) {
-                ConsumeTabaco = Tabaco_si.getText() + " " + Tabaco_des.getText();
+            String ConsumeTabaco="";
+            if (Tabaco_si.isSelected()) {
+                ConsumeTabaco = Tabaco_si.getText().concat(" ").concat(Tabaco_des.getText());
             } else {
                 ConsumeTabaco = Tabaco_no.getText() + " " + Tabaco_des.getText();
             }
-            String ConsumeDrogas = "";
+            String ConsumeDrogas ="";
             if (Drogras_si.isSelected()) {
                 ConsumeTabaco = Drogras_si.getText() + " " + Drogas_des.getText();
             } else {
                 ConsumeTabaco = Drogas_no.getText() + " " + Drogas_des.getText();
             }
-            String ConsumeInfusiones = "";
+            String ConsumeInfusiones="";
             if (Infuciones_si.isSelected()) {
                 ConsumeTabaco = Infuciones_si.getText() + " " + Infuciones_des.getText();
             } else {

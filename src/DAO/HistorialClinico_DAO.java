@@ -120,7 +120,7 @@ public class HistorialClinico_DAO {
             return arrayHC;
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR
-            Mensaje.MensajeError("HISTORIAL CLÍNICO EXISTENTE", "ERROR");
+            Mensaje.MensajeError("HISTORIAL CLÍNICO NO EXISTE", "ERROR");
         } finally {
             con.setCnn();
         }

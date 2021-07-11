@@ -15,4 +15,5 @@ public class Mensaje {
     public static void MensajeConformidad(String texto, String texto_1) {
         JOptionPane.showMessageDialog(null, texto, texto_1, 1);
     }
+    
 }

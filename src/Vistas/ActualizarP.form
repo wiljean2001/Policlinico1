@@ -30,7 +30,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" pref="467" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="471" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -54,6 +54,13 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Component id="txtDNI" min="-2" pref="274" max="-2" attributes="0"/>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="Calendar_FechaNac1" min="-2" pref="206" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="txtDireccion" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_Nombres" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_Apellidos" alignment="0" max="32767" attributes="0"/>
@@ -64,12 +71,6 @@
                                   <Component id="jPanel2" max="32767" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="ButtonLimpiarTodo" min="-2" pref="84" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="txtDNI" min="-2" pref="274" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="Calendar_FechaNac" min="-2" pref="222" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtTelefono" alignment="0" max="32767" attributes="0"/>
                           </Group>
@@ -104,11 +105,12 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="Calendar_FechaNac1" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="txtDNI" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="Calendar_FechaNac" min="-2" pref="42" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="txt_Apellidos" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="txt_Nombres" min="-2" pref="40" max="-2" attributes="0"/>
@@ -359,7 +361,7 @@
               <Font name="Tahoma" size="14" style="0"/>
             </Property>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="Calendar_FechaNac"/>
+              <ComponentRef name="default"/>
             </Property>
             <Property name="placeholder" type="java.lang.String" value="DNI:        Ej.  73889322"/>
           </Properties>
@@ -517,14 +519,11 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="rojerusan.RSDateChooser" name="Calendar_FechaNac">
+        <Component class="rojerusan.RSDateChooser" name="Calendar_FechaNac1">
           <Properties>
             <Property name="formatoFecha" type="java.lang.String" value="yyyy-MM-dd"/>
             <Property name="fuente" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="1"/>
-            </Property>
-            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="txt_Apellidos"/>
             </Property>
             <Property name="placeholder" type="java.lang.String" value="FECHA DE NACIMIENTO"/>
           </Properties>

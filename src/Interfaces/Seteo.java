@@ -4,8 +4,8 @@ import Main.Hospital_v2;
 import RSMaterialComponent.RSCheckBoxMaterial;
 import app.bolivia.swing.JCTextField;
 import rojerusan.RSDateChooser;
-import java.util.ArrayList;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 public class Seteo {
@@ -46,6 +46,10 @@ public class Seteo {
         for (int i = valor; i >= 0; i--) {
             modelo.removeRow(i);
         }
+    }
+
+    public static void SeteoJTextArea(JTextArea clear) {
+        clear.setText("");
     }
 
 }

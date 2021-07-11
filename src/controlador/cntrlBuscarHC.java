@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import rojeru_san.RSButtonRiple;
 
@@ -28,6 +29,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
     private RSButtonRiple buttonBuscarHC, buttonAceptar;
     private JCTextField BuscarDNI_IDHC;
     private JTextArea txtArea;
+    private JPanel PanelFondo;
 
     private String DateFormato = "dd-MMM-YYYY";
     private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
@@ -35,10 +37,12 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
     public cntrlBuscarHC(BuscarHC bhc) {
         bhc.setLocationRelativeTo(null);
         bhc.TextArea_HistorialClinico.setEditable(false);
+
         BuscarDNI_IDHC = bhc.txt_CodigoHC;
         buttonBuscarHC = bhc.ButtonBuscarHC;
         buttonAceptar = bhc.ButtonEnviarHC;
         txtArea = bhc.TextArea_HistorialClinico;
+        PanelFondo = bhc.PanelFondo;
 
         BuscarDNI_IDHC.addKeyListener(this);
         buttonBuscarHC.addActionListener(this);
@@ -52,43 +56,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == buttonBuscarHC) {
-            txtArea.setText("");
-
-            HistorialClinico_DAO hcDAO = new HistorialClinico_DAO();
-
-            a = hcDAO.BuscarHC(BuscarDNI_IDHC.getText());
-            b = hcDAO.BuscarPaciente();
-            if (!b.isEmpty()) {
-                for (Paciente_DBO pac : this.b) {
-
-                    txtArea.append("            PACIENTE \n"
-                            + "DNI:                             " + pac.getDNI_Paciente() + "\n"
-                            + "APELLIDOS:                   " + pac.getApellidos() + "\n"
-                            + "NOMBRE:                       " + pac.getNombres() + "\n"
-                            + "FECHA DE NAC.:            " + formato.format(pac.getFechadeNacimiento()) + "\n"
-                            + "EDAD:                           " + String.valueOf(pac.getEdad()) + "\n\n");
-
-                }
-                for (HistoriaClinica_DBO a : this.a) {
-                    txtArea.append("            HISTORIAL CLÍNICO \n"
-                            + "CÓDIGO H.C.:                 " + a.getCodigoHC() + "\n"
-                            + "FECHA CREACIÓN:           " + formato.format(a.getFechaCreacion()) + "\n"
-                            + "CONSUME ALCOHOL:       " + a.getConsumeAlcohol() + "\n"
-                            + "CONSUME TABACO:         " + a.getConsumeTabaco() + "\n"
-                            + "CONSUME DROGAS:         " + a.getConsumeDrogas() + "\n"
-                            + "CONSUME INFUSIONES:  " + a.getConsumeInfusiones() + "\n"
-                            + "ALIMENTACIÓN:               " + a.getAlimentacion() + "\n"
-                            + "DIURESIS:                        " + a.getDiuresis() + "\n"
-                            + "CATARSIS:                       " + a.getCatarsis() + "\n"
-                            + "SUEÑOS:                         " + a.getSueño() + "\n"
-                            + "ENFERMEDAD ACTUAL:    " + a.getEnfermedadActual() + "\n");
-
-                }
-                Mensaje.MensajeConformidad("PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE");
-            } else {
-
-            }
-
+            registrar();
         }
 
         if (e.getSource() == buttonAceptar) {
@@ -173,7 +141,9 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                     }
 
                 }
-
+                limpiar();
+            } else {
+                Mensaje.MensajeError("ERROR: ENVIAR DATOS A LA INTERFAZ", "ERROR");
             }
             Hospital_v2.FMM.jDesktopPaneMenu.add(Hospital_v2.FAHC);
             Hospital_v2.FAHC.setVisible(true);
@@ -181,6 +151,54 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
 
         }
 
+    }
+
+    public void limpiar() {
+        Seteo.SeteoTextField(PanelFondo);
+        Seteo.SeteoJTextArea(txtArea);
+    }
+
+    private void registrar() {
+        if (BuscarDNI_IDHC.getText().length() < 5 || (BuscarDNI_IDHC.getText().length() > 6
+                && BuscarDNI_IDHC.getText().length() < 8)) {
+            Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
+        } else {
+            HistorialClinico_DAO hcDAO = new HistorialClinico_DAO();
+
+            a = hcDAO.BuscarHC(BuscarDNI_IDHC.getText());
+            b = hcDAO.BuscarPaciente();
+            limpiar();
+            if (a.isEmpty()) {
+                Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
+            }else{
+                for (Paciente_DBO pac : this.b) {
+
+                    txtArea.append("            PACIENTE \n"
+                            + "DNI:                             " + pac.getDNI_Paciente() + "\n"
+                            + "APELLIDOS:                   " + pac.getApellidos() + "\n"
+                            + "NOMBRE:                       " + pac.getNombres() + "\n"
+                            + "FECHA DE NAC.:            " + formato.format(pac.getFechadeNacimiento()) + "\n"
+                            + "EDAD:                           " + String.valueOf(pac.getEdad()) + "\n\n");
+
+                }
+                for (HistoriaClinica_DBO a : this.a) {
+                    txtArea.append("            HISTORIAL CLÍNICO \n"
+                            + "CÓDIGO H.C.:                 " + a.getCodigoHC() + "\n"
+                            + "FECHA CREACIÓN:           " + formato.format(a.getFechaCreacion()) + "\n"
+                            + "CONSUME ALCOHOL:       " + a.getConsumeAlcohol() + "\n"
+                            + "CONSUME TABACO:         " + a.getConsumeTabaco() + "\n"
+                            + "CONSUME DROGAS:         " + a.getConsumeDrogas() + "\n"
+                            + "CONSUME INFUSIONES:  " + a.getConsumeInfusiones() + "\n"
+                            + "ALIMENTACIÓN:               " + a.getAlimentacion() + "\n"
+                            + "DIURESIS:                        " + a.getDiuresis() + "\n"
+                            + "CATARSIS:                       " + a.getCatarsis() + "\n"
+                            + "SUEÑOS:                         " + a.getSueño() + "\n"
+                            + "ENFERMEDAD ACTUAL:    " + a.getEnfermedadActual() + "\n");
+
+                }
+                Mensaje.MensajeConformidad("PACIENTE BUSCADO EXITOSAMENTE", "MENSAJE");
+            }
+        }
     }
 
     @Override
@@ -195,7 +213,6 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                 }
             } else {
                 e.consume();
-                Toolkit.getDefaultToolkit().beep();
             }
         }
     }

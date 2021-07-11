@@ -19,27 +19,26 @@ import rojeru_san.RSButtonRiple;
 public class cntrlRegistrarHC implements ActionListener, KeyListener {
 
     private RSButtonRiple buttonBuscarHC, buttonRegistrarHC;
-    //copiar
     private JCTextField Alcohol_des, Tabaco_des, Drogas_des, Infuciones_des,
             Alimentacion, Diuresis, Catarsis, Sueño, Enfermedad, DNI;
     private JCheckBox Alcohol_si, Alcohol_no, Tabaco_si, Tabaco_no, Drogras_si,
             Drogas_no, Infuciones_si, Infuciones_no;
-    HistoriaClinica_DBO historialDBO;
-    Date fecha = new Date();
-    String CodigoGenerado;
+    private HistoriaClinica_DBO historialDBO;
+    private Date fecha = new Date();
+    private String CodigoGenerado;
 
     private JLabel txtCodigoHC;
-    String DateFormato = "hh//mm//ss a dd//MMM//YYYY";
-    SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
+    private String DateFormato = "hh//mm//ss a dd//MMM//YYYY";
+    private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
+
+    private double aleatorio;
 
     public cntrlRegistrarHC(RegistrarHC rHC) {
-
         rHC.lbl_fecha.setText(formato.format(fecha));
         eventos(rHC);
     }
 
     private void eventos(RegistrarHC rHC) {
-
         //txt
         DNI = rHC.txtDNI;
         txtCodigoHC = rHC.lbl_codigo;
@@ -90,23 +89,22 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         buttonRegistrarHC.addActionListener(this);
     }
 
-    private void bottonRegistrarHC() {
-
-    }
-    private int codigo=0;
+    private final int maximo = 10000;
+    private final int minimo = 99999;
     private String GenerarCodHC() {
-        String ceros = "00";
-        codigo+=1;
-        if(codigo==10){
-            if(codigo==100){
-                return "WA"+ codigo;
-            }else{
-                
-                return "WA" + ceros.substring(0) + "" + codigo;
+        HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
+
+        
+        aleatorio = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
+        String cod = String.valueOf(aleatorio);
+
+        for (HistoriaClinica_DBO object : daoHC.BuscarHC(cod)) {
+            if (object.getCodigoHC().equals(cod)) {
+                return cod;
             }
-        }else{
-            return "WA"+ceros+""+codigo;
         }
+        daoHC = null;
+            return GenerarCodHC();
     }
 
     private boolean validateAll() {
@@ -170,13 +168,11 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         }
         if (e.getSource() == buttonBuscarHC) {
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
-            
+
             Hospital_v2.cBP.ventanaAnterior = 1;
             Hospital_v2.FRHC.setVisible(false);
             Hospital_v2.FBP.setVisible(true);
-
-            CodigoGenerado = GenerarCodHC();
-            txtCodigoHC.setText(CodigoGenerado);
+            GenerarCodHC();
         }
 
         if (e.getSource() == Alcohol_no) {

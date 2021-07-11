@@ -25,6 +25,8 @@ public class cntrlMenuRecep implements MouseListener {
     private JLabel DNI, Nombres, Prof, CELL, TipoCuenta;
     private final int altoAct = Hospital_v2.FBP.getHeight() - Hospital_v2.FBP.ButtonEnviarPaciente.getHeight();
     private final int anchoAct = Hospital_v2.FBP.getWidth();
+    private final int altoBuscHC = Hospital_v2.FBHC.getHeight() - Hospital_v2.FBHC.ButtonEnviarHC.getHeight();
+    private final int anchoBuscHC = Hospital_v2.FBHC.getWidth();
     private final int anchoPanel;
     private final int altoPanel;
     // otros
@@ -75,6 +77,7 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar Registrar Paciente
         if (e.getSource() == button_Reg) {
+            Hospital_v2.FRP.txt_DNI.requestFocus();
             Hospital_v2.cRP.primeravez = false;
             Hospital_v2.cRP.limpiar();
             DesktopPaneMenu.add(Hospital_v2.FRP);
@@ -83,6 +86,7 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {
+            Hospital_v2.FBP.txtDNI.requestFocus();
             Hospital_v2.cBP.limpiar();
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(false);
             Hospital_v2.FBP.setSize(new Dimension(anchoAct, altoAct));
@@ -91,7 +95,7 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn Actualizar PacienteHGGHGHG
         if (e.getSource() == button_ActPac) {
-            Hospital_v2.cAP.primeravez = false;
+            Hospital_v2.cAP.primeravez = false; 
             Hospital_v2.cAP.limpiar();
             DesktopPaneMenu.add(Hospital_v2.FAP);
             Hospital_v2.FAP.setVisible(true);
@@ -99,6 +103,9 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar Historial clinico
         if (e.getSource() == button_BusHC) {
+            Hospital_v2.cBHC.limpiar();
+            Hospital_v2.FBHC.ButtonEnviarHC.setVisible(false);
+            Hospital_v2.FBHC.setSize(new Dimension(anchoBuscHC, altoBuscHC));
             Hospital_v2.FBHC.setVisible(true);
         }
         if (e.getSource() == cerrarSesion) {
@@ -112,7 +119,6 @@ public class cntrlMenuRecep implements MouseListener {
         m.rSScrollPane1.repaint();
         if (PanelIzq.getX() == 5) {
             //PanelIzq
-
             RSAnimation.setMoverIzquierda(5, -250, 5, 5, PanelIzq);
             RSAnimation.setMoverIzquierda(5, -(245 - 60), 4, 4, PanelIzqArriba);
             RSAnimation.setMoverIzquierda(255, 5, 4, 4, m.rSScrollPane1);
@@ -131,6 +137,13 @@ public class cntrlMenuRecep implements MouseListener {
 
     }
 
+    
+    
+    
+    
+    
+    
+    
     @Override
     public void mousePressed(MouseEvent e) {
 
