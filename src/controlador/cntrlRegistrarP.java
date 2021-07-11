@@ -163,7 +163,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 }
             }
             // validar DNI
-            if (DNI.getText().length()==8) {
+            if (DNI.getText().length() == 8) {
                 if (telefono.getText().length() < 5) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
                 } else {
@@ -212,7 +212,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         //agarre lo que seleciona
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length() <= 1024) {
+        if (seleccion_ruta != null && seleccion_ruta.length() <= 1024000) {
             try {
                 ImageIcon imgi = null;
                 BufferedImage image = ImageIO.read(seleccion_ruta);
@@ -223,6 +223,8 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 return seleccion_ruta;
             } catch (IOException e) {
             }
+        }else{
+            Mensaje.MensajeError("EL TAMAÑO DE LA IMAGEN EXCEDE 1Mb","TAMAÑO EXCEDIDO");
         }
         return null;
     }
@@ -305,7 +307,8 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 } catch (IOException e) {
                 }
             }
-     */
+    */
+    
     @Override
     public void keyPressed(KeyEvent e
     ) {
@@ -334,35 +337,29 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         }
         if (e.getSource() == SexoH) {
             SexoM.setSelected(false);
-
         }
         if (e.getSource() == SexoM) {
             SexoH.setSelected(false);
-
         }
         if (e.getSource() == EstadoCivil_Sol) {
             EstadoCivil_Cas.setSelected(false);
             EstadoCivil_viud.setSelected(false);
             EstadoCivil_Div.setSelected(false);
-
         }
         if (e.getSource() == EstadoCivil_Cas) {
             EstadoCivil_Sol.setSelected(false);
             EstadoCivil_viud.setSelected(false);
             EstadoCivil_Div.setSelected(false);
-
         }
         if (e.getSource() == EstadoCivil_viud) {
             EstadoCivil_Sol.setSelected(false);
             EstadoCivil_Cas.setSelected(false);
             EstadoCivil_Div.setSelected(false);
-
         }
         if (e.getSource() == EstadoCivil_Div) {
             EstadoCivil_Cas.setSelected(false);
             EstadoCivil_viud.setSelected(false);
             EstadoCivil_Sol.setSelected(false);
-
         }
     }
 

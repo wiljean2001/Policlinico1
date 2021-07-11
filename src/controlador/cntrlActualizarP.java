@@ -196,7 +196,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         //agarre lo que seleciona
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length() <= 1024) {
+        if (seleccion_ruta != null && seleccion_ruta.length() <= 1024000) {
             try {
                 ImageIcon imgi;
                 imgi = null;

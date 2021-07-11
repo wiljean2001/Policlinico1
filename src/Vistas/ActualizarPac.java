@@ -51,6 +51,7 @@ public class ActualizarPac extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setIconifiable(true);
+        setTitle("ACTUALIZAR PACIENTE");
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
