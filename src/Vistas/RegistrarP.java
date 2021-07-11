@@ -179,7 +179,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
 
         Button_CargarFoto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Button_CargarFoto.setText("Seleccionar una foto");
-        Button_CargarFoto.setToolTipText("Foto menor a 10MB");
+        Button_CargarFoto.setToolTipText("Foto menor a 1MB");
         Button_CargarFoto.setBorder(new org.edisoncor.gui.util.DropShadowBorder());
 
         Calendar_FechaNac.setFormatoFecha("yyyy-MM-dd");
@@ -189,7 +189,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
 
         Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/descarga.png"))); // NOI18N
-        Foto.setToolTipText("Foto menor a 10MB");
+        Foto.setToolTipText("Foto menor a 1MB");
         Foto.setNextFocusableComponent(ButtonRegistrarP);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

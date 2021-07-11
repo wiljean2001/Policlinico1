@@ -472,7 +472,7 @@
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="Seleccionar una foto"/>
-            <Property name="toolTipText" type="java.lang.String" value="Foto menor a 10MB"/>
+            <Property name="toolTipText" type="java.lang.String" value="Foto menor a 1MB"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                 <PropertyBean type="org.edisoncor.gui.util.DropShadowBorder"/>
             </Property>
@@ -502,7 +502,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Recursos2/descarga.png"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Foto menor a 10MB"/>
+            <Property name="toolTipText" type="java.lang.String" value="Foto menor a 1MB"/>
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="ButtonRegistrarP"/>
             </Property>

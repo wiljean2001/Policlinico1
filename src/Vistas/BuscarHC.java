@@ -39,6 +39,7 @@ public class BuscarHC extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("BUSCAR HISTORIAL CLÍNICO");
+        setResizable(false);
 
         PanelFondo.setBackground(new java.awt.Color(255, 255, 255));
 

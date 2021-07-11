@@ -2,6 +2,7 @@ package controlador;
 
 import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
+import Interfaces.Enable;
 import Interfaces.Mensaje;
 import Interfaces.Seteo;
 import Main.Hospital_v2;
@@ -35,7 +36,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     private DefaultTableModel modelo = new DefaultTableModel();
     private ArrayList<Paciente_DBO> lista = null;
     public int ventanaAnterior = 0;
-    
 
     public cntrlBuscarP(BuscarPaciente BusP) {
         this.BusP = BusP;
@@ -199,11 +199,9 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
                     Hospital_v2.FAP.txt_Direccion.setText(a.getDireccion());
                     Hospital_v2.FAP.Calendar_FechaNac.setDate(a.getFechadeNacimiento());
-                    
-                    
+
                     Date fecha = null;
-                    
-                    
+
                     // convertir
                     try {
                         ImageIcon imgi = null;
@@ -247,13 +245,11 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             break;
                     }
                 }
+                Enable.ActivarRSTextField(Hospital_v2.FAP.jPanel1);
+                Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel2);
+                Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel4);
+                /*
                 
-                Hospital_v2.FAP.txt_DNI.setEnabled(true);
-                Hospital_v2.FAP.txt_Apellidos.setEnabled(true);
-                Hospital_v2.FAP.txt_Nombres.setEnabled(true);
-                Hospital_v2.FAP.txt_Direccion.setEnabled(true);
-                Hospital_v2.FAP.txt_Telefono.setEnabled(true);
-
                 Hospital_v2.FAP.Check_Hombre.setEnabled(true);
                 Hospital_v2.FAP.Check_Mujer.setEnabled(true);
                 Hospital_v2.FAP.Check_Soltero.setEnabled(true);
@@ -261,6 +257,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 Hospital_v2.FAP.Check_Viudo.setEnabled(true);
                 Hospital_v2.FAP.Check_Divorciado.setEnabled(true);
                 Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
+                 */
 
             }
             limpiar();
@@ -293,7 +290,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             BufferedImage image;
                             image = ImageIO.read(new ByteArrayInputStream(bi));
                             imgi = new ImageIcon(image);
-                            Hospital_v2.FRHC.FOTO.setIcon(imgi);
+                            Hospital_v2.FRHC.Foto.setIcon(imgi);
                         }
                     } catch (IOException ex) {
                     }

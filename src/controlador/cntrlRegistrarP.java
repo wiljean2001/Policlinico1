@@ -51,6 +51,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         button_Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
         DNI.requestFocus();
+        
     }
 
     private void ListenerEventos(RegistrarP r) {
@@ -163,7 +164,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 }
             }
             // validar DNI
-            if (DNI.getText().length() == 8) {
+            if (DNI.getText().length() == 8) {  
                 if (telefono.getText().length() < 5) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
                 } else {
@@ -223,8 +224,8 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 return seleccion_ruta;
             } catch (IOException e) {
             }
-        }else{
-            Mensaje.MensajeError("EL TAMAÑO DE LA IMAGEN EXCEDE 1Mb","TAMAÑO EXCEDIDO");
+        } else {
+            Mensaje.MensajeError("EL TAMAÑO DE LA IMAGEN EXCEDE 1Mb", "TAMAÑO EXCEDIDO");
         }
         return null;
     }
@@ -295,20 +296,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         }
     }
 
-    /*
-    if (Foto.getRutaImagen() != null) {
-                Foto
-                if(iseliminado == false){
-                    
-                }
-                try {
-                    File ruta = new File(Foto.getRutaImagen());
-                    foto = Files.readAllBytes(ruta.toPath());
-                } catch (IOException e) {
-                }
-            }
-    */
-    
     @Override
     public void keyPressed(KeyEvent e
     ) {

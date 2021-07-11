@@ -2,6 +2,7 @@ package controlador;
 
 import DAO.Paciente_DAO;
 import DBO.Paciente_DBO;
+import Interfaces.Enable;
 import Interfaces.Mensaje;
 import Interfaces.Seteo;
 import Main.Hospital_v2;
@@ -20,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -52,7 +54,11 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
         JTextFieldDateEditor editor = (JTextFieldDateEditor) FechadeNacimiento.getDateEditor();
         editor.setEditable(false);
+        FechadeNacimiento.setMaxSelectableDate(new Date());
         FechadeNacimiento.setEnabled(false);
+        Enable.DesactivarRSTextField(ActP.jPanel1);
+        Enable.DesactivarJCheckBox(ActP.jPanel2);
+        Enable.DesactivarJCheckBox(ActP.jPanel4);
     }
 
     private void acciones(ActualizarPac ActP) {
@@ -64,7 +70,8 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         FechadeNacimiento = ActP.Calendar_FechaNac;
         Foto = ActP.Foto;
         button_Foto = ActP.Button_CargarFoto;
-
+        
+        button_Foto.addMouseListener(this);
         DNI.addKeyListener(this);
         apellidos.addKeyListener(this);
         nombres.addKeyListener(this);
@@ -154,7 +161,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 } catch (IOException e) {
                 }
             }
-            
+
             Paciente_DBO pacienteDBO;
             Paciente_DAO pacientedao = new Paciente_DAO();
 
@@ -164,7 +171,6 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 if (telefono.getText().length() < 5) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE ACTUALIZACIÓN");
                 } else {
-
                     pacienteDBO = new Paciente_DBO(
                             DNI.getText(), FechadeNacimiento.getDate(),
                             telefono.getText(), apellidos.getText(), nombres.getText(),
@@ -172,6 +178,10 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
 
                     if (pacientedao.ActualizarPac(pacienteDBO.retornarPac()) != false) {
                         Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
+
+                        primeravez = false;
+                        limpiar();
+                        Enable.DesactivarRSTextField(ActP.jPanel1);
                         //JOptionPane.OK_CANCEL_OPTION
                     }
                 }
@@ -217,7 +227,6 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     public void mousePressed(MouseEvent e) {
         if (e.getSource() == button_ActP) {
             actualizar();
-            limpiar();
         }
 //
         if (e.getSource() == button_Limpiar) {
@@ -274,7 +283,6 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             abrirImagen();
         }
     }
-    
 
     @Override
     public void mouseReleased(MouseEvent e

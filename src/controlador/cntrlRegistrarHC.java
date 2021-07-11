@@ -3,6 +3,7 @@ package controlador;
 import DAO.HistorialClinico_DAO;
 import DBO.HistoriaClinica_DBO;
 import Interfaces.Mensaje;
+import Interfaces.Seteo;
 import Main.Hospital_v2;
 import Vistas.RegistrarHC;
 import app.bolivia.swing.JCTextField;
@@ -10,12 +11,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import rojeru_san.RSButtonRiple;
+import rojerusan.RSLabelImage;
 
 public class cntrlRegistrarHC implements ActionListener, KeyListener {
 
@@ -27,24 +33,29 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     private HistoriaClinica_DBO historialDBO;
     private Date fecha = new Date();
     private String CodigoGenerado;
-
+    private RSLabelImage Foto;
     private JLabel txtCodigoHC;
     private String DateFormato = "hh//mm//ss a dd//MMM//YYYY";
     private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
-
+    private RegistrarHC rHC;
+    private final ImageIcon imagenIcon;
+    
     public cntrlRegistrarHC(RegistrarHC rHC) {
         rHC.lbl_fecha.setText(formato.format(fecha));
         eventos(rHC);
+        imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
     }
 
     private void eventos(RegistrarHC rHC) {
         //txt
+        this.rHC =rHC;
         DNI = rHC.txtDNI;
         txtCodigoHC = rHC.lbl_codigo;
         Alcohol_des = rHC.txtalcohol;
         Tabaco_des = rHC.txttabaco;
         Drogas_des = rHC.txtdrogas;
         Infuciones_des = rHC.txtinfuciones;
+        Foto = rHC.Foto;
 
         Alimentacion = rHC.txt_alimentacion;
         Diuresis = rHC.txt_diuresis;
@@ -239,6 +250,29 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
 
     }
 
+    public boolean primeravez = true;
+
+    public void limpiar() {
+        int result = 0;
+        if (primeravez) {
+            result = JOptionPane.showConfirmDialog(
+                    null, "¿DESEA LIMPIAR TODOS LOS CAMPOS?", "CONFIRMAR", JOptionPane.YES_NO_OPTION
+            );
+        }
+        if (result == 0) {
+            Seteo.SeteoTextField(rHC.jPanel1);
+            Seteo.SeteoCheckbox(rHC.PanelMas);
+            Seteo.SeteoTextField(rHC.PanelMas);
+            Seteo.SeteoCheckbox(rHC.PanelConsume);
+            Seteo.SeteoTextField(rHC.PanelConsume);
+
+            Icon icono = new ImageIcon(imagenIcon.getImage());
+            Foto.setIcon(icono);
+            DNI.requestFocus();
+        }
+        primeravez = true;
+    }
+    
     @Override
     public void keyTyped(KeyEvent e) {
 
