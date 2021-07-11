@@ -3,13 +3,11 @@ package DAO;
 import DBO.Paciente_DBO;
 import DBO.HistoriaClinica_DBO;
 import Interfaces.Mensaje;
-import Main.Hospital_v2;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
 
 public class HistorialClinico_DAO {
 
@@ -28,9 +26,9 @@ public class HistorialClinico_DAO {
         PreparedStatement PS;
         try {
             PS = con.getCnn().prepareStatement(INSERT_SQL);
-
             PS.setString(1, x.getCodigoHC());
-            java.sql.Date date = new java.sql.Date(x.getFechaCreacion().getTime());
+            long fecha = x.getFechaCreacion().getTime();
+            java.sql.Date date = new java.sql.Date(fecha);
             PS.setDate(2, date);
             PS.setString(3, x.getConsumeAlcohol());
             PS.setString(4, x.getConsumeTabaco());
