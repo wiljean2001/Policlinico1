@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
@@ -91,20 +92,31 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
 
     private final int maximo = 10000;
     private final int minimo = 99999;
+    private ArrayList<HistoriaClinica_DBO> h;
+    private boolean codigoExiste = false;
+
     private String GenerarCodHC() {
         HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
 
-        
         aleatorio = Math.floor(Math.random() * (maximo - minimo + 1)) + minimo;
         String cod = String.valueOf(aleatorio);
-
-        for (HistoriaClinica_DBO object : daoHC.BuscarHC(cod)) {
-            if (object.getCodigoHC().equals(cod)) {
-                return cod;
+        h = daoHC.BuscarHC(cod);
+        if (h.isEmpty()) {
+            return cod;
+        } else {
+            for (HistoriaClinica_DBO object : h) {
+                if (object.getCodigoHC().equals(cod)) {
+                    codigoExiste = true;
+                } else {
+                    codigoExiste = false;
+                }
             }
+                if (codigoExiste) {
+                    return cod;
+                }
         }
         daoHC = null;
-            return GenerarCodHC();
+        return GenerarCodHC();
     }
 
     private boolean validateAll() {

@@ -280,7 +280,7 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Consume Infuciones"));
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Consume Infusiones"));
 
         Group4.add(Check_infucionessi);
         Check_infucionessi.setText("SÍ");
