@@ -64,7 +64,6 @@ public class cntrlMenuMedicos implements MouseListener {
         buttonBuscarPaciente = m.button_BuscarPaciente;
         bttn_MenuDespl = m.MovButt_Menu;
         
-        
         bttn_MenuDespl.addMouseListener(this);
         button_RegHC.addMouseListener(this);
         buttonBuscarHC.addMouseListener(this);
@@ -77,10 +76,14 @@ public class cntrlMenuMedicos implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         Seteo.SeteoPaneles();
         if (e.getSource() == buttonBuscarHC) {
+            
+            Hospital_v2.cBHC.limpiar();
             Hospital_v2.FBHC.ButtonEnviarHC.setVisible(false);
             Hospital_v2.FBHC.setVisible(true);
         }
         if (e.getSource() == button_RegHC) {
+            
+            //Hospital_v2.cRHC.limpiar();---------------------------------------------------------------------
             DesktopPaneMenu.add(Hospital_v2.FRHC);
             Hospital_v2.FRHC.setVisible(true);
         }

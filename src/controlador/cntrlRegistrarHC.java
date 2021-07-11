@@ -146,15 +146,15 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                 }
                 String ConsumeDrogas = "";
                 if (Drogras_si.isSelected()) {
-                    ConsumeTabaco = Drogras_si.getText() + " " + Drogas_des.getText();
+                    ConsumeDrogas = Drogras_si.getText() + " " + Drogas_des.getText();
                 } else {
-                    ConsumeTabaco = Drogas_no.getText() + " " + Drogas_des.getText();
+                    ConsumeDrogas = Drogas_no.getText() + " " + Drogas_des.getText();
                 }
                 String ConsumeInfusiones = "";
                 if (Infuciones_si.isSelected()) {
-                    ConsumeTabaco = Infuciones_si.getText() + " " + Infuciones_des.getText();
+                    ConsumeInfusiones = Infuciones_si.getText() + " " + Infuciones_des.getText();
                 } else {
-                    ConsumeTabaco = Infuciones_no.getText() + " " + Infuciones_des.getText();
+                    ConsumeInfusiones = Infuciones_no.getText() + " " + Infuciones_des.getText();
                 }
 
                 historialDBO = new HistoriaClinica_DBO(

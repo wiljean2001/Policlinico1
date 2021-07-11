@@ -158,13 +158,10 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             if (rutaImagen != null) {
                 // falta enviar nulos
                 try {
-                    JOptionPane.showMessageDialog(null, "" + rutaImagen);
                     fotoByte = Files.readAllBytes(rutaImagen.toPath());
                 } catch (IOException e) {
                 }
             }
-
-            
             // validar DNI
             if (DNI.getText().length()==8) {
                 if (telefono.getText().length() < 5) {
@@ -215,7 +212,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         //agarre lo que seleciona
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length() <= 10485760) {
+        if (seleccion_ruta != null && seleccion_ruta.length() <= 1024) {
             try {
                 ImageIcon imgi = null;
                 BufferedImage image = ImageIO.read(seleccion_ruta);

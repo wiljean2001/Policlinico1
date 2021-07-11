@@ -117,7 +117,6 @@ public class HistorialClinico_DAO {
                         res.getInt(21), res.getString(22), res.getBytes(23)));
 
             }
-            Hospital_v2.FBHC.ButtonEnviarHC.setVisible(true);
             return arrayHC;
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR

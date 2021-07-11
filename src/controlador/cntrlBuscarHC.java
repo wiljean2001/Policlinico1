@@ -66,7 +66,6 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                     Hospital_v2.FAHC.txtDN.setText(pac.getDNI_Paciente());
                     Hospital_v2.FAHC.txt_Nomb_Apll.setText(pac.getApellidos() + " " + pac.getNombres());
                     Hospital_v2.FAHC.txtDireccion.setText(pac.getDireccion());
-
                     try {
                         ImageIcon imgi = null;
                         if (pac.getFoto() != null) {
@@ -117,7 +116,6 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                     }
 
                     if (!a.getConsumeTabaco().isEmpty()) {
-                        Mensaje.Mensaje(a.getConsumeTabaco());
                         if ("SÍ".equals(a.getConsumeTabaco().substring(1))) {
                             Hospital_v2.FAHC.Check_Tabacosi.setSelected(true);
                             Hospital_v2.FAHC.Check_Tabacono.setSelected(false);
@@ -169,7 +167,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
             limpiar();
             if (a.isEmpty()) {
                 Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
-            }else{
+            } else {
                 for (Paciente_DBO pac : this.b) {
 
                     txtArea.append("            PACIENTE \n"

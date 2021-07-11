@@ -19,9 +19,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -31,7 +29,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import rojerusan.RSDateChooser;
 import rojerusan.RSLabelImage;
 
 public class cntrlActualizarP implements KeyListener, MouseListener {
@@ -169,10 +166,10 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 } else {
 
                     pacienteDBO = new Paciente_DBO(
-                            DNI.getText(), FechadeNacimiento.getDate(), 
+                            DNI.getText(), FechadeNacimiento.getDate(),
                             telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte);
-                    
+
                     if (pacientedao.ActualizarPac(pacienteDBO.retornarPac()) != false) {
                         Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
@@ -199,7 +196,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         //agarre lo que seleciona
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length() <= 10485760) {
+        if (seleccion_ruta != null && seleccion_ruta.length() <= 1024) {
             try {
                 ImageIcon imgi;
                 imgi = null;
@@ -242,54 +239,42 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
 
         }
         if (e.getSource() == SexoH) {
-            if (SexoH.isEnabled() != false) {
+            SexoM.setSelected(false);
 
-                SexoH.setSelected(true);
-                SexoM.setSelected(false);
-            }
         }
         if (e.getSource() == SexoM) {
-            if (SexoH.isEnabled() != false) {
-                SexoM.setSelected(true);
-                SexoH.setSelected(false);
-            }
+            SexoH.setSelected(false);
+
         }
         if (e.getSource() == EstadoCivil_Sol) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_Sol.setSelected(true);
-                EstadoCivil_Cas.setSelected(false);
-                EstadoCivil_viud.setSelected(false);
-                EstadoCivil_Div.setSelected(false);
-            }
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+
         }
         if (e.getSource() == EstadoCivil_Cas) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_Cas.setSelected(true);
-                EstadoCivil_Sol.setSelected(false);
-                EstadoCivil_viud.setSelected(false);
-                EstadoCivil_Div.setSelected(false);
-            }
+            EstadoCivil_Sol.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+
         }
         if (e.getSource() == EstadoCivil_viud) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_viud.setSelected(true);
-                EstadoCivil_Sol.setSelected(false);
-                EstadoCivil_Cas.setSelected(false);
-                EstadoCivil_Div.setSelected(false);
-            }
+            EstadoCivil_Sol.setSelected(false);
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+
         }
         if (e.getSource() == EstadoCivil_Div) {
-            if (SexoH.isEnabled() != false) {
-                EstadoCivil_Div.setSelected(true);
-                EstadoCivil_Cas.setSelected(false);
-                EstadoCivil_viud.setSelected(false);
-                EstadoCivil_Sol.setSelected(false);
-            }
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Sol.setSelected(false);
         }
+
         if (e.getSource() == Foto || e.getSource() == button_Foto) {
             abrirImagen();
         }
     }
+    
 
     @Override
     public void mouseReleased(MouseEvent e

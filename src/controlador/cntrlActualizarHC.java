@@ -96,6 +96,7 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
         }
         if (e.getSource() == buttonBuscarHC) {
             Hospital_v2.FAHC.setVisible(false);
+            Hospital_v2.FBHC.ButtonEnviarHC.setVisible(true);
             Hospital_v2.FBHC.setVisible(true);
         }
     }
@@ -151,6 +152,7 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
 
             HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
             daoHC.ActualizarPac(historialDBO);
+            
 
             Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
         }

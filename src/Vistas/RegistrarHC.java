@@ -464,6 +464,8 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         lbl_codigo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         lbl_codigo.setEnabled(false);
 
+        FOTO.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos2/descarga.png"))); // NOI18N
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
