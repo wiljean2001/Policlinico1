@@ -168,7 +168,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                 } else {
                     ConsumeInfusiones = Infuciones_no.getText() + " " + Infuciones_des.getText();
                 }
-
+                CodigoGenerado = txtCodigoHC.getText();
                 historialDBO = new HistoriaClinica_DBO(
                         CodigoGenerado, fecha, ConsumeAlcohol, ConsumeTabaco, ConsumeDrogas,
                         ConsumeInfusiones, Alimentacion.getText(), Diuresis.getText(), Catarsis.getText(),
@@ -184,7 +184,8 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             Hospital_v2.cBP.ventanaAnterior = 1;
             Hospital_v2.FRHC.setVisible(false);
             Hospital_v2.FBP.setVisible(true);
-            GenerarCodHC();
+            
+            txtCodigoHC.setText(GenerarCodHC());
         }
 
         if (e.getSource() == Alcohol_no) {
