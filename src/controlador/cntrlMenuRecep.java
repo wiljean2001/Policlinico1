@@ -84,6 +84,7 @@ public class cntrlMenuRecep implements MouseListener {
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {
+            Hospital_v2.cBP.ventanaAnterior=0;
             Hospital_v2.FBP.txtDNI.requestFocus();
             Hospital_v2.cBP.limpiar();
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(false);

@@ -16,7 +16,6 @@ import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.imageio.ImageIO;
@@ -36,6 +35,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     private DefaultTableModel modelo = new DefaultTableModel();
     private ArrayList<Paciente_DBO> lista = null;
     public int ventanaAnterior = 0;
+    
 
     public cntrlBuscarP(BuscarPaciente BusP) {
         this.BusP = BusP;
@@ -92,7 +92,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
             } else {
                 BotonAceptar();
             }
-
         }
         if (e.getSource() == button_BuscarPac) {
             // DNI CON DATOS FALTANTES MODIFICAR EN EL WORD
@@ -102,11 +101,10 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 BuscarPaciente();
             }
         }
-        ventanaAnterior = 0;
-
     }
 
     private void BuscarPaciente() {
+        ventanaAnterior = 0;
         if (DNI.getText().length() < 8) {
             Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
         } else {
@@ -147,6 +145,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     }
 
     private void BuscarPacHC() {
+        ventanaAnterior = 1;
         if (DNI.getText().length() < 8) {
             Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
         } else {
@@ -185,6 +184,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     }
 
     private void BotonAceptar() {
+        ventanaAnterior = 0;
         if (lista != null) {
             Hospital_v2.cAP.primeravez = false;
             Hospital_v2.cAP.limpiar();
@@ -271,6 +271,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
     }
 
     private void BotonAceptar_HC() {
+        ventanaAnterior = 1;
         if (lista != null) {
 
             if (Hospital_v2.FMM.isVisible()) {
