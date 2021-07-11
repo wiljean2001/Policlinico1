@@ -53,7 +53,6 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
         JTextFieldDateEditor editor = (JTextFieldDateEditor) FechadeNacimiento.getDateEditor();
         editor.setEditable(false);
         FechadeNacimiento.setEnabled(false);
-
     }
 
     private void acciones(ActualizarPac ActP) {
@@ -155,6 +154,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
                 } catch (IOException e) {
                 }
             }
+            
             Paciente_DBO pacienteDBO;
             Paciente_DAO pacientedao = new Paciente_DAO();
 

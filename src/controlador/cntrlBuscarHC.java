@@ -86,11 +86,15 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                     }
                 }
                 for (HistoriaClinica_DBO a : this.a) {
+                    Hospital_v2.FAHC.lbl_codigo.setText(a.getCodigoHC());
+                    Hospital_v2.FAHC.lbl_fecha.setText(formato.format(a.getFechaCreacion()));
                     Hospital_v2.FAHC.ButtonActualizarHC.setEnabled(true);
+                    
                     Hospital_v2.FAHC.txt_alimentacion.setText(a.getAlimentacion());
                     Hospital_v2.FAHC.txt_catarsis.setText(a.getCatarsis());
                     Hospital_v2.FAHC.txt_diuresis.setText(a.getDiuresis());
                     Hospital_v2.FAHC.txt_enfermedad.setText(a.getEnfermedadActual());
+                    Hospital_v2.FAHC.txt_sueño.setText(a.getSueño());
 
                     if (!a.getConsumeAlcohol().isEmpty()) {
                         if ("SÍ".equals(a.getConsumeAlcohol().substring(0, 2))) {

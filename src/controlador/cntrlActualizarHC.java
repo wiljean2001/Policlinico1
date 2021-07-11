@@ -1,4 +1,4 @@
-    /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -31,7 +31,7 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
     private JCheckBox Alcohol_si, Alcohol_no, Tabaco_si, Tabaco_no, Drogras_si,
             Drogas_no, Infuciones_si, Infuciones_no;
     private HistoriaClinica_DBO historialDBO;
-    private ActualizarHC ActHC; 
+    private ActualizarHC ActHC;
 
     public cntrlActualizarHC(ActualizarHC ActHC) {
         this.ActHC = ActHC;
@@ -120,25 +120,25 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
             Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
 
         } else {
-            String ConsumeAlcohol="";
+            String ConsumeAlcohol = "";
             if (Alcohol_si.isSelected()) {
                 ConsumeAlcohol = Alcohol_si.getText() + " " + Alcohol_des.getText();
             } else {
                 ConsumeAlcohol = Alcohol_no.getText() + " " + Alcohol_des.getText();
             }
-            String ConsumeTabaco="";
+            String ConsumeTabaco = "";
             if (Tabaco_si.isSelected()) {
                 ConsumeTabaco = Tabaco_si.getText().concat(" ").concat(Tabaco_des.getText());
             } else {
                 ConsumeTabaco = Tabaco_no.getText() + " " + Tabaco_des.getText();
             }
-            String ConsumeDrogas ="";
+            String ConsumeDrogas = "";
             if (Drogras_si.isSelected()) {
                 ConsumeTabaco = Drogras_si.getText() + " " + Drogas_des.getText();
             } else {
                 ConsumeTabaco = Drogas_no.getText() + " " + Drogas_des.getText();
             }
-            String ConsumeInfusiones="";
+            String ConsumeInfusiones = "";
             if (Infuciones_si.isSelected()) {
                 ConsumeTabaco = Infuciones_si.getText() + " " + Infuciones_des.getText();
             } else {
@@ -151,13 +151,11 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
                     Sueño.getText(), Enfermedad.getText());
 
             HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
-            daoHC.ActualizarPac(historialDBO);
-            
+            if (daoHC.ActualizarPac(historialDBO) != false) {
+                Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
 
-            Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
+            }
         }
-
-        
 
         if (e.getSource() == Alcohol_no) {
             if (Alcohol_des.isEditable()) {
