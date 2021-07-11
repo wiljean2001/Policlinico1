@@ -194,15 +194,15 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 Hospital_v2.FAP.setVisible(true);
                 // para actualizar
                 for (Paciente_DBO a : lista) {
-                    Hospital_v2.FAP.txtDNI.setText(a.getDNI_Paciente());
+                    Hospital_v2.FAP.txt_DNI.setText(a.getDNI_Paciente());
                     Hospital_v2.FAP.txt_Apellidos.setText(a.getApellidos());
                     Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
-                    Hospital_v2.FAP.txtDireccion.setText(a.getDireccion());
+                    Hospital_v2.FAP.txt_Direccion.setText(a.getDireccion());
                     
-                    SimpleDateFormat formato = new SimpleDateFormat(Hospital_v2.FAP.Calendar_FechaNac1.getFormatoFecha());
+                    SimpleDateFormat formato = new SimpleDateFormat(Hospital_v2.FAP.Calendar_FechaNac.getFormatoFecha());
                     Date fecha = null;
                     
-                    Hospital_v2.FAP.Calendar_FechaNac1.setTextoFecha(formato.format(a.getFechadeNacimiento()));
+                    Hospital_v2.FAP.Calendar_FechaNac.setTextoFecha(formato.format(a.getFechadeNacimiento()));
                     // convertir
                     try {
                         ImageIcon imgi = null;
@@ -213,7 +213,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             imgi = new ImageIcon(image);
                             Hospital_v2.FAP.Foto.setIcon(imgi);
                         }
-                        Hospital_v2.FAP.txtTelefono.setText(a.getTelefono());
+                        Hospital_v2.FAP.txt_Telefono.setText(a.getTelefono());
                     } catch (IOException ex) {
                     }
 
@@ -247,11 +247,11 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     }
                 }
                 
-                Hospital_v2.FAP.txtDNI.setEnabled(true);
+                Hospital_v2.FAP.txt_DNI.setEnabled(true);
                 Hospital_v2.FAP.txt_Apellidos.setEnabled(true);
                 Hospital_v2.FAP.txt_Nombres.setEnabled(true);
-                Hospital_v2.FAP.txtDireccion.setEnabled(true);
-                Hospital_v2.FAP.txtTelefono.setEnabled(true);
+                Hospital_v2.FAP.txt_Direccion.setEnabled(true);
+                Hospital_v2.FAP.txt_Telefono.setEnabled(true);
 
                 Hospital_v2.FAP.Check_Hombre.setEnabled(true);
                 Hospital_v2.FAP.Check_Mujer.setEnabled(true);

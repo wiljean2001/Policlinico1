@@ -5,7 +5,7 @@ import DBO.Paciente_DBO;
 import Interfaces.Mensaje;
 import Interfaces.Seteo;
 import Main.Hospital_v2;
-import Vistas.ActualizarP;
+import Vistas.ActualizarPac;
 import app.bolivia.swing.JCTextField;
 import java.awt.Cursor;
 import java.awt.Dimension;
@@ -21,7 +21,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -40,27 +39,26 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     private RSDateChooser FechadeNacimiento;
     private RSLabelImage Foto;
     private JLabel button_Foto;
-    private ActualizarP ActP;
+    private ActualizarPac ActP;
 
     private File rutaImagen = null;
     private final ImageIcon imagenIcon;
     private byte[] fotoByte = null;
 
-    public cntrlActualizarP(ActualizarP ActP) {
+    public cntrlActualizarP(ActualizarPac ActP) {
         this.ActP = ActP;
         acciones(ActP);
         Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
-        
     }
 
-    private void acciones(ActualizarP ActP) {
-        DNI = ActP.txtDNI;
+    private void acciones(ActualizarPac ActP) {
+        DNI = ActP.txt_DNI;
         apellidos = ActP.txt_Apellidos;
         nombres = ActP.txt_Nombres;
-        Direccion = ActP.txtDireccion;
-        telefono = ActP.txtTelefono;
-        FechadeNacimiento = ActP.Calendar_FechaNac1;
+        Direccion = ActP.txt_Direccion;
+        telefono = ActP.txt_Telefono;
+        FechadeNacimiento = ActP.Calendar_FechaNac;
         Foto = ActP.Foto;
         button_Foto = ActP.Button_CargarFoto;
 
@@ -98,6 +96,8 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
     public boolean primeravez = true;
 
     public void limpiar() {
+        /*
+        
         int result = 0;
         if (primeravez) {
             result = JOptionPane.showConfirmDialog(
@@ -109,7 +109,6 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
             Seteo.SeteoJCalendar(FechadeNacimiento);
             Seteo.SeteoCheckbox(ActP.jPanel2);
             Seteo.SeteoCheckbox(ActP.jPanel4);
-            FechadeNacimiento.setTextoFecha("20");
 
             Icon icono = new ImageIcon(imagenIcon.getImage());
             Foto.setIcon(icono);
@@ -117,6 +116,7 @@ public class cntrlActualizarP implements KeyListener, MouseListener {
 
         }
         primeravez = true;
+        */
     }
 
     @Override

@@ -15,7 +15,6 @@ import rojerusan.RSAnimation;
 import Main.*;
 
 public class cntrlMenuRecep implements MouseListener {
-
     private MenuRecep m;
     private RSMoveWindow a = new RSMoveWindow();
     private JPanel Panel_cont, Panel_Bott, Panel_Inf, PanelArriba, PanelIzq, PanelIzqArriba;
@@ -82,7 +81,6 @@ public class cntrlMenuRecep implements MouseListener {
             Hospital_v2.cRP.limpiar();
             DesktopPaneMenu.add(Hospital_v2.FRP);
             Hospital_v2.FRP.setVisible(true);
-
         }
         //Botòn buscar paciente
         if (e.getSource() == button_BusPac) {

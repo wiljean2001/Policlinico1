@@ -16,7 +16,7 @@ public class Hospital_v2 {
 
     //formularios
     public static ActualizarHC FAHC;
-    public static ActualizarP FAP;
+    //public static ActualizarP FAP;
     public static BuscarHC FBHC;
     public static BuscarPaciente FBP;
     public static Cargando FC = new Cargando();
@@ -26,6 +26,8 @@ public class Hospital_v2 {
     public static RegistrarHC FRHC;
     public static RegistrarP FRP;
     public static TablaImagen CTI;
+    public static ActualizarPac FAP;
+    
     //controladores
     public static cntrlActualizarHC cAHC;
     public static cntrlActualizarP cAP;
@@ -55,7 +57,7 @@ public class Hospital_v2 {
         FL = new Login();
         FRHC = new RegistrarHC();
         FAHC = new ActualizarHC();
-        FAP = new ActualizarP();
+        FAP = new ActualizarPac();
         FBHC = new BuscarHC(null, true);
         FBP = new BuscarPaciente(null, true);
         FMM = new MenuMedicos();

@@ -3,6 +3,7 @@ package DAO;
 import DBO.Paciente_DBO;
 import DBO.HistoriaClinica_DBO;
 import Interfaces.Mensaje;
+import Main.Hospital_v2;
 import conexion.conexion;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -116,7 +117,7 @@ public class HistorialClinico_DAO {
                         res.getInt(21), res.getString(22), res.getBytes(23)));
 
             }
-
+            Hospital_v2.FBHC.ButtonEnviarHC.setVisible(true);
             return arrayHC;
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR

@@ -43,7 +43,6 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     private File rutaImagen = null;
     private final ImageIcon imagenIcon;
     private byte[] fotoByte = null;
-    
 
     public cntrlRegistrarP(RegistrarP r) {
         this.r = r;
@@ -111,7 +110,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             Seteo.SeteoJCalendar(FechadeNacimiento);
             Seteo.SeteoCheckbox(r.jPanel2);
             Seteo.SeteoCheckbox(r.jPanel4);
-            
+
             Icon icono = new ImageIcon(imagenIcon.getImage());
             Foto.setIcon(icono);
             rutaImagen = null;
@@ -165,9 +164,9 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 }
             }
 
-            validarDNI validar = new validarDNI(DNI.getText());
+            
             // validar DNI
-            if (true) {
+            if (DNI.getText().length()==8) {
                 if (telefono.getText().length() < 5) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
                 } else {
@@ -199,7 +198,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             limpiar();
         }
     }
-    
+
     private File abrirImagen() {
         JFileChooser jf = new JFileChooser();
         jf.setDialogTitle("BUSCAR FOTO");
@@ -217,12 +216,12 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         //agarre lo que seleciona
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length()<=10485760 ) {
+        if (seleccion_ruta != null && seleccion_ruta.length() <= 10485760) {
             try {
                 ImageIcon imgi = null;
                 BufferedImage image = ImageIO.read(seleccion_ruta);
                 imgi = new ImageIcon(image);
-                
+
                 Foto.setIcon(imgi);
                 rutaImagen = seleccion_ruta;
                 return seleccion_ruta;
@@ -231,59 +230,13 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         }
         return null;
     }
-        
+
     @Override
     public void mouseClicked(MouseEvent e) {
 
-        if (e.getSource() == button_Limpiar) {
-            limpiar();
-        }
-        if (e.getSource() == button_Reg) {
-            bottonRegistrar();
-            
-        }
-        if (e.getSource() == SexoH) {
-            SexoH.setSelected(true);
-            SexoM.setSelected(false);
-        }
-        if (e.getSource() == SexoM) {
-            SexoH.setSelected(false);
-            SexoM.setSelected(true);
-        }
-        if (e.getSource() == EstadoCivil_Sol) {
-            EstadoCivil_Sol.setSelected(true);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
-        }
-        if (e.getSource() == EstadoCivil_Cas) {
-            EstadoCivil_Cas.setSelected(true);
-            EstadoCivil_Sol.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
-        }
-        if (e.getSource() == EstadoCivil_viud) {
-            EstadoCivil_viud.setSelected(true);
-            EstadoCivil_Sol.setSelected(false);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_Div.setSelected(false);
-        }
-        if (e.getSource() == EstadoCivil_Div) {
-            EstadoCivil_Div.setSelected(true);
-            EstadoCivil_Cas.setSelected(false);
-            EstadoCivil_viud.setSelected(false);
-            EstadoCivil_Sol.setSelected(false);
-        }
-        
-        if(e.getSource()==Foto || e.getSource()==button_Foto){
-            abrirImagen();
-        }
-        
     }
 
-    
-    
-     @Override
+    @Override
     public void keyTyped(KeyEvent e) {
 
         //Solo Numeros
@@ -372,7 +325,49 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     @Override
     public void mousePressed(MouseEvent e
     ) {
+        if (e.getSource() == button_Limpiar) {
+            limpiar();
+        }
+        if (e.getSource() == button_Reg) {
+            bottonRegistrar();
 
+        }
+
+        if (e.getSource() == Foto || e.getSource() == button_Foto) {
+            abrirImagen();
+        }
+        if (e.getSource() == SexoH) {
+            SexoM.setSelected(false);
+
+        }
+        if (e.getSource() == SexoM) {
+            SexoH.setSelected(false);
+
+        }
+        if (e.getSource() == EstadoCivil_Sol) {
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+
+        }
+        if (e.getSource() == EstadoCivil_Cas) {
+            EstadoCivil_Sol.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+
+        }
+        if (e.getSource() == EstadoCivil_viud) {
+            EstadoCivil_Sol.setSelected(false);
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_Div.setSelected(false);
+
+        }
+        if (e.getSource() == EstadoCivil_Div) {
+            EstadoCivil_Cas.setSelected(false);
+            EstadoCivil_viud.setSelected(false);
+            EstadoCivil_Sol.setSelected(false);
+
+        }
     }
 
     @Override

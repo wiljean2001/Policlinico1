@@ -56,7 +56,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == buttonBuscarHC) {
-            registrar();
+            BuscarHC();
         }
 
         if (e.getSource() == buttonAceptar) {
@@ -139,7 +139,6 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                             Hospital_v2.FAHC.Check_infucionessi.setSelected(false);
                         }
                     }
-
                 }
                 limpiar();
             } else {
@@ -158,7 +157,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
         Seteo.SeteoJTextArea(txtArea);
     }
 
-    private void registrar() {
+    private void BuscarHC() {
         if (BuscarDNI_IDHC.getText().length() < 5 || (BuscarDNI_IDHC.getText().length() > 6
                 && BuscarDNI_IDHC.getText().length() < 8)) {
             Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO");

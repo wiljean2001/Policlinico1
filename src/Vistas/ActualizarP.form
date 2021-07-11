@@ -56,10 +56,10 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="txtDNI" min="-2" pref="274" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="Calendar_FechaNac1" min="-2" pref="206" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                                  <Component id="txtDNI" min="-2" pref="257" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="Calendar_FechaNac1" min="-2" pref="225" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                               </Group>
                               <Component id="txtDireccion" alignment="0" max="32767" attributes="0"/>
                               <Component id="txt_Nombres" alignment="0" max="32767" attributes="0"/>
@@ -79,7 +79,7 @@
                               <Component id="ButtonActualizarPac" alignment="0" pref="278" max="32767" attributes="0"/>
                               <Component id="ButtonBuscarP" alignment="0" pref="278" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="65" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="Foto" alignment="0" max="32767" attributes="0"/>
                                       <Component id="Button_CargarFoto" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
@@ -106,9 +106,9 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="Calendar_FechaNac1" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="txtDNI" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="txtDNI" pref="40" max="32767" attributes="0"/>
+                              <Component id="Calendar_FechaNac1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="txt_Apellidos" min="-2" pref="40" max="-2" attributes="0"/>
@@ -520,13 +520,6 @@
           </AuxValues>
         </Component>
         <Component class="rojerusan.RSDateChooser" name="Calendar_FechaNac1">
-          <Properties>
-            <Property name="formatoFecha" type="java.lang.String" value="yyyy-MM-dd"/>
-            <Property name="fuente" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="1"/>
-            </Property>
-            <Property name="placeholder" type="java.lang.String" value="FECHA DE NACIMIENTO"/>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
