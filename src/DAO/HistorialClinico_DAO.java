@@ -56,7 +56,7 @@ public class HistorialClinico_DAO {
 
     public boolean ActualizarPac(HistoriaClinica_DBO x) {
         PreparedStatement PS;
-        
+
         try {
             PS = con.getCnn().prepareStatement(UPDATE_SQL);
             PS.setString(1, x.getConsumeAlcohol());
@@ -69,7 +69,7 @@ public class HistorialClinico_DAO {
             PS.setString(8, x.getSueño());
             PS.setString(9, x.getEnfermedadActual());
             PS.setString(10, x.getCodigoHC());
-            
+
             if (PS.executeUpdate() > 0) {
                 return true;
             }
@@ -80,7 +80,7 @@ public class HistorialClinico_DAO {
             //Cerrar conexion
             con.setCnn();
         }
-        
+
         return false;
     }
     private ArrayList<Paciente_DBO> arrayPac = new ArrayList();
