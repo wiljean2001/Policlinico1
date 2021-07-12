@@ -199,6 +199,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
                     Hospital_v2.FAP.txt_Direccion.setText(a.getDireccion());
                     Hospital_v2.FAP.Calendar_FechaNac.setDate(a.getFechadeNacimiento());
+                    
 
                     Date fecha = null;
 
@@ -207,6 +208,7 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         ImageIcon imgi = null;
                         if (a.getFoto() != null) {
                             byte[] bi = a.getFoto();
+                            Hospital_v2.cAP.fotoByte = bi;
                             BufferedImage image;
                             image = ImageIO.read(new ByteArrayInputStream(bi));
                             imgi = new ImageIcon(image);

@@ -12,6 +12,7 @@ import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -48,7 +49,7 @@ public class cntrlActualizarP
 
     private File rutaImagen = null;
     private final ImageIcon imagenIcon;
-    private byte[] fotoByte = null;
+    public byte[] fotoByte = null;
 
     public cntrlActualizarP(ActualizarPac ActP) {
         this.ActP = ActP;
@@ -318,7 +319,60 @@ public class cntrlActualizarP
     @Override
     public void keyTyped(KeyEvent e) {
 
+        //Solo Numeros
+        char a = 0;
+        if (e.getSource() == DNI) {
+            a = e.getKeyChar();
+            if (DNI.getText().length() < 8) {
+                if (a < '0' || a > '9') {
+                    e.consume();
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            } else {
+                e.consume();
+                Toolkit.getDefaultToolkit().beep();
+            }
+        }
+        // 
+        if (e.getSource() == apellidos) {
+            a = e.getKeyChar();
+            if (apellidos.getText().length() <= 50) {
+                if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
+                    e.consume();
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            } else {
+                e.consume();
+                Toolkit.getDefaultToolkit().beep();
+            }
+        }
+        if (e.getSource() == nombres) {
+            a = e.getKeyChar();
+            if (nombres.getText().length() <=50) {
+                if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
+                    e.consume();
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            } else {
+                e.consume();
+                Toolkit.getDefaultToolkit().beep();
+            }
+        }
+        
+        if (e.getSource() == telefono) {
+            a = e.getKeyChar();
+            if (telefono.getText().length() < 9) {
+                if (a < '0' || a > '9') {
+                    e.consume();
+                    Toolkit.getDefaultToolkit().beep();
+                }
+            } else {
+                e.consume();
+                Toolkit.getDefaultToolkit().beep();
+            }
+        }
     }
+    
 
     @Override
     public void keyPressed(KeyEvent e) {
