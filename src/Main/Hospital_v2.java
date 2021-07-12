@@ -27,7 +27,7 @@ public class Hospital_v2 {
     public static RegistrarP FRP;
     public static TablaImagen CTI;
     public static ActualizarPac FAP;
-    
+
     //controladores
     public static cntrlActualizarHC cAHC;
     public static cntrlActualizarP cAP;
@@ -49,10 +49,6 @@ public class Hospital_v2 {
             Logger.getLogger(Cargando.class.getName()).log(Level.SEVERE, null, ex);
         }
         //
-        cL = new cntrlLoading(FC);
-        FC.setVisible(true);
-        FC = null;
-        cL = null;
 
         FL = new Login();
         FRHC = new RegistrarHC();
@@ -64,29 +60,31 @@ public class Hospital_v2 {
         FMR = new MenuRecep();
         FRP = new RegistrarP();
         //
-        ImageIcon IconoFRHC = new ImageIcon(Hospital_v2.class.getResource("/recursos2/Button Add.png"));
+        ImageIcon IconoFRHC = new ImageIcon(Hospital_v2.class.getResource("/recursos2/folder-1_40x40.png"));
         ImageIcon IconoFRP = new ImageIcon(Hospital_v2.class.getResource("/recursos2/Button Add.png")); // 
         ImageIcon IconoFAHC = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnEditar.png"));
-        ImageIcon IconoFAP = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnEditar.png"));
         ImageIcon IconoFMM = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnHome.png"));
-        ImageIcon IconoFMR = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnHome.png"));
         ImageIcon IconoFBP = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnVer.png"));
-        ImageIcon IconoFBHC = new ImageIcon(Hospital_v2.class.getResource("/recursos2/btnVer.png"));
-        //ImageIcon IconoFL = new ImageIcon(Hospital_v2.class.getResource("/recursos/hospital-cargando.gif"));
-        //ImageIcon IconocL = new ImageIcon(Hospital_v2.class.getResource("/recursos/hospital-cargando.gif"));
+        ImageIcon IconoFL = new ImageIcon(Hospital_v2.class.getResource("/recursos2/png-userblue.png"));
+
         FRHC.setFrameIcon(IconoFRHC);
         FAHC.setFrameIcon(IconoFAHC);
 
-        FAP.setFrameIcon(IconoFAP);
+        FAP.setFrameIcon(IconoFAHC);
         FBP.setIconImage(IconoFBP.getImage());
 
         FRP.setFrameIcon(IconoFRP);
-        FBHC.setIconImage(IconoFBHC.getImage());
+        FBHC.setIconImage(IconoFBP.getImage());
 
         FMM.setIconImage(IconoFMM.getImage());
-        FMR.setIconImage(IconoFMR.getImage());
-        //FL.setIconImage(IconoFL.getImage());
-        //FMR.setIconImage(IconocL.getImage());
+        FMR.setIconImage(IconoFMM.getImage());
+
+        FL.setIconImage(IconoFL.getImage());
+        FC.setIconImage(IconoFL.getImage());
+
+        cL = new cntrlLoading(FC);
+        FC.setVisible(true);
+
         cLO = new cntrlLogin(FL);
         cRHC = new cntrlRegistrarHC(FRHC);
         cAHC = new cntrlActualizarHC(FAHC);
@@ -96,5 +94,7 @@ public class Hospital_v2 {
         cMM = new cntrlMenuMedicos(FMM);
         cMR = new cntrlMenuRecep(FMR);
         cRP = new cntrlRegistrarP(FRP);
+        FC = null;
+        cL = null;
     }
 }
