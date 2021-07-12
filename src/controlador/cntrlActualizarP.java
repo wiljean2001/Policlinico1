@@ -43,6 +43,8 @@ public class cntrlActualizarP
     private RSLabelImage Foto;
     private JLabel button_Foto;
     private ActualizarPac ActP;
+    private final int altoActp = Hospital_v2.FBP.getHeight();
+    private final int anchoActp = Hospital_v2.FBP.getWidth();
 
     private File rutaImagen = null;
     private final ImageIcon imagenIcon;
@@ -223,6 +225,7 @@ public class cntrlActualizarP
         }
         return null;
     }
+    
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -237,14 +240,12 @@ public class cntrlActualizarP
             primeravez = false;
             limpiar();
             Hospital_v2.cBP.limpiar();
-
             button_BuscarPaciente.setEnabled(true);
             ActP.dispose();
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
             // redimensioar para restar la altura del botón aceptar (por estética)
             Hospital_v2.FBP.setSize(new Dimension(
-                    Hospital_v2.FBP.getWidth(),
-                    Hospital_v2.FBP.getHeight() + Hospital_v2.FBP.ButtonEnviarPaciente.getHeight()));
+                    anchoActp,  altoActp));
             Hospital_v2.FBP.setVisible(true);
 
         }
