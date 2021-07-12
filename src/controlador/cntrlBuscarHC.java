@@ -192,7 +192,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                             + "CONSUME ALCOHOL:       " + a.getConsumeAlcohol() + "\n"
                             + "CONSUME TABACO:         " + a.getConsumeTabaco() + "\n"
                             + "CONSUME DROGAS:         " + a.getConsumeDrogas() + "\n"
-                            + "CONSUME INFUSIONES:  " + a.getConsumeInfusiones() + "\n"
+                            + "CONSUME INFUSIONES:    " + a.getConsumeInfusiones() + "\n"
                             + "ALIMENTACIÓN:               " + a.getAlimentacion() + "\n"
                             + "DIURESIS:                        " + a.getDiuresis() + "\n"
                             + "CATARSIS:                       " + a.getCatarsis() + "\n"
