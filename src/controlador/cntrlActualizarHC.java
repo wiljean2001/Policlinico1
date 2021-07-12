@@ -161,7 +161,7 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
                     Sueño.getText(), Enfermedad.getText());
 
             HistorialClinico_DAO daoHC = new HistorialClinico_DAO();
-            if (daoHC.ActualizarPac(historialDBO) != false) {
+            if (daoHC.ActualizarPac(historialDBO, DNI.getText()) != false) {
                 Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
 
                 desactivartodo();

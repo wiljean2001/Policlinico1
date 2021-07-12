@@ -109,7 +109,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                     }
 
                     if (!a.getConsumeDrogas().isEmpty()) {
-                        if ("SÍ".equals(a.getConsumeDrogas().substring(1))) {
+                        if ("SÍ".equals(a.getConsumeDrogas().substring(0, 2))) {
                             Hospital_v2.FAHC.Check_Drogassi.setSelected(true);
                             Hospital_v2.FAHC.Check_Drogasno.setSelected(false);
 
@@ -121,7 +121,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                     }
 
                     if (!a.getConsumeTabaco().isEmpty()) {
-                        if ("SÍ".equals(a.getConsumeTabaco().substring(1))) {
+                        if ("SÍ".equals(a.getConsumeTabaco().substring(0, 2))) {
                             Hospital_v2.FAHC.Check_Tabacosi.setSelected(true);
                             Hospital_v2.FAHC.Check_Tabacono.setSelected(false);
 
@@ -132,7 +132,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                         }
                     }
                     if (!a.getConsumeInfusiones().isEmpty()) {
-                        if ("SÍ".equals(a.getConsumeInfusiones().substring(1))) {
+                        if ("SÍ".equals(a.getConsumeInfusiones().substring(0, 2))) {
                             Hospital_v2.FAHC.Check_infucionessi.setSelected(true);
                             Hospital_v2.FAHC.Check_infucionesno.setSelected(false);
                             Hospital_v2.FAHC.txtinfuciones.setText(a.getConsumeInfusiones().substring(2));

@@ -13,8 +13,8 @@ public class HistorialClinico_DAO {
 
     private static final String INSERT_SQL = "INSERT INTO HistorialClinico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_SQL = "UPDATE HistorialClinico SET ConsumeAlcohol=?, "
-            + "ConsuConsumoTabaco=?, ?ConsumoDrogas=, ConsumeInfusiones=?, Alimentacion=?, Diuresis=?,"
-            + " Catarsis=?, Sueño=?, EnfermedadActul=?, where CodigoHC?";
+            + "ConsumoTabaco=?, ConsumoDrogas=?, ConsumeInfusiones=?, Alimentacion=?, Diuresis=?,"
+            + " Catarsis=?, Sueño=?, EnfermedadActul=? where CodigoHC=?";
 
     private static final String BUSCAR_Inner = "select * FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=? or HC.CodigoHC=?";
 
@@ -53,7 +53,7 @@ public class HistorialClinico_DAO {
         return false;
     }
 
-    public boolean ActualizarPac(HistoriaClinica_DBO x) {
+    public boolean ActualizarPac(HistoriaClinica_DBO x, String DNI) {
         PreparedStatement PS;
 
         try {
@@ -67,7 +67,7 @@ public class HistorialClinico_DAO {
             PS.setString(7, x.getCatarsis());
             PS.setString(8, x.getSueño());
             PS.setString(9, x.getEnfermedadActual());
-            PS.setString(10, x.getCodigoHC());
+            PS.setString(10, DNI);
 
             if (PS.executeUpdate() > 0) {
                 return true;
