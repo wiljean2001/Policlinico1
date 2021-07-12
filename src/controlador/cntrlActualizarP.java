@@ -58,10 +58,7 @@ public class cntrlActualizarP
         JTextFieldDateEditor editor = (JTextFieldDateEditor) FechadeNacimiento.getDateEditor();
         editor.setEditable(false);
         FechadeNacimiento.setMaxSelectableDate(new Date());
-        FechadeNacimiento.setEnabled(false);
-        Enable.DesactivarRSTextField(ActP.jPanel1);
-        Enable.DesactivarJCheckBox(ActP.jPanel2);
-        Enable.DesactivarJCheckBox(ActP.jPanel4);
+        DesactivarTodo();
     }
 
     private void acciones(ActualizarPac ActP) {
@@ -104,6 +101,12 @@ public class cntrlActualizarP
         button_ActP.addMouseListener(this);
         button_Limpiar.addMouseListener(this);
         button_BuscarPaciente.addMouseListener(this);
+    }
+    public void DesactivarTodo(){
+        FechadeNacimiento.setEnabled(false);
+        Enable.DesactivarRSTextField(ActP.jPanel1);
+        Enable.DesactivarJCheckBox(ActP.jPanel2);
+        Enable.DesactivarJCheckBox(ActP.jPanel4);
     }
 
     public boolean primeravez = true;

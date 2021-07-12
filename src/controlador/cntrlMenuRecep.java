@@ -92,10 +92,11 @@ public class cntrlMenuRecep implements MouseListener {
             Hospital_v2.FBP.setVisible(true);
 
         }
-        //Botòn Actualizar PacienteHGGHGHG
+        //Botòn Actualizar Paciente
         if (e.getSource() == button_ActPac) {
             Hospital_v2.cAP.primeravez = false; 
             Hospital_v2.cAP.limpiar();
+            Hospital_v2.cAP.DesactivarTodo();
             DesktopPaneMenu.add(Hospital_v2.FAP);
             Hospital_v2.FAP.setVisible(true);
 
