@@ -159,8 +159,9 @@ public class cntrlActualizarP
             if (rutaImagen != null) {
                 // falta enviar nulos
                 try {
-                    JOptionPane.showMessageDialog(null, "" + rutaImagen);
-                    fotoByte = Files.readAllBytes(rutaImagen.toPath());
+                    if (Foto.getIcon() != imagenIcon) {
+                        fotoByte = Files.readAllBytes(rutaImagen.toPath());
+                    }
                 } catch (IOException e) {
                 }
             }
@@ -225,7 +226,6 @@ public class cntrlActualizarP
         }
         return null;
     }
-    
 
     @Override
     public void mousePressed(MouseEvent e) {
@@ -245,7 +245,7 @@ public class cntrlActualizarP
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
             // redimensioar para restar la altura del botón aceptar (por estética)
             Hospital_v2.FBP.setSize(new Dimension(
-                    anchoActp,  altoActp));
+                    anchoActp, altoActp));
             Hospital_v2.FBP.setVisible(true);
 
         }
@@ -282,7 +282,7 @@ public class cntrlActualizarP
         }
 
         if (e.getSource() == Foto || e.getSource() == button_Foto) {
-            if (!Foto.isEnabled()) {
+            if (Foto.isEnabled()) {
                 abrirImagen();
             }
         }

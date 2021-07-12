@@ -8,12 +8,10 @@ import Interfaces.Seteo;
 import Main.Hospital_v2;
 import Vistas.RegistrarHC;
 import app.bolivia.swing.JCTextField;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -200,6 +198,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
             Hospital_v2.cBP.ventanaAnterior = 1;
             Hospital_v2.FRHC.setVisible(false);
+            //Hospital_v2.FBP.setSize(new Dimension());
             Hospital_v2.FBP.setVisible(true);
 
             txtCodigoHC.setText(GenerarCodHC());
