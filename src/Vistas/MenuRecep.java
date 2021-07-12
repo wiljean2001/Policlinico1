@@ -24,6 +24,7 @@ public class MenuRecep extends javax.swing.JFrame {
         jPanelIzqArriba = new javax.swing.JPanel();
         MovButt_Menu = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
+        rSLabelHora1 = new rojeru_san.RSLabelHora();
         jPanelIzq = new javax.swing.JPanel();
         PanelContenedor = new javax.swing.JPanel();
         bttnExtra = new javax.swing.JPanel();
@@ -35,7 +36,6 @@ public class MenuRecep extends javax.swing.JFrame {
         buttonCerrarSesion = new javax.swing.JButton();
         rSScrollPane1 = new necesario.RSScrollPane();
         jDesktopPaneMenu = new javax.swing.JDesktopPane();
-        rSLabelHora1 = new rojeru_san.RSLabelHora();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MENÚ RECEPCIONISTA");
@@ -86,6 +86,10 @@ public class MenuRecep extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("RECEPCIONISTA");
 
+        rSLabelHora1.setForeground(new java.awt.Color(255, 255, 255));
+        rSLabelHora1.setDoubleBuffered(true);
+        rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
+
         javax.swing.GroupLayout jPanelARRIBALayout = new javax.swing.GroupLayout(jPanelARRIBA);
         jPanelARRIBA.setLayout(jPanelARRIBALayout);
         jPanelARRIBALayout.setHorizontalGroup(
@@ -94,16 +98,20 @@ public class MenuRecep extends javax.swing.JFrame {
                 .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(542, 542, 542)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(864, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 346, Short.MAX_VALUE)
+                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(318, 318, 318))
         );
         jPanelARRIBALayout.setVerticalGroup(
             jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelARRIBALayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelARRIBALayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanelARRIBALayout.createSequentialGroup()
-                .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelARRIBALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(rSLabelHora1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanelIzqArriba, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -193,7 +201,7 @@ public class MenuRecep extends javax.swing.JFrame {
         buttonCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/close_pane_50px.png"))); // NOI18N
         buttonCerrarSesion.setBorder(null);
         buttonCerrarSesion.setContentAreaFilled(false);
-        jPanelIzq.add(buttonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 770, 60, 50));
+        jPanelIzq.add(buttonCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 720, 60, 50));
 
         jPanel1.add(jPanelIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 65, 250, 830));
 
@@ -203,26 +211,16 @@ public class MenuRecep extends javax.swing.JFrame {
         jDesktopPaneMenu.setBackground(new java.awt.Color(255, 255, 255));
         jDesktopPaneMenu.setForeground(new java.awt.Color(255, 255, 255));
 
-        rSLabelHora1.setDoubleBuffered(true);
-        rSLabelHora1.setFont(new java.awt.Font("Roboto Bold", 1, 18)); // NOI18N
-
         javax.swing.GroupLayout jDesktopPaneMenuLayout = new javax.swing.GroupLayout(jDesktopPaneMenu);
         jDesktopPaneMenu.setLayout(jDesktopPaneMenuLayout);
         jDesktopPaneMenuLayout.setHorizontalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPaneMenuLayout.createSequentialGroup()
-                .addContainerGap(1128, Short.MAX_VALUE)
-                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 1340, Short.MAX_VALUE)
         );
         jDesktopPaneMenuLayout.setVerticalGroup(
             jDesktopPaneMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPaneMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(rSLabelHora1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(777, Short.MAX_VALUE))
+            .addGap(0, 830, Short.MAX_VALUE)
         );
-        jDesktopPaneMenu.setLayer(rSLabelHora1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         rSScrollPane1.setViewportView(jDesktopPaneMenu);
 
