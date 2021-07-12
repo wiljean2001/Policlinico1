@@ -107,11 +107,11 @@ public class HistorialClinico_DAO {
                         res.getString(7), res.getString(8), res.getString(9),
                         res.getString(10), res.getString(11)));
 
-                java.sql.Date FechaNac = new java.sql.Date(res.getDate(15).getTime());
+                java.sql.Date FechaNac = new java.sql.Date(res.getDate(14).getTime());
                 arrayPac.add(new Paciente_DBO(
-                        res.getString(14), FechaNac, res.getString(16), res.getString(17),
-                        res.getString(18), res.getString(19), res.getString(20).charAt(0),
-                        res.getInt(21), res.getString(22), res.getBytes(23)));
+                        res.getString(13), FechaNac, res.getString(15), res.getString(16),
+                        res.getString(17), res.getString(18), res.getString(19).charAt(0),
+                        res.getInt(20), res.getString(21), res.getBytes(22)));
 
             }
             return arrayHC;
