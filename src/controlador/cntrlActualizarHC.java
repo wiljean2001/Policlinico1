@@ -55,7 +55,6 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
         Drogas_des = ActHC.txtdrogas;
         Infuciones_des = ActHC.txtinfuciones;
         Foto = ActHC.Foto;
-       
 
         Alimentacion = ActHC.txt_alimentacion;
         Diuresis = ActHC.txt_diuresis;
@@ -198,8 +197,9 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
     }
 
     private void actualizar(ActionEvent e) {
-        if (validateAll() == false || Alimentacion.getText().isEmpty() || Diuresis.getText().isEmpty()
-                || Catarsis.getText().isEmpty() || Sueño.getText().isEmpty() || Enfermedad.getText().isEmpty()) {
+        if (validateAll() == false || Alimentacion.getText().length() < 2 || Diuresis.getText().length() < 2
+                || Catarsis.getText().length() < 2 || Sueño.getText().length() < 2 || Enfermedad.getText().length() < 2) {
+
             Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
 
         } else {
@@ -228,7 +228,7 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
                 ConsumeInfusiones = Infuciones_no.getText() + " " + Infuciones_des.getText();
             }
 
-            historialDBO = new HistoriaClinica_DBO( ActHC.lbl_codigo.getText(),
+            historialDBO = new HistoriaClinica_DBO(ActHC.lbl_codigo.getText(),
                     ConsumeAlcohol, ConsumeTabaco, ConsumeDrogas,
                     ConsumeInfusiones, Alimentacion.getText(), Diuresis.getText(), Catarsis.getText(),
                     Sueño.getText(), Enfermedad.getText());

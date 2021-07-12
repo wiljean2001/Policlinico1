@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Paciente_DAO {
 
     private static final String INSERT_SQL = "INSERT INTO Paciente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String UPDATE_SQL = "UPDATE Paciente SET DNI =?, Fecha_Nacimiento=?, Telefono=?,"
+    private static final String UPDATE_SQL = "UPDATE Paciente SET Fecha_Nacimiento=?, Telefono=?,"
             + "Apellido=?, Nombre=?, Dirección=?, Sexo=?, Edad=?, EstadoCivil=?, Foto=? WHERE DNI =? ";
     private static final String BUSCAR_SQL = "SELECT * FROM Paciente WHERE DNI=?";
     private static final String BUSCAR_Inner = "select CodigoHC FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=?";
@@ -54,24 +54,23 @@ public class Paciente_DAO {
         PreparedStatement PS;
         try {
             PS = con.getCnn().prepareStatement(UPDATE_SQL);
-            PS.setString(1, x.getDNI_Paciente());
             java.sql.Date date = new java.sql.Date(x.getFechadeNacimiento().getTime());
-            PS.setDate(2, date);
-            PS.setString(3, x.getTelefono());
-            PS.setString(4, x.getApellidos());
-            PS.setString(5, x.getNombres());
-            PS.setString(6, x.getDireccion());
-            PS.setString(7, String.valueOf(x.getSexo()));
-            PS.setInt(8, x.getEdad());
-            PS.setString(9, x.getEstadoCivil());
-            PS.setBytes(10, x.getFoto());
-            PS.setString(11, x.getDNI_Paciente());
+            PS.setDate(1, date);
+            PS.setString(2, x.getTelefono());
+            PS.setString(3, x.getApellidos());
+            PS.setString(4, x.getNombres());
+            PS.setString(5, x.getDireccion());
+            PS.setString(6, String.valueOf(x.getSexo()));
+            PS.setInt(7, x.getEdad());
+            PS.setString(8, x.getEstadoCivil());
+            PS.setBytes(9, x.getFoto());
+            PS.setString(10, x.getDNI_Paciente());
             if (PS.executeUpdate() > 0) {
                 return true;
             }
         } catch (SQLException ex) {
             // AGREGAR AL WORD MENSAJE DE ERROR
-            Mensaje.MensajeError("DNI EXISTENTE", "ERROR");
+            Mensaje.MensajeError("ERROR AL ACTUALIZAR PACIENTE: " +ex, "ERROR");
         } finally {
             //Cerrar conexion
             con.setCnn();

@@ -103,7 +103,8 @@ public class cntrlActualizarP
         button_Limpiar.addMouseListener(this);
         button_BuscarPaciente.addMouseListener(this);
     }
-    public void DesactivarTodo(){
+
+    public void DesactivarTodo() {
         FechadeNacimiento.setEnabled(false);
         Enable.DesactivarRSTextField(ActP.jPanel1);
         Enable.DesactivarJCheckBox(ActP.jPanel2);
@@ -227,6 +228,8 @@ public class cntrlActualizarP
             } catch (IOException e) {
 
             }
+        }else {
+            Mensaje.MensajeError("TAMAÑO DE IMAGEN MENOR A 1Mb", "TAMAÑO EXCEDIDO");
         }
         return null;
     }
@@ -244,14 +247,14 @@ public class cntrlActualizarP
             primeravez = false;
             limpiar();
             Hospital_v2.cBP.limpiar();
-            button_BuscarPaciente.setEnabled(true);
+            button_ActP.setEnabled(true);
             ActP.dispose();
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
             // redimensioar para restar la altura del botón aceptar (por estética)
             Hospital_v2.FBP.setSize(new Dimension(
                     anchoActp, altoActp));
             Hospital_v2.FBP.setVisible(true);
-
+            
         }
         if (e.getSource() == SexoH) {
             SexoM.setSelected(false);
@@ -348,7 +351,7 @@ public class cntrlActualizarP
         }
         if (e.getSource() == nombres) {
             a = e.getKeyChar();
-            if (nombres.getText().length() <=50) {
+            if (nombres.getText().length() <= 50) {
                 if (!Character.isAlphabetic(a) && !Character.isSpaceChar(a)) {
                     e.consume();
                     Toolkit.getDefaultToolkit().beep();
@@ -358,7 +361,14 @@ public class cntrlActualizarP
                 Toolkit.getDefaultToolkit().beep();
             }
         }
-        
+        if (e.getSource() == Direccion) {
+            if (Direccion.getText().length() >= 100) {
+                e.consume();
+                Toolkit.getDefaultToolkit().beep();
+
+            } 
+        }
+
         if (e.getSource() == telefono) {
             a = e.getKeyChar();
             if (telefono.getText().length() < 9) {
@@ -372,7 +382,6 @@ public class cntrlActualizarP
             }
         }
     }
-    
 
     @Override
     public void keyPressed(KeyEvent e) {

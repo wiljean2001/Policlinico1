@@ -225,7 +225,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             } catch (IOException e) {
             }
         } else {
-            Mensaje.MensajeError("EL TAMAÑO DE LA IMAGEN EXCEDE 1Mb", "TAMAÑO EXCEDIDO");
+            Mensaje.MensajeError("TAMAÑO DE IMAGEN MENOR A 1Mb", "TAMAÑO EXCEDIDO");
         }
         return null;
     }

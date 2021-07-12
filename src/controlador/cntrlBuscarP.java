@@ -199,8 +199,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     Hospital_v2.FAP.txt_Nombres.setText(a.getNombres());
                     Hospital_v2.FAP.txt_Direccion.setText(a.getDireccion());
                     Hospital_v2.FAP.Calendar_FechaNac.setDate(a.getFechadeNacimiento());
-                    
-
                     Date fecha = null;
 
                     // convertir
@@ -250,6 +248,8 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel2);
                 Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel4);
                 Enable.ActivarRSTextField(Hospital_v2.FAP.jPanel1);
+                    
+                
             }
             limpiar();
             BusP.setVisible(false);
