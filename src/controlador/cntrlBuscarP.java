@@ -245,7 +245,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                             break;
                     }
                 }
-                Enable.ActivarRSTextField(Hospital_v2.FAP.jPanel1);
                 Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel2);
                 Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel4);
                 /*
@@ -295,23 +294,31 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                     } catch (IOException ex) {
                     }
 
-                    if ("M".equals(a.getSexo())) {
-                        Hospital_v2.FRHC.Check_Femenino.setSelected(true);
-
-                    } else {
+                    if ("M".equals(String.valueOf(a.getSexo()))) {
                         Hospital_v2.FRHC.Check_Masculino.setSelected(true);
+                        Hospital_v2.FRHC.Check_Femenino.setSelected(false);
+                    } else {
+                        Hospital_v2.FRHC.Check_Femenino.setSelected(true);
+                        Hospital_v2.FRHC.Check_Masculino.setSelected(false);
                     }
 
                     Enable.ActivarRSTextField(Hospital_v2.FRHC.jPanel1);
-                    Enable.ActivarRSTextField(Hospital_v2.FRHC.PanelConsume);
                     Enable.ActivarRSTextField(Hospital_v2.FRHC.PanelMas);
-                    
+
+                    Enable.ActivarJCheckBox(Hospital_v2.FRHC.PanelConsume);
+
                     Hospital_v2.FRHC.ButtonRegistrarHC.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Tabacosi.setSelected(true);
-                    Hospital_v2.FRHC.Check_Alcoholsi.setSelected(true);
-                    Hospital_v2.FRHC.Check_Drogassi.setSelected(true);
-                    Hospital_v2.FRHC.Check_infucionessi.setSelected(true);
-                    
+                    /*
+                    Hospital_v2.FRHC.Check_Tabacono.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Tabacosi.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Alcoholno.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Alcoholsi.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Drogasno.setEnabled(true);
+                    Hospital_v2.FRHC.Check_Drogassi.setEnabled(true);
+                    Hospital_v2.FRHC.Check_infucionesno.setEnabled(true);
+                    Hospital_v2.FRHC.Check_infucionessi.setEnabled(true);
+                     */
+
                 }
             }
             limpiar();

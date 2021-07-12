@@ -73,7 +73,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                             BufferedImage image;
                             image = ImageIO.read(new ByteArrayInputStream(bi));
                             imgi = new ImageIcon(image);
-                            Hospital_v2.FAHC.FOTO.setIcon(imgi);
+                            Hospital_v2.FAHC.Foto.setIcon(imgi);
                         }
                     } catch (IOException ex) {
                     }

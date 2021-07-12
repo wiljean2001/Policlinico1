@@ -36,7 +36,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     private String CodigoGenerado;
     private RSLabelImage Foto;
     private JLabel txtCodigoHC;
-    private String DateFormato = "hh//mm//ss a dd//MMM//YYYY";
+    private String DateFormato = "dd//MMM//YYYY";
     private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
     private RegistrarHC rHC;
     private final ImageIcon imagenIcon;
@@ -45,6 +45,8 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         rHC.lbl_fecha.setText(formato.format(fecha));
         eventos(rHC);
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
+        desactivartodo();
+
     }
 
     private void eventos(RegistrarHC rHC) {
@@ -153,7 +155,6 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                     || Catarsis.getText().isEmpty() || Sueño.getText().isEmpty() || Enfermedad.getText().isEmpty()) {
 
                 Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
-
             } else {
                 String ConsumeAlcohol = "";
                 if (Alcohol_si.isSelected()) {
@@ -188,11 +189,8 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
                 if (daoHC.RegistrarHC(historialDBO, DNI.getText()) != false) {
                     Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                     //JOptionPane.OK_CANCEL_OPTION
-                    primeravez = false;
-                    limpiar();
-                    Enable.DesactivarRSTextField(rHC.jPanel1);
-                    Enable.DesactivarRSTextField(rHC.PanelConsume);
-                    Enable.DesactivarRSTextField(rHC.PanelMas);
+
+                    desactivartodo();
                 }
 
             }
@@ -234,7 +232,6 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         if (e.getSource() == Alcohol_si) {
             if (!Alcohol_des.isEditable()) {
                 Alcohol_des.setEditable(true);
-                Alcohol_des.setText("");
             }
         }
         if (e.getSource() == Tabaco_si) {
@@ -253,6 +250,14 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             }
         }
 
+    }
+
+    public void desactivartodo() {
+        primeravez = false;
+        limpiar();
+        Enable.DesactivarRSTextField(rHC.PanelConsume);
+        Enable.DesactivarRSTextField(rHC.PanelMas);
+        Enable.DesactivarJCheckBox(rHC.PanelConsume);
     }
 
     public boolean primeravez = true;

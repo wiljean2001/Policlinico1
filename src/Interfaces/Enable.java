@@ -13,10 +13,11 @@ public class Enable {
         JCTextField clear;
         JLabel clear2;
         RSLabelImage clear3;
+        JDateChooser FechadeNacimiento;
         for (int i = 0; i < formulario.getComponentCount(); i++) {
             if (formulario.getComponent(i).getClass().getName().equals("app.bolivia.swing.JCTextField")) {
                 clear = (JCTextField) formulario.getComponent(i);
-                clear.setEnabled(false);
+                clear.setEditable(false);
             }
             if (formulario.getComponent(i).getClass().getName().equals("javax.swing.JLabel")) {
                 clear2 = (JLabel) formulario.getComponent(i);
@@ -26,16 +27,21 @@ public class Enable {
                 clear3 = (RSLabelImage) formulario.getComponent(i);
                 clear3.setEnabled(false);
             }
+            if (formulario.getComponent(i).getClass().getName().equals("com.toedter.calendar.JDateChooser")) {
+                FechadeNacimiento = (JDateChooser) formulario.getComponent(i);
+                FechadeNacimiento.setEnabled(false);
+            }
         }
     }
     public static void ActivarRSTextField(JPanel formulario) {
         JCTextField clear;
         JLabel clear2;
         RSLabelImage clear3;
+        JDateChooser FechadeNacimiento;
         for (int i = 0; i < formulario.getComponentCount(); i++) {
             if (formulario.getComponent(i).getClass().getName().equals("app.bolivia.swing.JCTextField")) {
                 clear = (JCTextField) formulario.getComponent(i);
-                clear.setEnabled(true);
+                clear.setEditable(true);
             }
             if (formulario.getComponent(i).getClass().getName().equals("javax.swing.JLabel")) {
                 clear2 = (JLabel) formulario.getComponent(i);
@@ -44,6 +50,10 @@ public class Enable {
             if (formulario.getComponent(i).getClass().getName().equals("rojerusan.RSLabelImage")) {
                 clear3 = (RSLabelImage) formulario.getComponent(i);
                 clear3.setEnabled(true);
+            }
+            if (formulario.getComponent(i).getClass().getName().equals("com.toedter.calendar.JDateChooser")) {
+                FechadeNacimiento = (JDateChooser) formulario.getComponent(i);
+                FechadeNacimiento.setEnabled(true);
             }
         }
     }

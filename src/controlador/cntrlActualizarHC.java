@@ -7,7 +7,9 @@ package controlador;
 
 import DAO.HistorialClinico_DAO;
 import DBO.HistoriaClinica_DBO;
+import Interfaces.Enable;
 import Interfaces.Mensaje;
+import Interfaces.Seteo;
 import Main.Hospital_v2;
 import Vistas.ActualizarHC;
 import app.bolivia.swing.JCTextField;
@@ -15,8 +17,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
 import rojeru_san.RSButtonRiple;
+import rojerusan.RSLabelImage;
 
 /**
  *
@@ -27,24 +33,28 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
     private RSButtonRiple buttonBuscarHC, buttonRegistrarHC;
     //copiar
     private JCTextField Alcohol_des, Tabaco_des, Drogas_des, Infuciones_des,
-            Alimentacion, Diuresis, Catarsis, Sueño, Enfermedad, CodigoAct;
+            Alimentacion, Diuresis, Catarsis, Sueño, Enfermedad, DNI;
     private JCheckBox Alcohol_si, Alcohol_no, Tabaco_si, Tabaco_no, Drogras_si,
             Drogas_no, Infuciones_si, Infuciones_no;
     private HistoriaClinica_DBO historialDBO;
     private ActualizarHC ActHC;
+    private final ImageIcon imagenIcon;
+    private RSLabelImage Foto;
 
     public cntrlActualizarHC(ActualizarHC ActHC) {
         this.ActHC = ActHC;
         acciones(ActHC);
+        imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
     }
 
     private void acciones(ActualizarHC ActHC) {
 
-        CodigoAct = ActHC.txtDN;
+        DNI = ActHC.txtDN;
         Alcohol_des = ActHC.txtalcohol;
         Tabaco_des = ActHC.txttabaco;
         Drogas_des = ActHC.txtdrogas;
         Infuciones_des = ActHC.txtinfuciones;
+        Foto = ActHC.Foto;
 
         Alimentacion = ActHC.txt_alimentacion;
         Diuresis = ActHC.txt_diuresis;
@@ -154,6 +164,8 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
             if (daoHC.ActualizarPac(historialDBO) != false) {
                 Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
 
+                desactivartodo();
+
             }
         }
 
@@ -201,6 +213,37 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
                 Infuciones_des.setEditable(true);
             }
         }
+    }
+
+    public boolean primeravez = true;
+
+    public void limpiar() {
+        int result = 0;
+        if (primeravez) {
+            result = JOptionPane.showConfirmDialog(
+                    null, "¿DESEA LIMPIAR TODOS LOS CAMPOS?", "CONFIRMAR", JOptionPane.YES_NO_OPTION
+            );
+        }
+        if (result == 0) {
+            Seteo.SeteoTextField(ActHC.jPanel1);
+            Seteo.SeteoCheckbox(ActHC.PanelMas);
+            Seteo.SeteoTextField(ActHC.PanelMas);
+            Seteo.SeteoCheckbox(ActHC.PanelConsume);
+            Seteo.SeteoTextField(ActHC.PanelConsume);
+
+            Icon icono = new ImageIcon(imagenIcon.getImage());
+            Foto.setIcon(icono);
+            DNI.requestFocus();
+        }
+        primeravez = true;
+    }
+
+    public void desactivartodo() {
+        primeravez = false;
+        limpiar();
+        Enable.DesactivarRSTextField(ActHC.PanelConsume);
+        Enable.DesactivarRSTextField(ActHC.PanelMas);
+        Enable.DesactivarJCheckBox(ActHC.PanelConsume);
     }
 
     @Override

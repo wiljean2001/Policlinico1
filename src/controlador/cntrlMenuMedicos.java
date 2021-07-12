@@ -82,13 +82,12 @@ public class cntrlMenuMedicos implements MouseListener {
             Hospital_v2.FBHC.setVisible(true);
         }
         if (e.getSource() == button_RegHC) {
-            
-            // Hospital_v2.cRHC.limpiar(); ---------------------------------------------------------------------
+            Hospital_v2.cRHC.desactivartodo();
             DesktopPaneMenu.add(Hospital_v2.FRHC);
             Hospital_v2.FRHC.setVisible(true);
         }
         if (e.getSource() == buttonActHC) {
-            // Hospital_v2.cAHC.limpiar();  --------------------------------------------------------------------
+            Hospital_v2.cAHC.desactivartodo();
             DesktopPaneMenu.add(Hospital_v2.FAHC);
             Hospital_v2.FAHC.setVisible(true);
         }

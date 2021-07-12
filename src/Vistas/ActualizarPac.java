@@ -63,31 +63,31 @@ public class ActualizarPac extends javax.swing.JInternalFrame {
         txt_DNI.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_DNI.setToolTipText("DNI");
         txt_DNI.setDoubleBuffered(true);
-        txt_DNI.setEnabled(false);
+        txt_DNI.setFocusCycleRoot(true);
         txt_DNI.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_DNI.setPlaceholder("DNI:        Ej.  73889322");
 
         txt_Apellidos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Apellidos.setDoubleBuffered(true);
-        txt_Apellidos.setEnabled(false);
+        txt_Apellidos.setFocusCycleRoot(true);
         txt_Apellidos.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Apellidos.setPlaceholder("APELLIDOS:      Ej.  Ayala García");
 
         txt_Nombres.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Nombres.setDoubleBuffered(true);
-        txt_Nombres.setEnabled(false);
+        txt_Nombres.setFocusCycleRoot(true);
         txt_Nombres.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Nombres.setPlaceholder("NOMBRES:        Ej.  Wilmer Jean Pierre");
 
         txt_Direccion.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Direccion.setDoubleBuffered(true);
-        txt_Direccion.setEnabled(false);
+        txt_Direccion.setFocusCycleRoot(true);
         txt_Direccion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Direccion.setPlaceholder("DIRECCIÓN:     Ej.  Calle Tacna 105 - La Union");
 
         txt_Telefono.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txt_Telefono.setDoubleBuffered(true);
-        txt_Telefono.setEnabled(false);
+        txt_Telefono.setFocusCycleRoot(true);
         txt_Telefono.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_Telefono.setPlaceholder("TELÉFONO:       Ej.  953433761");
 
@@ -96,16 +96,20 @@ public class ActualizarPac extends javax.swing.JInternalFrame {
 
         Check_Soltero.setBorder(null);
         Check_Soltero.setText("Soltero");
+        Check_Soltero.setFocusCycleRoot(true);
         Check_Soltero.setIsEffectRipple(false);
 
         Check_Viudo.setText("Viudo");
+        Check_Viudo.setFocusCycleRoot(true);
         Check_Viudo.setIsEffectRipple(false);
 
         Check_Divorciado.setText("Divorciado");
+        Check_Divorciado.setFocusCycleRoot(true);
         Check_Divorciado.setIsEffectRipple(false);
 
         Check_Casado.setBorder(null);
         Check_Casado.setText("Casado");
+        Check_Casado.setFocusCycleRoot(true);
         Check_Casado.setIsEffectRipple(false);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -141,11 +145,13 @@ public class ActualizarPac extends javax.swing.JInternalFrame {
         Check_Hombre.setBorder(null);
         Check_Hombre.setText("MASCULINO");
         Check_Hombre.setToolTipText("Seleccionar género");
+        Check_Hombre.setFocusCycleRoot(true);
         Check_Hombre.setIsEffectRipple(false);
 
         Check_Mujer.setBorder(null);
         Check_Mujer.setText("FEMENINO");
         Check_Mujer.setToolTipText("Seleccionar género");
+        Check_Mujer.setFocusCycleRoot(true);
         Check_Mujer.setIsEffectRipple(false);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
