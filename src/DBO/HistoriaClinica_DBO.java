@@ -38,10 +38,10 @@ public class HistoriaClinica_DBO {
         this.Sueño = Sueño;
         this.EnfermedadActual = EnfermedadActual;
     }
-    public HistoriaClinica_DBO(String ConsumeAlcohol, 
+    public HistoriaClinica_DBO(String CodigoHC, String ConsumeAlcohol, 
             String ConsumeTabaco, String ConsumeDrogas, String ConsumeInfusiones, String Alimentacion,
             String Diuresis, String Catarsis, String Sueño, String EnfermedadActual) {
-        
+        this.CodigoHC = CodigoHC;
         this.ConsumeAlcohol = ConsumeAlcohol;
         this.ConsumeTabaco = ConsumeTabaco;
         this.ConsumeDrogas = ConsumeDrogas;

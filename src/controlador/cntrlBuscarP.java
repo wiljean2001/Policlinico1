@@ -247,17 +247,6 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                 }
                 Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel2);
                 Enable.ActivarJCheckBox(Hospital_v2.FAP.jPanel4);
-                /*
-                
-                Hospital_v2.FAP.Check_Hombre.setEnabled(true);
-                Hospital_v2.FAP.Check_Mujer.setEnabled(true);
-                Hospital_v2.FAP.Check_Soltero.setEnabled(true);
-                Hospital_v2.FAP.Check_Casado.setEnabled(true);
-                Hospital_v2.FAP.Check_Viudo.setEnabled(true);
-                Hospital_v2.FAP.Check_Divorciado.setEnabled(true);
-                Hospital_v2.FAP.Calendar_FechaNac.setEnabled(true);
-                 */
-
             }
             limpiar();
             BusP.setVisible(false);
@@ -301,27 +290,13 @@ public class cntrlBuscarP implements ActionListener, KeyListener {
                         Hospital_v2.FRHC.Check_Femenino.setSelected(true);
                         Hospital_v2.FRHC.Check_Masculino.setSelected(false);
                     }
-
-                    Enable.ActivarRSTextField(Hospital_v2.FRHC.jPanel1);
-                    Enable.ActivarRSTextField(Hospital_v2.FRHC.PanelMas);
-
-                    Enable.ActivarJCheckBox(Hospital_v2.FRHC.PanelConsume);
-
-                    Hospital_v2.FRHC.ButtonRegistrarHC.setEnabled(true);
-                    /*
-                    Hospital_v2.FRHC.Check_Tabacono.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Tabacosi.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Alcoholno.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Alcoholsi.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Drogasno.setEnabled(true);
-                    Hospital_v2.FRHC.Check_Drogassi.setEnabled(true);
-                    Hospital_v2.FRHC.Check_infucionesno.setEnabled(true);
-                    Hospital_v2.FRHC.Check_infucionessi.setEnabled(true);
-                     */
-
                 }
+                //Enable.ActivarRSTextField(Hospital_v2.FRHC.jPanel1);
+                Enable.ActivarRSTextField(Hospital_v2.FRHC.PanelMas);
+                Enable.ActivarJCheckBox(Hospital_v2.FRHC.PanelConsume);
+                Hospital_v2.FRHC.ButtonRegistrarHC.setEnabled(true);
+                limpiar();
             }
-            limpiar();
         }
     }
 

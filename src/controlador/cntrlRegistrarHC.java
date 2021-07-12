@@ -8,6 +8,7 @@ import Interfaces.Seteo;
 import Main.Hospital_v2;
 import Vistas.RegistrarHC;
 import app.bolivia.swing.JCTextField;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -197,7 +198,6 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         }
         if (e.getSource() == buttonBuscarHC) {
             Hospital_v2.FBP.ButtonEnviarPaciente.setVisible(true);
-
             Hospital_v2.cBP.ventanaAnterior = 1;
             Hospital_v2.FRHC.setVisible(false);
             Hospital_v2.FBP.setVisible(true);

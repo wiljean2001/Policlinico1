@@ -55,6 +55,7 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
         Drogas_des = ActHC.txtdrogas;
         Infuciones_des = ActHC.txtinfuciones;
         Foto = ActHC.Foto;
+       
 
         Alimentacion = ActHC.txt_alimentacion;
         Diuresis = ActHC.txt_diuresis;
@@ -105,9 +106,81 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
             actualizar(e);
         }
         if (e.getSource() == buttonBuscarHC) {
+            Hospital_v2.cBHC.limpiar();
             Hospital_v2.FAHC.setVisible(false);
             Hospital_v2.FBHC.ButtonEnviarHC.setVisible(true);
             Hospital_v2.FBHC.setVisible(true);
+        }
+
+        if (e.getSource() == Alcohol_no) {
+            if (Alcohol_des.isEditable()) {
+                Alcohol_des.setEditable(false);
+                Alcohol_des.setText("");
+                Alcohol_si.setSelected(false);
+            } else {
+                Alcohol_des.setEditable(true);
+            }
+        }
+        if (e.getSource() == Tabaco_no) {
+            if (Tabaco_des.isEditable()) {
+                Tabaco_des.setEditable(false);
+                Tabaco_des.setText("");
+                Tabaco_si.setSelected(false);
+            } else {
+                Tabaco_des.setEditable(true);
+            }
+        }
+        if (e.getSource() == Drogas_no) {
+            if (Drogas_des.isEditable()) {
+                Drogas_des.setEditable(false);
+                Drogas_des.setText("");
+                Drogras_si.setSelected(false);
+            } else {
+                Drogas_des.setEditable(true);
+            }
+
+        }
+        if (e.getSource() == Infuciones_no) {
+            if (Infuciones_des.isEditable()) {
+                Infuciones_des.setEditable(false);
+                Infuciones_des.setText("");
+                Infuciones_si.setSelected(false);
+            } else {
+                Infuciones_des.setEditable(true);
+            }
+
+        }
+        if (e.getSource() == Alcohol_si) {
+            if (!Alcohol_des.isEditable()) {
+                Alcohol_des.setEditable(true);
+                Alcohol_no.setSelected(false);
+            } else {
+                Alcohol_des.setEditable(true);
+            }
+        }
+        if (e.getSource() == Tabaco_si) {
+            if (!Tabaco_des.isEditable()) {
+                Tabaco_des.setEditable(true);
+                Tabaco_no.setSelected(false);
+            } else {
+                Tabaco_des.setEditable(true);
+            }
+        }
+        if (e.getSource() == Drogras_si) {
+            if (!Drogas_des.isEditable()) {
+                Drogas_des.setEditable(true);
+                Drogas_no.setSelected(false);
+            } else {
+                Drogas_des.setEditable(true);
+            }
+        }
+        if (e.getSource() == Infuciones_si) {
+            if (!Infuciones_des.isEditable()) {
+                Infuciones_des.setEditable(true);
+                Infuciones_no.setSelected(false);
+            } else {
+                Infuciones_des.setEditable(true);
+            }
         }
     }
 
@@ -138,24 +211,24 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
             }
             String ConsumeTabaco = "";
             if (Tabaco_si.isSelected()) {
-                ConsumeTabaco = Tabaco_si.getText().concat(" ").concat(Tabaco_des.getText());
+                ConsumeTabaco = Tabaco_si.getText() + " " + Tabaco_des.getText();
             } else {
                 ConsumeTabaco = Tabaco_no.getText() + " " + Tabaco_des.getText();
             }
             String ConsumeDrogas = "";
             if (Drogras_si.isSelected()) {
-                ConsumeTabaco = Drogras_si.getText() + " " + Drogas_des.getText();
+                ConsumeDrogas = Drogras_si.getText() + " " + Drogas_des.getText();
             } else {
-                ConsumeTabaco = Drogas_no.getText() + " " + Drogas_des.getText();
+                ConsumeDrogas = Drogas_no.getText() + " " + Drogas_des.getText();
             }
             String ConsumeInfusiones = "";
             if (Infuciones_si.isSelected()) {
-                ConsumeTabaco = Infuciones_si.getText() + " " + Infuciones_des.getText();
+                ConsumeInfusiones = Infuciones_si.getText() + " " + Infuciones_des.getText();
             } else {
-                ConsumeTabaco = Infuciones_no.getText() + " " + Infuciones_des.getText();
+                ConsumeInfusiones = Infuciones_no.getText() + " " + Infuciones_des.getText();
             }
 
-            historialDBO = new HistoriaClinica_DBO(
+            historialDBO = new HistoriaClinica_DBO( ActHC.lbl_codigo.getText(),
                     ConsumeAlcohol, ConsumeTabaco, ConsumeDrogas,
                     ConsumeInfusiones, Alimentacion.getText(), Diuresis.getText(), Catarsis.getText(),
                     Sueño.getText(), Enfermedad.getText());
@@ -165,52 +238,6 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
                 Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
 
                 desactivartodo();
-
-            }
-        }
-
-        if (e.getSource() == Alcohol_no) {
-            if (Alcohol_des.isEditable()) {
-                Alcohol_des.setEditable(false);
-                Alcohol_des.setText("");
-            }
-        }
-        if (e.getSource() == Tabaco_no) {
-            if (Tabaco_des.isEditable()) {
-                Tabaco_des.setEditable(false);
-                Tabaco_des.setText("");
-            }
-        }
-        if (e.getSource() == Drogas_no) {
-            if (Drogas_des.isEditable()) {
-                Drogas_des.setEditable(false);
-                Drogas_des.setText("");
-            }
-        }
-        if (e.getSource() == Infuciones_no) {
-            if (Infuciones_des.isEditable()) {
-                Infuciones_des.setEditable(false);
-                Infuciones_des.setText("");
-            }
-        }
-        if (e.getSource() == Alcohol_si) {
-            if (!Alcohol_des.isEditable()) {
-                Alcohol_des.setEditable(true);
-            }
-        }
-        if (e.getSource() == Tabaco_si) {
-            if (!Tabaco_des.isEditable()) {
-                Tabaco_des.setEditable(true);
-            }
-        }
-        if (e.getSource() == Drogras_si) {
-            if (!Drogas_des.isEditable()) {
-                Drogas_des.setEditable(true);
-            }
-        }
-        if (e.getSource() == Infuciones_si) {
-            if (!Infuciones_des.isEditable()) {
-                Infuciones_des.setEditable(true);
             }
         }
     }

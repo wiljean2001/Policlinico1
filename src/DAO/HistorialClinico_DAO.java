@@ -14,7 +14,7 @@ public class HistorialClinico_DAO {
     private static final String INSERT_SQL = "INSERT INTO HistorialClinico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     private static final String UPDATE_SQL = "UPDATE HistorialClinico SET ConsumeAlcohol=?, "
             + "ConsumoTabaco=?, ConsumoDrogas=?, ConsumeInfusiones=?, Alimentacion=?, Diuresis=?,"
-            + " Catarsis=?, Sueño=?, EnfermedadActul=? where CodigoHC=?";
+            + " Catarsis=?, Sueño=?, EnfermedadActul=?, DNI=? where CodigoHC=?";
 
     private static final String BUSCAR_Inner = "select * FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=? or HC.CodigoHC=?";
 
@@ -55,7 +55,6 @@ public class HistorialClinico_DAO {
 
     public boolean ActualizarPac(HistoriaClinica_DBO x, String DNI) {
         PreparedStatement PS;
-
         try {
             PS = con.getCnn().prepareStatement(UPDATE_SQL);
             PS.setString(1, x.getConsumeAlcohol());
@@ -68,6 +67,7 @@ public class HistorialClinico_DAO {
             PS.setString(8, x.getSueño());
             PS.setString(9, x.getEnfermedadActual());
             PS.setString(10, DNI);
+            PS.setString(11, x.getCodigoHC());
 
             if (PS.executeUpdate() > 0) {
                 return true;
@@ -79,7 +79,6 @@ public class HistorialClinico_DAO {
             //Cerrar conexion
             con.setCnn();
         }
-
         return false;
     }
     private ArrayList<Paciente_DBO> arrayPac = new ArrayList();

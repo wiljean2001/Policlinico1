@@ -3,6 +3,7 @@ package controlador;
 import DAO.HistorialClinico_DAO;
 import DBO.HistoriaClinica_DBO;
 import DBO.Paciente_DBO;
+import Interfaces.Enable;
 import Interfaces.Mensaje;
 import Interfaces.Seteo;
 import Main.Hospital_v2;
@@ -79,11 +80,11 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                     }
 
                     if ("M".equals(String.valueOf(pac.getSexo()))) {
-                        Hospital_v2.FRHC.Check_Masculino.setSelected(true);
-                        Hospital_v2.FRHC.Check_Femenino.setSelected(false);
+                        Hospital_v2.FAHC.Check_Hombre.setSelected(true);
+                        Hospital_v2.FAHC.Check_Mujer.setSelected(false);
                     } else {
-                        Hospital_v2.FRHC.Check_Femenino.setSelected(true);
-                        Hospital_v2.FRHC.Check_Masculino.setSelected(false);
+                        Hospital_v2.FAHC.Check_Mujer.setSelected(true);
+                        Hospital_v2.FAHC.Check_Hombre.setSelected(false);
                     }
                 }
                 for (HistoriaClinica_DBO a : this.a) {
@@ -143,14 +144,15 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
                         }
                     }
                 }
+                Enable.ActivarRSTextField(Hospital_v2.FAHC.PanelConsume);
+                Enable.ActivarRSTextField(Hospital_v2.FAHC.PanelMas);
+                Enable.ActivarJCheckBox(Hospital_v2.FAHC.PanelConsume);
+                Hospital_v2.FRHC.ButtonRegistrarHC.setEnabled(true);
                 limpiar();
-            } else {
-                Mensaje.MensajeError("ERROR: ENVIAR DATOS A LA INTERFAZ", "ERROR");
             }
             Hospital_v2.FMM.jDesktopPaneMenu.add(Hospital_v2.FAHC);
             Hospital_v2.FAHC.setVisible(true);
             Hospital_v2.FBHC.setVisible(false);
-
         }
 
     }
