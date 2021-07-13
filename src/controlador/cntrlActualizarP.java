@@ -205,31 +205,33 @@ public class cntrlActualizarP
         jf.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         //solo puedo seleccionar un archivo a la vez no varios a la vez
         jf.setMultiSelectionEnabled(false);
-        //aqui filtro lo que quiero que se cargue
-        //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
-        //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif");
+
+        //filtramos los tipos de archivos que se pueden ingresar
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif")
+                ;
         jf.setFileFilter(filter);
         //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
         jf.showOpenDialog(ActP);
         //agarre lo que seleciona
         File seleccion_ruta = jf.getSelectedFile();
         //si la selccion es diferente de null , pasela a txt
-        if (seleccion_ruta != null && seleccion_ruta.length() <= 1024000) {
-            try {
-                ImageIcon imgi;
-                imgi = null;
-                BufferedImage image = ImageIO.read(seleccion_ruta);
-                imgi = new ImageIcon(image);
+        if (seleccion_ruta != null) {
+            if (seleccion_ruta.length() <= 1024000) {
+                try {
+                    ImageIcon imgi;
+                    imgi = null;
+                    BufferedImage image = ImageIO.read(seleccion_ruta);
+                    imgi = new ImageIcon(image);
 
-                Foto.setIcon(imgi);
-                rutaImagen = seleccion_ruta;
-                return seleccion_ruta;
-            } catch (IOException e) {
-
+                    Foto.setIcon(imgi);
+                    rutaImagen = seleccion_ruta;
+                    return seleccion_ruta;
+                } catch (IOException e) {
+                }
+            } else {
+                Mensaje.MensajeError("TAMAÑO DE IMAGEN MENOR A 1Mb", "TAMAÑO EXCEDIDO");
             }
-        }else {
-            Mensaje.MensajeError("TAMAÑO DE IMAGEN MENOR A 1Mb", "TAMAÑO EXCEDIDO");
         }
         return null;
     }
@@ -254,7 +256,7 @@ public class cntrlActualizarP
             Hospital_v2.FBP.setSize(new Dimension(
                     anchoActp, altoActp));
             Hospital_v2.FBP.setVisible(true);
-            
+
         }
         if (e.getSource() == SexoH) {
             SexoM.setSelected(false);
@@ -366,7 +368,7 @@ public class cntrlActualizarP
                 e.consume();
                 Toolkit.getDefaultToolkit().beep();
 
-            } 
+            }
         }
 
         if (e.getSource() == telefono) {
