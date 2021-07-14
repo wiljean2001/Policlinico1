@@ -51,7 +51,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         button_Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
         DNI.requestFocus();
-        
+
     }
 
     private void ListenerEventos(RegistrarP r) {
@@ -131,11 +131,18 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     }
 
     private void bottonRegistrar() {
-        if (validarCheck() == false || DNI.getText().isEmpty() || apellidos.getText().isEmpty()
-                || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
-                || FechadeNacimiento.getFechaSeleccionada().isEmpty()) {
 
-            Mensaje.MensajeError("NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+        if (validarCheck() == false || DNI.getText().isEmpty() || apellidos.getText().length() < 2
+                || nombres.getText().length() < 2 || Direccion.getText().length() < 3
+                || FechadeNacimiento.getFechaSeleccionada().isEmpty()) {
+            if (validarCheck() == false || DNI.getText().isEmpty() || apellidos.getText().isEmpty()
+                    || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
+                    || FechadeNacimiento.getFechaSeleccionada().isEmpty()) {
+                Mensaje.MensajeError("NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+            } else {
+                Mensaje.MensajeError("INGRESE LOS DATOS COMPLETOS", "DATOS INCOMPLETOS");
+
+            }
 
         } else {
             char Sexo = 0;
@@ -164,8 +171,8 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 }
             }
             // validar DNI
-            if (DNI.getText().length() == 8) {  
-                if (telefono.getText().length() < 5) {
+            if (DNI.getText().length() == 8) {
+                if (telefono.getText().length() < 6) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
                 } else {
                     SimpleDateFormat formato = new SimpleDateFormat(FechadeNacimiento.getFormatoFecha());
@@ -186,8 +193,8 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                     if (registrarDAO.RegistrarPac(pacienteDBO.retornarPac()) != false) {
                         Mensaje.MensajeConformidad("ACCIÓN COMPLETADA!", "MENSAJE");
                         //JOptionPane.OK_CANCEL_OPTION
+                        limpiar();
                     }
-                    limpiar();
                 }
             } else {
                 Mensaje.MensajeError("DNI INCORRECTO", "ERROR DE REGISTRO");
@@ -225,7 +232,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
             } catch (IOException e) {
             }
         } else {
-            Mensaje.MensajeError("TAMAÑO DE IMAGEN MENOR A 1Mb", "TAMAÑO EXCEDIDO");
+            Mensaje.MensajeError("TAMAÑO DE IMAGEN DEBE SER MENOR A 1MB", "TAMAÑO EXCEDIDO");
         }
         return null;
     }

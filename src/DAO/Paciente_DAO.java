@@ -11,12 +11,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Paciente_DAO {
-
-    private static final String INSERT_SQL = "INSERT INTO Paciente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String UPDATE_SQL = "UPDATE Paciente SET Fecha_Nacimiento=?, Telefono=?,"
+    private static final String INSERT_SQL = 
+            "INSERT INTO Paciente VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String UPDATE_SQL = 
+            "UPDATE Paciente SET Fecha_Nacimiento=?, Telefono=?,"
             + "Apellido=?, Nombre=?, Dirección=?, Sexo=?, Edad=?, EstadoCivil=?, Foto=? WHERE DNI =? ";
-    private static final String BUSCAR_SQL = "SELECT * FROM Paciente WHERE DNI=?";
-    private static final String BUSCAR_Inner = "select CodigoHC FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=?";
+    private static final String BUSCAR_SQL = 
+            "SELECT * FROM Paciente WHERE DNI=?";
+    private static final String BUSCAR_Inner = 
+            "select CodigoHC FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=?";
 
     //private static final String READ_ALL_SQL = "SELECT * FROM RegistroPac";
     private static final conexion con = conexion.SaberEstado();

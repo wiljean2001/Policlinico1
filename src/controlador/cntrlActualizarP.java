@@ -21,7 +21,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
@@ -134,16 +133,28 @@ public class cntrlActualizarP
         primeravez = true;
     }
 
+    private boolean validarCheck() {
+        // SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div; 
+        if ((SexoH.isSelected() || SexoM.isSelected())
+                && (EstadoCivil_Sol.isSelected() || EstadoCivil_Cas.isSelected()
+                || EstadoCivil_viud.isSelected() || EstadoCivil_Div.isSelected())) {
+            return true;
+        }
+        return false;
+    }
+
     private void actualizar() {
-        SimpleDateFormat formato = new SimpleDateFormat(
-                FechadeNacimiento.getDateFormatString()
-        );
+        if (validarCheck() == false || DNI.getText().isEmpty() || apellidos.getText().length() < 2
+                || nombres.getText().length() < 2 || Direccion.getText().length() < 3
+                || FechadeNacimiento.getDate() == null) {
+            if (validarCheck() == false || DNI.getText().isEmpty() || apellidos.getText().isEmpty()
+                    || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
+                    || FechadeNacimiento.getDate()==null) {
+                Mensaje.MensajeError("NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+            } else {
+                Mensaje.MensajeError("INGRESE LOS DATOS COMPLETOS", "DATOS INCOMPLETOS");
 
-        if (DNI.getText().isEmpty() || apellidos.getText().isEmpty()
-                || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
-                || formato.format(FechadeNacimiento.getDate()).isEmpty()) {
-
-            Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+            }
         } else {
             char Sexo = 0;
             if (SexoH.isSelected()) {
@@ -170,7 +181,6 @@ public class cntrlActualizarP
                 } catch (IOException e) {
                 }
             }
-
             Paciente_DBO pacienteDBO;
             Paciente_DAO pacientedao = new Paciente_DAO();
 
@@ -208,8 +218,7 @@ public class cntrlActualizarP
 
         //filtramos los tipos de archivos que se pueden ingresar
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif")
-                ;
+                "Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif");
         jf.setFileFilter(filter);
         //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
         jf.showOpenDialog(ActP);

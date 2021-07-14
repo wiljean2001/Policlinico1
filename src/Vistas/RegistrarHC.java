@@ -27,10 +27,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Group1 = new javax.swing.ButtonGroup();
-        Group2 = new javax.swing.ButtonGroup();
-        Group3 = new javax.swing.ButtonGroup();
-        Group4 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtDNI = new app.bolivia.swing.JCTextField();
@@ -179,13 +175,11 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
         txtdrogas.setNextFocusableComponent(Check_infucionessi);
         txtdrogas.setPlaceholder("Descripción:");
 
-        Group1.add(Check_Alcoholsi);
         Check_Alcoholsi.setText("SÍ");
         Check_Alcoholsi.setIsEffectRipple(false);
         Check_Alcoholsi.setNextFocusableComponent(Check_Alcoholno);
         Check_Alcoholsi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
-        Group1.add(Check_Alcoholno);
         Check_Alcoholno.setText("NO");
         Check_Alcoholno.setIsEffectRipple(false);
         Check_Alcoholno.setNextFocusableComponent(txtalcohol);
@@ -193,14 +187,12 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
 
         jLabel12.setText("Cosume Alcohol");
 
-        Group2.add(Check_Tabacosi);
         Check_Tabacosi.setText("SÍ");
         Check_Tabacosi.setToolTipText("");
         Check_Tabacosi.setIsEffectRipple(false);
         Check_Tabacosi.setNextFocusableComponent(Check_Tabacono);
         Check_Tabacosi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
-        Group2.add(Check_Tabacono);
         Check_Tabacono.setText("NO");
         Check_Tabacono.setIsEffectRipple(false);
         Check_Tabacono.setNextFocusableComponent(txttabaco);
@@ -210,14 +202,12 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Cosume Drogas");
 
-        Group3.add(Check_Drogassi);
         Check_Drogassi.setText("SÍ");
         Check_Drogassi.setToolTipText("");
         Check_Drogassi.setIsEffectRipple(false);
         Check_Drogassi.setNextFocusableComponent(Check_Drogasno);
         Check_Drogassi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
-        Group3.add(Check_Drogasno);
         Check_Drogasno.setText("NO");
         Check_Drogasno.setIsEffectRipple(false);
         Check_Drogasno.setNextFocusableComponent(txtdrogas);
@@ -225,14 +215,12 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Cosume Infusiones");
 
-        Group4.add(Check_infucionessi);
         Check_infucionessi.setText("SÍ");
         Check_infucionessi.setToolTipText("");
         Check_infucionessi.setIsEffectRipple(false);
         Check_infucionessi.setNextFocusableComponent(Check_infucionesno);
         Check_infucionessi.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
 
-        Group4.add(Check_infucionesno);
         Check_infucionesno.setText("NO");
         Check_infucionesno.setIsEffectRipple(false);
         Check_infucionesno.setNextFocusableComponent(txtinfuciones);
@@ -539,10 +527,6 @@ public class RegistrarHC extends javax.swing.JInternalFrame {
     public RSMaterialComponent.RSCheckBoxMaterial Check_infucionesno;
     public RSMaterialComponent.RSCheckBoxMaterial Check_infucionessi;
     public rojerusan.RSLabelImage Foto;
-    private javax.swing.ButtonGroup Group1;
-    private javax.swing.ButtonGroup Group2;
-    private javax.swing.ButtonGroup Group3;
-    private javax.swing.ButtonGroup Group4;
     public javax.swing.JPanel PanelConsume;
     public javax.swing.JPanel PanelMas;
     private javax.swing.JLabel jLabel1;

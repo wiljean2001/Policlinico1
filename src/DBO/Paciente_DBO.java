@@ -10,7 +10,8 @@ public class Paciente_DBO {
     private char Sexo;
     private byte[] Foto;
 
-    public Paciente_DBO(String DNI_Paciente, Date FechadeNacimiento, String telefono, String Apellidos, String nombres, String Direccion,
+    public Paciente_DBO(String DNI_Paciente, Date FechadeNacimiento, String telefono, 
+            String Apellidos, String nombres, String Direccion,
             char Sexo, int edad, String EstadoCivil, byte[] Foto) {
         this.DNI_Paciente = DNI_Paciente;
         this.FechadeNacimiento = FechadeNacimiento;

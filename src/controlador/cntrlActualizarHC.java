@@ -197,11 +197,18 @@ public class cntrlActualizarHC implements KeyListener, ActionListener {
     }
 
     private void actualizar(ActionEvent e) {
-        if (validateAll() == false || Alimentacion.getText().length() < 2 || Diuresis.getText().length() < 2
-                || Catarsis.getText().length() < 2 || Sueño.getText().length() < 2 || Enfermedad.getText().length() < 2) {
+        if (validateAll() == false || Alimentacion.getText().length() < 2 || 
+                Diuresis.getText().length() < 2 || Catarsis.getText().length() < 2 || 
+                Sueño.getText().length() < 2 || Enfermedad.getText().length() < 2) {
 
-            Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
-
+            if (validateAll() == false || Alimentacion.getText().isEmpty() || 
+                    Diuresis.getText().isEmpty() || Catarsis.getText().isEmpty() ||
+                    Sueño.getText().isEmpty() || Enfermedad.getText().isEmpty()) {
+                
+                Mensaje.MensajeError("NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+            } else {
+                Mensaje.MensajeError("INGRESE LOS DATOS COMPLETOS", "DATOS INCOMPLETOS");
+            }
         } else {
             String ConsumeAlcohol = "";
             if (Alcohol_si.isSelected()) {

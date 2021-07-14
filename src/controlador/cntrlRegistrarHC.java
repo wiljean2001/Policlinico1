@@ -34,14 +34,14 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
     private Date fecha = new Date();
     private String CodigoGenerado;
     private RSLabelImage Foto;
-    private JLabel txtCodigoHC;
-    private String DateFormato = "dd//MMM//YYYY";
+    private JLabel txtCodigoHC, lbl_fecha;
+    private String DateFormato = "YYYY-MM-dd";
     private SimpleDateFormat formato = new SimpleDateFormat(DateFormato);
     private RegistrarHC rHC;
     private final ImageIcon imagenIcon;
 
     public cntrlRegistrarHC(RegistrarHC rHC) {
-        rHC.lbl_fecha.setText(formato.format(fecha));
+        
         eventos(rHC);
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
         desactivartodo();
@@ -58,6 +58,7 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
         Drogas_des = rHC.txtdrogas;
         Infuciones_des = rHC.txtinfuciones;
         Foto = rHC.Foto;
+        lbl_fecha = rHC.lbl_fecha;
 
         Alimentacion = rHC.txt_alimentacion;
         Diuresis = rHC.txt_diuresis;
@@ -153,7 +154,12 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             if (validateAll() == false || Alimentacion.getText().length() < 2 || Diuresis.getText().length() < 2
                     || Catarsis.getText().length() < 2 || Sueño.getText().length() < 2 || Enfermedad.getText().length() < 2) {
 
-                Mensaje.MensajeError("ERROR: NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+                if (validateAll() == false || Alimentacion.getText().isEmpty() || Diuresis.getText().isEmpty()
+                        || Catarsis.getText().isEmpty() || Sueño.getText().isEmpty() || Enfermedad.getText().isEmpty()) {
+                    Mensaje.MensajeError("NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
+                } else {
+                    Mensaje.MensajeError("INGRESE LOS DATOS COMPLETOS", "DATOS INCOMPLETOS");
+                }
             } else {
                 String ConsumeAlcohol = "";
                 if (Alcohol_si.isSelected()) {
@@ -202,49 +208,76 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             Hospital_v2.FBP.setVisible(true);
 
             txtCodigoHC.setText(GenerarCodHC());
+            rHC.lbl_fecha.setText(formato.format(fecha));
         }
 
         if (e.getSource() == Alcohol_no) {
             if (Alcohol_des.isEditable()) {
                 Alcohol_des.setEditable(false);
                 Alcohol_des.setText("");
+                Alcohol_si.setSelected(false);
+            } else {
+                Alcohol_des.setEditable(true);
             }
         }
         if (e.getSource() == Tabaco_no) {
             if (Tabaco_des.isEditable()) {
                 Tabaco_des.setEditable(false);
                 Tabaco_des.setText("");
+                Tabaco_si.setSelected(false);
+            } else {
+                Tabaco_des.setEditable(true);
             }
         }
         if (e.getSource() == Drogas_no) {
             if (Drogas_des.isEditable()) {
                 Drogas_des.setEditable(false);
                 Drogas_des.setText("");
+                Drogras_si.setSelected(false);
+            } else {
+                Drogas_des.setEditable(true);
             }
+
         }
         if (e.getSource() == Infuciones_no) {
             if (Infuciones_des.isEditable()) {
                 Infuciones_des.setEditable(false);
                 Infuciones_des.setText("");
+                Infuciones_si.setSelected(false);
+            } else {
+                Infuciones_des.setEditable(true);
             }
+
         }
         if (e.getSource() == Alcohol_si) {
             if (!Alcohol_des.isEditable()) {
+                Alcohol_des.setEditable(true);
+                Alcohol_no.setSelected(false);
+            } else {
                 Alcohol_des.setEditable(true);
             }
         }
         if (e.getSource() == Tabaco_si) {
             if (!Tabaco_des.isEditable()) {
                 Tabaco_des.setEditable(true);
+                Tabaco_no.setSelected(false);
+            } else {
+                Tabaco_des.setEditable(true);
             }
         }
         if (e.getSource() == Drogras_si) {
             if (!Drogas_des.isEditable()) {
                 Drogas_des.setEditable(true);
+                Drogas_no.setSelected(false);
+            } else {
+                Drogas_des.setEditable(true);
             }
         }
         if (e.getSource() == Infuciones_si) {
             if (!Infuciones_des.isEditable()) {
+                Infuciones_des.setEditable(true);
+                Infuciones_no.setSelected(false);
+            } else {
                 Infuciones_des.setEditable(true);
             }
         }
@@ -274,6 +307,8 @@ public class cntrlRegistrarHC implements ActionListener, KeyListener {
             Seteo.SeteoTextField(rHC.PanelMas);
             Seteo.SeteoCheckbox(rHC.PanelConsume);
             Seteo.SeteoTextField(rHC.PanelConsume);
+            txtCodigoHC.setText("");
+            lbl_fecha.setText("");
 
             Icon icono = new ImageIcon(imagenIcon.getImage());
             Foto.setIcon(icono);

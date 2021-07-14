@@ -11,14 +11,17 @@ import java.util.ArrayList;
 
 public class HistorialClinico_DAO {
 
-    private static final String INSERT_SQL = "INSERT INTO HistorialClinico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    private static final String UPDATE_SQL = "UPDATE HistorialClinico SET ConsumeAlcohol=?, "
+    private static final String INSERT_SQL = 
+            "INSERT INTO HistorialClinico VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static final String UPDATE_SQL = 
+            "UPDATE HistorialClinico SET ConsumeAlcohol=?, "
             + "ConsumoTabaco=?, ConsumoDrogas=?, ConsumeInfusiones=?, Alimentacion=?, Diuresis=?,"
             + " Catarsis=?, Sueño=?, EnfermedadActul=?, DNI=? where CodigoHC=?";
 
-    private static final String BUSCAR_Inner = "select * FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=? or HC.CodigoHC=?";
+    private static final String BUSCAR_Inner = 
+            "select * FROM HistorialClinico HC join Paciente p On p.DNI = HC.DNI where p.DNI=? or HC.CodigoHC=?";
 
-    //private static final String READ_ALL_SQL = "SELECT * FROM RegistroPac";
+    
     private static final conexion con = conexion.SaberEstado();
 
     public boolean RegistrarHC(HistoriaClinica_DBO x, String DNI) {
