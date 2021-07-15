@@ -7,6 +7,8 @@ import Interfaces.Seteo;
 import RSMaterialComponent.RSCheckBoxMaterial;
 import Vistas.RegistrarP;
 import app.bolivia.swing.JCTextField;
+import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JTextFieldDateEditor;
 import rojerusan.RSDateChooser;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -18,10 +20,8 @@ import java.io.IOException;
 import javax.swing.JButton;
 import java.nio.file.Files;
 import java.io.File;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.awt.Cursor;
+import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -36,7 +36,7 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
     private JButton button_Reg, button_Limpiar;
     private JCTextField DNI, apellidos, nombres, Direccion, telefono;
     private RSCheckBoxMaterial SexoH, SexoM, EstadoCivil_Sol, EstadoCivil_Cas, EstadoCivil_viud, EstadoCivil_Div;
-    private RSDateChooser FechadeNacimiento;
+    private JDateChooser FechadeNacimiento;
     private RSLabelImage Foto;
     private JLabel button_Foto;
     private RegistrarP r;
@@ -50,8 +50,10 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         button_Foto.setCursor(new Cursor(Cursor.HAND_CURSOR));
         imagenIcon = new ImageIcon(cntrlRegistrarP.class.getResource("/recursos2/descarga.png"));
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) FechadeNacimiento.getDateEditor();
+        editor.setEditable(false);
+        FechadeNacimiento.setMaxSelectableDate(new Date());
         DNI.requestFocus();
-
     }
 
     private void ListenerEventos(RegistrarP r) {
@@ -134,10 +136,10 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
 
         if (validarCheck() == false || DNI.getText().isEmpty() || apellidos.getText().length() < 2
                 || nombres.getText().length() < 2 || Direccion.getText().length() < 3
-                || FechadeNacimiento.getFechaSeleccionada().isEmpty()) {
+                || FechadeNacimiento.getDate()==null) {
             if (validarCheck() == false || DNI.getText().isEmpty() || apellidos.getText().isEmpty()
                     || nombres.getText().isEmpty() || Direccion.getText().isEmpty()
-                    || FechadeNacimiento.getFechaSeleccionada().isEmpty()) {
+                    || FechadeNacimiento.getDate() == null) {
                 Mensaje.MensajeError("NO PUEDES DEJAR LOS CAMPOS VACÍOS", "CAMPOS VACÍOS");
             } else {
                 Mensaje.MensajeError("INGRESE LOS DATOS COMPLETOS", "DATOS INCOMPLETOS");
@@ -175,15 +177,9 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
                 if (telefono.getText().length() < 6) {
                     Mensaje.MensajeError("TELEFONO CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
                 } else {
-                    SimpleDateFormat formato = new SimpleDateFormat(FechadeNacimiento.getFormatoFecha());
-                    Date fecha = null;
-                    try {
-                        fecha = formato.parse(FechadeNacimiento.getFechaSeleccionada());
-                    } catch (ParseException e) {
-                    }
-
+                    
                     pacienteDBO = new Paciente_DBO(
-                            DNI.getText(), fecha,
+                            DNI.getText(), FechadeNacimiento.getDate(),
                             telefono.getText(), apellidos.getText(), nombres.getText(),
                             Direccion.getText(), Sexo, 0, EstadoCivil, fotoByte
                     );
@@ -211,9 +207,9 @@ public class cntrlRegistrarP implements KeyListener, MouseListener {
         //solo puedo seleccionar un archivo a la vez no varios a la vez
         jf.setMultiSelectionEnabled(false);
         //aqui filtro lo que quiero que se cargue
-        //si solo permito mp3 lo pongo o si solo admito jpj, primero pongo la descripcion del archivo y luego el tipo de archivo
-        //FileNameExtensionFilter filtro=new FileNameExtensionFilter("Descripcion de archivo","wav","Archivo Audio MP3","mp3","archivo imagen JPG","jpg");
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif");
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "Archivo imagen JPG, PNG, GIF", "jpg", "png", "gif"
+        );
         jf.setFileFilter(filter);
         //mostrar el gestor de archivos y no deja hacer nada hasta que se selcione el archivo o me salga con cancelar
         jf.showOpenDialog(r);

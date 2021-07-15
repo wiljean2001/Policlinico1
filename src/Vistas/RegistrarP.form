@@ -78,9 +78,9 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Component id="txt_DNI" min="-2" pref="261" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="Calendar_FechaNac" min="-2" pref="259" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="60" max="32767" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="Calendar_FechaNac" min="-2" pref="274" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -116,10 +116,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txt_DNI" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="Calendar_FechaNac" min="-2" pref="42" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="txt_DNI" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="Calendar_FechaNac" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="16" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="txt_Apellidos" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
                           <Component id="txt_Nombres" min="-2" pref="40" max="-2" attributes="0"/>
@@ -193,7 +196,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Check_Hombre" alignment="1" pref="0" max="32767" attributes="0"/>
+                  <Component id="Check_Hombre" alignment="1" pref="159" max="32767" attributes="0"/>
                   <Component id="Check_Mujer" alignment="1" pref="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
@@ -481,21 +484,6 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="rojerusan.RSDateChooser" name="Calendar_FechaNac">
-          <Properties>
-            <Property name="formatoFecha" type="java.lang.String" value="yyyy-MM-dd"/>
-            <Property name="fuente" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Roboto" size="14" style="1"/>
-            </Property>
-            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="txt_Apellidos"/>
-            </Property>
-            <Property name="placeholder" type="java.lang.String" value="FECHA DE NACIMIENTO"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
         <Component class="rojerusan.RSLabelImage" name="Foto">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
@@ -506,6 +494,14 @@
             <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
               <ComponentRef name="ButtonRegistrarP"/>
             </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
+        </Component>
+        <Component class="com.toedter.calendar.JDateChooser" name="Calendar_FechaNac">
+          <Properties>
+            <Property name="opaque" type="boolean" value="false"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

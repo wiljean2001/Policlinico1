@@ -42,8 +42,8 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         ButtonLimpiarTodo = new rojeru_san.RSButtonRiple();
         txt_Telefono = new app.bolivia.swing.JCTextField();
         Button_CargarFoto = new javax.swing.JLabel();
-        Calendar_FechaNac = new rojerusan.RSDateChooser();
         Foto = new rojerusan.RSLabelImage();
+        Calendar_FechaNac = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setClosable(true);
@@ -79,7 +79,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Check_Hombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(Check_Hombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
             .addComponent(Check_Mujer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
@@ -182,15 +182,12 @@ public class RegistrarP extends javax.swing.JInternalFrame {
         Button_CargarFoto.setToolTipText("Foto menor a 1MB");
         Button_CargarFoto.setBorder(new org.edisoncor.gui.util.DropShadowBorder());
 
-        Calendar_FechaNac.setFormatoFecha("yyyy-MM-dd");
-        Calendar_FechaNac.setFuente(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        Calendar_FechaNac.setNextFocusableComponent(txt_Apellidos);
-        Calendar_FechaNac.setPlaceholder("FECHA DE NACIMIENTO");
-
         Foto.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Foto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos2/descarga.png"))); // NOI18N
         Foto.setToolTipText("Foto menor a 1MB");
         Foto.setNextFocusableComponent(ButtonRegistrarP);
+
+        Calendar_FechaNac.setOpaque(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -214,9 +211,9 @@ public class RegistrarP extends javax.swing.JInternalFrame {
                                 .addComponent(ButtonLimpiarTodo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(txt_DNI, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 60, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
@@ -241,9 +238,11 @@ public class RegistrarP extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_DNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txt_DNI, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(Calendar_FechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txt_Apellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txt_Nombres, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -293,7 +292,7 @@ public class RegistrarP extends javax.swing.JInternalFrame {
     public rojeru_san.RSButtonRiple ButtonLimpiarTodo;
     public rojeru_san.RSButtonRiple ButtonRegistrarP;
     public javax.swing.JLabel Button_CargarFoto;
-    public rojerusan.RSDateChooser Calendar_FechaNac;
+    public com.toedter.calendar.JDateChooser Calendar_FechaNac;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Casado;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Divorciado;
     public RSMaterialComponent.RSCheckBoxMaterial Check_Hombre;
