@@ -8,10 +8,6 @@ import javax.swing.ImageIcon;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
-/**
- *
- * @author HP-Litzy-Jean
- */
 public class Hospital_v2 {
 
     //formularios

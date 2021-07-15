@@ -165,7 +165,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
     private void BuscarHC() {
         if (BuscarDNI_IDHC.getText().length() < 5 || (BuscarDNI_IDHC.getText().length() > 6
                 && BuscarDNI_IDHC.getText().length() < 8)) {
-            Mensaje.MensajeError("DNI CON DIGITOS FALTANTE", "ERROR DE REGISTRO");
+            Mensaje.MensajeError("DNI/CÓDIGO CON DIGITOS FALTANTE", "ERROR DE BÚSQUEDA");
         } else {
             HistorialClinico_DAO hcDAO = new HistorialClinico_DAO();
 
@@ -173,7 +173,7 @@ public class cntrlBuscarHC implements ActionListener, KeyListener {
             b = hcDAO.BuscarPaciente();
             limpiar();
             if (a.isEmpty()) {
-                Mensaje.MensajeError("PACIENTE NO EXISTENTE", "ERROR");
+                Mensaje.MensajeError("HISTORIAL CLÏNICO NO EXISTENTE", "ERROR");
             } else {
                 for (Paciente_DBO pac : this.b) {
 
